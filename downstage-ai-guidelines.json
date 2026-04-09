@@ -1,0 +1,73 @@
+{
+  "schemaVersion": "1.0.0",
+  "name": "downstage",
+  "title": "downstage.css + downstage.js — AI assistant guidelines",
+  "description": "Conventions for building pages and apps with the downstage design system. Pair with README.md and docs/*.html for full detail.",
+  "lastUpdated": "2026-04-09",
+  "sections": [
+    {
+      "id": "stack",
+      "title": "Stack and philosophy",
+      "content": "- **Zero-build HTML/CSS/JS**: vanilla markup; no React/Vue requirement.\n- **downstage.css** = layout, typography, components, tokens.\n- **downstage.js** = optional enhancements (theme, navbar, tabs, accordion, lightbox, slider, media players, combobox, Kanban, data table, i18n, HTML editor, etc.).\n- Prefer **semantic component classes** (e.g. `.btn.btn-primary`) and **CSS variables** over ad-hoc inline styles.\n- **Accessibility**: preserve focus styles, labels, and ARIA where components use JS."
+    },
+    {
+      "id": "files",
+      "title": "Required and optional assets",
+      "content": "- **Required for styling**: `downstage.css`.\n- **Optional JS**: `downstage.js` with `defer` after CSS.\n- **Icons**: `downstage-icons.svg` — reference icons with `<svg class=\"icon\"><use href=\"downstage-icons.svg#icon-name\" /></use></svg>` (sprite).\n- **Fonts**: `fonts/` for Space Grotesk if you use bundled typography (see README).\n- **Not for production apps**: `demo/` is for docs and demos only unless you intentionally reuse patterns."
+    },
+    {
+      "id": "document-shell",
+      "title": "Document shell",
+      "content": "- Set `<html lang=\"…\" data-theme=\"light\" | \"dark\" | \"auto\">`. `auto` follows `prefers-color-scheme` when wired with JS.\n- Include `<meta charset>` and viewport meta.\n- Typical main wrapper: `<main class=\"container\">` (or other layout classes from README).\n- Theme controls: buttons with `data-set-theme=\"light|dark|auto\"` (handled by `Downstage.theme` when `downstage.js` is loaded)."
+    },
+    {
+      "id": "tokens",
+      "title": "Design tokens",
+      "content": "- Theme surfaces and type use **CSS variables** (`--bg`, `--text`, `--border`, `--brand-primary`, `--space-*`, `--radius`, etc.).\n- **Override tokens** in a stylesheet loaded **after** `downstage.css`, usually under `:root` and `[data-theme=\"dark\"]`.\n- Do not hardcode hex colors for core UI if a token exists."
+    },
+    {
+      "id": "javascript",
+      "title": "downstage.js usage",
+      "content": "- Global namespace: **`window.Downstage`**. Modules expose **`init()`**, run on `DOMContentLoaded`.\n- After injecting new DOM that uses a component, call **`Downstage.<module>.init()`** again (or only the relevant module).\n- Examples: `Downstage.theme.get()` / `set('dark')`; `Downstage.lightbox.open([{ src, alt }], index)`; `Downstage.kanban.mount(el, options)`; `Downstage.dataTable.mount(el, options)`; `Downstage.combobox.mount(el, options)`.\n- Prefer **declarative attributes** documented in README (`data-tabs`, `data-accordion`, `data-slider`, `data-kanban-fetch-url`, …) when they cover the use case."
+    },
+    {
+      "id": "docs-reference",
+      "title": "Where to look in the repo",
+      "content": "- **README.md**: quick start, tokens, components index, JS API tables.\n- **docs/index.html**: hub to all topic pages.\n- **docs/getting-started.html**, **docs/basic.html**, **docs/ui-components.html**, **docs/interactive.html**, **docs/media.html**, **docs/data.html**, **docs/templates.html**, **docs/apps.html**: deep examples and class names.\n- **catalog-full.html**: single-page gallery; regenerate split docs with `python3 demo/split_catalog.py` when maintaining the project."
+    }
+  ],
+  "examples": [
+    {
+      "id": "minimal-page",
+      "title": "Minimal page with theme and button",
+      "language": "html",
+      "code": "<!DOCTYPE html>\n<html lang=\"en\" data-theme=\"auto\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n  <link rel=\"stylesheet\" href=\"downstage.css\" />\n  <script src=\"downstage.js\" defer></script>\n</head>\n<body>\n  <main class=\"container\">\n    <h1>Hello</h1>\n    <button type=\"button\" class=\"btn btn-primary\" data-set-theme=\"dark\">Dark</button>\n  </main>\n</body>\n</html>"
+    },
+    {
+      "id": "icon-sprite",
+      "title": "Icon from sprite",
+      "language": "html",
+      "code": "<svg class=\"icon\" aria-hidden=\"true\">\n  <use href=\"downstage-icons.svg#rocket\" />\n</svg>"
+    },
+    {
+      "id": "token-override",
+      "title": "Token override after downstage.css",
+      "language": "css",
+      "code": ":root {\n  --brand-primary: #2c5f5d;\n  --radius: 10px;\n}\n[data-theme=\"dark\"] {\n  --brand-primary: #7fbfa3;\n}"
+    }
+  ],
+  "antiPatterns": [
+    "Shipping demo-only CSS (`demo/demo.css`, `demo/docs.css`) as if it were core — they style the documentation site, not your app.",
+    "Inlining large style blocks instead of extending CSS variables and existing utilities.",
+    "Initializing heavy JS widgets when the page only needs static layout — load `downstage.js` only when needed.",
+    "Breaking icon sprite paths — prefer serving the site over HTTP so `file://` restrictions do not block `<use href>` to external SVG."
+  ],
+  "cursorUsage": {
+    "summary": "This file is static JSON in the repo root. After deploy, it is available at the same path on your site (e.g. /downstage-ai-guidelines.json).",
+    "suggestions": [
+      "Copy the `sections` and `examples` content into `.cursor/rules` (or `AGENTS.md`) for a project that uses downstage.",
+      "Point a custom MCP tool or script at the deployed URL to fetch and inject these guidelines into context.",
+      "Keep `schemaVersion` in sync when you change the shape of this file for automation."
+    ]
+  }
+}

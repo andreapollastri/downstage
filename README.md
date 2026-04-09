@@ -20,7 +20,8 @@ Clean typography, warm desaturated palette, thin borders, light shadows, integra
 12. [Documentation site](#documentation-site)
 13. [Philosophy](#philosophy)
 14. [Customization](#customization)
-15. [License](#license)
+15. [AI assistants](#ai-assistants)
+16. [License](#license)
 
 ---
 
@@ -43,6 +44,7 @@ your-project/
 │   ├── split_catalog.py     ← rebuild `docs/*.html` from `catalog-full.html`
 │   └── kanban-board.json    ← sample Kanban payload
 ├── catalog-full.html        ← optional single-file snapshot of all components
+├── downstage-ai-guidelines.json  ← machine-readable guidelines for AI tools (Cursor, MCP scripts, …)
 └── index.html               ← home; start at `docs/index.html` for the full gallery
 ```
 
@@ -680,6 +682,16 @@ Load a file **after** `downstage.css`:
   --brand-primary: #7fbfa3;
 }
 ```
+
+---
+
+## AI assistants
+
+For **Cursor**, **Copilot**, and similar tools, the repo includes **`downstage-ai-guidelines.json`**: a small JSON document (`schemaVersion`, `sections`, `examples`, `antiPatterns`, `cursorUsage`) you can feed to assistants so they follow downstage conventions (tokens, `Downstage` API, doc locations).
+
+**Using it:** copy the text into **`.cursor/rules`**, an **`AGENTS.md`** file, or your team’s prompt template; or **fetch the same path from your deployed site** (static hosting serves it as a normal file). A plain HTTP URL is **not** an MCP server by itself—if you use MCP in Cursor, point a **local MCP tool** at that URL or at this file on disk.
+
+Bump **`schemaVersion`** in the JSON when you change its shape for automation.
 
 ---
 

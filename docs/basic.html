@@ -61,6 +61,7 @@
           <a href="#tutorial">Quick start</a>
           <a href="#cdn">CDN (downstage.it)</a>
           <a href="#starter">Starter template</a>
+          <a href="#ai-guidelines">AI &amp; editor guidelines</a>
           <a href="#palette">Palette</a>
           <a href="#typography">Typography</a>
           <a href="#grid">Grid</a>
@@ -871,9 +872,55 @@
       </div>
     </section>
 
+    <!-- ============================== AI GUIDELINES ============================== -->
+    <section class="demo-section" id="ai-guidelines">
+      <p class="demo-section-title">03 — Tooling</p>
+      <h2>AI &amp; editor guidelines</h2>
+      <p class="text-soft" style="max-width: 640px;">
+        The repo includes <code>downstage-ai-guidelines.json</code> at the project root: structured conventions for LLMs
+        (tokens, <code>Downstage</code> API, doc paths, anti-patterns). Point your editor or assistant at it so generated markup matches this design system.
+      </p>
+
+      <h3 class="mt-8 mb-2">Where the file lives</h3>
+      <ul class="text-soft text-sm mt-2">
+        <li><strong>Local / vendored copy</strong> — same folder as <code>downstage.css</code> (for example <code>downstage-ai-guidelines.json</code>).</li>
+        <li><strong>Canonical host</strong> — when you mirror the release on
+          <a href="https://downstage.it/" rel="noopener">downstage.it</a>, use the same path as the CSS, e.g.
+          <code>https://downstage.it/downstage-ai-guidelines.json</code> (fetch or paste into a rule file).</li>
+      </ul>
+
+      <h3 class="mt-8 mb-2">Cursor</h3>
+      <ul class="text-soft text-sm mt-2">
+        <li><strong>Project rules</strong> — add a rule under <code>.cursor/rules/</code> (e.g. <code>downstage.mdc</code>) that tells the agent to follow the JSON, or paste the <code>sections</code> / <code>examples</code> text from the file into that rule.</li>
+        <li><strong>Global user rules</strong> — Cursor Settings → Rules: add a short pointer (“use <code>downstage-ai-guidelines.json</code> in the repo for HTML/CSS/JS conventions”).</li>
+        <li><strong>Context</strong> — with the file in the workspace, you can <code>@</code>-mention it in chat so it is included in the prompt.</li>
+        <li><strong>MCP</strong> — a static URL is not an MCP server; use a local MCP tool that reads the JSON file or fetches the URL if you need automated injection.</li>
+      </ul>
+
+      <h3 class="mt-8 mb-2">VS Code (GitHub Copilot)</h3>
+      <ul class="text-soft text-sm mt-2">
+        <li><strong>Custom instructions</strong> — add a repo-level instructions file (the path depends on your Copilot version; common choices include <code>.github/copilot-instructions.md</code> or the path set under Copilot settings) and summarize the guidelines or link to this page and the JSON.</li>
+        <li><strong>Workspace context</strong> — keep <code>downstage-ai-guidelines.json</code> in the project tree so Copilot can use it when relevant files are open.</li>
+      </ul>
+
+      <h3 class="mt-8 mb-2">Windsurf, JetBrains, other assistants</h3>
+      <ul class="text-soft text-sm mt-2">
+        <li><strong>AGENTS.md</strong> / <strong>CLAUDE.md</strong> — copy the same conventions into a root markdown file your team uses for agent prompts.</li>
+        <li><strong>JetBrains AI</strong> — use project-level AI instructions or pin the JSON / a short markdown summary in the repo.</li>
+      </ul>
+
+      <div class="alert alert-info mt-8">
+        <svg class="icon"><use href="../downstage-icons.svg#info" /></svg>
+        <div>
+          <strong>README.</strong>
+          See also the <a href="https://github.com/andreapollastri/downstage/blob/main/README.md#ai-assistants">AI assistants</a> section in <code>README.md</code> for the same workflow in text form.
+        </div>
+      </div>
+    </section>
+
     <!-- ============================== COLORS ============================== -->
     <section class="demo-section" id="palette">
-      <p class="demo-section-title">03 — Palette</p>
+      <p class="demo-section-title">04 — Palette</p>
       <h2>Colors</h2>
       <p class="text-soft" style="max-width: 540px;">
         A warm desaturated neutral scale, two brand colors (sage + taupe)
@@ -1040,7 +1087,7 @@
 
     <!-- ============================== TYPOGRAPHY ============================== -->
     <section class="demo-section" id="typography">
-      <p class="demo-section-title">04 — Typography</p>
+      <p class="demo-section-title">05 — Typography</p>
       <h2>Typography</h2>
       <p class="text-soft">Space Grotesk, self-hosted as a variable font.</p>
 
@@ -1085,7 +1132,7 @@
 
     <!-- ============================== GRID ============================== -->
     <section class="demo-section" id="grid">
-      <p class="demo-section-title">05 — Layout</p>
+      <p class="demo-section-title">06 — Layout</p>
       <h2>Grid system</h2>
       <p class="text-soft">12 columns. Consistent gap. Use <code>.col-N</code> inside <code>.grid</code>.</p>
 
@@ -1206,7 +1253,7 @@
 
     <!-- ============================== ICONS ============================== -->
     <section class="demo-section" id="icons">
-      <p class="demo-section-title">06 — Icons</p>
+      <p class="demo-section-title">07 — Icons</p>
       <h2>Icon set</h2>
       <p class="text-soft text-sm mb-4" style="max-width: 640px;">
         Ship <code>downstage-icons.svg</code> next to your HTML (or fix paths). Prefer a local server so external
@@ -1911,7 +1958,7 @@
 
     <!-- ============================== JAVASCRIPT API ============================== -->
     <section class="demo-section" id="js-api">
-      <p class="demo-section-title">07 — Reference</p>
+      <p class="demo-section-title">08 — Reference</p>
       <h2>JavaScript API</h2>
 
           <div class="docs-chapter" id="doc-install">
