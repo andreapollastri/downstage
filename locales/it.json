@@ -1,0 +1,116 @@
+{
+  "navbar": {
+    "openMenu": "Apri menu",
+    "closeMenu": "Chiudi menu"
+  },
+  "lightbox": {
+    "close": "Chiudi",
+    "previous": "Precedente",
+    "next": "Successiva"
+  },
+  "slider": {
+    "previous": "Precedente",
+    "next": "Successiva",
+    "slide": "Diapositiva {n}"
+  },
+  "videoPlayer": {
+    "play": "Riproduci",
+    "pause": "Pausa",
+    "mute": "Silenzia",
+    "unmute": "Riattiva audio",
+    "enterFullscreen": "Schermo intero",
+    "exitFullscreen": "Esci da schermo intero"
+  },
+  "audioPlayer": {
+    "play": "Riproduci",
+    "pause": "Pausa",
+    "untitled": "Senza titolo"
+  },
+  "combobox": {
+    "loading": "Caricamento…",
+    "noResults": "Nessun risultato"
+  },
+  "searchAutocomplete": {
+    "placeholder": "Cerca…"
+  },
+  "kanban": {
+    "dragHint": "Trascina le schede tra le colonne",
+    "refresh": "Aggiorna",
+    "loading": "Caricamento…",
+    "noColumns": "Nessuna colonna",
+    "loadFailed": "Impossibile caricare la bacheca"
+  },
+  "dataTable": {
+    "filterPlaceholder": "Filtra…",
+    "filterAria": "Filtra tabella",
+    "showing": "Visualizzati {start}–{end} di {total}",
+    "noRows": "Nessuna riga",
+    "pageInfo": "Pagina {page} / {totalPages}",
+    "previous": "Precedente",
+    "next": "Successiva"
+  },
+  "htmlEditor": {
+    "initialHtml": "<p>Seleziona il testo e usa la barra per formattare.</p>",
+    "placeholder": "Scrivi qui…",
+    "rawLeft": "Testo formattato",
+    "rawRight": "Sorgente HTML",
+    "rawSwitchTitle": "Passa alla sorgente HTML",
+    "rawSwitchAria": "Modalità sorgente HTML",
+    "toolbarAria": "Formattazione testo",
+    "rawTextareaAria": "Sorgente HTML",
+    "toolbar": {
+      "bold": { "title": "Grassetto", "aria": "Grassetto" },
+      "italic": { "title": "Corsivo", "aria": "Corsivo" },
+      "underline": { "title": "Sottolineato", "aria": "Sottolineato" },
+      "strikeThrough": { "title": "Barrato", "aria": "Barrato" },
+      "createLink": { "title": "Collegamento", "aria": "Inserisci collegamento", "label": "Link" },
+      "justifyLeft": { "title": "Allinea a sinistra", "aria": "Allinea a sinistra", "label": "◀" },
+      "justifyCenter": { "title": "Allinea al centro", "aria": "Allinea al centro", "label": "▣" },
+      "justifyRight": { "title": "Allinea a destra", "aria": "Allinea a destra", "label": "▶" },
+      "justifyFull": { "title": "Giustifica", "aria": "Giustifica", "label": "≡" },
+      "h1": { "title": "Titolo 1", "aria": "Titolo 1", "label": "H1" },
+      "h2": { "title": "Titolo 2", "aria": "Titolo 2", "label": "H2" },
+      "h3": { "title": "Titolo 3", "aria": "Titolo 3", "label": "H3" },
+      "h4": { "title": "Titolo 4", "aria": "Titolo 4", "label": "H4" },
+      "h5": { "title": "Titolo 5", "aria": "Titolo 5", "label": "H5" },
+      "h6": { "title": "Titolo 6", "aria": "Titolo 6", "label": "H6" },
+      "h7": { "title": "Titolo 7 (paragrafo stilizzato)", "aria": "Titolo 7", "label": "H7" },
+      "p": { "title": "Paragrafo", "aria": "Paragrafo", "label": "P" },
+      "inlineCode": { "title": "Codice inline", "aria": "Codice inline", "html": "&lt;code&gt;" },
+      "blockquote": { "title": "Citazione", "aria": "Citazione", "label": "\u201c \u201d" }
+    },
+    "linkModal": {
+      "title": "Collegamento",
+      "lede": "Sito web, email, telefono o URL personalizzato (<code class=\"text-mono\">mailto:</code>, <code class=\"text-mono\">tel:</code>, ancore…).",
+      "kindLabel": "Tipo",
+      "kindAria": "Tipo di collegamento",
+      "valueLabelPlaceholder": "Indirizzo",
+      "valueAria": "Indirizzo del collegamento",
+      "valueLabelMailto": "Indirizzo email",
+      "valueLabelTel": "Numero di telefono",
+      "valueLabelCustom": "URL o percorso",
+      "valueLabelUrl": "Indirizzo web",
+      "placeholderMailto": "nome@esempio.com",
+      "placeholderTel": "+39 333 123 4567",
+      "placeholderCustom": "pagina.html#sezione oppure /percorso",
+      "placeholderUrl": "https://…",
+      "subjectLabel": "Oggetto email (facoltativo)",
+      "subjectPh": "Oggetto del messaggio",
+      "targetLabel": "Apri collegamento in",
+      "relSpan": "<code class=\"text-mono\">rel=\"noopener noreferrer\"</code> (consigliato per i link in nuova scheda)",
+      "cancel": "Annulla",
+      "apply": "Applica",
+      "closeAria": "Chiudi finestra",
+      "kindOptions": [
+        { "value": "url", "label": "Pagina web (https)" },
+        { "value": "mailto", "label": "Email" },
+        { "value": "tel", "label": "Telefono" },
+        { "value": "custom", "label": "URL personalizzato" }
+      ],
+      "targetOptions": [
+        { "value": "_self", "label": "Stessa scheda / finestra" },
+        { "value": "_blank", "label": "Nuova scheda" }
+      ]
+    }
+  }
+}

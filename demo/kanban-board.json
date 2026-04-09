@@ -1,0 +1,22 @@
+{
+  "columns": [
+    {
+      "id": "todo",
+      "title": "To do",
+      "cards": [
+        { "id": "c1", "title": "Design tokens", "meta": "High" },
+        { "id": "c2", "title": "API review", "meta": "Medium" }
+      ]
+    },
+    {
+      "id": "doing",
+      "title": "In progress",
+      "cards": [{ "id": "c3", "title": "Kanban component", "meta": "Sprint 4" }]
+    },
+    {
+      "id": "done",
+      "title": "Done",
+      "cards": [{ "id": "c4", "title": "Dark mode", "meta": "Shipped" }]
+    }
+  ]
+}

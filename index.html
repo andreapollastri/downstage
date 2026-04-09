@@ -6,142 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>downstage.css — Minimal Nordic Design System</title>
   <link rel="stylesheet" href="downstage.css">
-  <style>
-    /* Demo-specific styles (not part of downstage.css) */
-    .demo-section {
-      padding-block: var(--space-12);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .demo-section-title {
-      font-size: var(--fs-xs);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--text-muted);
-      margin-bottom: var(--space-2);
-    }
-
-    .demo-section h2 {
-      margin-bottom: var(--space-6);
-    }
-
-    /* Color swatches */
-    .swatches {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: var(--space-3);
-    }
-
-    .swatch {
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-      font-size: var(--fs-xs);
-    }
-
-    .swatch-color {
-      height: 64px;
-    }
-
-    .swatch-meta {
-      padding: var(--space-2) var(--space-3);
-      background: var(--bg-elevated);
-      border-top: 1px solid var(--border);
-    }
-
-    .swatch-name {
-      color: var(--text);
-      font-weight: var(--fw-medium);
-    }
-
-    .swatch-hex {
-      color: var(--text-muted);
-      font-family: var(--font-mono);
-    }
-
-    /* Code snippet */
-    .code-snippet {
-      background: var(--bg-sunken);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: var(--space-4);
-      font-family: var(--font-mono);
-      font-size: var(--fs-sm);
-      overflow-x: auto;
-      line-height: 1.6;
-      white-space: pre;
-    }
-
-    .code-snippet .c-tag {
-      color: var(--brand-primary);
-    }
-
-    .code-snippet .c-attr {
-      color: var(--brand-secondary);
-    }
-
-    .code-snippet .c-string {
-      color: var(--color-info);
-    }
-
-    .code-snippet .c-comment {
-      color: var(--text-subtle);
-      font-style: italic;
-    }
-
-    /* Grid demo */
-    .grid-demo>* {
-      background: var(--bg-elevated);
-      border: 1px dashed var(--border-strong);
-      border-radius: var(--radius);
-      padding: var(--space-4);
-      text-align: center;
-      font-size: var(--fs-xs);
-      color: var(--text-muted);
-      font-family: var(--font-mono);
-    }
-
-    /* Icon grid */
-    .icon-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
-      gap: var(--space-2);
-    }
-
-    .icon-cell {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: var(--space-2);
-      padding: var(--space-4) var(--space-2);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      background: var(--bg-elevated);
-      transition: all var(--duration-fast) var(--ease);
-      cursor: default;
-    }
-
-    .icon-cell:hover {
-      border-color: var(--text);
-      transform: translateY(-1px);
-    }
-
-    .icon-cell .icon {
-      width: 1.5rem;
-      height: 1.5rem;
-      color: var(--text);
-    }
-
-    .icon-cell-name {
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      color: var(--text-muted);
-      text-align: center;
-      word-break: break-word;
-      line-height: 1.3;
-    }
-  </style>
+  <link rel="stylesheet" href="demo/demo.css">
 </head>
 
 <body>
@@ -177,76 +42,80 @@
 
       <div class="navbar-menu" id="navbar-menu">
         <div class="navbar-menu-scroll">
-        <a href="#tutorial" class="navbar-link active">Tutorial</a>
+          <a href="#tutorial" class="navbar-link active">Tutorial</a>
 
-        <details class="navbar-dropdown">
-          <summary class="navbar-dropdown-summary">
-            Components
-            <svg class="icon icon-sm navbar-dropdown-chevron" aria-hidden="true">
-              <use href="downstage-icons.svg#chevron-down" />
-            </svg>
-          </summary>
-          <div class="navbar-dropdown-panel navbar-dropdown-panel--grouped" role="group" aria-label="Component sections">
-            <div class="navbar-dropdown-group" role="group" aria-labelledby="nav-components-foundation">
-              <p class="navbar-dropdown-group-title" id="nav-components-foundation">Foundation</p>
-              <a href="#grid" class="navbar-dropdown-link">Grid</a>
-              <a href="#buttons" class="navbar-dropdown-link">Buttons</a>
-              <a href="#forms" class="navbar-dropdown-link">Forms</a>
-              <a href="#table" class="navbar-dropdown-link">Table</a>
+          <details class="navbar-dropdown">
+            <summary class="navbar-dropdown-summary">
+              Components
+              <svg class="icon icon-sm navbar-dropdown-chevron" aria-hidden="true">
+                <use href="downstage-icons.svg#chevron-down" />
+              </svg>
+            </summary>
+            <div class="navbar-dropdown-panel navbar-dropdown-panel--grouped" role="group"
+              aria-label="Component sections">
+              <div class="navbar-dropdown-group" role="group" aria-labelledby="nav-components-foundation">
+                <p class="navbar-dropdown-group-title" id="nav-components-foundation">Foundation</p>
+                <a href="#grid" class="navbar-dropdown-link">Grid</a>
+                <a href="#buttons" class="navbar-dropdown-link">Buttons</a>
+                <a href="#forms" class="navbar-dropdown-link">Forms</a>
+                <a href="#table" class="navbar-dropdown-link">Table</a>
+                <a href="#html-editor" class="navbar-dropdown-link">HTML editor</a>
+              </div>
+              <div class="navbar-dropdown-group" role="group" aria-labelledby="nav-components-interactive">
+                <p class="navbar-dropdown-group-title" id="nav-components-interactive">Interactive</p>
+                <a href="#tabs" class="navbar-dropdown-link">Tabs</a>
+                <a href="#accordion" class="navbar-dropdown-link">Accordion</a>
+                <a href="#modal" class="navbar-dropdown-link">Modal</a>
+                <a href="#auth" class="navbar-dropdown-link">Auth</a>
+                <a href="#app-data" class="navbar-dropdown-link">Data UI</a>
+              </div>
+              <div class="navbar-dropdown-group" role="group" aria-labelledby="nav-components-media">
+                <p class="navbar-dropdown-group-title" id="nav-components-media">Media</p>
+                <a href="#gallery" class="navbar-dropdown-link">Gallery</a>
+                <a href="#slider" class="navbar-dropdown-link">Slider</a>
+                <a href="#videoplayer" class="navbar-dropdown-link">Video</a>
+                <a href="#audioplayer" class="navbar-dropdown-link">Audio</a>
+              </div>
+              <div class="navbar-dropdown-group" role="group" aria-labelledby="nav-components-pages">
+                <p class="navbar-dropdown-group-title" id="nav-components-pages">Page templates</p>
+                <a href="#docs-demo" class="navbar-dropdown-link">Docs</a>
+                <a href="#dashboard-demo" class="navbar-dropdown-link">Dashboard</a>
+                <a href="#portfolio" class="navbar-dropdown-link">Portfolio</a>
+                <a href="#blog" class="navbar-dropdown-link">Blog</a>
+                <a href="#links" class="navbar-dropdown-link">Links</a>
+              </div>
+              <div class="navbar-dropdown-group" role="group" aria-labelledby="nav-components-people">
+                <p class="navbar-dropdown-group-title" id="nav-components-people">People &amp; profile</p>
+                <a href="#about" class="navbar-dropdown-link">About</a>
+                <a href="#profile" class="navbar-dropdown-link">Profile</a>
+                <a href="#team" class="navbar-dropdown-link">Team</a>
+                <a href="#timeline" class="navbar-dropdown-link">Timeline</a>
+              </div>
+              <div class="navbar-dropdown-group" role="group" aria-labelledby="nav-components-commerce">
+                <p class="navbar-dropdown-group-title" id="nav-components-commerce">Shop &amp; tools</p>
+                <a href="#shop" class="navbar-dropdown-link">Shop</a>
+                <a href="#filters" class="navbar-dropdown-link">Image filters</a>
+              </div>
             </div>
-            <div class="navbar-dropdown-group" role="group" aria-labelledby="nav-components-interactive">
-              <p class="navbar-dropdown-group-title" id="nav-components-interactive">Interactive</p>
-              <a href="#tabs" class="navbar-dropdown-link">Tabs</a>
-              <a href="#accordion" class="navbar-dropdown-link">Accordion</a>
-              <a href="#modal" class="navbar-dropdown-link">Modal</a>
-            </div>
-            <div class="navbar-dropdown-group" role="group" aria-labelledby="nav-components-media">
-              <p class="navbar-dropdown-group-title" id="nav-components-media">Media</p>
-              <a href="#gallery" class="navbar-dropdown-link">Gallery</a>
-              <a href="#slider" class="navbar-dropdown-link">Slider</a>
-              <a href="#videoplayer" class="navbar-dropdown-link">Video</a>
-              <a href="#audioplayer" class="navbar-dropdown-link">Audio</a>
-            </div>
-            <div class="navbar-dropdown-group" role="group" aria-labelledby="nav-components-pages">
-              <p class="navbar-dropdown-group-title" id="nav-components-pages">Page templates</p>
-              <a href="#docs-demo" class="navbar-dropdown-link">Docs</a>
-              <a href="#dashboard-demo" class="navbar-dropdown-link">Dashboard</a>
-              <a href="#portfolio" class="navbar-dropdown-link">Portfolio</a>
-              <a href="#blog" class="navbar-dropdown-link">Blog</a>
-              <a href="#links" class="navbar-dropdown-link">Links</a>
-            </div>
-            <div class="navbar-dropdown-group" role="group" aria-labelledby="nav-components-people">
-              <p class="navbar-dropdown-group-title" id="nav-components-people">People &amp; profile</p>
-              <a href="#about" class="navbar-dropdown-link">About</a>
-              <a href="#profile" class="navbar-dropdown-link">Profile</a>
-              <a href="#team" class="navbar-dropdown-link">Team</a>
-              <a href="#timeline" class="navbar-dropdown-link">Timeline</a>
-            </div>
-            <div class="navbar-dropdown-group" role="group" aria-labelledby="nav-components-commerce">
-              <p class="navbar-dropdown-group-title" id="nav-components-commerce">Shop &amp; tools</p>
-              <a href="#shop" class="navbar-dropdown-link">Shop</a>
-              <a href="#filters" class="navbar-dropdown-link">Image filters</a>
+          </details>
+
+          <a href="#icons" class="navbar-link">Icons</a>
+
+          <div class="navbar-actions">
+            <div class="btn-group" role="group" aria-label="Theme">
+              <button class="btn btn-sm" data-set-theme="light" aria-label="Light theme">
+                <svg class="icon">
+                  <use href="downstage-icons.svg#sun" />
+                </svg>
+              </button>
+              <button class="btn btn-sm" data-set-theme="dark" aria-label="Dark theme">
+                <svg class="icon">
+                  <use href="downstage-icons.svg#moon" />
+                </svg>
+              </button>
+              <button class="btn btn-sm" data-set-theme="auto" aria-label="Auto theme">Auto</button>
             </div>
           </div>
-        </details>
-
-        <a href="#icons" class="navbar-link">Icons</a>
-
-        <div class="navbar-actions">
-          <div class="btn-group" role="group" aria-label="Theme">
-            <button class="btn btn-sm" data-set-theme="light" aria-label="Light theme">
-              <svg class="icon">
-                <use href="downstage-icons.svg#sun" />
-              </svg>
-            </button>
-            <button class="btn btn-sm" data-set-theme="dark" aria-label="Dark theme">
-              <svg class="icon">
-                <use href="downstage-icons.svg#moon" />
-              </svg>
-            </button>
-            <button class="btn btn-sm" data-set-theme="auto" aria-label="Auto theme">Auto</button>
-          </div>
-        </div>
         </div>
       </div>
     </div>
@@ -260,7 +129,7 @@
       <h1>Minimal. Nordic. <br>No compromises.</h1>
       <p class="mt-6 text-soft" style="max-width: 540px; font-size: var(--fs-md);">
         A lightweight CSS framework for building clean sites and web apps.
-        Zero dependencies, one optional JS file, zero bloat.
+        Zero dependencies, <strong>JavaScript with built-in components</strong>, zero bloat.
       </p>
       <div class="cluster mt-8">
         <a href="#tutorial" class="btn btn-primary">
@@ -1397,9 +1266,238 @@
       </div>
     </section>
 
+    <!-- ============================== AUTH (sign in / sign up / recovery / 2FA) ============================== -->
+    <section class="demo-section" id="auth">
+      <p class="demo-section-title">08 — Apps</p>
+      <h2>Authentication</h2>
+      <p class="text-soft">Layout shells for sign in, sign up, password recovery, and a two-factor code step. Wire forms
+        to
+        your backend; markup and classes are presentation-only.</p>
+
+      <div class="grid mt-8" style="gap: var(--space-8); align-items: start;">
+        <div class="col-6">
+          <div class="auth-shell" style="min-height: auto; padding: 0;">
+            <div class="auth-card auth-card-wide">
+              <div class="auth-brand">
+                <svg class="icon icon-lg" aria-hidden="true">
+                  <use href="downstage-icons.svg#hash" />
+                </svg>
+                downstage
+              </div>
+              <h3 class="auth-title">Sign in</h3>
+              <p class="auth-subtitle">Use your work email and password.</p>
+              <form class="auth-form" action="#" method="post" onsubmit="return false;">
+                <div class="field">
+                  <label class="label" for="auth-signin-email">Email</label>
+                  <input id="auth-signin-email" class="input" type="email" name="email" autocomplete="username" required
+                    placeholder="you@company.com">
+                </div>
+                <div class="field">
+                  <label class="label" for="auth-signin-password">Password</label>
+                  <input id="auth-signin-password" class="input" type="password" name="password"
+                    autocomplete="current-password" required>
+                </div>
+                <div class="auth-links-row">
+                  <label class="check">
+                    <input type="checkbox" name="remember" value="1">
+                    <span>Remember me</span>
+                  </label>
+                  <a href="#auth-recovery">Forgot password?</a>
+                </div>
+                <div class="auth-actions">
+                  <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+                </div>
+              </form>
+              <div class="auth-footer">
+                No account? <a href="#auth-signup">Create one</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6">
+          <div class="auth-shell" style="min-height: auto; padding: 0;">
+            <div class="auth-card auth-card-wide" id="auth-signup">
+              <h3 class="auth-title">Create account</h3>
+              <p class="auth-subtitle">Sign up with your email. We will send a verification link.</p>
+              <form class="auth-form" action="#" method="post" onsubmit="return false;">
+                <div class="field">
+                  <label class="label" for="auth-signup-name">Full name</label>
+                  <input id="auth-signup-name" class="input" type="text" name="name" autocomplete="name" required>
+                </div>
+                <div class="field">
+                  <label class="label" for="auth-signup-email">Email</label>
+                  <input id="auth-signup-email" class="input" type="email" name="email" autocomplete="email" required>
+                </div>
+                <div class="field">
+                  <label class="label" for="auth-signup-password">Password</label>
+                  <input id="auth-signup-password" class="input" type="password" name="password"
+                    autocomplete="new-password" required minlength="8">
+                  <span class="help">At least 8 characters.</span>
+                </div>
+                <label class="check">
+                  <input type="checkbox" name="terms" required>
+                  <span>I agree to the terms and privacy policy</span>
+                </label>
+                <div class="auth-actions">
+                  <button type="submit" class="btn btn-primary btn-block">Sign up</button>
+                </div>
+              </form>
+              <div class="auth-footer">
+                Already have an account? <a href="#auth">Sign in</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid mt-8" style="gap: var(--space-8); align-items: start;">
+        <div class="col-6">
+          <div class="auth-shell" style="min-height: auto; padding: 0;">
+            <div class="auth-card" id="auth-recovery">
+              <h3 class="auth-title">Reset password</h3>
+              <p class="auth-subtitle">Enter your email and we will send reset instructions.</p>
+              <form class="auth-form" action="#" method="post" onsubmit="return false;">
+                <div class="field">
+                  <label class="label" for="auth-recovery-email">Email</label>
+                  <input id="auth-recovery-email" class="input" type="email" name="email" autocomplete="email" required>
+                </div>
+                <div class="auth-actions">
+                  <button type="submit" class="btn btn-primary btn-block">Send reset link</button>
+                  <a href="#auth" class="btn btn-ghost btn-block" style="text-align:center;">Back to sign in</a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6">
+          <div class="auth-shell" style="min-height: auto; padding: 0;">
+            <div class="auth-card" id="auth-2fa">
+              <h3 class="auth-title">Two-factor authentication</h3>
+              <p class="auth-subtitle">Enter the 6-digit code from your authenticator app.</p>
+              <form class="auth-form" action="#" method="post" onsubmit="return false;">
+                <div class="auth-otp" role="group" aria-label="One-time code" data-demo-otp>
+                  <input class="input" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1"
+                    aria-label="Digit 1" data-otp-index="0" autocomplete="one-time-code">
+                  <input class="input" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1"
+                    aria-label="Digit 2" data-otp-index="1" autocomplete="one-time-code">
+                  <input class="input" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1"
+                    aria-label="Digit 3" data-otp-index="2" autocomplete="one-time-code">
+                  <input class="input" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1"
+                    aria-label="Digit 4" data-otp-index="3" autocomplete="one-time-code">
+                  <input class="input" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1"
+                    aria-label="Digit 5" data-otp-index="4" autocomplete="one-time-code">
+                  <input class="input" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1"
+                    aria-label="Digit 6" data-otp-index="5" autocomplete="one-time-code">
+                </div>
+                <p class="help text-center">Alternatively, use a backup code in the field below.</p>
+                <div class="field">
+                  <label class="label" for="auth-backup-code">Backup code</label>
+                  <input id="auth-backup-code" class="input" type="text" name="backup" autocomplete="off"
+                    placeholder="XXXX-XXXX">
+                </div>
+                <div class="auth-actions">
+                  <button type="submit" class="btn btn-primary btn-block">Verify</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== APP DATA (combobox, search, kanban, table) ============================== -->
+    <section class="demo-section" id="app-data">
+      <p class="demo-section-title">09 — Apps</p>
+      <h2>Data UI</h2>
+      <p class="text-soft">Autocomplete combobox (local JSON or remote <code class="text-mono">?q=</code>), search with
+        suggestions, Kanban with optional API hooks, and a data table with local or remote pagination.</p>
+
+      <h3 class="mt-8 mb-4">Combobox (autocomplete select)</h3>
+      <div class="grid" style="gap: var(--space-8); align-items: start;">
+        <div class="col-6">
+          <p class="text-sm text-muted mb-2">Local options via <code class="text-mono">data-combobox-local</code></p>
+          <span class="label">City</span>
+          <div id="demo-combobox-local" data-combobox data-combobox-name="city"
+            data-combobox-local='[{"value":"at","label":"Athens"},{"value":"be","label":"Berlin"},{"value":"ca","label":"Cairo"},{"value":"dk","label":"Denver"},{"value":"es","label":"Edinburgh"}]'
+            data-combobox-placeholder="Type to filter…"></div>
+        </div>
+        <div class="col-6">
+          <p class="text-sm text-muted mb-2">Remote: <code class="text-mono">Downstage.combobox.mount</code> + async
+            fetch (demo uses JSONPlaceholder users).</p>
+          <span class="label">User</span>
+          <div id="demo-combobox-api"></div>
+        </div>
+      </div>
+
+      <h3 class="mt-10 mb-4">Search with autocomplete</h3>
+      <p class="text-sm text-muted mb-2">API-backed suggestions; same pattern as the combobox with a search icon.</p>
+      <div id="demo-search-autocomplete"></div>
+      <p class="help mt-2">In this demo the fetch URL is set in script (JSONPlaceholder). Listen for
+        <code class="text-mono">combobox-change</code> on the root to react to selection.
+      </p>
+
+      <h3 class="mt-10 mb-4">Kanban</h3>
+      <p class="text-sm text-muted mb-4">Board data is loaded with <strong>GET</strong>
+        <code class="text-mono">demo/kanban-board.json</code> (same origin). Moving a card sends a <strong>POST</strong>
+        with
+        JSON (<code class="text-mono">cardId</code>, <code class="text-mono">fromColumnId</code>,
+        <code class="text-mono">toColumnId</code>, <code class="text-mono">toIndex</code>) to a demo endpoint; swap
+        <code class="text-mono">fetchUrl</code> / <code class="text-mono">moveUrl</code> for your API. On failed move
+        the
+        card reverts.
+      </p>
+      <div data-kanban data-kanban-demo></div>
+
+      <h3 class="mt-10 mb-4">Data table</h3>
+      <div class="grid" style="gap: var(--space-8); align-items: start;">
+        <div class="col-12">
+          <p class="text-sm text-muted mb-2">Local: sort, filter, pagination in the browser (<code
+              class="text-mono">data-data-table-demo</code>).</p>
+          <div data-data-table data-data-table-demo></div>
+        </div>
+        <div class="col-12">
+          <p class="text-sm text-muted mb-2">Remote-style: one HTTP request, then client-side paging/sort/filter on the
+            result set (illustrates <code class="text-mono">fetchRemote</code>; your server can return
+            <code class="text-mono">{ rows, total }</code> per page).
+          </p>
+          <div id="demo-data-table-remote"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== HTML EDITOR ============================== -->
+    <section class="demo-section" id="html-editor">
+      <p class="demo-section-title">10 — Components</p>
+      <h2>HTML editor</h2>
+      <p class="text-soft">Toolbar on <code class="text-mono">contenteditable</code> with
+        <code class="text-mono">document.execCommand</code> and a link dialog (<code class="text-mono">mailto</code>,
+        <code class="text-mono">tel:</code>, target, <code class="text-mono">rel</code>). Optional: rich text / HTML
+        source switch via <code class="text-mono">showRawSwitch</code>; hide toolbar buttons with
+        <code class="text-mono">toolbarExclude</code>. “H7” is <code class="text-mono">&lt;p class="ds-h7"&gt;</code>
+        with
+        <code class="text-mono">role="heading"</code> / <code class="text-mono">aria-level="7"</code>. Initial HTML:
+        inside
+        <code class="text-mono">data-html-editor-mount</code> or <code class="text-mono">initialHtml</code> in JS.
+      </p>
+
+      <div class="html-editor mt-6" data-html-editor-mount data-html-editor-preset="demo">
+        <p>Select text and use the toolbar to format.</p>
+      </div>
+
+      <h4 class="mt-8 mb-2">Snippet: blockquote</h4>
+      <p class="text-subtle text-sm mb-4">Typical markup for a quote inside the editor (design system <code
+          class="text-mono">blockquote</code> styles).</p>
+      <pre class="code-snippet mt-4" tabindex="0"><span class="c-tag">&lt;blockquote&gt;</span>
+  <span class="c-tag">&lt;p&gt;</span>Design is the contrast of substance and appearance.<span class="c-tag">&lt;/p&gt;</span>
+  <span class="c-tag">&lt;footer&gt;</span>— Paul Rand<span class="c-tag">&lt;/footer&gt;</span>
+<span class="c-tag">&lt;/blockquote&gt;</span></pre>
+    </section>
+
     <!-- ============================== TABLE ============================== -->
     <section class="demo-section" id="table">
-      <p class="demo-section-title">08 — Components</p>
+      <p class="demo-section-title">11 — Components</p>
       <h2>Table</h2>
       <p class="text-soft">Default in card, then minimal on <code>--bg</code>, compact, striped, and combined variants.
       </p>
@@ -1446,7 +1544,8 @@
       </div>
 
       <h4 class="mt-10 mb-2">Minimal (page background)</h4>
-      <p class="text-soft text-sm mb-4">No card: only bottom borders on rows, cells sit on <code>--bg</code> like minimal
+      <p class="text-soft text-sm mb-4">No card: only bottom borders on rows, cells sit on <code>--bg</code> like
+        minimal
         inputs. Class <code>table table-minimal</code>.</p>
       <div class="table-wrap" role="region" aria-label="Minimal projects table" tabindex="0">
         <table class="table table-minimal">
@@ -1573,7 +1672,7 @@
 
     <!-- ============================== TABS ============================== -->
     <section class="demo-section" id="tabs">
-      <p class="demo-section-title">09 — Components</p>
+      <p class="demo-section-title">12 — Components</p>
       <h2>Tabs</h2>
       <p class="text-soft">Auto-init via <code>data-tabs</code>. Arrow keys ←/→ to navigate.</p>
 
@@ -1593,7 +1692,8 @@
         <div class="tab-panel" data-tab-panel="t2">
           <h4>Installation</h4>
           <p class="text-soft mt-2">Download the files, copy them to your public folder, include the CSS in your layout.
-            JS is optional but required for tabs, accordion, lightbox and hamburger.</p>
+            Add <code>downstage.js</code> for <strong>built-in interactive components</strong>: tabs, accordion,
+            lightbox, navbar hamburger, and more.</p>
         </div>
         <div class="tab-panel" data-tab-panel="t3">
           <h4>Configuration</h4>
@@ -1603,8 +1703,9 @@
         <div class="tab-panel" data-tab-panel="t4">
           <h4>JavaScript API</h4>
           <p class="text-soft mt-2">Exposes <code>window.Downstage</code> with modules: <code>theme</code>,
-            <code>navbar</code>, <code>tabs</code>, <code>accordion</code>, <code>lightbox</code>. Each has an
-            <code>init()</code> method called automatically on DOMContentLoaded.
+            <code>navbar</code>, <code>tabs</code>, <code>accordion</code>, <code>lightbox</code>,
+            <code>htmlEditor</code>, and more. Each has an <code>init()</code> method called automatically on
+            DOMContentLoaded.
           </p>
         </div>
       </div>
@@ -1612,7 +1713,7 @@
 
     <!-- ============================== ACCORDION ============================== -->
     <section class="demo-section" id="accordion">
-      <p class="demo-section-title">10 — Components</p>
+      <p class="demo-section-title">13 — Components</p>
       <h2>Accordion</h2>
       <p class="text-soft">Add <code>data-accordion="single"</code> for exclusive mode.</p>
 
@@ -1643,7 +1744,8 @@
           <div class="accordion-content">
             <div class="accordion-body">
               Almost everything: layout, typography, buttons, forms, alerts, badges, tables, cards. You only need the ~3
-              KB <code>downstage.js</code> for: mobile navbar, tabs, accordion, lightbox and theme switcher.
+              KB <code>downstage.js</code> for: mobile navbar, tabs, accordion, lightbox, theme switcher, and the HTML
+              editor toolbar.
             </div>
           </div>
         </div>
@@ -1683,7 +1785,7 @@
 
     <!-- ============================== MODAL ============================== -->
     <section class="demo-section" id="modal">
-      <p class="demo-section-title">11 — Components</p>
+      <p class="demo-section-title">14 — Components</p>
       <h2>Modal &amp; Sidebar nav</h2>
 
       <div class="grid mt-6">
@@ -1729,7 +1831,7 @@
 
     <!-- ============================== IMAGE FRAME & GALLERY ============================== -->
     <section class="demo-section" id="gallery">
-      <p class="demo-section-title">12 — Components</p>
+      <p class="demo-section-title">15 — Components</p>
       <h2>Images, gallery &amp; lightbox</h2>
       <p class="text-soft">
         <code>.image-frame</code> wraps an image in a system-consistent border.
@@ -1798,7 +1900,7 @@
 
     <!-- ============================== SLIDER ============================== -->
     <section class="demo-section" id="slider">
-      <p class="demo-section-title">13 — Components</p>
+      <p class="demo-section-title">16 — Components</p>
       <h2>Slider / Carousel</h2>
       <p class="text-soft">Image carousel with dots and arrows. Add <code>data-slider-auto="5000"</code> for auto-play.
       </p>
@@ -1849,7 +1951,7 @@
 
     <!-- ============================== VIDEO PLAYER ============================== -->
     <section class="demo-section" id="videoplayer">
-      <p class="demo-section-title">14 — Components</p>
+      <p class="demo-section-title">17 — Components</p>
       <h2>Video Player</h2>
       <p class="text-soft">Minimal custom video player. Auto-builds controls from a <code>&lt;video&gt;</code> tag.</p>
 
@@ -1860,7 +1962,7 @@
 
     <!-- ============================== AUDIO PLAYER ============================== -->
     <section class="demo-section" id="audioplayer">
-      <p class="demo-section-title">15 — Components</p>
+      <p class="demo-section-title">18 — Components</p>
       <h2>Audio Player</h2>
       <p class="text-soft">Lightweight audio player built from data attributes.</p>
 
@@ -1876,7 +1978,7 @@
 
     <!-- ============================== DOCS LAYOUT ============================== -->
     <section class="demo-section" id="docs-demo">
-      <p class="demo-section-title">16 — Layout</p>
+      <p class="demo-section-title">19 — Layout</p>
       <h2>Technical Documentation</h2>
       <p class="text-soft">A sidebar + content layout for docs pages with chapter navigation.</p>
 
@@ -1933,14 +2035,34 @@
 
           <div class="docs-chapter" id="doc-api">
             <h3>JavaScript API</h3>
-            <p>The optional <code>downstage.js</code> exposes <code>window.Downstage</code> with the following modules:
+            <p><code>downstage.js</code> is <strong>JavaScript with built-in components</strong>. It exposes
+              <code>window.Downstage</code> with the following modules:
             </p>
             <pre><code>Downstage.theme.set('dark');
-Downstage.theme.get();           // 'light' | 'dark' | 'auto'
+Downstage.theme.get();
 Downstage.lightbox.open(set, 0);
-Downstage.lightbox.close();</code></pre>
+Downstage.lightbox.close();
+Downstage.htmlEditor.mount('#editor', { preset: 'demo' });
+Downstage.combobox.mount('#cb', { options: [{ value: 'a', label: 'Alpha' }] });
+Downstage.searchAutocomplete.mount('#search', { fetchSuggestions: async (q) =&gt; [...] });
+Downstage.kanban.mount('#board', {
+  fetchUrl: '/api/kanban/board',
+  moveUrl: '/api/kanban/move',
+});
+Downstage.dataTable.mount('#table', { mode: 'local', columns, rows });</code></pre>
+            <p class="text-soft text-sm">Kanban: use <code class="text-mono">fetchUrl</code> (GET board JSON) and
+              <code class="text-mono">moveUrl</code> (POST move payload), or <code class="text-mono">fetchBoard</code> /
+              <code class="text-mono">moveCard</code> callbacks. Attributes:
+              <code class="text-mono">data-kanban-fetch-url</code>,
+              <code class="text-mono">data-kanban-move-url</code>.
+            </p>
             <p>Each module has an <code>init()</code> method auto-called on <code>DOMContentLoaded</code>. For
-              dynamically added content, call <code>init()</code> again.</p>
+              dynamically added content, call <code>init()</code> again. The HTML editor mounts with
+              <code>Downstage.htmlEditor.mount()</code> (or <code>data-html-editor-mount</code>). Combobox, search,
+              Kanban, and data table support programmatic <code>mount()</code> and selective declarative hooks (see
+              <code>#auth</code> and <code>#app-data</code> in <code>index.html</code>). Options include
+              <code>showRawSwitch</code> and <code>toolbarExclude</code> on the HTML editor.
+            </p>
           </div>
         </div>
       </div>
@@ -1948,7 +2070,7 @@ Downstage.lightbox.close();</code></pre>
 
     <!-- ============================== DASHBOARD ============================== -->
     <section class="demo-section" id="dashboard-demo">
-      <p class="demo-section-title">17 — Data</p>
+      <p class="demo-section-title">20 — Data</p>
       <h2>Dashboard</h2>
       <p class="text-soft">Stat cards and minimal SVG charts for data-driven UIs.</p>
 
@@ -2081,7 +2203,7 @@ Downstage.lightbox.close();</code></pre>
 
     <!-- ============================== PORTFOLIO ============================== -->
     <section class="demo-section" id="portfolio">
-      <p class="demo-section-title">18 — Components</p>
+      <p class="demo-section-title">21 — Components</p>
       <h2>Portfolio</h2>
       <p class="text-soft">Project cards in a responsive grid. Use <code>.portfolio-item</code> as a block or wrap the
         whole card in <code>&lt;a&gt;</code>. Optional <code>.portfolio-item--featured</code> spans two columns on wide
@@ -2183,10 +2305,11 @@ Downstage.lightbox.close();</code></pre>
       </div>
 
       <h4 class="mt-12 mb-2">Minimal</h4>
-      <p class="text-soft text-sm mb-6">Variante compatta su <code class="text-mono">--bg</code>: solo bordi orizzontali,
-        senza card chrome — come <code class="text-mono">.table-minimal</code> e <code
-          class="text-mono">.input-minimal</code>. Usa <code class="text-mono">.portfolio.portfolio--minimal</code> e
-        <code class="text-mono">.portfolio-item--minimal</code>.</p>
+      <p class="text-soft text-sm mb-6">Compact variant on <code class="text-mono">--bg</code>: horizontal rules only,
+        no card chrome — same idea as <code class="text-mono">.table-minimal</code> and <code
+          class="text-mono">.input-minimal</code>. Use <code class="text-mono">.portfolio.portfolio--minimal</code> and
+        <code class="text-mono">.portfolio-item--minimal</code>.
+      </p>
       <div class="portfolio portfolio--minimal mt-6">
         <a href="#" class="portfolio-item portfolio-item--minimal">
           <div class="portfolio-media">
@@ -2195,7 +2318,7 @@ Downstage.lightbox.close();</code></pre>
           <div class="portfolio-body">
             <span class="portfolio-meta">Maps · 2025</span>
             <h3 class="portfolio-title">Atlas</h3>
-            <p class="portfolio-desc">Tile server e palette coerente con il design system.</p>
+            <p class="portfolio-desc">Tile server with a palette aligned to the design system.</p>
             <div class="portfolio-tags">
               <span class="badge">Geo</span>
               <span class="badge badge-info">API</span>
@@ -2218,7 +2341,7 @@ Downstage.lightbox.close();</code></pre>
           <div class="portfolio-body">
             <span class="portfolio-meta">Finance</span>
             <h3 class="portfolio-title">Ledger mobile</h3>
-            <p class="portfolio-desc">Flussi di approvazione e notifiche in tempo reale.</p>
+            <p class="portfolio-desc">Approval flows and real-time notifications.</p>
             <div class="portfolio-tags">
               <span class="badge badge-success">Shipped</span>
             </div>
@@ -2238,7 +2361,7 @@ Downstage.lightbox.close();</code></pre>
 
     <!-- ============================== BLOG ============================== -->
     <section class="demo-section" id="blog">
-      <p class="demo-section-title">19 — Components</p>
+      <p class="demo-section-title">22 — Components</p>
       <h2>Blog</h2>
       <p class="text-soft">Article teasers with <code>.blog-card</code> inside <code>.blog-list--grid</code> or a
         vertical
@@ -2366,9 +2489,9 @@ Downstage.lightbox.close();</code></pre>
       </div>
 
       <h4 class="mt-12 mb-2">Minimal</h4>
-      <p class="text-soft text-sm mb-6">Lista con <code class="text-mono">.blog-list--minimal</code> e <code
-          class="text-mono">.blog-card--minimal</code>: thumb a sinistra (su viewport larghi), niente ombra né bordo
-        pieno.</p>
+      <p class="text-soft text-sm mb-6">List with <code class="text-mono">.blog-list--minimal</code> and <code
+          class="text-mono">.blog-card--minimal</code>: thumbnail on the left (on wide viewports), no heavy shadow or
+        full border.</p>
       <div class="blog-list blog-list--grid blog-list--minimal mt-6">
         <a href="#" class="blog-card blog-card--minimal">
           <div class="blog-card-media">
@@ -2381,7 +2504,7 @@ Downstage.lightbox.close();</code></pre>
               <span>4 min</span>
             </div>
             <h3 class="blog-card-title">Minimal lists in production</h3>
-            <p class="blog-card-excerpt">Quando togliere il contenitore migliora scansione e densità.</p>
+            <p class="blog-card-excerpt">When removing the outer chrome improves scan and density.</p>
             <div class="blog-card-footer">
               <span class="text-subtle text-sm">Editorial</span>
               <span class="blog-read-more">
@@ -2404,7 +2527,7 @@ Downstage.lightbox.close();</code></pre>
               <span>7 min</span>
             </div>
             <h3 class="blog-card-title">Spacing tokens for archives</h3>
-            <p class="blog-card-excerpt">Allineare ritmo verticale tra teaser e paginazione.</p>
+            <p class="blog-card-excerpt">Align vertical rhythm between teasers and pagination.</p>
             <div class="blog-card-footer">
               <span class="text-subtle text-sm">Design</span>
               <span class="blog-read-more">
@@ -2421,7 +2544,7 @@ Downstage.lightbox.close();</code></pre>
 
     <!-- ============================== LINKS ============================== -->
     <section class="demo-section" id="links">
-      <p class="demo-section-title">20 — Components</p>
+      <p class="demo-section-title">23 — Components</p>
       <h2>Links</h2>
       <p class="text-soft">Stack of outbound links — useful for a “link in bio” page or a compact resources list. Use
         <code>.link-list</code> + <code>a.link-item</code>
@@ -2497,7 +2620,7 @@ Downstage.lightbox.close();</code></pre>
 
     <!-- ============================== ABOUT ============================== -->
     <section class="demo-section" id="about">
-      <p class="demo-section-title">21 — Components</p>
+      <p class="demo-section-title">24 — Components</p>
       <h2>About me</h2>
       <p class="text-soft">Profile block with photo, role line, bio, and social icons. Markup uses <code>.about</code>,
         <code>.about-media</code>, and <code>.about-content</code>.
@@ -2543,23 +2666,23 @@ Downstage.lightbox.close();</code></pre>
 
     <!-- ============================== TEAM ============================== -->
     <section class="demo-section" id="team">
-      <p class="demo-section-title">22 — Components</p>
-      <h2>Il Team</h2>
-      <p class="text-soft">Griglia di persone con foto, ruolo e bio breve. Classi: <code>.team-grid</code>,
+      <p class="demo-section-title">25 — Components</p>
+      <h2>Team</h2>
+      <p class="text-soft">People grid with photo, role, and short bio. Classes: <code>.team-grid</code>,
         <code>.team-card</code>, <code>.team-avatar</code>, <code>.team-name</code>, <code>.team-role</code>,
-        <code>.team-bio</code>, opzionale <code>.team-links</code>.
+        <code>.team-bio</code>, optional <code>.team-links</code>.
       </p>
 
       <div class="team-grid mt-8">
         <article class="team-card">
           <div class="team-avatar">
-            <img src="https://picsum.photos/seed/team1/240/240" alt="Ritratto di John Doe">
+            <img src="https://picsum.photos/seed/team1/240/240" alt="Portrait of John Doe">
           </div>
           <h3 class="team-name">John Doe</h3>
           <p class="team-role">Founder &amp; design system</p>
-          <p class="team-bio">Cura downstage.css, i token e la documentazione. Interface calm, codice pulito.</p>
-          <div class="team-links" aria-label="Profilo Andrea">
-            <a href="https://web.ap.it" target="_blank" rel="noopener noreferrer" aria-label="Sito web">
+          <p class="team-bio">Owns downstage.css, tokens, and docs. Calm interfaces, clean code.</p>
+          <div class="team-links" aria-label="John profile">
+            <a href="https://web.ap.it" target="_blank" rel="noopener noreferrer" aria-label="Website">
               <svg class="icon">
                 <use href="downstage-icons.svg#globe" />
               </svg>
@@ -2574,12 +2697,12 @@ Downstage.lightbox.close();</code></pre>
 
         <article class="team-card">
           <div class="team-avatar">
-            <img src="https://picsum.photos/seed/team2/240/240" alt="Ritratto di Elena Rossi">
+            <img src="https://picsum.photos/seed/team2/240/240" alt="Portrait of Elena Rossi">
           </div>
           <h3 class="team-name">Elena Rossi</h3>
           <p class="team-role">Product design</p>
-          <p class="team-bio">Wireframe, prototipi e accessibilità. Porta coerenza tra componenti e pagine reali.</p>
-          <div class="team-links" aria-label="Profilo Elena">
+          <p class="team-bio">Wireframes, prototypes, and accessibility. Keeps components and real pages aligned.</p>
+          <div class="team-links" aria-label="Elena profile">
             <a href="#" aria-label="LinkedIn">
               <svg class="icon">
                 <use href="downstage-icons.svg#user" />
@@ -2595,18 +2718,18 @@ Downstage.lightbox.close();</code></pre>
 
         <article class="team-card">
           <div class="team-avatar">
-            <img src="https://picsum.photos/seed/team3/240/240" alt="Ritratto di Marco Bianchi">
+            <img src="https://picsum.photos/seed/team3/240/240" alt="Portrait of Marco Bianchi">
           </div>
           <h3 class="team-name">Marco Bianchi</h3>
           <p class="team-role">Frontend</p>
-          <p class="team-bio">JS vanilla, integrazioni e performance. Tiene leggeri i widget interattivi.</p>
-          <div class="team-links" aria-label="Profilo Marco">
+          <p class="team-bio">Vanilla JS, integrations, and performance. Keeps interactive widgets lightweight.</p>
+          <div class="team-links" aria-label="Marco profile">
             <a href="#" aria-label="GitHub">
               <svg class="icon">
                 <use href="downstage-icons.svg#github" />
               </svg>
             </a>
-            <a href="#" aria-label="Codice">
+            <a href="#" aria-label="Code">
               <svg class="icon">
                 <use href="downstage-icons.svg#code" />
               </svg>
@@ -2614,43 +2737,25 @@ Downstage.lightbox.close();</code></pre>
           </div>
         </article>
 
-        <article class="team-card">
-          <div class="team-avatar">
-            <img src="https://picsum.photos/seed/team4/240/240" alt="Ritratto di Sara Conti">
-          </div>
-          <h3 class="team-name">Sara Conti</h3>
-          <p class="team-role">Content &amp; community</p>
-          <p class="team-bio">Tutorial, changelog e feedback. Fa dialogare il progetto con chi lo usa.</p>
-          <div class="team-links" aria-label="Profilo Sara">
-            <a href="#blog" aria-label="Blog">
-              <svg class="icon">
-                <use href="downstage-icons.svg#message" />
-              </svg>
-            </a>
-            <a href="#" aria-label="Email">
-              <svg class="icon">
-                <use href="downstage-icons.svg#mail" />
-              </svg>
-            </a>
-          </div>
-        </article>
       </div>
     </section>
 
     <!-- ============================== TIMELINE ============================== -->
     <section class="demo-section" id="timeline">
-      <p class="demo-section-title">23 — Components</p>
+      <p class="demo-section-title">26 — Components</p>
       <h2>Timeline</h2>
-      <p class="text-soft">Lista ordinata verticale con linea e marcatori. Usa <code>&lt;ol class="timeline"&gt;</code>,
-        ogni voce è <code>.timeline-item</code> con <code>.timeline-marker</code> e <code>.timeline-content</code>.</p>
+      <p class="text-soft">Vertical ordered list with a line and markers. Use <code>&lt;ol class="timeline"&gt;</code>;
+        each entry is a <code>.timeline-item</code> with <code>.timeline-marker</code> and
+        <code>.timeline-content</code>.</p>
 
-      <ol class="timeline mt-8" aria-label="Roadmap del progetto">
+      <ol class="timeline mt-8" aria-label="Project roadmap">
         <li class="timeline-item">
           <span class="timeline-marker" aria-hidden="true"></span>
           <div class="timeline-content">
             <time class="timeline-date" datetime="2025-06">Jun 2025</time>
-            <h3 class="timeline-title">Prima release pubblica</h3>
-            <p class="timeline-desc">CSS unico, icone sprite, JS opzionale per tabs, accordion e lightbox.</p>
+            <h3 class="timeline-title">First public release</h3>
+            <p class="timeline-desc">Single CSS, icon sprite, and <strong>JS with built-in components</strong> for tabs,
+              accordion, and lightbox.</p>
           </div>
         </li>
         <li class="timeline-item">
@@ -2658,7 +2763,7 @@ Downstage.lightbox.close();</code></pre>
           <div class="timeline-content">
             <time class="timeline-date" datetime="2025-11">Nov 2025</time>
             <h3 class="timeline-title">Portfolio e blog</h3>
-            <p class="timeline-desc">Card progetto e articoli con griglia responsive e varianti testuali.</p>
+            <p class="timeline-desc">Project cards and articles with a responsive grid and text variants.</p>
             <span class="timeline-badge"><span class="badge">Release</span></span>
           </div>
         </li>
@@ -2667,8 +2772,8 @@ Downstage.lightbox.close();</code></pre>
           <div class="timeline-content">
             <time class="timeline-date" datetime="2026-03">Mar 2026</time>
             <h3 class="timeline-title">Timeline e team</h3>
-            <p class="timeline-desc">Nuovi blocchi per cronologie, profili e pagine “link in bio” — sempre senza
-              dipendenze.</p>
+            <p class="timeline-desc">New blocks for timelines, profiles, and “link in bio” pages — still zero
+              dependencies.</p>
             <span class="timeline-badge"><span class="badge badge-success">Shipped</span></span>
           </div>
         </li>
@@ -2676,32 +2781,31 @@ Downstage.lightbox.close();</code></pre>
           <span class="timeline-marker" aria-hidden="true"></span>
           <div class="timeline-content">
             <time class="timeline-date" datetime="2026-04-01">Q2 2026</time>
-            <h3 class="timeline-title">Documentazione e temi</h3>
-            <p class="timeline-desc">Guida alle variabili, esempi per tema scuro e snippet copy-paste per i componenti
-              più
-              usati.</p>
+            <h3 class="timeline-title">Documentation and themes</h3>
+            <p class="timeline-desc">Variable guide, dark-theme examples, and copy-paste snippets for the most-used
+              components.</p>
             <span class="timeline-badge"><span class="badge badge-info">Planned</span></span>
           </div>
         </li>
       </ol>
 
-      <h4 class="mt-12 mb-2">Variante compatta</h4>
-      <p class="text-soft text-sm mb-4">Aggiungi <code>.timeline--compact</code> per interlinea ridotta.</p>
-      <ol class="timeline timeline--compact" aria-label="Milestone brevi">
+      <h4 class="mt-12 mb-2">Compact variant</h4>
+      <p class="text-soft text-sm mb-4">Add <code>.timeline--compact</code> for tighter line spacing.</p>
+      <ol class="timeline timeline--compact" aria-label="Short milestones">
         <li class="timeline-item">
           <span class="timeline-marker" aria-hidden="true"></span>
           <div class="timeline-content">
             <time class="timeline-date" datetime="2026-04">Apr 2026</time>
-            <h3 class="timeline-title">Audit accessibilità</h3>
-            <p class="timeline-desc">Focus visibili e contrasti verificati sui componenti interattivi.</p>
+            <h3 class="timeline-title">Accessibility audit</h3>
+            <p class="timeline-desc">Visible focus states and contrast checks on interactive components.</p>
           </div>
         </li>
         <li class="timeline-item">
           <span class="timeline-marker" aria-hidden="true"></span>
           <div class="timeline-content">
             <time class="timeline-date" datetime="2026-01">Jan 2026</time>
-            <h3 class="timeline-title">Esempi statici</h3>
-            <p class="timeline-desc">Pagina demo unica come riferimento visivo.</p>
+            <h3 class="timeline-title">Static examples</h3>
+            <p class="timeline-desc">Single demo page as a visual reference.</p>
           </div>
         </li>
       </ol>
@@ -2709,10 +2813,10 @@ Downstage.lightbox.close();</code></pre>
 
     <!-- ============================== SHOP ============================== -->
     <section class="demo-section" id="shop">
-      <p class="demo-section-title">24 — Components</p>
+      <p class="demo-section-title">27 — Components</p>
       <h2>Shop</h2>
-      <p class="text-soft">Mini e-commerce patterns: product grid, product page, cart rows, and payment step. Solo markup
-        e CSS — collega la logica al tuo backend o a un servizio di pagamento.</p>
+      <p class="text-soft">Mini e-commerce patterns: product grid, product page, cart rows, and payment step. Markup
+        and CSS only — wire logic to your backend or payment provider.</p>
 
       <h4 class="mt-10 mb-4">List</h4>
       <div class="shop-grid">
@@ -2773,8 +2877,8 @@ Downstage.lightbox.close();</code></pre>
       </div>
 
       <h4 class="mt-12 mb-2">Minimal</h4>
-      <p class="text-soft text-sm mb-6">Griglia compatta con <code class="text-mono">.shop-grid--minimal</code> e <code
-          class="text-mono">.shop-card--minimal</code>: righe orizzontali come una tabella leggera.</p>
+      <p class="text-soft text-sm mb-6">Compact grid with <code class="text-mono">.shop-grid--minimal</code> and <code
+          class="text-mono">.shop-card--minimal</code>: horizontal rows like a light table.</p>
       <div class="shop-grid shop-grid--minimal mt-6">
         <article class="shop-card shop-card--minimal">
           <a href="#shop-detail" class="shop-card-hit" aria-label="Bowl Clay — view product">
@@ -2821,7 +2925,7 @@ Downstage.lightbox.close();</code></pre>
         <div class="product-info">
           <p class="text-subtle text-sm">Tableware · SKU DS-MUG-01</p>
           <h3 class="product-title">Mug Sand</h3>
-          <p class="product-lead">Gres smaltato, impugnatura comoda, finitura opaca che non trattiene le ditate.</p>
+          <p class="product-lead">Glazed stoneware, comfortable grip, matte finish that resists fingerprints.</p>
           <div class="product-price-row">
             <span class="shop-price">€24,00</span>
             <span class="text-subtle text-sm">In stock · ships in 2 days</span>
@@ -2951,16 +3055,16 @@ Downstage.lightbox.close();</code></pre>
 
     <!-- ============================== PROFILE ============================== -->
     <section class="demo-section" id="profile">
-      <p class="demo-section-title">25 — Components</p>
+      <p class="demo-section-title">28 — Components</p>
       <h2>Profile</h2>
-      <p class="text-soft">Pattern per area account: dati utente, password e azioni di sicurezza. Solo markup demo —
-        collega a endpoint reali o al tuo provider auth.</p>
+      <p class="text-soft">Account-area pattern: user fields, password, and security actions. Demo markup only —
+        connect to real endpoints or your auth provider.</p>
 
       <div class="profile-shell mt-8">
         <div class="profile-block">
           <h3 class="profile-block-title">Account</h3>
-          <p class="profile-block-lead">Email e nome visualizzato. Usa <code class="text-mono">.input-minimal</code> per
-            coerenza con il resto della pagina.</p>
+          <p class="profile-block-lead">Email and display name. Use <code class="text-mono">.input-minimal</code> for
+            consistency with the rest of the page.</p>
           <form class="stack" action="#" method="get" onsubmit="return false;">
             <div class="field">
               <label class="label" for="profile-email">Email</label>
@@ -2974,7 +3078,7 @@ Downstage.lightbox.close();</code></pre>
             <div class="field">
               <label class="label" for="profile-locale">Language</label>
               <select id="profile-locale" class="select select-minimal">
-                <option>Italiano</option>
+                <option>Italian</option>
                 <option>English</option>
                 <option>Français</option>
               </select>
@@ -2988,21 +3092,24 @@ Downstage.lightbox.close();</code></pre>
 
         <div class="profile-block">
           <h3 class="profile-block-title">Password</h3>
-          <p class="profile-block-lead">Aggiorna la password corrente. In produzione verifica l’attuale lato server.</p>
+          <p class="profile-block-lead">Update your current password. In production, verify the current password on the
+            server.</p>
           <form class="stack" action="#" method="get" onsubmit="return false;">
             <div class="field">
               <label class="label" for="profile-current-password">Current password</label>
-              <input id="profile-current-password" class="input input-minimal" type="password" autocomplete="current-password">
+              <input id="profile-current-password" class="input input-minimal" type="password"
+                autocomplete="current-password">
             </div>
             <div class="field">
               <label class="label" for="profile-new-password">New password</label>
               <input id="profile-new-password" class="input input-minimal" type="password" autocomplete="new-password"
                 aria-describedby="profile-pw-hint">
-              <p id="profile-pw-hint" class="help">Almeno 12 caratteri; evita password già usate altrove.</p>
+              <p id="profile-pw-hint" class="help">At least 12 characters; avoid passwords reused elsewhere.</p>
             </div>
             <div class="field">
               <label class="label" for="profile-confirm-password">Confirm new password</label>
-              <input id="profile-confirm-password" class="input input-minimal" type="password" autocomplete="new-password">
+              <input id="profile-confirm-password" class="input input-minimal" type="password"
+                autocomplete="new-password">
             </div>
             <div class="cluster mt-2" style="justify-content: flex-end;">
               <button type="button" class="btn btn-secondary">Cancel</button>
@@ -3013,8 +3120,8 @@ Downstage.lightbox.close();</code></pre>
 
         <div class="profile-block">
           <h3 class="profile-block-title">Sessions</h3>
-          <p class="profile-block-lead">Revoca accessi su altri dispositivi dopo un cambio password o un accesso
-            sospetto.</p>
+          <p class="profile-block-lead">Revoke sessions on other devices after a password change or a suspicious
+            sign-in.</p>
           <button type="button" class="btn btn-secondary btn-sm">Sign out everywhere</button>
         </div>
       </div>
@@ -3022,7 +3129,7 @@ Downstage.lightbox.close();</code></pre>
 
     <!-- ============================== IMAGE FILTERS ============================== -->
     <section class="demo-section" id="filters">
-      <p class="demo-section-title">26 — Utilities</p>
+      <p class="demo-section-title">29 — Utilities</p>
       <h2>Image Filters</h2>
       <p class="text-soft">CSS filter classes for quick image treatment. Hover variants restore the original.</p>
 
@@ -3150,6 +3257,7 @@ Downstage.lightbox.close();</code></pre>
 
   <!-- ============================== JS ============================== -->
   <script src="downstage.js" defer></script>
+  <script src="demo/demo.js" defer></script>
 </body>
 
 </html>

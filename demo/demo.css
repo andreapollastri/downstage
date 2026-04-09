@@ -1,0 +1,134 @@
+/* Demo-specific styles for index.html (not part of downstage.css) */
+.demo-section {
+  padding-block: var(--space-12);
+  border-bottom: 1px solid var(--border);
+}
+
+.demo-section-title {
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: var(--space-2);
+}
+
+.demo-section h2 {
+  margin-bottom: var(--space-6);
+}
+
+/* Color swatches */
+.swatches {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: var(--space-3);
+}
+
+.swatch {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  font-size: var(--fs-xs);
+}
+
+.swatch-color {
+  height: 64px;
+}
+
+.swatch-meta {
+  padding: var(--space-2) var(--space-3);
+  background: var(--bg-elevated);
+  border-top: 1px solid var(--border);
+}
+
+.swatch-name {
+  color: var(--text);
+  font-weight: var(--fw-medium);
+}
+
+.swatch-hex {
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+/* Code snippet */
+.code-snippet {
+  background: var(--bg-sunken);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--space-4);
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  overflow-x: auto;
+  line-height: 1.6;
+  white-space: pre;
+}
+
+.code-snippet .c-tag {
+  color: var(--brand-primary);
+}
+
+.code-snippet .c-attr {
+  color: var(--brand-secondary);
+}
+
+.code-snippet .c-string {
+  color: var(--color-info);
+}
+
+.code-snippet .c-comment {
+  color: var(--text-subtle);
+  font-style: italic;
+}
+
+/* Grid demo */
+.grid-demo > * {
+  background: var(--bg-elevated);
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius);
+  padding: var(--space-4);
+  text-align: center;
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+/* Icon grid */
+.icon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: var(--space-2);
+}
+
+.icon-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-elevated);
+  transition: all var(--duration-fast) var(--ease);
+  cursor: default;
+}
+
+.icon-cell:hover {
+  border-color: var(--text);
+  transform: translateY(-1px);
+}
+
+.icon-cell .icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: var(--text);
+}
+
+.icon-cell-name {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-align: center;
+  word-break: break-word;
+  line-height: 1.3;
+}

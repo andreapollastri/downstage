@@ -477,6 +477,216 @@ blockquote {
   font-style: italic;
 }
 
+/* “H7” — no native element; use paragraph + class (e.g. rich-text editor) */
+.ds-h7 {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-snug);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* ============================================================================
+   HTML editor — toolbar + contenteditable (see downstage.js [data-html-editor])
+   ============================================================================ */
+
+.html-editor {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-elevated);
+  overflow: hidden;
+  position: relative;
+}
+
+.html-editor-mode-bar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-sunken);
+}
+
+.html-editor-mode-bar .switch {
+  flex-shrink: 0;
+}
+
+.html-editor-pane {
+  position: relative;
+}
+
+.html-editor-raw {
+  display: block;
+  width: 100%;
+  min-height: 12rem;
+  max-height: 24rem;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  resize: vertical;
+  font-size: var(--fs-sm);
+  line-height: var(--lh-snug);
+}
+
+.html-editor-raw:focus {
+  outline: none;
+  box-shadow: inset 0 0 0 1px var(--text-muted);
+}
+
+.html-editor.is-raw-mode .html-editor-content {
+  display: none;
+}
+
+.html-editor.is-raw-mode .html-editor-raw {
+  display: block;
+}
+
+.html-editor:not(.is-raw-mode) .html-editor-raw {
+  display: none !important;
+}
+
+.html-editor-toolbar--disabled {
+  pointer-events: none;
+  opacity: 0.48;
+}
+
+.html-editor-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-sunken);
+}
+
+.html-editor-toolbar-group {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  align-items: center;
+}
+
+.html-editor-toolbar-group + .html-editor-toolbar-group::before {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 1.25rem;
+  margin-inline: var(--space-2);
+  background: var(--border-strong);
+  align-self: center;
+}
+
+.html-editor-btn {
+  font: inherit;
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  padding: var(--space-2) var(--space-2);
+  min-width: 1.75rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-elevated);
+  color: var(--text);
+  line-height: 1.2;
+  text-align: center;
+  transition:
+    background-color var(--duration-fast) var(--ease),
+    border-color var(--duration-fast) var(--ease);
+}
+
+.html-editor-btn:hover {
+  border-color: var(--border-strong);
+  background: var(--bg);
+}
+
+.html-editor-btn:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 2px;
+}
+
+.html-editor-btn-u {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.html-editor-content {
+  min-height: 12rem;
+  max-height: 24rem;
+  overflow-y: auto;
+  padding: var(--space-4);
+  outline: none;
+  line-height: var(--lh-base);
+}
+
+.html-editor-content:focus {
+  box-shadow: inset 0 0 0 1px var(--text-muted);
+}
+
+.html-editor-content > * + * {
+  margin-top: var(--space-3);
+}
+
+.html-editor-content blockquote {
+  margin: 0;
+}
+
+/* Link dialog (nested in .html-editor) */
+.html-editor-link-modal {
+  z-index: calc(var(--z-modal) + 1);
+}
+
+.modal.html-editor-link-panel {
+  max-width: 460px;
+  position: relative;
+  padding: var(--space-5) var(--space-6) var(--space-6);
+}
+
+.modal.html-editor-link-panel .modal-title.html-editor-link-title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding-right: var(--space-10);
+  margin-bottom: var(--space-2);
+}
+
+.html-editor-link-lede {
+  margin: 0 0 var(--space-5) 0;
+  line-height: var(--lh-snug);
+  max-width: 42em;
+}
+
+.modal.html-editor-link-panel .modal-body.html-editor-link-fields {
+  margin-bottom: 0;
+}
+
+.modal.html-editor-link-panel .check {
+  margin-top: var(--space-1);
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+.modal.html-editor-link-panel .modal-footer {
+  margin-top: var(--space-6);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--border);
+}
+
+.html-editor-link-close {
+  position: absolute;
+  top: var(--space-5);
+  right: var(--space-5);
+  z-index: 1;
+  min-width: 2.25rem;
+  min-height: 2.25rem;
+  padding: 0;
+  font-size: 1.35rem;
+  line-height: 1;
+  border-radius: var(--radius);
+}
+
 /* ============================================================================
    6. LAYOUT — Container & Grid
    ============================================================================ */
@@ -1334,7 +1544,7 @@ a.btn-success:hover {
 }
 
 /* ============================================================================
-   14a. NAVBAR (top navigation con hamburger mobile)
+   14a. NAVBAR (top navigation with mobile hamburger)
    ----------------------------------------------------------------------------
    Reference markup:
 
@@ -4418,6 +4628,459 @@ a.shop-card-hit:hover .shop-card-title {
 }
 .img-sepia-hover:hover {
   filter: sepia(0);
+}
+
+/* ============================================================================
+   41. AUTH — sign in / sign up / recovery / 2FA (layout + form shell)
+   ============================================================================ */
+
+.auth-shell {
+  display: flex;
+  min-height: min(70vh, 720px);
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8) var(--space-4);
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 26rem;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  box-shadow: var(--shadow);
+}
+
+.auth-card-wide {
+  max-width: 32rem;
+}
+
+.auth-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-medium);
+  color: var(--text);
+}
+
+.auth-title {
+  font-size: var(--fs-xl);
+  font-weight: var(--fw-medium);
+  margin: 0 0 var(--space-2);
+  text-align: center;
+}
+
+.auth-subtitle {
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  text-align: center;
+  margin: 0 0 var(--space-6);
+  line-height: var(--lh-snug);
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.auth-form .field {
+  margin: 0;
+}
+
+.auth-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+
+.auth-footer {
+  margin-top: var(--space-6);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border);
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.auth-footer a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+.auth-footer a:hover {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+
+.auth-links-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  font-size: var(--fs-sm);
+}
+
+.auth-links-row a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+.auth-links-row a:hover {
+  text-decoration: underline;
+}
+
+.auth-otp {
+  display: flex;
+  gap: var(--space-2);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.auth-otp .input {
+  width: 2.75rem;
+  text-align: center;
+  font-size: var(--fs-lg);
+  font-variant-numeric: tabular-nums;
+  padding-inline: var(--space-2);
+}
+
+/* ============================================================================
+   42. COMBOBOX — autocomplete select (local or remote)
+   ============================================================================ */
+
+.combobox {
+  position: relative;
+  width: 100%;
+}
+
+.combobox-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.combobox-input-wrap .icon {
+  position: absolute;
+  left: var(--space-3);
+  width: 1.1rem;
+  height: 1.1rem;
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.combobox-input-wrap .icon + .combobox-input {
+  padding-left: var(--space-10);
+}
+
+.combobox-input {
+  width: 100%;
+  padding: var(--space-3) var(--space-4);
+  font-family: var(--font-sans);
+  font-size: var(--fs-base);
+  color: var(--text);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  outline: none;
+  transition:
+    border-color var(--duration-fast) var(--ease),
+    background-color var(--duration-fast) var(--ease);
+}
+
+.combobox-input:hover {
+  border-color: var(--border-strong);
+}
+
+.combobox-input:focus {
+  border-color: var(--text);
+}
+
+.combobox.is-open .combobox-input {
+  border-color: var(--text);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.combobox-list {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  z-index: calc(var(--z-modal) - 1);
+  max-height: 14rem;
+  overflow-y: auto;
+  margin: 0;
+  padding: var(--space-1) 0;
+  list-style: none;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-top: none;
+  border-radius: 0 0 var(--radius) var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.combobox-option {
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--fs-sm);
+  color: var(--text);
+  cursor: pointer;
+  outline: none;
+}
+
+.combobox-option:hover,
+.combobox-option[aria-selected="true"] {
+  background: var(--bg-hover);
+}
+
+.combobox-option.is-active {
+  background: var(--bg-sunken);
+  outline: 2px solid var(--border-focus);
+  outline-offset: -2px;
+}
+
+.combobox-empty {
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+
+.combobox-loading {
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+
+.field.has-error .combobox-input {
+  border-color: var(--color-danger);
+}
+
+/* Search variant: full-width with icon */
+.combobox--search .combobox-input {
+  padding-block: var(--space-3);
+}
+
+/* ============================================================================
+   43. SEARCH — standalone search field with autocomplete (uses .combobox)
+   ============================================================================ */
+
+.search-autocomplete {
+  width: 100%;
+  max-width: 26rem;
+}
+
+.search-autocomplete--wide {
+  max-width: none;
+}
+
+/* ============================================================================
+   44. KANBAN
+   ============================================================================ */
+
+.kanban-board {
+  display: flex;
+  gap: var(--space-4);
+  overflow-x: auto;
+  padding-bottom: var(--space-2);
+  scroll-snap-type: x mandatory;
+}
+
+.kanban-column {
+  flex: 0 0 min(18rem, 85vw);
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  max-height: min(70vh, 560px);
+  background: var(--bg-sunken);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.kanban-column-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  color: var(--text-soft);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.kanban-count {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  font-weight: var(--fw-regular);
+  font-variant-numeric: tabular-nums;
+}
+
+.kanban-column-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.kanban-card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--space-3) var(--space-4);
+  cursor: grab;
+  transition:
+    border-color var(--duration-fast) var(--ease),
+    box-shadow var(--duration-fast) var(--ease);
+}
+
+.kanban-card:active {
+  cursor: grabbing;
+}
+
+.kanban-card:hover {
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-sm);
+}
+
+.kanban-card.is-dragging {
+  opacity: 0.65;
+  box-shadow: var(--shadow);
+}
+
+.kanban-card-title {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  color: var(--text);
+  margin: 0 0 var(--space-1);
+}
+
+.kanban-card-meta {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+}
+
+.kanban-column.is-drop-target {
+  outline: 2px dashed var(--border-focus);
+  outline-offset: 2px;
+}
+
+.kanban-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-4);
+}
+
+.kanban-empty {
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  text-align: center;
+  padding: var(--space-6);
+}
+
+.kanban-loading {
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  padding: var(--space-4);
+}
+
+/* ============================================================================
+   45. DATA TABLE — toolbar + sortable + pagination
+   ============================================================================ */
+
+.data-table-wrap {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--bg-elevated);
+  overflow: hidden;
+}
+
+.data-table-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-4);
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-elevated);
+}
+
+.data-table-toolbar .input {
+  max-width: 16rem;
+}
+
+.data-table-meta {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+}
+
+.data-table-scroll {
+  overflow-x: auto;
+}
+
+.data-table-scroll .table {
+  margin: 0;
+}
+
+.data-table th.sortable {
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.data-table th.sortable:hover {
+  color: var(--text);
+}
+
+.data-table th .sort-indicator {
+  display: inline-block;
+  margin-left: var(--space-1);
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.data-table-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-top: 1px solid var(--border);
+  background: var(--bg-sunken);
+  font-size: var(--fs-sm);
+}
+
+.data-table-pagination {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.data-table-page-info {
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  min-width: 5rem;
+  text-align: center;
+}
+
+.data-table.is-loading {
+  opacity: 0.65;
+  pointer-events: none;
 }
 
 /* End of downstage.css */
