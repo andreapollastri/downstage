@@ -20,7 +20,7 @@
 
   /* ==========================================================================
      1. THEME SWITCHER
-     Persiste in localStorage. Bind automatico su [data-set-theme="light|dark|auto"].
+     Persists in localStorage. Auto-binds to [data-set-theme="light|dark|auto"].
      ========================================================================== */
 
   Downstage.theme = (function () {
@@ -40,7 +40,7 @@
       try {
         localStorage.setItem(KEY, theme);
       } catch (e) {}
-      // Aggiorna stato visivo dei bottoni
+      // Update visual state of buttons
       document.querySelectorAll("[data-set-theme]").forEach(function (btn) {
         const isActive = btn.getAttribute("data-set-theme") === theme;
         btn.classList.toggle("btn-primary", isActive);
@@ -61,7 +61,7 @@
 
   /* ==========================================================================
      2. NAVBAR — hamburger toggle
-     Aggiunge .is-open su .navbar. Chiude su click link, ESC, resize → desktop.
+     Adds .is-open on .navbar. Closes on link click, ESC, resize → desktop.
      ========================================================================== */
 
   Downstage.navbar = (function () {
@@ -80,21 +80,21 @@
         setOpen(!nav.classList.contains("is-open"));
       });
 
-      // Chiudi al click su un link
+      // Close on link click
       menu.querySelectorAll(".navbar-link").forEach(function (link) {
         link.addEventListener("click", function () {
           setOpen(false);
         });
       });
 
-      // Chiudi con ESC
+      // Close with ESC
       document.addEventListener("keydown", function (e) {
         if (e.key === "Escape" && nav.classList.contains("is-open")) {
           setOpen(false);
         }
       });
 
-      // Chiudi se torno a desktop
+      // Close when returning to desktop
       const mq = window.matchMedia("(min-width: 769px)");
       const onChange = function (e) {
         if (e.matches) setOpen(false);
@@ -112,11 +112,11 @@
 
   /* ==========================================================================
      3. TABS
-     Markup richiesto:
+     Required markup:
        <div class="tabs" data-tabs>
          <ul class="tabs-list" role="tablist">
-           <li><button class="tab" role="tab" data-tab="t1">Uno</button></li>
-           <li><button class="tab" role="tab" data-tab="t2">Due</button></li>
+           <li><button class="tab" role="tab" data-tab="t1">One</button></li>
+           <li><button class="tab" role="tab" data-tab="t2">Two</button></li>
          </ul>
          <div class="tab-panel" data-tab-panel="t1">...</div>
          <div class="tab-panel" data-tab-panel="t2">...</div>
@@ -148,7 +148,7 @@
           activate(t.getAttribute("data-tab"));
         });
 
-        // Frecce ←/→ per navigare tra i tab (a11y)
+        // Arrow keys ←/→ to navigate between tabs (a11y)
         t.addEventListener("keydown", function (e) {
           if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
           e.preventDefault();
@@ -163,7 +163,7 @@
         });
       });
 
-      // Attiva il primo (o quello già marcato come .active)
+      // Activate the first (or the one already marked as .active)
       const initial = root.querySelector("[data-tab].active") || tabs[0];
       activate(initial.getAttribute("data-tab"));
     }
@@ -177,15 +177,15 @@
 
   /* ==========================================================================
      4. ACCORDION
-     Markup richiesto:
-       <div class="accordion" data-accordion>  <!-- data-accordion="single" per esclusivo -->
+     Required markup:
+       <div class="accordion" data-accordion>  <!-- data-accordion="single" for exclusive -->
          <div class="accordion-item">
            <button class="accordion-header">
-             Titolo
+             Title
              <svg class="icon accordion-icon"><use href="downstage-icons.svg#plus"/></svg>
            </button>
            <div class="accordion-content">
-             <div class="accordion-body">contenuto</div>
+             <div class="accordion-body">content</div>
            </div>
          </div>
        </div>
@@ -232,12 +232,12 @@
 
   /* ==========================================================================
      5. LIGHTBOX
-     Markup minimo per attivare:
+     Minimal markup to activate:
        <div class="gallery" data-lightbox="my-set">
          <a href="big1.jpg" class="gallery-item"><img src="thumb1.jpg" alt=""></a>
          <a href="big2.jpg" class="gallery-item"><img src="thumb2.jpg" alt=""></a>
        </div>
-     Crea una sola istanza di .lightbox in fondo al body, riutilizzata.
+     Creates a single .lightbox instance at the end of body, reused.
      ========================================================================== */
 
   Downstage.lightbox = (function () {
@@ -311,7 +311,7 @@
       imgEl.src = item.src;
       imgEl.alt = item.alt || "";
       counterEl.textContent = currentIndex + 1 + " / " + currentSet.length;
-      // Mostra/nascondi frecce se c'è una sola immagine
+      // Show/hide arrows if there's only one image
       const hasMany = currentSet.length > 1;
       overlay.querySelector(".lightbox-prev").style.display = hasMany
         ? ""

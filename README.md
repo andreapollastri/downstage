@@ -14,7 +14,7 @@ integrated dark mode.
 your-project/
 ├── downstage.css            ← styles (required)
 ├── downstage.js             ← interactivity (optional)
-├── downstage-icons.svg      ← 80+ icon sprite
+├── downstage-icons.svg      ← 170+ icon sprite
 ├── fonts/                   ← Space Grotesk self-hosted
 └── index.html
 ```
@@ -78,7 +78,7 @@ Automatic theme switcher by adding buttons with `data-set-theme`:
 
 ## Icons
 
-SVG sprite with 80+ minimal stroke icons. They inherit `currentColor`
+SVG sprite with 170+ minimal stroke icons. They inherit `currentColor`
 and scale with font-size.
 
 ```html

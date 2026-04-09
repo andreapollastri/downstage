@@ -20,7 +20,7 @@
   font-display: swap;
 }
 
-/* Fallback statici per browser che non supportano le variabili */
+/* Static fallback for browsers that don't support variable fonts */
 @font-face {
   font-family: "Space Grotesk Static";
   src: url("./fonts/SpaceGrotesk-Light.woff2") format("woff2");
@@ -49,11 +49,11 @@
 /* ============================================================================
    2. DESIGN TOKENS
    ----------------------------------------------------------------------------
-   Tutto è una variabile. Cambia il tema cambiando le variabili.
+   Everything is a variable. Change the theme by changing the variables.
    ============================================================================ */
 
 :root {
-  /* --- Scala neutra (light) --- */
+  /* --- Neutral scale (light) --- */
   --neutral-50: #fffdf7;
   --neutral-100: #e8e6e1;
   --neutral-200: #d3d1cd;
@@ -66,12 +66,12 @@
   --neutral-900: #2a2826;
 
   /* --- Brand --- */
-  --brand-primary: #5a6b5d; /* salvia profondo */
+  --brand-primary: #5a6b5d; /* deep sage */
   --brand-primary-hover: #48574b;
-  --brand-secondary: #8a7a68; /* taupe / nocciola */
+  --brand-secondary: #8a7a68; /* taupe / hazelnut */
   --brand-secondary-hover: #6f6253;
 
-  /* --- Semantici --- */
+  /* --- Semantic --- */
   --color-success: #6b8266;
   --color-success-soft: #e8ede4;
   --color-danger: #a85a4f;
@@ -81,10 +81,10 @@
   --color-info: #5f7a8a;
   --color-info-soft: #e0e8ed;
 
-  /* --- Ruoli semantici (questi sono quelli che usi davvero nei componenti) --- */
+  /* --- Semantic roles (these are the ones you actually use in components) --- */
   --bg: var(--neutral-50);
-  --bg-elevated: #ffffff; /* card/modal sopra al bg */
-  --bg-sunken: var(--neutral-100); /* sezione più "incassata" */
+  --bg-elevated: #ffffff; /* card/modal above bg */
+  --bg-sunken: var(--neutral-100); /* recessed section */
   --bg-hover: var(--neutral-100);
 
   --border: var(--neutral-200);
@@ -100,7 +100,7 @@
   --link: var(--neutral-900);
   --link-hover: var(--brand-primary);
 
-  /* --- Tipografia --- */
+  /* --- Typography --- */
   --font-sans:
     "Space Grotesk", "Space Grotesk Static", -apple-system, BlinkMacSystemFont,
     "Segoe UI", system-ui, sans-serif;
@@ -127,7 +127,7 @@
   --fw-medium: 500;
   --fw-bold: 700;
 
-  /* --- Spazi (scala in rem, base 4px) --- */
+  /* --- Spacing (rem scale, base 4px) --- */
   --space-1: 0.25rem;
   --space-2: 0.5rem;
   --space-3: 0.75rem;
@@ -147,7 +147,7 @@
   --radius-lg: 10px;
   --radius-full: 9999px;
 
-  /* --- Ombre (usate molto poco — stile nordico) --- */
+  /* --- Shadows (used sparingly — nordic style) --- */
   --shadow-sm: 0 1px 2px rgba(42, 40, 38, 0.04);
   --shadow: 0 2px 8px rgba(42, 40, 38, 0.06);
   --shadow-lg: 0 8px 32px rgba(42, 40, 38, 0.08);
@@ -175,8 +175,8 @@
 /* ============================================================================
    3. DARK THEME
    ----------------------------------------------------------------------------
-   Si attiva con [data-theme="dark"] sull'<html> oppure con prefers-color-scheme
-   se [data-theme="auto"] (o nessun attributo).
+   Activated with [data-theme="dark"] on <html> or via prefers-color-scheme
+   when [data-theme="auto"] (or no attribute).
    ============================================================================ */
 
 [data-theme="dark"] {
@@ -228,7 +228,7 @@
   --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
 }
 
-/* Auto: rispetta il sistema operativo */
+/* Auto: follows the operating system preference */
 @media (prefers-color-scheme: dark) {
   [data-theme="auto"] {
     --neutral-50: #1a1917;
@@ -305,13 +305,13 @@ body {
     color var(--duration) var(--ease);
 }
 
-/* Selezione testo */
+/* Text selection */
 ::selection {
   background: var(--neutral-900);
   color: var(--neutral-50);
 }
 
-/* Reset elementi base */
+/* Base element reset */
 h1,
 h2,
 h3,
@@ -356,7 +356,7 @@ a {
 }
 
 /* ============================================================================
-   5. TIPOGRAFIA
+   5. TYPOGRAPHY
    ============================================================================ */
 
 h1,
@@ -494,7 +494,7 @@ blockquote {
   max-width: var(--container-wide);
 }
 
-/* Stack — utility per impilare verticalmente con gap costante */
+/* Stack — utility for vertical stacking with consistent gap */
 .stack {
   display: flex;
   flex-direction: column;
@@ -511,7 +511,7 @@ blockquote {
   gap: var(--space-8);
 }
 
-/* Cluster — flex orizzontale che si avvolge */
+/* Cluster — horizontal flex that wraps */
 .cluster {
   display: flex;
   flex-wrap: wrap;
@@ -519,7 +519,7 @@ blockquote {
   align-items: center;
 }
 
-/* Grid — sistema semplice basato su CSS Grid auto-fit */
+/* Grid — simple system based on CSS Grid */
 .grid {
   display: grid;
   gap: var(--space-6);
@@ -541,14 +541,14 @@ blockquote {
   grid-template-columns: repeat(4, 1fr);
 }
 
-/* Auto-fit: si adatta da solo */
+/* Auto-fit: adapts automatically */
 .grid-auto {
   display: grid;
   gap: var(--space-6);
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 }
 
-/* Span helpers per .grid (12 col) */
+/* Span helpers for .grid (12 col) */
 .col-1 {
   grid-column: span 1;
 }
@@ -597,7 +597,7 @@ blockquote {
   }
 }
 
-/* Sezioni */
+/* Sections */
 .section {
   padding-block: var(--space-16);
 }
@@ -611,8 +611,8 @@ blockquote {
 /* ============================================================================
    7. BUTTONS
    ----------------------------------------------------------------------------
-   Filosofia: bottoni con bordo sottile. Lo stato "primary" è semplicemente
-   l'inversione (sfondo scuro, testo chiaro), come nel sito di riferimento.
+   Philosophy: buttons with thin border. The "primary" state is simply
+   an inversion (dark background, light text), as in the reference site.
    ============================================================================ */
 
 .btn {
@@ -630,7 +630,7 @@ blockquote {
   border: 1px solid var(--border-strong);
   border-radius: var(--radius);
   cursor: pointer;
-  text-decoration: none !important; /* difende da a:hover */
+  text-decoration: none !important; /* protects from a:hover */
   user-select: none;
   white-space: nowrap;
   transition:
@@ -641,7 +641,7 @@ blockquote {
 }
 a.btn {
   color: var(--text);
-} /* override del selettore a {} */
+} /* override for the a {} selector */
 a.btn:hover {
   color: var(--text);
   text-decoration: none;
@@ -664,11 +664,11 @@ a.btn:hover {
   pointer-events: none;
 }
 
-/* Primary = inversione (come Whilst).
-   I selettori sotto sono volutamente "blindati" (anche con !important sul colore)
-   perché il selettore globale `a:hover {}` ha specificità (0,1,1) e
-   sovrascriverebbe `.btn-primary` (0,1,0) facendo diventare il testo verde
-   salvia su sfondo nero = contrasto pessimo. */
+/* Primary = inversion (like Whilst).
+   The selectors below are intentionally "armored" (including !important on color)
+   because the global `a:hover {}` selector has specificity (0,1,1) and
+   would override `.btn-primary` (0,1,0), turning the text sage green
+   on a black background = terrible contrast. */
 .btn-primary,
 a.btn-primary,
 a.btn-primary:hover,
@@ -690,13 +690,13 @@ a.btn-primary:hover {
   border-color: var(--neutral-700);
 }
 
-/* Secondary = bordo, niente fill */
+/* Secondary = border, no fill */
 .btn-secondary {
   background: transparent;
   border-color: var(--border-strong);
 }
 
-/* Ghost = solo testo */
+/* Ghost = text only */
 .btn-ghost {
   background: transparent;
   border-color: transparent;
@@ -706,7 +706,7 @@ a.btn-primary:hover {
   border-color: transparent;
 }
 
-/* Danger = bordo + testo rossi (vedi "Delete my account") */
+/* Danger = red border + text (see "Delete my account") */
 .btn-danger {
   background: transparent;
   color: var(--color-danger);
@@ -754,7 +754,7 @@ a.btn-success:hover {
   border-color: #556b51;
 }
 
-/* Misure */
+/* Sizes */
 .btn-sm {
   padding: var(--space-2) var(--space-4);
   font-size: var(--fs-xs);
@@ -768,7 +768,7 @@ a.btn-success:hover {
   width: 100%;
 }
 
-/* Gruppi di bottoni (stile "tab" come in Whilst) */
+/* Button groups (tab-style like in Whilst) */
 .btn-group {
   display: inline-flex;
   gap: var(--space-3);
@@ -846,7 +846,7 @@ a.btn-success:hover {
   color: var(--color-danger);
 }
 
-/* Stato di errore */
+/* Error state */
 .field.has-error .input,
 .field.has-error .textarea,
 .field.has-error .select {
@@ -1150,7 +1150,7 @@ a.btn-success:hover {
 /* ============================================================================
    14a. NAVBAR (top navigation con hamburger mobile)
    ----------------------------------------------------------------------------
-   Markup di riferimento:
+   Reference markup:
 
    <nav class="navbar">
      <div class="navbar-inner">
@@ -1170,7 +1170,7 @@ a.btn-success:hover {
      </div>
    </nav>
 
-   Il toggle si attiva con JS aggiungendo .is-open al .navbar.
+   The toggle is activated via JS by adding .is-open to .navbar.
    ============================================================================ */
 
 .navbar {
@@ -1248,7 +1248,7 @@ a.btn-success:hover {
   border-left: 1px solid var(--border);
 }
 
-/* Hamburger toggle — visibile solo su mobile */
+/* Hamburger toggle — visible only on mobile */
 .navbar-toggle {
   display: none;
   width: 2.25rem;
@@ -1280,7 +1280,7 @@ a.btn-success:hover {
   transform-origin: center;
 }
 
-/* Stato aperto: hamburger → X */
+/* Open state: hamburger → X */
 .navbar.is-open .navbar-toggle span:nth-child(1) {
   transform: translateY(6.5px) rotate(45deg);
 }
@@ -1308,7 +1308,7 @@ a.btn-success:hover {
     background: var(--bg);
     border-bottom: 1px solid var(--border);
     padding: var(--space-2) var(--space-6) var(--space-6);
-    /* Animazione apertura */
+    /* Open animation */
     max-height: 0;
     overflow: hidden;
     opacity: 0;
@@ -1358,7 +1358,7 @@ a.btn-success:hover {
 }
 
 /* ============================================================================
-   14b. NAVIGATION (sidebar verticale stile Whilst settings)
+   14b. NAVIGATION (vertical sidebar, Whilst settings style)
    ============================================================================ */
 
 .nav-vertical {
@@ -1460,7 +1460,7 @@ a.btn-success:hover {
   text-align: right;
 }
 
-/* Margin top utilities (le più usate) */
+/* Margin top utilities (most commonly used) */
 .mt-0 {
   margin-top: 0;
 }
@@ -1528,8 +1528,8 @@ a.btn-success:hover {
 /* ============================================================================
    17. ICON SYSTEM
    ----------------------------------------------------------------------------
-   Le icone sono SVG inline o caricate via <use href="downstage-icons.svg#name"/>.
-   Tutte usano `currentColor` quindi ereditano il colore dal testo.
+   Icons are inline SVGs or loaded via <use href="downstage-icons.svg#name"/>.
+   All use `currentColor` so they inherit the text color.
    ============================================================================ */
 
 .icon {
@@ -1673,7 +1673,7 @@ a.btn-success:hover {
   transition: max-height var(--duration-slow) var(--ease);
 }
 .accordion-item.is-open .accordion-content {
-  max-height: 1000px; /* limite alto, animazione su altezza reale */
+  max-height: 1000px; /* high limit, animation on real height */
 }
 .accordion-body {
   padding: 0 0 var(--space-5);
@@ -1721,7 +1721,7 @@ a.btn-success:hover {
 /* ============================================================================
    21. IMAGE FRAME
    ----------------------------------------------------------------------------
-   Wrapper per immagini con bordo sottile, opzionale didascalia e ratio fisso.
+   Wrapper for images with thin border, optional caption and fixed ratio.
    ============================================================================ */
 
 .image-frame {
@@ -2061,7 +2061,7 @@ a.btn-success:hover {
 }
 
 /* ============================================================================
-   26. KBD (tasti della tastiera)
+   26. KBD (keyboard keys)
    ============================================================================ */
 
 kbd {

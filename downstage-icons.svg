@@ -430,13 +430,6 @@
     <path d="M3 4l18 16"/>
   </symbol>
 
-  <symbol id="guitar" viewBox="0 0 24 24">
-    <ellipse cx="9.2" cy="14.6" rx="4.2" ry="5"/>
-    <circle cx="9.2" cy="14.6" r="1.1" fill="currentColor" stroke="none"/>
-    <path d="M12.3 11.6 17 6.9 19.1 9 14.4 13.7"/>
-    <path d="M17.8 6.2V4.5M19.5 7.9H21"/>
-  </symbol>
-
   <symbol id="space-invader" viewBox="0 0 24 24">
     <path d="M8 8h8v2h2v2h2v4h-2v2h-2v2h-2v-2h-4v2H8v-2H6v-2H4v-4h2v-2h2z"/>
     <path d="M9 5v2M15 5v2M8 20v-2M16 20v-2"/>
@@ -445,11 +438,14 @@
   </symbol>
 
   <symbol id="linux" viewBox="0 0 24 24">
-    <path d="M12 3.5c1.8 0 3.2 1.4 3.2 3.2v2.1c1.6 1 2.6 3 2.6 5.6 0 4.2-2.4 7-5.8 7s-5.8-2.8-5.8-7c0-2.6 1-4.6 2.6-5.6V6.7c0-1.8 1.4-3.2 3.2-3.2z"/>
-    <ellipse cx="12" cy="15.4" rx="2.3" ry="3.2"/>
-    <circle cx="10.4" cy="11.4" r=".7" fill="currentColor" stroke="none"/>
-    <circle cx="13.6" cy="11.4" r=".7" fill="currentColor" stroke="none"/>
-    <path d="M11.2 12.8h1.6l-.8.8z" fill="currentColor" stroke="none"/>
+    <circle cx="12" cy="7" r="3.5"/>
+    <ellipse cx="12" cy="14.5" rx="5" ry="6.5"/>
+    <ellipse cx="12" cy="15" rx="3" ry="4.2"/>
+    <circle cx="10.5" cy="6.5" r=".6" fill="currentColor" stroke="none"/>
+    <circle cx="13.5" cy="6.5" r=".6" fill="currentColor" stroke="none"/>
+    <path d="M11 8l1 1.2 1-1.2"/>
+    <path d="M9.5 20.5L8 22h3"/>
+    <path d="M14.5 20.5L16 22h-3"/>
   </symbol>
 
   <symbol id="apple" viewBox="0 0 24 24">
@@ -892,33 +888,6 @@
     <path d="M3.5 9c4 2.7 13 2.7 17 0M12 3a14 14 0 0 0 0 18"/>
   </symbol>
 
-  <symbol id="racket" viewBox="0 0 24 24">
-    <ellipse cx="9.4" cy="8.8" rx="4.6" ry="5.8" transform="rotate(-38 9.4 8.8)"/>
-    <path d="M12.8 12.2 20.4 19.8"/>
-    <path d="M7.2 6.8 11.4 11M9 5 13.2 9.2"/>
-  </symbol>
-
-  <symbol id="car" viewBox="0 0 24 24">
-    <path d="M4 15.5h16"/>
-    <path d="M5 15.5 6.8 10h10.4L19 15.5"/>
-    <path d="M8.2 10 9.8 7.8h4.4L15.8 10"/>
-    <circle cx="7.5" cy="15.5" r="1.5"/>
-    <circle cx="16.5" cy="15.5" r="1.5"/>
-  </symbol>
-
-  <symbol id="wizard-wand" viewBox="0 0 24 24">
-    <path d="M4 20 14 10"/>
-    <path d="M15.5 4.5v3M14 6h3"/>
-    <path d="M13.8 4.3 16.2 6.7M16.2 4.3 13.8 6.7"/>
-  </symbol>
-
-  <symbol id="wizard" viewBox="0 0 24 24">
-    <path d="M12 3 6.5 11h11L12 3z"/>
-    <path d="M8 11h8"/>
-    <path d="M9 13.5c0 2.8 1.4 5.1 3 7 1.6-1.9 3-4.2 3-7"/>
-    <path d="M8 21c1.2-.8 2.6-1.2 4-1.2s2.8.4 4 1.2"/>
-  </symbol>
-
   <symbol id="fork-knife" viewBox="0 0 24 24">
     <path d="M7 3v6"/>
     <path d="M5.5 3v3.5M7 3v3.5M8.5 3v3.5"/>
@@ -927,13 +896,6 @@
     <path d="M16.5 3c1.7 1.8 2.5 4.1 2.5 6.8s-.8 5-2.5 6.8"/>
   </symbol>
 
-  <symbol id="megaphone" viewBox="0 0 24 24">
-    <path d="M4 10.5v3l8 3.5V7z"/>
-    <path d="M12 8h3.5a4 4 0 0 1 0 8H12"/>
-    <path d="M6.5 14.5V18"/>
-    <path d="M18.5 9 21 7.8M18.5 15 21 16.2M19 12h2"/>
-  </symbol>
-  
   <symbol id="microphone" viewBox="0 0 24 24">
     <use href="#mic"/>
   </symbol>
@@ -1089,25 +1051,49 @@
     <path d="M7 20v-4h2v4"/>
   </symbol>
 
-  <!-- Italian aliases -->
-  <symbol id="auto" viewBox="0 0 24 24"><use href="#car"/></symbol>
-  <symbol id="bacchetta-wizard" viewBox="0 0 24 24"><use href="#wizard-wand"/></symbol>
-  <symbol id="microfono" viewBox="0 0 24 24"><use href="#microphone"/></symbol>
-  <symbol id="donna" viewBox="0 0 24 24"><use href="#woman"/></symbol>
-  <symbol id="uomo" viewBox="0 0 24 24"><use href="#man"/></symbol>
-  <symbol id="bambino" viewBox="0 0 24 24"><use href="#child"/></symbol>
-  <symbol id="zampa" viewBox="0 0 24 24"><use href="#paw"/></symbol>
-  <symbol id="impronta-digitale" viewBox="0 0 24 24"><use href="#fingerprint"/></symbol>
-  <symbol id="fiamma" viewBox="0 0 24 24"><use href="#fire"/></symbol>
-  <symbol id="soldi" viewBox="0 0 24 24"><use href="#money"/></symbol>
-  <symbol id="monete" viewBox="0 0 24 24"><use href="#coins"/></symbol>
-  <symbol id="portafoglio" viewBox="0 0 24 24"><use href="#wallet"/></symbol>
-  <symbol id="barca" viewBox="0 0 24 24"><use href="#boat"/></symbol>
-  <symbol id="finestre" viewBox="0 0 24 24"><use href="#windows"/></symbol>
-  <symbol id="porta" viewBox="0 0 24 24"><use href="#door"/></symbol>
-  <symbol id="parcheggio" viewBox="0 0 24 24"><use href="#parking"/></symbol>
-  <symbol id="semaforo" viewBox="0 0 24 24"><use href="#traffic-light"/></symbol>
-  <symbol id="casa-palazzo" viewBox="0 0 24 24"><use href="#home-building"/></symbol>
-  <symbol id="rotella" viewBox="0 0 24 24"><use href="#settings"/></symbol>
+  <symbol id="flower" viewBox="0 0 24 24">
+    <circle cx="12" cy="5.5" r="2.5"/>
+    <circle cx="15.3" cy="8" r="2.5"/>
+    <circle cx="14" cy="12" r="2.5"/>
+    <circle cx="10" cy="12" r="2.5"/>
+    <circle cx="8.7" cy="8" r="2.5"/>
+    <circle cx="12" cy="9" r="1.5" fill="currentColor" stroke="none"/>
+    <path d="M12 14v7"/>
+    <path d="M12 18l-2.5 2M12 18l2.5 2"/>
+  </symbol>
+
+  <symbol id="popcorn" viewBox="0 0 24 24">
+    <path d="M7.5 10 9 21h6l1.5-11"/>
+    <path d="M7 10h10"/>
+    <circle cx="9" cy="7.5" r="2.2"/>
+    <circle cx="12" cy="5.8" r="2.2"/>
+    <circle cx="15" cy="7.5" r="2.2"/>
+  </symbol>
+
+  <symbol id="cocktail" viewBox="0 0 24 24">
+    <path d="M6 4h12l-6 9z"/>
+    <path d="M12 13v7"/>
+    <path d="M8 20h8"/>
+  </symbol>
+
+  <symbol id="airplane" viewBox="0 0 24 24">
+    <path d="M11 10V4a1 1 0 0 1 2 0v6l8 4v1l-8-2v5l2.5 1.5v1L12 19l-3.5 1.5v-1L11 18v-5l-8 2v-1z"/>
+  </symbol>
+
+  <symbol id="moto" viewBox="0 0 24 24">
+    <circle cx="5.5" cy="16" r="3"/>
+    <circle cx="18.5" cy="16" r="3"/>
+    <path d="M8.5 16 12 9h3.5L18.5 13"/>
+    <path d="M12 9l-1-3h3"/>
+    <path d="M9 14h7"/>
+  </symbol>
+
+  <symbol id="car" viewBox="0 0 24 24">
+    <path d="M6 12l2-5h8l2 5"/>
+    <path d="M3 12h18v5H3z"/>
+    <circle cx="7.5" cy="17" r="2"/>
+    <circle cx="16.5" cy="17" r="2"/>
+  </symbol>
+
 
 </svg>
