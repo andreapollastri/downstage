@@ -11,6 +11,7 @@
      - Tabs                  (.tabs)
      - Accordion             (.accordion)
      - Lightbox / Gallery    (.gallery [data-lightbox])
+     - File drop zone        ([data-upload-drop])
    ============================================================================ */
 
 (function (window, document) {
@@ -479,6 +480,9 @@
           '<span class="video-time">0:00</span>' +
           '<button class="video-btn video-mute-btn" aria-label="Mute">' +
           '<svg class="icon"><use href="downstage-icons.svg#volume"/></svg>' +
+          "</button>" +
+          '<button type="button" class="video-btn video-fullscreen-btn" aria-label="Enter fullscreen">' +
+          '<svg class="icon"><use href="downstage-icons.svg#fullscreen"/></svg>' +
           "</button>";
         root.appendChild(controls);
       }
@@ -497,6 +501,7 @@
       var progressBar = root.querySelector(".video-progress-bar");
       var timeEl = root.querySelector(".video-time");
       var muteBtn = root.querySelector(".video-mute-btn");
+      var fullscreenBtn = root.querySelector(".video-fullscreen-btn");
 
       function fmt(s) {
         var m = Math.floor(s / 60);
@@ -549,6 +554,57 @@
           '"/></svg>';
         muteBtn.style.opacity = video.muted ? "0.4" : "1";
       });
+
+      function getFullscreenElement() {
+        return (
+          document.fullscreenElement ||
+          document.webkitFullscreenElement ||
+          document.msFullscreenElement
+        );
+      }
+
+      function requestFs(el) {
+        if (el.requestFullscreen) return el.requestFullscreen();
+        if (el.webkitRequestFullscreen) return el.webkitRequestFullscreen();
+        if (el.msRequestFullscreen) return el.msRequestFullscreen();
+        return Promise.reject();
+      }
+
+      function exitFs() {
+        if (document.exitFullscreen) return document.exitFullscreen();
+        if (document.webkitExitFullscreen) return document.webkitExitFullscreen();
+        if (document.msExitFullscreen) return document.msExitFullscreen();
+        return Promise.reject();
+      }
+
+      function updateFullscreenBtn() {
+        if (!fullscreenBtn) return;
+        var fs = getFullscreenElement() === root;
+        fullscreenBtn.setAttribute(
+          "aria-label",
+          fs ? "Exit fullscreen" : "Enter fullscreen"
+        );
+        fullscreenBtn.innerHTML =
+          '<svg class="icon"><use href="downstage-icons.svg#' +
+          (fs ? "fullscreen-exit" : "fullscreen") +
+          '"/></svg>';
+      }
+
+      if (fullscreenBtn) {
+        fullscreenBtn.addEventListener("click", function (e) {
+          e.stopPropagation();
+          if (getFullscreenElement() === root) {
+            exitFs().catch(function () {});
+          } else {
+            requestFs(root).catch(function () {});
+          }
+        });
+
+        document.addEventListener("fullscreenchange", updateFullscreenBtn);
+        document.addEventListener("webkitfullscreenchange", updateFullscreenBtn);
+        document.addEventListener("MSFullscreenChange", updateFullscreenBtn);
+        updateFullscreenBtn();
+      }
 
       video.removeAttribute("controls");
     }
@@ -649,6 +705,106 @@
   })();
 
   /* ==========================================================================
+     9. FILE UPLOAD — drag & drop + list
+     Markup: [data-upload-drop] > input[type=file].sr-only + .upload-drop-zone + ul.upload-drop-list
+     ========================================================================== */
+
+  Downstage.uploadDrop = (function () {
+    function setup(root) {
+      var input = root.querySelector('input[type="file"]');
+      var zone = root.querySelector(".upload-drop-zone");
+      var list = root.querySelector(".upload-drop-list");
+      if (!input || !zone) return;
+
+      var dragDepth = 0;
+
+      function renderNames() {
+        if (!list) return;
+        list.innerHTML = "";
+        if (!input.files || !input.files.length) {
+          list.hidden = true;
+          return;
+        }
+        list.hidden = false;
+        Array.from(input.files).forEach(function (f) {
+          var li = document.createElement("li");
+          li.textContent = f.name;
+          list.appendChild(li);
+        });
+      }
+
+      function mergeFiles(fileList) {
+        if (!fileList || !fileList.length) return;
+        var dt = new DataTransfer();
+        if (input.multiple && input.files && input.files.length) {
+          Array.from(input.files).forEach(function (f) {
+            dt.items.add(f);
+          });
+        }
+        Array.from(fileList).forEach(function (f) {
+          dt.items.add(f);
+        });
+        input.files = dt.files;
+        renderNames();
+      }
+
+      zone.addEventListener("dragenter", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        dragDepth++;
+        zone.classList.add("is-dragover");
+      });
+
+      zone.addEventListener("dragleave", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        dragDepth--;
+        if (dragDepth <= 0) {
+          dragDepth = 0;
+          zone.classList.remove("is-dragover");
+        }
+      });
+
+      zone.addEventListener("dragover", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      });
+
+      zone.addEventListener("drop", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        dragDepth = 0;
+        zone.classList.remove("is-dragover");
+        if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files.length) {
+          mergeFiles(e.dataTransfer.files);
+        }
+      });
+
+      zone.addEventListener("click", function (e) {
+        if (e.target.closest && e.target.closest('label[for="' + input.id + '"]')) {
+          return;
+        }
+        input.click();
+      });
+
+      zone.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          input.click();
+        }
+      });
+
+      input.addEventListener("change", renderNames);
+    }
+
+    function init() {
+      document.querySelectorAll("[data-upload-drop]").forEach(setup);
+    }
+
+    return { init: init };
+  })();
+
+  /* ==========================================================================
      AUTO-INIT
      ========================================================================== */
 
@@ -666,6 +822,7 @@
     Downstage.slider.init();
     Downstage.videoPlayer.init();
     Downstage.audioPlayer.init();
+    Downstage.uploadDrop.init();
   });
 
   window.Downstage = Downstage;

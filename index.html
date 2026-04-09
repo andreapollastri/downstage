@@ -152,7 +152,7 @@
   <div hidden>
     <!--
       In production, external use is recommended:
-      <svg class="icon"><use href="downstage-icons.svg#rocket"/></svg>
+      <svg class="icon"><use href="downstage-icons.svg#hash"/></svg>
       In local file:// mode some browsers block external <use href>,
       so we load the sprite via <object> below.
     -->
@@ -164,7 +164,7 @@
     <div class="navbar-inner">
       <a class="navbar-brand" href="#">
         <svg class="icon" width="20" height="20">
-          <use href="downstage-icons.svg#rocket" />
+          <use href="downstage-icons.svg#hash" />
         </svg>
         downstage<span class="text-muted">.css</span>
       </a>
@@ -225,8 +225,7 @@
         </a>
       </div>
 
-      <!-- Breadcrumb as immediate demo -->
-      <nav aria-label="Breadcrumb" class="mt-12">
+      <nav aria-label="Breadcrumb" class="mt-16">
         <ol class="breadcrumb">
           <li><a href="#"><svg class="icon">
                 <use href="downstage-icons.svg#home" />
@@ -256,7 +255,8 @@
         <div class="col-6">
           <h4>2. Set the theme</h4>
           <p class="text-soft mt-2 text-sm">Add <code>data-theme</code> to <code>&lt;html&gt;</code>. Values:
-            <code>light</code>, <code>dark</code>, <code>auto</code>.</p>
+            <code>light</code>, <code>dark</code>, <code>auto</code>.
+          </p>
           <pre
             class="code-snippet mt-4"><span class="c-tag">&lt;html</span> <span class="c-attr">data-theme</span>=<span class="c-string">"auto"</span><span class="c-tag">&gt;</span></pre>
         </div>
@@ -460,229 +460,651 @@
       <h4 class="mt-8 mb-4">All icons</h4>
       <div class="icon-grid">
         <!-- Navigation & arrows -->
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#arrow-right"/></svg><span class="icon-cell-name">arrow-right</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#arrow-left"/></svg><span class="icon-cell-name">arrow-left</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#arrow-up"/></svg><span class="icon-cell-name">arrow-up</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#arrow-down"/></svg><span class="icon-cell-name">arrow-down</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#arrow-up-right"/></svg><span class="icon-cell-name">arrow-up-right</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#chevron-right"/></svg><span class="icon-cell-name">chevron-right</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#chevron-left"/></svg><span class="icon-cell-name">chevron-left</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#chevron-up"/></svg><span class="icon-cell-name">chevron-up</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#chevron-down"/></svg><span class="icon-cell-name">chevron-down</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#external-link"/></svg><span class="icon-cell-name">external-link</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#arrow-right" />
+          </svg><span class="icon-cell-name">arrow-right</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#arrow-left" />
+          </svg><span class="icon-cell-name">arrow-left</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#arrow-up" />
+          </svg><span class="icon-cell-name">arrow-up</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#arrow-down" />
+          </svg><span class="icon-cell-name">arrow-down</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#arrow-up-right" />
+          </svg><span class="icon-cell-name">arrow-up-right</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#chevron-right" />
+          </svg><span class="icon-cell-name">chevron-right</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#chevron-left" />
+          </svg><span class="icon-cell-name">chevron-left</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#chevron-up" />
+          </svg><span class="icon-cell-name">chevron-up</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#chevron-down" />
+          </svg><span class="icon-cell-name">chevron-down</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#external-link" />
+          </svg><span class="icon-cell-name">external-link</span></div>
         <!-- Actions -->
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#check"/></svg><span class="icon-cell-name">check</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#check-circle"/></svg><span class="icon-cell-name">check-circle</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#x"/></svg><span class="icon-cell-name">x</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#x-circle"/></svg><span class="icon-cell-name">x-circle</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#plus"/></svg><span class="icon-cell-name">plus</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#plus-circle"/></svg><span class="icon-cell-name">plus-circle</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#minus"/></svg><span class="icon-cell-name">minus</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#circle"/></svg><span class="icon-cell-name">circle</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#circle-dot"/></svg><span class="icon-cell-name">circle-dot</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#edit"/></svg><span class="icon-cell-name">edit</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#pencil"/></svg><span class="icon-cell-name">pencil</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#trash"/></svg><span class="icon-cell-name">trash</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#copy"/></svg><span class="icon-cell-name">copy</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#save"/></svg><span class="icon-cell-name">save</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#download"/></svg><span class="icon-cell-name">download</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#upload"/></svg><span class="icon-cell-name">upload</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#refresh"/></svg><span class="icon-cell-name">refresh</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#search"/></svg><span class="icon-cell-name">search</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#filter"/></svg><span class="icon-cell-name">filter</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#settings"/></svg><span class="icon-cell-name">settings</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#check" />
+          </svg><span class="icon-cell-name">check</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#check-circle" />
+          </svg><span class="icon-cell-name">check-circle</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#x" />
+          </svg><span class="icon-cell-name">x</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#x-circle" />
+          </svg><span class="icon-cell-name">x-circle</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#plus" />
+          </svg><span class="icon-cell-name">plus</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#plus-circle" />
+          </svg><span class="icon-cell-name">plus-circle</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#minus" />
+          </svg><span class="icon-cell-name">minus</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#circle" />
+          </svg><span class="icon-cell-name">circle</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#circle-dot" />
+          </svg><span class="icon-cell-name">circle-dot</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#edit" />
+          </svg><span class="icon-cell-name">edit</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#pencil" />
+          </svg><span class="icon-cell-name">pencil</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#trash" />
+          </svg><span class="icon-cell-name">trash</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#copy" />
+          </svg><span class="icon-cell-name">copy</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#save" />
+          </svg><span class="icon-cell-name">save</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#download" />
+          </svg><span class="icon-cell-name">download</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#upload" />
+          </svg><span class="icon-cell-name">upload</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#refresh" />
+          </svg><span class="icon-cell-name">refresh</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#search" />
+          </svg><span class="icon-cell-name">search</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#filter" />
+          </svg><span class="icon-cell-name">filter</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#settings" />
+          </svg><span class="icon-cell-name">settings</span></div>
         <!-- Files & media assets -->
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#file"/></svg><span class="icon-cell-name">file</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#file-text"/></svg><span class="icon-cell-name">file-text</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#file-pdf"/></svg><span class="icon-cell-name">file-pdf</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#file-image"/></svg><span class="icon-cell-name">file-image</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#file-code"/></svg><span class="icon-cell-name">file-code</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#folder"/></svg><span class="icon-cell-name">folder</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#open-folder"/></svg><span class="icon-cell-name">open-folder</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#image"/></svg><span class="icon-cell-name">image</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#link"/></svg><span class="icon-cell-name">link</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#file" />
+          </svg><span class="icon-cell-name">file</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#file-text" />
+          </svg><span class="icon-cell-name">file-text</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#file-pdf" />
+          </svg><span class="icon-cell-name">file-pdf</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#file-image" />
+          </svg><span class="icon-cell-name">file-image</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#file-code" />
+          </svg><span class="icon-cell-name">file-code</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#folder" />
+          </svg><span class="icon-cell-name">folder</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#open-folder" />
+          </svg><span class="icon-cell-name">open-folder</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#image" />
+          </svg><span class="icon-cell-name">image</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#link" />
+          </svg><span class="icon-cell-name">link</span></div>
         <!-- Communication -->
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#mail"/></svg><span class="icon-cell-name">mail</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#bell"/></svg><span class="icon-cell-name">bell</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#message"/></svg><span class="icon-cell-name">message</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#phone"/></svg><span class="icon-cell-name">phone</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#paperclip"/></svg><span class="icon-cell-name">paperclip</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#send"/></svg><span class="icon-cell-name">send</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#mail" />
+          </svg><span class="icon-cell-name">mail</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#bell" />
+          </svg><span class="icon-cell-name">bell</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#message" />
+          </svg><span class="icon-cell-name">message</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#phone" />
+          </svg><span class="icon-cell-name">phone</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#paperclip" />
+          </svg><span class="icon-cell-name">paperclip</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#send" />
+          </svg><span class="icon-cell-name">send</span></div>
         <!-- People & social -->
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#user"/></svg><span class="icon-cell-name">user</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#users"/></svg><span class="icon-cell-name">users</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#user-plus"/></svg><span class="icon-cell-name">user-plus</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#heart"/></svg><span class="icon-cell-name">heart</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#star"/></svg><span class="icon-cell-name">star</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#bookmark"/></svg><span class="icon-cell-name">bookmark</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#user" />
+          </svg><span class="icon-cell-name">user</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#users" />
+          </svg><span class="icon-cell-name">users</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#user-plus" />
+          </svg><span class="icon-cell-name">user-plus</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#heart" />
+          </svg><span class="icon-cell-name">heart</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#star" />
+          </svg><span class="icon-cell-name">star</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#bookmark" />
+          </svg><span class="icon-cell-name">bookmark</span></div>
         <!-- Dev, cloud & platforms -->
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#rocket"/></svg><span class="icon-cell-name">rocket</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#code"/></svg><span class="icon-cell-name">code</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#terminal"/></svg><span class="icon-cell-name">terminal</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#github"/></svg><span class="icon-cell-name">github</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#database"/></svg><span class="icon-cell-name">database</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#server"/></svg><span class="icon-cell-name">server</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#cloud"/></svg><span class="icon-cell-name">cloud</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#cloud-off"/></svg><span class="icon-cell-name">cloud-off</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#zap"/></svg><span class="icon-cell-name">zap</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#space-invader"/></svg><span class="icon-cell-name">space-invader</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#linux"/></svg><span class="icon-cell-name">linux</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#apple"/></svg><span class="icon-cell-name">apple</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#windows"/></svg><span class="icon-cell-name">windows</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#robot-ai"/></svg><span class="icon-cell-name">robot-ai</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#rocket" />
+          </svg><span class="icon-cell-name">rocket</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#code" />
+          </svg><span class="icon-cell-name">code</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#terminal" />
+          </svg><span class="icon-cell-name">terminal</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#github" />
+          </svg><span class="icon-cell-name">github</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#database" />
+          </svg><span class="icon-cell-name">database</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#server" />
+          </svg><span class="icon-cell-name">server</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#cloud" />
+          </svg><span class="icon-cell-name">cloud</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#cloud-off" />
+          </svg><span class="icon-cell-name">cloud-off</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#zap" />
+          </svg><span class="icon-cell-name">zap</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#space-invader" />
+          </svg><span class="icon-cell-name">space-invader</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#linux" />
+          </svg><span class="icon-cell-name">linux</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#apple" />
+          </svg><span class="icon-cell-name">apple</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#windows" />
+          </svg><span class="icon-cell-name">windows</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#robot-ai" />
+          </svg><span class="icon-cell-name">robot-ai</span></div>
         <!-- Playback & capture -->
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#play"/></svg><span class="icon-cell-name">play</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#pause"/></svg><span class="icon-cell-name">pause</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#volume"/></svg><span class="icon-cell-name">volume</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#camera"/></svg><span class="icon-cell-name">camera</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#eye"/></svg><span class="icon-cell-name">eye</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#eye-off"/></svg><span class="icon-cell-name">eye-off</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#music"/></svg><span class="icon-cell-name">music</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#film"/></svg><span class="icon-cell-name">film</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#headphones"/></svg><span class="icon-cell-name">headphones</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#mic"/></svg><span class="icon-cell-name">mic</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#mic-off"/></svg><span class="icon-cell-name">mic-off</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#play" />
+          </svg><span class="icon-cell-name">play</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#pause" />
+          </svg><span class="icon-cell-name">pause</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#volume" />
+          </svg><span class="icon-cell-name">volume</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#camera" />
+          </svg><span class="icon-cell-name">camera</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#eye" />
+          </svg><span class="icon-cell-name">eye</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#eye-off" />
+          </svg><span class="icon-cell-name">eye-off</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#music" />
+          </svg><span class="icon-cell-name">music</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#film" />
+          </svg><span class="icon-cell-name">film</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#headphones" />
+          </svg><span class="icon-cell-name">headphones</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#mic" />
+          </svg><span class="icon-cell-name">mic</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#mic-off" />
+          </svg><span class="icon-cell-name">mic-off</span></div>
         <!-- Status & security -->
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#info"/></svg><span class="icon-cell-name">info</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#spam"/></svg><span class="icon-cell-name">spam</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#alert"/></svg><span class="icon-cell-name">alert</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#help"/></svg><span class="icon-cell-name">help</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#lock"/></svg><span class="icon-cell-name">lock</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#unlock"/></svg><span class="icon-cell-name">unlock</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#shield"/></svg><span class="icon-cell-name">shield</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#key"/></svg><span class="icon-cell-name">key</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#fingerprint"/></svg><span class="icon-cell-name">fingerprint</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#info" />
+          </svg><span class="icon-cell-name">info</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#spam" />
+          </svg><span class="icon-cell-name">spam</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#alert" />
+          </svg><span class="icon-cell-name">alert</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#help" />
+          </svg><span class="icon-cell-name">help</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#lock" />
+          </svg><span class="icon-cell-name">lock</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#unlock" />
+          </svg><span class="icon-cell-name">unlock</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#shield" />
+          </svg><span class="icon-cell-name">shield</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#key" />
+          </svg><span class="icon-cell-name">key</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#fingerprint" />
+          </svg><span class="icon-cell-name">fingerprint</span></div>
         <!-- Place & time -->
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#home"/></svg><span class="icon-cell-name">home</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#home-building"/></svg><span class="icon-cell-name">home-building</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#building"/></svg><span class="icon-cell-name">building</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#calendar"/></svg><span class="icon-cell-name">calendar</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#calendar-day"/></svg><span class="icon-cell-name">calendar-day</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#agenda"/></svg><span class="icon-cell-name">agenda</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#clock"/></svg><span class="icon-cell-name">clock</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#map-pin"/></svg><span class="icon-cell-name">map-pin</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#globe"/></svg><span class="icon-cell-name">globe</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#compass"/></svg><span class="icon-cell-name">compass</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#pointer-pin"/></svg><span class="icon-cell-name">pointer-pin</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#home" />
+          </svg><span class="icon-cell-name">home</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#home-building" />
+          </svg><span class="icon-cell-name">home-building</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#building" />
+          </svg><span class="icon-cell-name">building</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#calendar" />
+          </svg><span class="icon-cell-name">calendar</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#calendar-day" />
+          </svg><span class="icon-cell-name">calendar-day</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#agenda" />
+          </svg><span class="icon-cell-name">agenda</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#clock" />
+          </svg><span class="icon-cell-name">clock</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#map-pin" />
+          </svg><span class="icon-cell-name">map-pin</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#globe" />
+          </svg><span class="icon-cell-name">globe</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#compass" />
+          </svg><span class="icon-cell-name">compass</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#pointer-pin" />
+          </svg><span class="icon-cell-name">pointer-pin</span></div>
         <!-- UI chrome & layout -->
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#menu"/></svg><span class="icon-cell-name">menu</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#more-h"/></svg><span class="icon-cell-name">more-h</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#more-v"/></svg><span class="icon-cell-name">more-v</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#sun"/></svg><span class="icon-cell-name">sun</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#moon"/></svg><span class="icon-cell-name">moon</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#list"/></svg><span class="icon-cell-name">list</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#grid-icon"/></svg><span class="icon-cell-name">grid-icon</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#layers"/></svg><span class="icon-cell-name">layers</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#toggle-left"/></svg><span class="icon-cell-name">toggle-left</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#toggle-right"/></svg><span class="icon-cell-name">toggle-right</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#slider-icon"/></svg><span class="icon-cell-name">slider-icon</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#hash"/></svg><span class="icon-cell-name">hash</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#at-sign"/></svg><span class="icon-cell-name">at-sign</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#menu" />
+          </svg><span class="icon-cell-name">menu</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#more-h" />
+          </svg><span class="icon-cell-name">more-h</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#more-v" />
+          </svg><span class="icon-cell-name">more-v</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#sun" />
+          </svg><span class="icon-cell-name">sun</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#moon" />
+          </svg><span class="icon-cell-name">moon</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#list" />
+          </svg><span class="icon-cell-name">list</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#grid-icon" />
+          </svg><span class="icon-cell-name">grid-icon</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#layers" />
+          </svg><span class="icon-cell-name">layers</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#toggle-left" />
+          </svg><span class="icon-cell-name">toggle-left</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#toggle-right" />
+          </svg><span class="icon-cell-name">toggle-right</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#slider-icon" />
+          </svg><span class="icon-cell-name">slider-icon</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#hash" />
+          </svg><span class="icon-cell-name">hash</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#at-sign" />
+          </svg><span class="icon-cell-name">at-sign</span></div>
         <!-- Network & devices -->
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#wifi"/></svg><span class="icon-cell-name">wifi</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#wifi-off"/></svg><span class="icon-cell-name">wifi-off</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#battery"/></svg><span class="icon-cell-name">battery</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#smartphone"/></svg><span class="icon-cell-name">smartphone</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#monitor"/></svg><span class="icon-cell-name">monitor</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#presentation"/></svg><span class="icon-cell-name">presentation</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#cpu"/></svg><span class="icon-cell-name">cpu</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#hard-drive"/></svg><span class="icon-cell-name">hard-drive</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#power"/></svg><span class="icon-cell-name">power</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#wifi" />
+          </svg><span class="icon-cell-name">wifi</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#wifi-off" />
+          </svg><span class="icon-cell-name">wifi-off</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#battery" />
+          </svg><span class="icon-cell-name">battery</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#smartphone" />
+          </svg><span class="icon-cell-name">smartphone</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#monitor" />
+          </svg><span class="icon-cell-name">monitor</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#presentation" />
+          </svg><span class="icon-cell-name">presentation</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#cpu" />
+          </svg><span class="icon-cell-name">cpu</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#hard-drive" />
+          </svg><span class="icon-cell-name">hard-drive</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#power" />
+          </svg><span class="icon-cell-name">power</span></div>
         <!-- Charts & analytics -->
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#dashboard"/></svg><span class="icon-cell-name">dashboard</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#bar-chart"/></svg><span class="icon-cell-name">bar-chart</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#pie-chart"/></svg><span class="icon-cell-name">pie-chart</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#trending-up"/></svg><span class="icon-cell-name">trending-up</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#trending-down"/></svg><span class="icon-cell-name">trending-down</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#activity"/></svg><span class="icon-cell-name">activity</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#dashboard" />
+          </svg><span class="icon-cell-name">dashboard</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#bar-chart" />
+          </svg><span class="icon-cell-name">bar-chart</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#pie-chart" />
+          </svg><span class="icon-cell-name">pie-chart</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#trending-up" />
+          </svg><span class="icon-cell-name">trending-up</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#trending-down" />
+          </svg><span class="icon-cell-name">trending-down</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#activity" />
+          </svg><span class="icon-cell-name">activity</span></div>
         <!-- Commerce & money -->
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#shopping-cart"/></svg><span class="icon-cell-name">shopping-cart</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#credit-card"/></svg><span class="icon-cell-name">credit-card</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#dollar"/></svg><span class="icon-cell-name">dollar</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#percent"/></svg><span class="icon-cell-name">percent</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#euro"/></svg><span class="icon-cell-name">euro</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#money"/></svg><span class="icon-cell-name">money</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#coins"/></svg><span class="icon-cell-name">coins</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#wallet"/></svg><span class="icon-cell-name">wallet</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#shopping-cart" />
+          </svg><span class="icon-cell-name">shopping-cart</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#credit-card" />
+          </svg><span class="icon-cell-name">credit-card</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#dollar" />
+          </svg><span class="icon-cell-name">dollar</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#percent" />
+          </svg><span class="icon-cell-name">percent</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#euro" />
+          </svg><span class="icon-cell-name">euro</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#money" />
+          </svg><span class="icon-cell-name">money</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#coins" />
+          </svg><span class="icon-cell-name">coins</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#wallet" />
+          </svg><span class="icon-cell-name">wallet</span></div>
         <!-- Productivity & workflow -->
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#inbox"/></svg><span class="icon-cell-name">inbox</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#archive"/></svg><span class="icon-cell-name">archive</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#flag"/></svg><span class="icon-cell-name">flag</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#share"/></svg><span class="icon-cell-name">share</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#package"/></svg><span class="icon-cell-name">package</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#printer"/></svg><span class="icon-cell-name">printer</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#clipboard"/></svg><span class="icon-cell-name">clipboard</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#target"/></svg><span class="icon-cell-name">target</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#hourglass"/></svg><span class="icon-cell-name">hourglass</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#command"/></svg><span class="icon-cell-name">command</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#qr-code"/></svg><span class="icon-cell-name">qr-code</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#barcode"/></svg><span class="icon-cell-name">barcode</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#check-v"/></svg><span class="icon-cell-name">check-v</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#inbox" />
+          </svg><span class="icon-cell-name">inbox</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#archive" />
+          </svg><span class="icon-cell-name">archive</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#flag" />
+          </svg><span class="icon-cell-name">flag</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#share" />
+          </svg><span class="icon-cell-name">share</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#package" />
+          </svg><span class="icon-cell-name">package</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#printer" />
+          </svg><span class="icon-cell-name">printer</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#clipboard" />
+          </svg><span class="icon-cell-name">clipboard</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#target" />
+          </svg><span class="icon-cell-name">target</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#hourglass" />
+          </svg><span class="icon-cell-name">hourglass</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#command" />
+          </svg><span class="icon-cell-name">command</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#qr-code" />
+          </svg><span class="icon-cell-name">qr-code</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#barcode" />
+          </svg><span class="icon-cell-name">barcode</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#check-v" />
+          </svg><span class="icon-cell-name">check-v</span></div>
         <!-- Auth & accounts -->
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#log-in"/></svg><span class="icon-cell-name">log-in</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#log-out"/></svg><span class="icon-cell-name">log-out</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#log-in" />
+          </svg><span class="icon-cell-name">log-in</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#log-out" />
+          </svg><span class="icon-cell-name">log-out</span></div>
         <!-- Cursors & interaction -->
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#cursor-arrow"/></svg><span class="icon-cell-name">cursor-arrow</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#cursor-pointer"/></svg><span class="icon-cell-name">cursor-pointer</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#text-cursor"/></svg><span class="icon-cell-name">text-cursor</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#move"/></svg><span class="icon-cell-name">move</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#crosshair"/></svg><span class="icon-cell-name">crosshair</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#not-allowed"/></svg><span class="icon-cell-name">not-allowed</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#zoom-in"/></svg><span class="icon-cell-name">zoom-in</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#zoom-out"/></svg><span class="icon-cell-name">zoom-out</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#arrows-up-down"/></svg><span class="icon-cell-name">arrows-up-down</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#cursor-arrow" />
+          </svg><span class="icon-cell-name">cursor-arrow</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#cursor-pointer" />
+          </svg><span class="icon-cell-name">cursor-pointer</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#text-cursor" />
+          </svg><span class="icon-cell-name">text-cursor</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#move" />
+          </svg><span class="icon-cell-name">move</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#crosshair" />
+          </svg><span class="icon-cell-name">crosshair</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#not-allowed" />
+          </svg><span class="icon-cell-name">not-allowed</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#zoom-in" />
+          </svg><span class="icon-cell-name">zoom-in</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#zoom-out" />
+          </svg><span class="icon-cell-name">zoom-out</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#arrows-up-down" />
+          </svg><span class="icon-cell-name">arrows-up-down</span></div>
         <!-- Social & brands -->
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#facebook"/></svg><span class="icon-cell-name">facebook</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#linkedin"/></svg><span class="icon-cell-name">linkedin</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#instagram"/></svg><span class="icon-cell-name">instagram</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#google-g"/></svg><span class="icon-cell-name">google-g</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#medium"/></svg><span class="icon-cell-name">medium</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#facebook" />
+          </svg><span class="icon-cell-name">facebook</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#linkedin" />
+          </svg><span class="icon-cell-name">linkedin</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#instagram" />
+          </svg><span class="icon-cell-name">instagram</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#google-g" />
+          </svg><span class="icon-cell-name">google-g</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#medium" />
+          </svg><span class="icon-cell-name">medium</span></div>
         <!-- Emoji & avatars -->
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#face-smile"/></svg><span class="icon-cell-name">face-smile</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#face-sad"/></svg><span class="icon-cell-name">face-sad</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#face-neutral"/></svg><span class="icon-cell-name">face-neutral</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#face-love"/></svg><span class="icon-cell-name">face-love</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#face-tongue"/></svg><span class="icon-cell-name">face-tongue</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#woman"/></svg><span class="icon-cell-name">woman</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#man"/></svg><span class="icon-cell-name">man</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#child"/></svg><span class="icon-cell-name">child</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#paw"/></svg><span class="icon-cell-name">paw</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#runner"/></svg><span class="icon-cell-name">runner</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#face-smile" />
+          </svg><span class="icon-cell-name">face-smile</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#face-sad" />
+          </svg><span class="icon-cell-name">face-sad</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#face-neutral" />
+          </svg><span class="icon-cell-name">face-neutral</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#face-love" />
+          </svg><span class="icon-cell-name">face-love</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#face-tongue" />
+          </svg><span class="icon-cell-name">face-tongue</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#woman" />
+          </svg><span class="icon-cell-name">woman</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#man" />
+          </svg><span class="icon-cell-name">man</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#child" />
+          </svg><span class="icon-cell-name">child</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#paw" />
+          </svg><span class="icon-cell-name">paw</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#runner" />
+          </svg><span class="icon-cell-name">runner</span></div>
         <!-- Travel & mobility -->
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#airplane"/></svg><span class="icon-cell-name">airplane</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#boat"/></svg><span class="icon-cell-name">boat</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#car"/></svg><span class="icon-cell-name">car</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#moto"/></svg><span class="icon-cell-name">moto</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#parking"/></svg><span class="icon-cell-name">parking</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#traffic-light"/></svg><span class="icon-cell-name">traffic-light</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#door"/></svg><span class="icon-cell-name">door</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#airplane" />
+          </svg><span class="icon-cell-name">airplane</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#boat" />
+          </svg><span class="icon-cell-name">boat</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#car" />
+          </svg><span class="icon-cell-name">car</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#moto" />
+          </svg><span class="icon-cell-name">moto</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#parking" />
+          </svg><span class="icon-cell-name">parking</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#traffic-light" />
+          </svg><span class="icon-cell-name">traffic-light</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#door" />
+          </svg><span class="icon-cell-name">door</span></div>
         <!-- Tags & work -->
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#tag"/></svg><span class="icon-cell-name">tag</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#briefcase"/></svg><span class="icon-cell-name">briefcase</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#gift"/></svg><span class="icon-cell-name">gift</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#handshake"/></svg><span class="icon-cell-name">handshake</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#tag" />
+          </svg><span class="icon-cell-name">tag</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#briefcase" />
+          </svg><span class="icon-cell-name">briefcase</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#gift" />
+          </svg><span class="icon-cell-name">gift</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#handshake" />
+          </svg><span class="icon-cell-name">handshake</span></div>
         <!-- Food & leisure -->
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#coffee"/></svg><span class="icon-cell-name">coffee</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#beer"/></svg><span class="icon-cell-name">beer</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#wine-bottle"/></svg><span class="icon-cell-name">wine-bottle</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#wine-glass"/></svg><span class="icon-cell-name">wine-glass</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#cocktail"/></svg><span class="icon-cell-name">cocktail</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#fork-knife"/></svg><span class="icon-cell-name">fork-knife</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#popcorn"/></svg><span class="icon-cell-name">popcorn</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#pasta"/></svg><span class="icon-cell-name">pasta</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#pizza"/></svg><span class="icon-cell-name">pizza</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#ball"/></svg><span class="icon-cell-name">ball</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#coffee" />
+          </svg><span class="icon-cell-name">coffee</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#beer" />
+          </svg><span class="icon-cell-name">beer</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#wine-bottle" />
+          </svg><span class="icon-cell-name">wine-bottle</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#wine-glass" />
+          </svg><span class="icon-cell-name">wine-glass</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#cocktail" />
+          </svg><span class="icon-cell-name">cocktail</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#fork-knife" />
+          </svg><span class="icon-cell-name">fork-knife</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#popcorn" />
+          </svg><span class="icon-cell-name">popcorn</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#pasta" />
+          </svg><span class="icon-cell-name">pasta</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#pizza" />
+          </svg><span class="icon-cell-name">pizza</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#ball" />
+          </svg><span class="icon-cell-name">ball</span></div>
         <!-- Nature & misc -->
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#tree"/></svg><span class="icon-cell-name">tree</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#flower"/></svg><span class="icon-cell-name">flower</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#fire"/></svg><span class="icon-cell-name">fire</span></div>
-        <div class="icon-cell"><svg class="icon"><use href="downstage-icons.svg#sign"/></svg><span class="icon-cell-name">sign</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#tree" />
+          </svg><span class="icon-cell-name">tree</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#flower" />
+          </svg><span class="icon-cell-name">flower</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#fire" />
+          </svg><span class="icon-cell-name">fire</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#sign" />
+          </svg><span class="icon-cell-name">sign</span></div>
+      </div>
+    </section>
+
+    <!-- ============================== GRID ============================== -->
+    <section class="demo-section">
+      <p class="demo-section-title">05 — Layout</p>
+      <h2>Grid system</h2>
+      <p class="text-soft">12 columns. Consistent gap. Use <code>.col-N</code> inside <code>.grid</code>.</p>
+
+      <div class="grid grid-demo mt-6">
+        <div class="col-12">.col-12</div>
+      </div>
+      <div class="grid grid-demo mt-4">
+        <div class="col-6">.col-6</div>
+        <div class="col-6">.col-6</div>
+      </div>
+      <div class="grid grid-demo mt-4">
+        <div class="col-4">.col-4</div>
+        <div class="col-4">.col-4</div>
+        <div class="col-4">.col-4</div>
+      </div>
+      <div class="grid grid-demo mt-4">
+        <div class="col-3">.col-3</div>
+        <div class="col-3">.col-3</div>
+        <div class="col-3">.col-3</div>
+        <div class="col-3">.col-3</div>
+      </div>
+      <div class="grid grid-demo mt-4">
+        <div class="col-8">.col-8</div>
+        <div class="col-4">.col-4</div>
       </div>
     </section>
 
     <!-- ============================== BUTTONS ============================== -->
     <section class="demo-section" id="components">
-      <p class="demo-section-title">05 — Components</p>
+      <p class="demo-section-title">06 — Components</p>
       <h2>Buttons</h2>
 
       <div class="cluster mt-6">
@@ -729,117 +1151,9 @@
       </div>
     </section>
 
-    <!-- ============================== TABS ============================== -->
-    <section class="demo-section">
-      <p class="demo-section-title">06 — Components</p>
-      <h2>Tabs</h2>
-      <p class="text-soft">Auto-init via <code>data-tabs</code>. Arrow keys ←/→ to navigate.</p>
-
-      <div class="tabs mt-6" data-tabs>
-        <ul class="tabs-list" role="tablist">
-          <li><button class="tab" role="tab" data-tab="t1">Overview</button></li>
-          <li><button class="tab" role="tab" data-tab="t2">Installation</button></li>
-          <li><button class="tab" role="tab" data-tab="t3">Configuration</button></li>
-          <li><button class="tab" role="tab" data-tab="t4">API</button></li>
-        </ul>
-
-        <div class="tab-panel" data-tab-panel="t1">
-          <h4>Overview</h4>
-          <p class="text-soft mt-2">downstage.css is a minimal design system inspired by Nordic aesthetics. Built for
-            developers who want something clean without learning a utility-first library.</p>
-        </div>
-        <div class="tab-panel" data-tab-panel="t2">
-          <h4>Installation</h4>
-          <p class="text-soft mt-2">Download the files, copy them to your public folder, include the CSS in your layout.
-            JS is optional but required for tabs, accordion, lightbox and hamburger.</p>
-        </div>
-        <div class="tab-panel" data-tab-panel="t3">
-          <h4>Configuration</h4>
-          <p class="text-soft mt-2">All variables are customizable. Override tokens in a file after downstage.css to
-            change colors, spacing, fonts.</p>
-        </div>
-        <div class="tab-panel" data-tab-panel="t4">
-          <h4>JavaScript API</h4>
-          <p class="text-soft mt-2">Exposes <code>window.Downstage</code> with modules: <code>theme</code>,
-            <code>navbar</code>, <code>tabs</code>, <code>accordion</code>, <code>lightbox</code>. Each has an
-            <code>init()</code> method called automatically on DOMContentLoaded.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================== ACCORDION ============================== -->
-    <section class="demo-section">
-      <p class="demo-section-title">07 — Components</p>
-      <h2>Accordion</h2>
-      <p class="text-soft">Add <code>data-accordion="single"</code> for exclusive mode.</p>
-
-      <div class="accordion mt-6" data-accordion="single">
-        <div class="accordion-item is-open">
-          <button class="accordion-header">
-            Can I use downstage.css with Laravel?
-            <svg class="icon accordion-icon">
-              <use href="downstage-icons.svg#plus" />
-            </svg>
-          </button>
-          <div class="accordion-content">
-            <div class="accordion-body">
-              Yes. Place the files in <code>public/css/</code> and include the CSS in your Blade layout with
-              <code>{{ asset('css/downstage.css') }}</code>. Semantic classes are great in Blade templates — much more
-              readable than utility-first.
-            </div>
-          </div>
-        </div>
-
-        <div class="accordion-item">
-          <button class="accordion-header">
-            Does it work without JavaScript?
-            <svg class="icon accordion-icon">
-              <use href="downstage-icons.svg#plus" />
-            </svg>
-          </button>
-          <div class="accordion-content">
-            <div class="accordion-body">
-              Almost everything: layout, typography, buttons, forms, alerts, badges, tables, cards. You only need the ~3
-              KB <code>downstage.js</code> for: mobile navbar, tabs, accordion, lightbox and theme switcher.
-            </div>
-          </div>
-        </div>
-
-        <div class="accordion-item">
-          <button class="accordion-header">
-            How do I customize colors?
-            <svg class="icon accordion-icon">
-              <use href="downstage-icons.svg#plus" />
-            </svg>
-          </button>
-          <div class="accordion-content">
-            <div class="accordion-body">
-              Everything is a CSS variable. Create a <code>theme.css</code> file after downstage.css and redefine the
-              tokens you need in <code>:root</code> for light and <code>[data-theme="dark"]</code> for dark.
-            </div>
-          </div>
-        </div>
-
-        <div class="accordion-item">
-          <button class="accordion-header">
-            Are the icons free?
-            <svg class="icon accordion-icon">
-              <use href="downstage-icons.svg#plus" />
-            </svg>
-          </button>
-          <div class="accordion-content">
-            <div class="accordion-body">
-              Yes, they are custom and free to use. Minimal stroke style at 1.6px, 100+ icons, all in a single SVG sprite
-              of a few KB. Loaded once and reused via <code>&lt;use&gt;</code>.
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- ============================== FORMS ============================== -->
     <section class="demo-section">
-      <p class="demo-section-title">08 — Components</p>
+      <p class="demo-section-title">07 — Components</p>
       <h2>Forms</h2>
 
       <div class="grid mt-6">
@@ -909,6 +1223,59 @@
         </div>
 
         <div class="col-6">
+          <h4 class="mb-2" style="margin-top: 0;">Minimal underline</h4>
+          <p class="text-subtle text-sm mb-4">Single bottom border, transparent to the page background (<code
+              class="text-mono">--bg</code>).</p>
+
+          <form class="stack" action="#" method="get" onsubmit="return false;">
+            <div class="field">
+              <label class="label" for="demo-min-name">Name</label>
+              <input id="demo-min-name" class="input input-minimal" type="text" placeholder="Your name"
+                autocomplete="name">
+            </div>
+            <div class="field">
+              <label class="label" for="demo-min-email">Email</label>
+              <input id="demo-min-email" class="input input-minimal" type="email" placeholder="you@example.com"
+                autocomplete="email">
+            </div>
+            <div class="field">
+              <label class="label" for="demo-min-topic">Topic</label>
+              <select id="demo-min-topic" class="select select-minimal">
+                <option>General</option>
+                <option>Support</option>
+                <option>Partnership</option>
+              </select>
+            </div>
+            <div class="field">
+              <label class="label" for="demo-min-msg">Message</label>
+              <textarea id="demo-min-msg" class="textarea textarea-minimal" placeholder="Brief message"></textarea>
+            </div>
+            <div class="field">
+              <span class="label" id="demo-min-attach-label">Attachment</span>
+              <div class="upload-drop" data-upload-drop role="group" aria-labelledby="demo-min-attach-label">
+                <input id="demo-min-file" class="sr-only" type="file" multiple aria-describedby="demo-min-file-hint">
+                <div class="upload-drop-zone" tabindex="0" role="button"
+                  aria-label="Drop files here or browse to upload">
+                  <svg class="icon icon-lg" aria-hidden="true">
+                    <use href="downstage-icons.svg#upload" />
+                  </svg>
+                  <span class="upload-drop-text">Drop files here or <label for="demo-min-file"
+                      class="upload-drop-browse">browse</label></span>
+                  <span id="demo-min-file-hint" class="help">PDF, PNG — demo only</span>
+                </div>
+                <ul class="upload-drop-list" hidden></ul>
+              </div>
+            </div>
+            <div class="cluster mt-2" style="justify-content: flex-end;">
+              <button type="button" class="btn btn-ghost">Cancel</button>
+              <button type="submit" class="btn btn-primary">Send</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="grid mt-8">
+        <div class="col-12">
           <div class="stack">
             <div class="alert alert-info">
               <svg class="icon icon-lg">
@@ -978,154 +1345,166 @@
       </div>
     </section>
 
-    <!-- ============================== IMAGE FRAME & GALLERY ============================== -->
-    <section class="demo-section" id="gallery">
-      <p class="demo-section-title">09 — Components</p>
-      <h2>Images, gallery &amp; lightbox</h2>
-      <p class="text-soft">
-        <code>.image-frame</code> wraps an image in a system-consistent border.
-        <code>.gallery</code> with <code>data-lightbox</code> opens the lightbox on click.
-      </p>
-
-      <div class="grid mt-8">
-        <div class="col-4">
-          <figure class="image-frame is-square">
-            <div class="image-media">
-              <img src="https://picsum.photos/seed/ds1/600/600" alt="Demo 1">
-            </div>
-            <figcaption class="image-caption">image-frame · ratio 1:1</figcaption>
-          </figure>
-        </div>
-
-        <div class="col-4">
-          <figure class="image-frame is-4-5">
-            <div class="image-media">
-              <img src="https://picsum.photos/seed/ds2/600/750" alt="Demo 2">
-            </div>
-            <figcaption class="image-caption">image-frame · ratio 4:5</figcaption>
-          </figure>
-        </div>
-
-        <div class="col-4">
-          <figure class="image-frame is-16-9">
-            <div class="image-media">
-              <img src="https://picsum.photos/seed/ds3/800/450" alt="Demo 3">
-            </div>
-            <figcaption class="image-caption">image-frame · ratio 16:9</figcaption>
-          </figure>
-        </div>
-      </div>
-
-      <h4 class="mt-12 mb-4">Gallery with lightbox</h4>
-      <p class="text-soft text-sm mb-4">Click any image to open the lightbox. Arrow keys ←/→ to navigate, Esc to close.
-      </p>
-      <div class="gallery gallery-4" data-lightbox="demo">
-        <a href="https://picsum.photos/seed/g1/1200/900" class="gallery-item">
-          <img src="https://picsum.photos/seed/g1/400/400" alt="Photo 1">
-        </a>
-        <a href="https://picsum.photos/seed/g2/1200/900" class="gallery-item">
-          <img src="https://picsum.photos/seed/g2/400/400" alt="Photo 2">
-        </a>
-        <a href="https://picsum.photos/seed/g3/1200/900" class="gallery-item">
-          <img src="https://picsum.photos/seed/g3/400/400" alt="Photo 3">
-        </a>
-        <a href="https://picsum.photos/seed/g4/1200/900" class="gallery-item">
-          <img src="https://picsum.photos/seed/g4/400/400" alt="Photo 4">
-        </a>
-        <a href="https://picsum.photos/seed/g5/1200/900" class="gallery-item">
-          <img src="https://picsum.photos/seed/g5/400/400" alt="Photo 5">
-        </a>
-        <a href="https://picsum.photos/seed/g6/1200/900" class="gallery-item">
-          <img src="https://picsum.photos/seed/g6/400/400" alt="Photo 6">
-        </a>
-        <a href="https://picsum.photos/seed/g7/1200/900" class="gallery-item">
-          <img src="https://picsum.photos/seed/g7/400/400" alt="Photo 7">
-        </a>
-        <a href="https://picsum.photos/seed/g8/1200/900" class="gallery-item">
-          <img src="https://picsum.photos/seed/g8/400/400" alt="Photo 8">
-        </a>
-      </div>
-    </section>
-
     <!-- ============================== TABLE ============================== -->
     <section class="demo-section">
-      <p class="demo-section-title">10 — Components</p>
+      <p class="demo-section-title">08 — Components</p>
       <h2>Table</h2>
 
       <div class="card mt-6" style="padding: 0; overflow: hidden;">
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Project</th>
-              <th>Status</th>
-              <th>Owner</th>
-              <th class="text-right">Build</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>cipi.sh</strong><br><span class="text-subtle">v4.2.1</span></td>
-              <td><span class="badge badge-success">Stable</span></td>
-              <td>team</td>
-              <td class="text-right text-mono">#1284</td>
-            </tr>
-            <tr>
-              <td><strong>init</strong><br><span class="text-subtle">scaffolder</span></td>
-              <td><span class="badge badge-warning">Beta</span></td>
-              <td>team</td>
-              <td class="text-right text-mono">#0421</td>
-            </tr>
-            <tr>
-              <td><strong>downstage.css</strong><br><span class="text-subtle">design system</span></td>
-              <td><span class="badge badge-info">RC</span></td>
-              <td>team</td>
-              <td class="text-right text-mono">#0042</td>
-            </tr>
-            <tr>
-              <td><strong>legacy-app</strong><br><span class="text-subtle">deprecated</span></td>
-              <td><span class="badge badge-danger">EOL</span></td>
-              <td>—</td>
-              <td class="text-right text-mono">#9981</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="table-wrap" role="region" aria-label="Projects table" tabindex="0">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Project</th>
+                <th>Status</th>
+                <th>Owner</th>
+                <th class="text-right">Build</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>cipi.sh</strong><br><span class="text-subtle">v4.2.1</span></td>
+                <td><span class="badge badge-success">Stable</span></td>
+                <td>team</td>
+                <td class="text-right text-mono">#1284</td>
+              </tr>
+              <tr>
+                <td><strong>init</strong><br><span class="text-subtle">scaffolder</span></td>
+                <td><span class="badge badge-warning">Beta</span></td>
+                <td>team</td>
+                <td class="text-right text-mono">#0421</td>
+              </tr>
+              <tr>
+                <td><strong>downstage.css</strong><br><span class="text-subtle">design system</span></td>
+                <td><span class="badge badge-info">RC</span></td>
+                <td>team</td>
+                <td class="text-right text-mono">#0042</td>
+              </tr>
+              <tr>
+                <td><strong>legacy-app</strong><br><span class="text-subtle">deprecated</span></td>
+                <td><span class="badge badge-danger">EOL</span></td>
+                <td>—</td>
+                <td class="text-right text-mono">#9981</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
 
-    <!-- ============================== GRID ============================== -->
+    <!-- ============================== TABS ============================== -->
     <section class="demo-section">
-      <p class="demo-section-title">11 — Layout</p>
+      <p class="demo-section-title">09 — Components</p>
+      <h2>Tabs</h2>
+      <p class="text-soft">Auto-init via <code>data-tabs</code>. Arrow keys ←/→ to navigate.</p>
 
-      <h2>Grid system</h2>
-      <p class="text-soft">12 columns. Consistent gap. Use <code>.col-N</code> inside <code>.grid</code>.</p>
+      <div class="tabs mt-6" data-tabs>
+        <ul class="tabs-list" role="tablist">
+          <li><button class="tab" role="tab" data-tab="t1">Overview</button></li>
+          <li><button class="tab" role="tab" data-tab="t2">Installation</button></li>
+          <li><button class="tab" role="tab" data-tab="t3">Configuration</button></li>
+          <li><button class="tab" role="tab" data-tab="t4">API</button></li>
+        </ul>
 
-      <div class="grid grid-demo mt-6">
-        <div class="col-12">.col-12</div>
+        <div class="tab-panel" data-tab-panel="t1">
+          <h4>Overview</h4>
+          <p class="text-soft mt-2">downstage.css is a minimal design system inspired by Nordic aesthetics. Built for
+            developers who want something clean without learning a utility-first library.</p>
+        </div>
+        <div class="tab-panel" data-tab-panel="t2">
+          <h4>Installation</h4>
+          <p class="text-soft mt-2">Download the files, copy them to your public folder, include the CSS in your layout.
+            JS is optional but required for tabs, accordion, lightbox and hamburger.</p>
+        </div>
+        <div class="tab-panel" data-tab-panel="t3">
+          <h4>Configuration</h4>
+          <p class="text-soft mt-2">All variables are customizable. Override tokens in a file after downstage.css to
+            change colors, spacing, fonts.</p>
+        </div>
+        <div class="tab-panel" data-tab-panel="t4">
+          <h4>JavaScript API</h4>
+          <p class="text-soft mt-2">Exposes <code>window.Downstage</code> with modules: <code>theme</code>,
+            <code>navbar</code>, <code>tabs</code>, <code>accordion</code>, <code>lightbox</code>. Each has an
+            <code>init()</code> method called automatically on DOMContentLoaded.
+          </p>
+        </div>
       </div>
-      <div class="grid grid-demo mt-4">
-        <div class="col-6">.col-6</div>
-        <div class="col-6">.col-6</div>
-      </div>
-      <div class="grid grid-demo mt-4">
-        <div class="col-4">.col-4</div>
-        <div class="col-4">.col-4</div>
-        <div class="col-4">.col-4</div>
-      </div>
-      <div class="grid grid-demo mt-4">
-        <div class="col-3">.col-3</div>
-        <div class="col-3">.col-3</div>
-        <div class="col-3">.col-3</div>
-        <div class="col-3">.col-3</div>
-      </div>
-      <div class="grid grid-demo mt-4">
-        <div class="col-8">.col-8</div>
-        <div class="col-4">.col-4</div>
+    </section>
+
+    <!-- ============================== ACCORDION ============================== -->
+    <section class="demo-section">
+      <p class="demo-section-title">10 — Components</p>
+      <h2>Accordion</h2>
+      <p class="text-soft">Add <code>data-accordion="single"</code> for exclusive mode.</p>
+
+      <div class="accordion mt-6" data-accordion="single">
+        <div class="accordion-item is-open">
+          <button class="accordion-header">
+            Can I use downstage.css with Laravel?
+            <svg class="icon accordion-icon">
+              <use href="downstage-icons.svg#plus" />
+            </svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              Yes. Place the files in <code>public/css/</code> and include the CSS in your Blade layout with
+              <code>{{ asset('css/downstage.css') }}</code>. Semantic classes are great in Blade templates — much more
+              readable than utility-first.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header">
+            Does it work without JavaScript?
+            <svg class="icon accordion-icon">
+              <use href="downstage-icons.svg#plus" />
+            </svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              Almost everything: layout, typography, buttons, forms, alerts, badges, tables, cards. You only need the ~3
+              KB <code>downstage.js</code> for: mobile navbar, tabs, accordion, lightbox and theme switcher.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header">
+            How do I customize colors?
+            <svg class="icon accordion-icon">
+              <use href="downstage-icons.svg#plus" />
+            </svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              Everything is a CSS variable. Create a <code>theme.css</code> file after downstage.css and redefine the
+              tokens you need in <code>:root</code> for light and <code>[data-theme="dark"]</code> for dark.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header">
+            Are the icons free?
+            <svg class="icon accordion-icon">
+              <use href="downstage-icons.svg#plus" />
+            </svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              Yes, they are custom and free to use. Minimal stroke style at 1.6px, 100+ icons, all in a single SVG
+              sprite
+              of a few KB. Loaded once and reused via <code>&lt;use&gt;</code>.
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- ============================== MODAL ============================== -->
     <section class="demo-section">
-      <p class="demo-section-title">12 — Components</p>
+      <p class="demo-section-title">11 — Components</p>
       <h2>Modal &amp; Sidebar nav</h2>
 
       <div class="grid mt-6">
@@ -1169,11 +1548,81 @@
       </div>
     </div>
 
+    <!-- ============================== IMAGE FRAME & GALLERY ============================== -->
+    <section class="demo-section" id="gallery">
+      <p class="demo-section-title">12 — Components</p>
+      <h2>Images, gallery &amp; lightbox</h2>
+      <p class="text-soft">
+        <code>.image-frame</code> wraps an image in a system-consistent border.
+        <code>.gallery</code> with <code>data-lightbox</code> opens the lightbox on click.
+      </p>
+
+      <div class="grid mt-8">
+        <div class="col-4">
+          <figure class="image-frame is-square">
+            <div class="image-media">
+              <img src="https://picsum.photos/seed/ds1/600/600" alt="Demo 1">
+            </div>
+            <figcaption class="image-caption">image-frame · ratio 1:1</figcaption>
+          </figure>
+        </div>
+
+        <div class="col-4">
+          <figure class="image-frame is-4-5">
+            <div class="image-media">
+              <img src="https://picsum.photos/seed/ds2/600/750" alt="Demo 2">
+            </div>
+            <figcaption class="image-caption">image-frame · ratio 4:5</figcaption>
+          </figure>
+        </div>
+
+        <div class="col-4">
+          <figure class="image-frame is-16-9">
+            <div class="image-media">
+              <img src="https://picsum.photos/seed/ds3/800/450" alt="Demo 3">
+            </div>
+            <figcaption class="image-caption">image-frame · ratio 16:9</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <h4 class="mt-12 mb-2">Gallery with lightbox</h4>
+      <p class="text-soft text-sm mb-6">Click any image to open the lightbox. Arrow keys ←/→ to navigate, Esc to close.
+      </p>
+      <div class="gallery gallery-4" data-lightbox="demo">
+        <a href="https://picsum.photos/seed/g1/1200/900" class="gallery-item">
+          <img src="https://picsum.photos/seed/g1/400/400" alt="Photo 1">
+        </a>
+        <a href="https://picsum.photos/seed/g2/1200/900" class="gallery-item">
+          <img src="https://picsum.photos/seed/g2/400/400" alt="Photo 2">
+        </a>
+        <a href="https://picsum.photos/seed/g3/1200/900" class="gallery-item">
+          <img src="https://picsum.photos/seed/g3/400/400" alt="Photo 3">
+        </a>
+        <a href="https://picsum.photos/seed/g4/1200/900" class="gallery-item">
+          <img src="https://picsum.photos/seed/g4/400/400" alt="Photo 4">
+        </a>
+        <a href="https://picsum.photos/seed/g5/1200/900" class="gallery-item">
+          <img src="https://picsum.photos/seed/g5/400/400" alt="Photo 5">
+        </a>
+        <a href="https://picsum.photos/seed/g6/1200/900" class="gallery-item">
+          <img src="https://picsum.photos/seed/g6/400/400" alt="Photo 6">
+        </a>
+        <a href="https://picsum.photos/seed/g7/1200/900" class="gallery-item">
+          <img src="https://picsum.photos/seed/g7/400/400" alt="Photo 7">
+        </a>
+        <a href="https://picsum.photos/seed/g8/1200/900" class="gallery-item">
+          <img src="https://picsum.photos/seed/g8/400/400" alt="Photo 8">
+        </a>
+      </div>
+    </section>
+
     <!-- ============================== SLIDER ============================== -->
     <section class="demo-section" id="slider">
       <p class="demo-section-title">13 — Components</p>
       <h2>Slider / Carousel</h2>
-      <p class="text-soft">Image carousel with dots and arrows. Add <code>data-slider-auto="5000"</code> for auto-play.</p>
+      <p class="text-soft">Image carousel with dots and arrows. Add <code>data-slider-auto="5000"</code> for auto-play.
+      </p>
 
       <h4 class="mt-8 mb-4">Image only with dots &amp; arrows</h4>
       <div class="slider" data-slider data-slider-dots data-slider-arrows>
@@ -1237,15 +1686,11 @@
       <p class="text-soft">Lightweight audio player built from data attributes.</p>
 
       <div class="stack mt-6" style="max-width:560px;">
-        <div class="audio-player" data-audio-player
-             data-src="https://www.w3schools.com/html/horse.mp3"
-             data-title="Horse Sound"
-             data-artist="W3Schools Sample">
+        <div class="audio-player" data-audio-player data-src="https://www.w3schools.com/html/horse.mp3"
+          data-title="Horse Sound" data-artist="W3Schools Sample">
         </div>
-        <div class="audio-player" data-audio-player
-             data-src="https://www.w3schools.com/html/horse.mp3"
-             data-title="Another Track"
-             data-artist="Demo Artist">
+        <div class="audio-player" data-audio-player data-src="https://www.w3schools.com/html/horse.mp3"
+          data-title="Another Track" data-artist="Demo Artist">
         </div>
       </div>
     </section>
@@ -1270,15 +1715,18 @@
         <div class="docs-content">
           <div class="docs-chapter" id="doc-install">
             <h3>Installation</h3>
-            <p>Download the framework files and place them in your project's public directory. The <code>fonts/</code> folder must sit alongside the CSS file.</p>
+            <p>Download the framework files and place them in your project's public directory. The <code>fonts/</code>
+              folder must sit alongside the CSS file.</p>
             <pre><code>&lt;link rel="stylesheet" href="downstage.css"&gt;
 &lt;script src="downstage.js" defer&gt;&lt;/script&gt;</code></pre>
-            <p>That's it. No build tools, no configuration files, no package managers required. Just two files and you're ready.</p>
+            <p>That's it. No build tools, no configuration files, no package managers required. Just two files and
+              you're ready.</p>
           </div>
 
           <div class="docs-chapter" id="doc-config">
             <h3>Configuration</h3>
-            <p>All visual properties are controlled by CSS custom properties (variables). Override them in a separate file loaded after <code>downstage.css</code>:</p>
+            <p>All visual properties are controlled by CSS custom properties (variables). Override them in a separate
+              file loaded after <code>downstage.css</code>:</p>
             <pre><code>:root {
   --brand-primary: #2c5f5d;
   --radius: 2px;
@@ -1300,17 +1748,20 @@
               <li><code>dark</code> — always dark</li>
               <li><code>auto</code> — follows <code>prefers-color-scheme</code></li>
             </ol>
-            <p>The dark theme overrides all neutral, brand, and semantic tokens. Shadows become darker, surfaces shift to warm charcoals, and text becomes light cream.</p>
+            <p>The dark theme overrides all neutral, brand, and semantic tokens. Shadows become darker, surfaces shift
+              to warm charcoals, and text becomes light cream.</p>
           </div>
 
           <div class="docs-chapter" id="doc-api">
             <h3>JavaScript API</h3>
-            <p>The optional <code>downstage.js</code> exposes <code>window.Downstage</code> with the following modules:</p>
+            <p>The optional <code>downstage.js</code> exposes <code>window.Downstage</code> with the following modules:
+            </p>
             <pre><code>Downstage.theme.set('dark');
 Downstage.theme.get();           // 'light' | 'dark' | 'auto'
 Downstage.lightbox.open(set, 0);
 Downstage.lightbox.close();</code></pre>
-            <p>Each module has an <code>init()</code> method auto-called on <code>DOMContentLoaded</code>. For dynamically added content, call <code>init()</code> again.</p>
+            <p>Each module has an <code>init()</code> method auto-called on <code>DOMContentLoaded</code>. For
+              dynamically added content, call <code>init()</code> again.</p>
           </div>
         </div>
       </div>
@@ -1318,7 +1769,7 @@ Downstage.lightbox.close();</code></pre>
 
     <!-- ============================== DASHBOARD ============================== -->
     <section class="demo-section" id="dashboard-demo">
-      <p class="demo-section-title">17 — Components</p>
+      <p class="demo-section-title">17 — Data</p>
       <h2>Dashboard</h2>
       <p class="text-soft">Stat cards and minimal SVG charts for data-driven UIs.</p>
 
@@ -1327,7 +1778,9 @@ Downstage.lightbox.close();</code></pre>
           <div class="stat-label">Revenue</div>
           <div class="stat-value">$48.2k</div>
           <div class="stat-change is-up">
-            <svg class="icon icon-sm"><use href="downstage-icons.svg#trending-up"/></svg>
+            <svg class="icon icon-sm">
+              <use href="downstage-icons.svg#trending-up" />
+            </svg>
             +12.5%
           </div>
         </div>
@@ -1335,7 +1788,9 @@ Downstage.lightbox.close();</code></pre>
           <div class="stat-label">Users</div>
           <div class="stat-value">2,847</div>
           <div class="stat-change is-up">
-            <svg class="icon icon-sm"><use href="downstage-icons.svg#trending-up"/></svg>
+            <svg class="icon icon-sm">
+              <use href="downstage-icons.svg#trending-up" />
+            </svg>
             +8.1%
           </div>
         </div>
@@ -1343,7 +1798,9 @@ Downstage.lightbox.close();</code></pre>
           <div class="stat-label">Bounce rate</div>
           <div class="stat-value">24.6%</div>
           <div class="stat-change is-down">
-            <svg class="icon icon-sm"><use href="downstage-icons.svg#trending-down"/></svg>
+            <svg class="icon icon-sm">
+              <use href="downstage-icons.svg#trending-down" />
+            </svg>
             -3.2%
           </div>
         </div>
@@ -1351,7 +1808,9 @@ Downstage.lightbox.close();</code></pre>
           <div class="stat-label">Uptime</div>
           <div class="stat-value">99.98%</div>
           <div class="stat-change is-up">
-            <svg class="icon icon-sm"><use href="downstage-icons.svg#activity"/></svg>
+            <svg class="icon icon-sm">
+              <use href="downstage-icons.svg#activity" />
+            </svg>
             stable
           </div>
         </div>
@@ -1368,14 +1827,17 @@ Downstage.lightbox.close();</code></pre>
             </div>
             <div class="chart-canvas">
               <svg class="chart-line-svg" viewBox="0 0 400 160" preserveAspectRatio="none">
-                <path class="chart-line-area" d="M0,120 L33,100 L66,110 L100,80 L133,90 L166,60 L200,70 L233,40 L266,50 L300,30 L333,45 L366,20 L400,35 L400,160 L0,160Z"/>
-                <path class="chart-line-path" d="M0,120 L33,100 L66,110 L100,80 L133,90 L166,60 L200,70 L233,40 L266,50 L300,30 L333,45 L366,20 L400,35"/>
-                <circle class="chart-line-dot" cx="366" cy="20" r="3"/>
-                <circle class="chart-line-dot" cx="400" cy="35" r="3"/>
+                <path class="chart-line-area"
+                  d="M0,120 L33,100 L66,110 L100,80 L133,90 L166,60 L200,70 L233,40 L266,50 L300,30 L333,45 L366,20 L400,35 L400,160 L0,160Z" />
+                <path class="chart-line-path"
+                  d="M0,120 L33,100 L66,110 L100,80 L133,90 L166,60 L200,70 L233,40 L266,50 L300,30 L333,45 L366,20 L400,35" />
+                <circle class="chart-line-dot" cx="366" cy="20" r="3" />
+                <circle class="chart-line-dot" cx="400" cy="35" r="3" />
               </svg>
             </div>
             <div class="chart-legend">
-              <span class="chart-legend-item"><span class="chart-legend-dot" style="background:var(--text)"></span> Visitors</span>
+              <span class="chart-legend-item"><span class="chart-legend-dot" style="background:var(--text)"></span>
+                Visitors</span>
             </div>
           </div>
         </div>
@@ -1390,17 +1852,23 @@ Downstage.lightbox.close();</code></pre>
             </div>
             <div class="chart-canvas" style="display:flex;align-items:center;justify-content:center;">
               <svg class="chart-donut-svg" viewBox="0 0 120 120" style="max-width:160px;">
-                <circle class="chart-donut-ring" cx="60" cy="60" r="48" stroke="var(--text)" stroke-dasharray="180 302" stroke-dashoffset="-75" opacity="0.8"/>
-                <circle class="chart-donut-ring" cx="60" cy="60" r="48" stroke="var(--brand-primary)" stroke-dasharray="90 302" stroke-dashoffset="105" opacity="0.9"/>
-                <circle class="chart-donut-ring" cx="60" cy="60" r="48" stroke="var(--brand-secondary)" stroke-dasharray="32 302" stroke-dashoffset="195"/>
+                <circle class="chart-donut-ring" cx="60" cy="60" r="48" stroke="var(--text)" stroke-dasharray="180 302"
+                  stroke-dashoffset="-75" opacity="0.8" />
+                <circle class="chart-donut-ring" cx="60" cy="60" r="48" stroke="var(--brand-primary)"
+                  stroke-dasharray="90 302" stroke-dashoffset="105" opacity="0.9" />
+                <circle class="chart-donut-ring" cx="60" cy="60" r="48" stroke="var(--brand-secondary)"
+                  stroke-dasharray="32 302" stroke-dashoffset="195" />
                 <text class="chart-donut-center" x="60" y="57">73%</text>
                 <text class="chart-donut-label" x="60" y="74">organic</text>
               </svg>
             </div>
             <div class="chart-legend">
-              <span class="chart-legend-item"><span class="chart-legend-dot" style="background:var(--text)"></span> Direct</span>
-              <span class="chart-legend-item"><span class="chart-legend-dot" style="background:var(--brand-primary)"></span> Organic</span>
-              <span class="chart-legend-item"><span class="chart-legend-dot" style="background:var(--brand-secondary)"></span> Referral</span>
+              <span class="chart-legend-item"><span class="chart-legend-dot" style="background:var(--text)"></span>
+                Direct</span>
+              <span class="chart-legend-item"><span class="chart-legend-dot"
+                  style="background:var(--brand-primary)"></span> Organic</span>
+              <span class="chart-legend-item"><span class="chart-legend-dot"
+                  style="background:var(--brand-secondary)"></span> Referral</span>
             </div>
           </div>
         </div>
@@ -1453,13 +1921,15 @@ Downstage.lightbox.close();</code></pre>
         </div>
         <div class="col-3">
           <figure class="image-frame is-square">
-            <div class="image-media"><img src="https://picsum.photos/seed/flt1/400/400" alt="Sepia" class="img-sepia"></div>
+            <div class="image-media"><img src="https://picsum.photos/seed/flt1/400/400" alt="Sepia" class="img-sepia">
+            </div>
             <figcaption class="image-caption">.img-sepia</figcaption>
           </figure>
         </div>
         <div class="col-3">
           <figure class="image-frame is-square">
-            <div class="image-media"><img src="https://picsum.photos/seed/flt1/400/400" alt="Muted" class="img-muted"></div>
+            <div class="image-media"><img src="https://picsum.photos/seed/flt1/400/400" alt="Muted" class="img-muted">
+            </div>
             <figcaption class="image-caption">.img-muted</figcaption>
           </figure>
         </div>
@@ -1469,19 +1939,22 @@ Downstage.lightbox.close();</code></pre>
       <div class="grid">
         <div class="col-4">
           <figure class="image-frame is-16-9">
-            <div class="image-media"><img src="https://picsum.photos/seed/flt2/600/340" alt="B/W hover" class="img-bw img-bw-hover"></div>
+            <div class="image-media"><img src="https://picsum.photos/seed/flt2/600/340" alt="B/W hover"
+                class="img-bw img-bw-hover"></div>
             <figcaption class="image-caption">.img-bw .img-bw-hover</figcaption>
           </figure>
         </div>
         <div class="col-4">
           <figure class="image-frame is-16-9">
-            <div class="image-media"><img src="https://picsum.photos/seed/flt3/600/340" alt="Sepia hover" class="img-sepia img-sepia-hover"></div>
+            <div class="image-media"><img src="https://picsum.photos/seed/flt3/600/340" alt="Sepia hover"
+                class="img-sepia img-sepia-hover"></div>
             <figcaption class="image-caption">.img-sepia .img-sepia-hover</figcaption>
           </figure>
         </div>
         <div class="col-4">
           <figure class="image-frame is-16-9">
-            <div class="image-media"><img src="https://picsum.photos/seed/flt4/600/340" alt="Warm" class="img-warm"></div>
+            <div class="image-media"><img src="https://picsum.photos/seed/flt4/600/340" alt="Warm" class="img-warm">
+            </div>
             <figcaption class="image-caption">.img-warm</figcaption>
           </figure>
         </div>
@@ -1497,7 +1970,7 @@ Downstage.lightbox.close();</code></pre>
         <div>
           <div class="footer-brand">
             <svg class="icon" width="20" height="20">
-              <use href="downstage-icons.svg#rocket" />
+              <use href="downstage-icons.svg#hash" />
             </svg>
             downstage.css
           </div>

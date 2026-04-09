@@ -853,6 +853,120 @@ a.btn-success:hover {
   border-color: var(--color-danger);
 }
 
+/* Minimal underline — no box, only bottom border; matches page surface (--bg) */
+.input.input-minimal,
+.textarea.textarea-minimal,
+.select.select-minimal {
+  background: var(--bg);
+  border: none;
+  border-bottom: 1px solid var(--border);
+  border-radius: 0;
+  padding: var(--space-3) 0 var(--space-2);
+  box-shadow: none;
+}
+
+.input.input-minimal:hover,
+.textarea.textarea-minimal:hover,
+.select.select-minimal:hover {
+  border-bottom-color: var(--border-strong);
+  background: var(--bg);
+}
+
+.input.input-minimal:focus,
+.textarea.textarea-minimal:focus,
+.select.select-minimal:focus {
+  border-bottom-color: var(--border-focus);
+  background: var(--bg);
+  box-shadow: none;
+}
+
+.select.select-minimal {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path fill='none' stroke='%239f9d9a' stroke-width='1.5' d='M1 1.5l5 5 5-5'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 0 center;
+  padding-right: var(--space-8);
+}
+
+.textarea.textarea-minimal {
+  min-height: 4.5rem;
+}
+
+.field.has-error .input.input-minimal,
+.field.has-error .textarea.textarea-minimal,
+.field.has-error .select.select-minimal {
+  border-color: transparent;
+  border-bottom-color: var(--color-danger);
+}
+
+/* Drag-and-drop file upload (pairs with [data-upload-drop] in downstage.js) */
+.upload-drop {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.upload-drop-zone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  padding: var(--space-6);
+  text-align: center;
+  background: var(--bg);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  transition:
+    border-color var(--duration-fast) var(--ease),
+    background-color var(--duration-fast) var(--ease);
+  cursor: pointer;
+}
+
+.upload-drop-zone:hover {
+  border-color: var(--border-strong);
+}
+
+.upload-drop-zone.is-dragover {
+  border-color: var(--border-focus);
+  border-style: solid;
+  background: var(--bg-hover);
+}
+
+.upload-drop-zone:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 2px;
+}
+
+.upload-drop-text {
+  font-size: var(--fs-sm);
+  color: var(--text-soft);
+  line-height: var(--lh-snug);
+}
+
+.upload-drop-browse {
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+
+.upload-drop-browse:hover {
+  color: var(--link-hover);
+}
+
+.upload-drop-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+
+.upload-drop-list li {
+  padding: var(--space-1) 0;
+  word-break: break-word;
+}
+
 /* Checkbox & Radio */
 .check {
   display: inline-flex;
@@ -1057,6 +1171,18 @@ a.btn-success:hover {
 /* ============================================================================
    12. TABLE
    ============================================================================ */
+
+/* Wrap .table to allow horizontal scroll when the grid is wider than the viewport */
+.table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+}
+
+.table-wrap .table {
+  width: max-content;
+  min-width: 100%;
+}
 
 .table {
   width: 100%;
@@ -1475,6 +1601,32 @@ a.btn-success:hover {
 }
 .mt-8 {
   margin-top: var(--space-8);
+}
+.mt-10 {
+  margin-top: var(--space-10);
+}
+.mt-12 {
+  margin-top: var(--space-12);
+}
+.mt-16 {
+  margin-top: var(--space-16);
+}
+
+/* Margin bottom utilities */
+.mb-0 {
+  margin-bottom: 0;
+}
+.mb-2 {
+  margin-bottom: var(--space-2);
+}
+.mb-4 {
+  margin-bottom: var(--space-4);
+}
+.mb-6 {
+  margin-bottom: var(--space-6);
+}
+.mb-8 {
+  margin-bottom: var(--space-8);
 }
 
 /* Width */
@@ -2328,6 +2480,31 @@ kbd {
 .video-player.is-playing .video-overlay-play {
   opacity: 0;
   pointer-events: none;
+}
+
+/* Fullscreen: fill viewport, keep controls at bottom */
+.video-player:fullscreen,
+.video-player:-webkit-full-screen {
+  border-radius: 0;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  background: #000;
+}
+
+.video-player:fullscreen video,
+.video-player:-webkit-full-screen video {
+  flex: 1;
+  min-height: 0;
+  object-fit: contain;
+}
+
+.video-player:fullscreen .video-player-controls,
+.video-player:-webkit-full-screen .video-player-controls {
+  flex-shrink: 0;
 }
 
 /* ============================================================================
