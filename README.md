@@ -7,21 +7,22 @@ Clean typography, warm desaturated palette, thin borders, light shadows, integra
 ## Table of contents
 
 1. [File structure](#file-structure)
-2. [Quick start](#quick-start)
-3. [Theme](#theme-light--dark--auto)
-4. [Design tokens (CSS variables)](#design-tokens-css-variables)
-5. [Typography & text utilities](#typography--text-utilities)
-6. [Icons](#icons)
-7. [Layout](#layout)
-8. [Components](#components)
-9. [Utilities](#utilities)
-10. [JavaScript (`downstage.js`)](#javascript-downstagejs)
-11. [HTML editor (detailed)](#html-editor-detailed)
-12. [Documentation site](#documentation-site)
-13. [Philosophy](#philosophy)
-14. [Customization](#customization)
-15. [AI assistants](#ai-assistants)
-16. [License](#license)
+2. [npm](#npm)
+3. [Quick start](#quick-start)
+4. [Theme](#theme-light--dark--auto)
+5. [Design tokens (CSS variables)](#design-tokens-css-variables)
+6. [Typography & text utilities](#typography--text-utilities)
+7. [Icons](#icons)
+8. [Layout](#layout)
+9. [Components](#components)
+10. [Utilities](#utilities)
+11. [JavaScript (`downstage.js`)](#javascript-downstagejs)
+12. [HTML editor (detailed)](#html-editor-detailed)
+13. [Documentation site](#documentation-site)
+14. [Philosophy](#philosophy)
+15. [Customization](#customization)
+16. [AI assistants](#ai-assistants)
+17. [License](#license)
 
 ---
 
@@ -47,6 +48,39 @@ your-project/
 ├── downstage-ai-guidelines.json  ← machine-readable guidelines for AI tools (Cursor, MCP scripts, …)
 └── index.html               ← home; start at `docs/index.html` for the full gallery
 ```
+
+---
+
+## npm
+
+Published as [`downstage`](https://www.npmjs.com/package/downstage).
+
+```bash
+npm install downstage
+```
+
+After install, assets live under `node_modules/downstage/`:
+
+| File / folder | Role |
+| ------------- | ---- |
+| `downstage.css` | Styles (`package.json` → `style`) |
+| `downstage.js` | Components and `window.Downstage` (`main`) |
+| `downstage-icons.svg` | Icon sprite |
+| `fonts/` | Space Grotesk (self-hosted) |
+| `downstage-ai-guidelines.json` | Conventions for AI-assisted editing |
+
+**Static sites:** copy `downstage.css`, `downstage.js`, `downstage-icons.svg`, and `fonts/` into your public or static directory, then reference them with normal relative URLs (same as a vendored download).
+
+**Bundlers:** import the CSS and JS from the package:
+
+```js
+import "downstage/downstage.css";
+import "downstage/downstage.js";
+```
+
+**Upgrade:** `npm update downstage`, or set the version in `package.json` and run `npm install`.
+
+**Publishing (maintainers):** `npm version patch` (or `minor` / `major`), then `npm publish` (requires `npm login` to the npm account that owns the package).
 
 ---
 
@@ -689,7 +723,7 @@ Load a file **after** `downstage.css`:
 
 For **Cursor**, **Copilot**, and similar tools, the repo includes **`downstage-ai-guidelines.json`**: a small JSON document (`schemaVersion`, `sections`, `examples`, `antiPatterns`, `cursorUsage`) you can feed to assistants so they follow downstage conventions (tokens, `Downstage` API, doc locations).
 
-**Using it:** copy the text into **`.cursor/rules`**, an **`AGENTS.md`** file, or your team’s prompt template; or **fetch the same path from your deployed site** (static hosting serves it as a normal file). A plain HTTP URL is **not** an MCP server by itself—if you use MCP in Cursor, point a **local MCP tool** at that URL or at this file on disk.
+**Using it:** copy the text into **`.cursor/rules`**, an **`AGENTS.md`** file, or your team’s prompt template; if you use **`npm install downstage`**, the file is **`node_modules/downstage/downstage-ai-guidelines.json`**. You can also fetch it from static hosting alongside your site. A plain HTTP URL is **not** an MCP server by itself—if you use MCP in Cursor, point a **local MCP tool** at that URL or at this file on disk.
 
 Bump **`schemaVersion`** in the JSON when you change its shape for automation.
 

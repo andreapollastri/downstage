@@ -59,7 +59,7 @@
         <div class="docs-sidebar-title">On this page</div>
         <nav class="docs-nav" aria-label="Section">
           <a href="#tutorial">Quick start</a>
-          <a href="#cdn">CDN (downstage.it)</a>
+          <a href="#npm">npm</a>
           <a href="#starter">Starter template</a>
           <a href="#ai-guidelines">AI &amp; editor guidelines</a>
           <a href="#palette">Palette</a>
@@ -75,24 +75,45 @@
       <p class="demo-section-title">01 — Getting started</p>
       <h2>Quick start</h2>
 
-      <div class="mt-8" id="cdn">
-        <h4>Install via CDN</h4>
+      <div class="mt-8" id="npm">
+        <h4>Install via npm</h4>
         <p class="text-soft mt-2 text-sm">
-          Load the framework from the canonical host
-          <a href="https://downstage.it/" rel="noopener">downstage.it</a>
-          without copying files into your project. Use the same filenames as a local install, with an absolute origin.
-          The snippets use <code>https://</code> so they work on HTTPS pages without mixed-content blocking.
+          The package is published under the name <code>downstage</code> on
+          <a href="https://www.npmjs.com/package/downstage" rel="noopener">npm</a>.
         </p>
-        <pre
-          class="code-snippet mt-4"><span class="c-tag">&lt;link</span> <span class="c-attr">rel</span>=<span class="c-string">"stylesheet"</span> <span class="c-attr">href</span>=<span class="c-string">"https://downstage.it/downstage.css"</span><span class="c-tag">&gt;</span>
-<span class="c-tag">&lt;script</span> <span class="c-attr">src</span>=<span class="c-string">"https://downstage.it/downstage.js"</span> <span class="c-attr">defer</span><span class="c-tag">&gt;&lt;/script&gt;</span></pre>
+        <pre class="code-snippet mt-4">npm install downstage</pre>
         <p class="text-soft mt-4 text-sm">
-          Pre-load the icon sprite and reference symbols with the same path prefix:
+          Installed assets (relative to <code>node_modules/downstage/</code>):
         </p>
-        <pre
-          class="code-snippet mt-4"><span class="c-tag">&lt;object</span> <span class="c-attr">data</span>=<span class="c-string">"https://downstage.it/downstage-icons.svg"</span> <span class="c-attr">type</span>=<span class="c-string">"image/svg+xml"</span> <span class="c-attr">style</span>=<span class="c-string">"display:none"</span> <span class="c-attr">aria-hidden</span>=<span class="c-string">"true"</span><span class="c-tag">&gt;&lt;/object&gt;</span>
-<span class="c-comment">&lt;!-- … --&gt;</span>
-<span class="c-tag">&lt;svg</span> <span class="c-attr">class</span>=<span class="c-string">"icon"</span><span class="c-tag">&gt;&lt;use</span> <span class="c-attr">href</span>=<span class="c-string">"https://downstage.it/downstage-icons.svg#rocket"</span><span class="c-tag">/&gt;&lt;/svg&gt;</span></pre>
+        <ul class="text-soft text-sm mt-2">
+          <li><code>downstage.css</code> — <code>style</code> field in <code>package.json</code></li>
+          <li><code>downstage.js</code> — <code>main</code> entry</li>
+          <li><code>downstage-icons.svg</code> and <code>fonts/</code></li>
+        </ul>
+        <p class="text-soft mt-4 text-sm">
+          <strong>Plain HTML</strong> — copy the four pieces above (CSS, JS, sprite, fonts folder) into your site’s static
+          folder, or point <code>&lt;link&gt;</code> / <code>&lt;script&gt;</code> at paths your server actually serves
+          (for example after copying into <code>public/vendor/downstage/</code>).
+        </p>
+        <p class="text-soft mt-4 text-sm">
+          <strong>Bundlers</strong> (Vite, Webpack, Rollup, etc.): import the stylesheet and, if you load JS via the bundle,
+          import the main script so the <code>Downstage</code> API is available.
+        </p>
+        <pre class="code-snippet mt-4">import "downstage/downstage.css";
+import "downstage/downstage.js";</pre>
+        <p class="text-soft mt-4 text-sm">
+          If you keep using <code>&lt;script src="…" defer&gt;</code> in HTML, copy <code>downstage.js</code> to your public
+          folder or configure your build to emit it from <code>node_modules/downstage/</code>.
+        </p>
+        <p class="text-soft mt-4 text-sm">
+          <strong>Update</strong> — <code>npm update downstage</code> or change the version in <code>package.json</code> and run
+          <code>npm install</code>.
+        </p>
+        <p class="text-soft mt-4 text-sm">
+          <strong>Maintainers</strong> — bump the version in <code>package.json</code>, then
+          <code>npm publish</code> (after <code>npm login</code> if needed). Use <code>npm version patch|minor|major</code>
+          to update the version and create a git tag in one step.
+        </p>
       </div>
 
       <div class="mt-8">
@@ -884,9 +905,8 @@
       <h3 class="mt-8 mb-2">Where the file lives</h3>
       <ul class="text-soft text-sm mt-2">
         <li><strong>Local / vendored copy</strong> — same folder as <code>downstage.css</code> (for example <code>downstage-ai-guidelines.json</code>).</li>
-        <li><strong>Canonical host</strong> — when you mirror the release on
-          <a href="https://downstage.it/" rel="noopener">downstage.it</a>, use the same path as the CSS, e.g.
-          <code>https://downstage.it/downstage-ai-guidelines.json</code> (fetch or paste into a rule file).</li>
+        <li><strong>npm install</strong> — after <code>npm install downstage</code>, the file is at
+          <code>node_modules/downstage/downstage-ai-guidelines.json</code> (fetch or paste into a rule file).</li>
       </ul>
 
       <h3 class="mt-8 mb-2">Cursor</h3>

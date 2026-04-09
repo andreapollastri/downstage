@@ -1,0 +1,34 @@
+{
+  "name": "downstage",
+  "version": "1.0.0",
+  "description": "Minimal Nordic design system — CSS, zero-dependency JS components, icon sprite",
+  "license": "MIT",
+  "author": "Andrea Pollastri contributors",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/andreapollastri/downstage.git"
+  },
+  "homepage": "https://www.npmjs.com/package/downstage",
+  "bugs": {
+    "url": "https://github.com/andreapollastri/downstage/issues"
+  },
+  "keywords": [
+    "css",
+    "design-system",
+    "ui",
+    "components",
+    "dark-mode",
+    "icons"
+  ],
+  "files": [
+    "downstage.css",
+    "downstage.js",
+    "downstage-icons.svg",
+    "downstage-ai-guidelines.json",
+    "fonts",
+    "LICENSE",
+    "README.md"
+  ],
+  "main": "downstage.js",
+  "style": "downstage.css"
+}
