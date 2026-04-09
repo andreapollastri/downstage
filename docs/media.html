@@ -88,38 +88,69 @@
         <code>.gallery</code> with <code>data-lightbox</code> opens the lightbox on click.
       </p>
 
-      <div class="grid mt-8">
-        <div class="col-4">
-          <figure class="image-frame is-square">
-            <div class="image-media">
-              <img src="https://picsum.photos/seed/ds1/600/600" alt="Demo 1">
-            </div>
-            <figcaption class="image-caption">image-frame · ratio 1:1</figcaption>
-          </figure>
+      <h4 class="mt-8 mb-4">Image frame · ratio 1:1</h4>
+      <figure class="image-frame is-square" style="max-width:320px;">
+        <div class="image-media">
+          <img src="https://picsum.photos/seed/ds1/600/600" alt="Demo 1">
         </div>
+        <figcaption class="image-caption">image-frame · ratio 1:1</figcaption>
+      </figure>
 
-        <div class="col-4">
-          <figure class="image-frame is-4-5">
-            <div class="image-media">
-              <img src="https://picsum.photos/seed/ds2/600/750" alt="Demo 2">
-            </div>
-            <figcaption class="image-caption">image-frame · ratio 4:5</figcaption>
-          </figure>
+      <h4 class="mt-8 mb-4">Image frame · ratio 4:5</h4>
+      <figure class="image-frame is-4-5" style="max-width:320px;">
+        <div class="image-media">
+          <img src="https://picsum.photos/seed/ds2/600/750" alt="Demo 2">
         </div>
+        <figcaption class="image-caption">image-frame · ratio 4:5</figcaption>
+      </figure>
 
-        <div class="col-4">
-          <figure class="image-frame is-16-9">
-            <div class="image-media">
-              <img src="https://picsum.photos/seed/ds3/800/450" alt="Demo 3">
+      <h4 class="mt-8 mb-4">Image frame · ratio 16:9</h4>
+      <figure class="image-frame is-16-9" style="max-width:320px;">
+        <div class="image-media">
+          <img src="https://picsum.photos/seed/ds3/800/450" alt="Demo 3">
+        </div>
+        <figcaption class="image-caption">image-frame · ratio 16:9</figcaption>
+      </figure>
+
+      <div class="accordion mt-4 mb-8" data-accordion>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#code" /></svg>
+            Source code
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <pre><code>&lt;!-- 1:1 --&gt;
+&lt;figure class="image-frame is-square"&gt;
+  &lt;div class="image-media"&gt;
+    &lt;img src="image.jpg" alt="Description"&gt;
+  &lt;/div&gt;
+  &lt;figcaption class="image-caption"&gt;Caption&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;!-- 4:5 --&gt;
+&lt;figure class="image-frame is-4-5"&gt;
+  &lt;div class="image-media"&gt;
+    &lt;img src="image.jpg" alt="Description"&gt;
+  &lt;/div&gt;
+  &lt;figcaption class="image-caption"&gt;Caption&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;!-- 16:9 --&gt;
+&lt;figure class="image-frame is-16-9"&gt;
+  &lt;div class="image-media"&gt;
+    &lt;img src="image.jpg" alt="Description"&gt;
+  &lt;/div&gt;
+  &lt;figcaption class="image-caption"&gt;Caption&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
             </div>
-            <figcaption class="image-caption">image-frame · ratio 16:9</figcaption>
-          </figure>
+          </div>
         </div>
       </div>
 
       <h4 class="mt-12 mb-2">Gallery with lightbox</h4>
-      <p class="text-soft text-sm mb-6">Click any image to open the lightbox. Arrow keys ←/→ to navigate, Esc to close.
-      </p>
+      <p class="text-soft text-sm mb-6">Click any image to open the lightbox. Arrow keys ←/→ to navigate, Esc to close.</p>
       <div class="gallery gallery-4" data-lightbox="demo">
         <a href="https://picsum.photos/seed/g1/1200/900" class="gallery-item">
           <img src="https://picsum.photos/seed/g1/400/400" alt="Photo 1">
@@ -146,14 +177,41 @@
           <img src="https://picsum.photos/seed/g8/400/400" alt="Photo 8">
         </a>
       </div>
+
+      <div class="accordion mt-4 mb-8" data-accordion>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#code" /></svg>
+            Source code
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <pre><code>&lt;div class="gallery gallery-4" data-lightbox="demo"&gt;
+  &lt;a href="image-full.jpg" class="gallery-item"&gt;
+    &lt;img src="image-thumb.jpg" alt="Photo 1"&gt;
+  &lt;/a&gt;
+  &lt;a href="image-full.jpg" class="gallery-item"&gt;
+    &lt;img src="image-thumb.jpg" alt="Photo 2"&gt;
+  &lt;/a&gt;
+  &lt;a href="image-full.jpg" class="gallery-item"&gt;
+    &lt;img src="image-thumb.jpg" alt="Photo 3"&gt;
+  &lt;/a&gt;
+  &lt;a href="image-full.jpg" class="gallery-item"&gt;
+    &lt;img src="image-thumb.jpg" alt="Photo 4"&gt;
+  &lt;/a&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- ============================== SLIDER ============================== -->
     <section class="demo-section" id="slider">
       <p class="demo-section-title">16 — Components</p>
       <h2>Slider / Carousel</h2>
-      <p class="text-soft">Image carousel with dots and arrows. Add <code>data-slider-auto="5000"</code> for auto-play.
-      </p>
+      <p class="text-soft">Image carousel with dots and arrows. Add <code>data-slider-auto="5000"</code> for auto-play.</p>
 
       <h4 class="mt-8 mb-4">Image only with dots &amp; arrows</h4>
       <div class="slider" data-slider data-slider-dots data-slider-arrows>
@@ -162,6 +220,27 @@
           <div class="slider-slide"><img src="https://picsum.photos/seed/sl2/1200/500" alt="Slide 2"></div>
           <div class="slider-slide"><img src="https://picsum.photos/seed/sl3/1200/500" alt="Slide 3"></div>
           <div class="slider-slide"><img src="https://picsum.photos/seed/sl4/1200/500" alt="Slide 4"></div>
+        </div>
+      </div>
+
+      <div class="accordion mt-4 mb-8" data-accordion>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#code" /></svg>
+            Source code
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <pre><code>&lt;div class="slider" data-slider data-slider-dots data-slider-arrows&gt;
+  &lt;div class="slider-track"&gt;
+    &lt;div class="slider-slide"&gt;&lt;img src="image.jpg" alt="Slide 1"&gt;&lt;/div&gt;
+    &lt;div class="slider-slide"&gt;&lt;img src="image.jpg" alt="Slide 2"&gt;&lt;/div&gt;
+    &lt;div class="slider-slide"&gt;&lt;img src="image.jpg" alt="Slide 3"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -197,6 +276,33 @@
           </div>
         </div>
       </div>
+
+      <div class="accordion mt-4 mb-8" data-accordion>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#code" /></svg>
+            Source code
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <pre><code>&lt;div class="slider slider-hero" data-slider data-slider-dots data-slider-arrows data-slider-auto="6000"&gt;
+  &lt;div class="slider-track"&gt;
+    &lt;div class="slider-slide"&gt;
+      &lt;img src="image.jpg" alt=""&gt;
+      &lt;div class="slider-hero-overlay"&gt;
+        &lt;div class="slider-hero-content"&gt;
+          &lt;h2&gt;Slide title&lt;/h2&gt;
+          &lt;p&gt;Slide description text.&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- ============================== VIDEO PLAYER ============================== -->
@@ -207,6 +313,24 @@
 
       <div class="video-player mt-6" data-video-player style="max-width:720px;">
         <video src="https://www.w3schools.com/html/mov_bbb.mp4" preload="metadata"></video>
+      </div>
+
+      <div class="accordion mt-4 mb-8" data-accordion>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#code" /></svg>
+            Source code
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <pre><code>&lt;!-- Add data-video-player to auto-init the custom controls --&gt;
+&lt;div class="video-player" data-video-player&gt;
+  &lt;video src="video.mp4" preload="metadata"&gt;&lt;/video&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -224,6 +348,25 @@
           data-title="Another Track" data-artist="Demo Artist">
         </div>
       </div>
+
+      <div class="accordion mt-4 mb-8" data-accordion>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#code" /></svg>
+            Source code
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <pre><code>&lt;div class="audio-player" data-audio-player
+  data-src="audio.mp3"
+  data-title="Track Title"
+  data-artist="Artist Name"&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- ============================== IMAGE FILTERS ============================== -->
@@ -232,57 +375,94 @@
       <h2>Image Filters</h2>
       <p class="text-soft">CSS filter classes for quick image treatment. Hover variants restore the original.</p>
 
-      <div class="grid mt-6">
-        <div class="col-3">
-          <figure class="image-frame is-square">
-            <div class="image-media"><img src="https://picsum.photos/seed/flt1/400/400" alt="Original"></div>
-            <figcaption class="image-caption">Original</figcaption>
-          </figure>
-        </div>
-        <div class="col-3">
-          <figure class="image-frame is-square">
-            <div class="image-media"><img src="https://picsum.photos/seed/flt1/400/400" alt="B/W" class="img-bw"></div>
-            <figcaption class="image-caption">.img-bw</figcaption>
-          </figure>
-        </div>
-        <div class="col-3">
-          <figure class="image-frame is-square">
-            <div class="image-media"><img src="https://picsum.photos/seed/flt1/400/400" alt="Sepia" class="img-sepia">
+      <h4 class="mt-8 mb-4">Original</h4>
+      <figure class="image-frame is-square" style="max-width:280px;">
+        <div class="image-media"><img src="https://picsum.photos/seed/flt1/400/400" alt="Original"></div>
+        <figcaption class="image-caption">Original</figcaption>
+      </figure>
+
+      <h4 class="mt-8 mb-4">.img-bw</h4>
+      <figure class="image-frame is-square" style="max-width:280px;">
+        <div class="image-media"><img src="https://picsum.photos/seed/flt1/400/400" alt="B/W" class="img-bw"></div>
+        <figcaption class="image-caption">.img-bw</figcaption>
+      </figure>
+
+      <h4 class="mt-8 mb-4">.img-sepia</h4>
+      <figure class="image-frame is-square" style="max-width:280px;">
+        <div class="image-media"><img src="https://picsum.photos/seed/flt1/400/400" alt="Sepia" class="img-sepia"></div>
+        <figcaption class="image-caption">.img-sepia</figcaption>
+      </figure>
+
+      <h4 class="mt-8 mb-4">.img-muted</h4>
+      <figure class="image-frame is-square" style="max-width:280px;">
+        <div class="image-media"><img src="https://picsum.photos/seed/flt1/400/400" alt="Muted" class="img-muted"></div>
+        <figcaption class="image-caption">.img-muted</figcaption>
+      </figure>
+
+      <div class="accordion mt-4 mb-8" data-accordion>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#code" /></svg>
+            Source code
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <pre><code>&lt;!-- Original (no filter) --&gt;
+&lt;img src="image.jpg" alt="Original"&gt;
+
+&lt;!-- Black &amp; white --&gt;
+&lt;img src="image.jpg" alt="B/W" class="img-bw"&gt;
+
+&lt;!-- Sepia --&gt;
+&lt;img src="image.jpg" alt="Sepia" class="img-sepia"&gt;
+
+&lt;!-- Muted --&gt;
+&lt;img src="image.jpg" alt="Muted" class="img-muted"&gt;</code></pre>
             </div>
-            <figcaption class="image-caption">.img-sepia</figcaption>
-          </figure>
-        </div>
-        <div class="col-3">
-          <figure class="image-frame is-square">
-            <div class="image-media"><img src="https://picsum.photos/seed/flt1/400/400" alt="Muted" class="img-muted">
-            </div>
-            <figcaption class="image-caption">.img-muted</figcaption>
-          </figure>
+          </div>
         </div>
       </div>
 
       <h4 class="mt-8 mb-4">Hover to reveal</h4>
-      <div class="grid">
-        <div class="col-4">
-          <figure class="image-frame is-16-9">
-            <div class="image-media"><img src="https://picsum.photos/seed/flt2/600/340" alt="B/W hover"
-                class="img-bw img-bw-hover"></div>
-            <figcaption class="image-caption">.img-bw .img-bw-hover</figcaption>
-          </figure>
-        </div>
-        <div class="col-4">
-          <figure class="image-frame is-16-9">
-            <div class="image-media"><img src="https://picsum.photos/seed/flt3/600/340" alt="Sepia hover"
-                class="img-sepia img-sepia-hover"></div>
-            <figcaption class="image-caption">.img-sepia .img-sepia-hover</figcaption>
-          </figure>
-        </div>
-        <div class="col-4">
-          <figure class="image-frame is-16-9">
-            <div class="image-media"><img src="https://picsum.photos/seed/flt4/600/340" alt="Warm" class="img-warm">
+
+      <h5 class="mt-6 mb-4">.img-bw .img-bw-hover</h5>
+      <figure class="image-frame is-16-9" style="max-width:280px;">
+        <div class="image-media"><img src="https://picsum.photos/seed/flt2/600/340" alt="B/W hover" class="img-bw img-bw-hover"></div>
+        <figcaption class="image-caption">.img-bw .img-bw-hover</figcaption>
+      </figure>
+
+      <h5 class="mt-8 mb-4">.img-sepia .img-sepia-hover</h5>
+      <figure class="image-frame is-16-9" style="max-width:280px;">
+        <div class="image-media"><img src="https://picsum.photos/seed/flt3/600/340" alt="Sepia hover" class="img-sepia img-sepia-hover"></div>
+        <figcaption class="image-caption">.img-sepia .img-sepia-hover</figcaption>
+      </figure>
+
+      <h5 class="mt-8 mb-4">.img-warm</h5>
+      <figure class="image-frame is-16-9" style="max-width:280px;">
+        <div class="image-media"><img src="https://picsum.photos/seed/flt4/600/340" alt="Warm" class="img-warm"></div>
+        <figcaption class="image-caption">.img-warm</figcaption>
+      </figure>
+
+      <div class="accordion mt-4 mb-8" data-accordion>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#code" /></svg>
+            Source code
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <pre><code>&lt;!-- B/W → colour on hover --&gt;
+&lt;img src="image.jpg" alt="B/W hover" class="img-bw img-bw-hover"&gt;
+
+&lt;!-- Sepia → colour on hover --&gt;
+&lt;img src="image.jpg" alt="Sepia hover" class="img-sepia img-sepia-hover"&gt;
+
+&lt;!-- Warm filter --&gt;
+&lt;img src="image.jpg" alt="Warm" class="img-warm"&gt;</code></pre>
             </div>
-            <figcaption class="image-caption">.img-warm</figcaption>
-          </figure>
+          </div>
         </div>
       </div>
     </section>

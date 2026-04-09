@@ -84,19 +84,85 @@
       <h2>Combobox</h2>
       <p class="text-soft">Autocomplete combobox (local JSON or remote <code class="text-mono">?q=</code>).</p>
 
-      <div class="grid" style="gap: var(--space-8); align-items: start;">
-        <div class="col-6">
-          <p class="text-sm text-muted mb-2">Local options via <code class="text-mono">data-combobox-local</code></p>
-          <span class="label">City</span>
-          <div id="demo-combobox-local" data-combobox data-combobox-name="city"
-            data-combobox-local='[{"value":"at","label":"Athens"},{"value":"be","label":"Berlin"},{"value":"ca","label":"Cairo"},{"value":"dk","label":"Denver"},{"value":"es","label":"Edinburgh"}]'
-            data-combobox-placeholder="Type to filter…"></div>
+      <p class="text-sm text-muted mb-2">Local options via <code class="text-mono">data-combobox-local</code></p>
+      <span class="label">City</span>
+      <div id="demo-combobox-local" data-combobox data-combobox-name="city"
+        data-combobox-local='[{"value":"at","label":"Athens"},{"value":"be","label":"Berlin"},{"value":"ca","label":"Cairo"},{"value":"dk","label":"Denver"},{"value":"es","label":"Edinburgh"}]'
+        data-combobox-placeholder="Type to filter…"></div>
+
+      <div class="accordion mt-4 mb-8" data-accordion>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#code" /></svg>
+            Source code
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <pre><code>&lt;span class="label"&gt;City&lt;/span&gt;
+&lt;div data-combobox
+  data-combobox-name="city"
+  data-combobox-local='[
+    {"value":"at","label":"Athens"},
+    {"value":"be","label":"Berlin"},
+    {"value":"ca","label":"Cairo"},
+    {"value":"dk","label":"Denver"},
+    {"value":"es","label":"Edinburgh"}
+  ]'
+  data-combobox-placeholder="Type to filter…"&gt;&lt;/div&gt;</code></pre>
+            </div>
+          </div>
         </div>
-        <div class="col-6">
-          <p class="text-sm text-muted mb-2">Remote: <code class="text-mono">Downstage.combobox.mount</code> + async
-            fetch (demo uses JSONPlaceholder users).</p>
-          <span class="label">User</span>
-          <div id="demo-combobox-api"></div>
+      </div>
+
+      <p class="text-sm text-muted mb-2">Remote: <code class="text-mono">Downstage.combobox.mount</code> + async
+        fetch (demo uses JSONPlaceholder users).</p>
+      <span class="label">User</span>
+      <div id="demo-combobox-api"></div>
+
+      <div class="accordion mt-4 mb-8" data-accordion>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#code" /></svg>
+            Source code
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <pre><code>&lt;div id="demo-combobox-api"&gt;&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#terminal" /></svg>
+            JavaScript
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <pre><code>Downstage.combobox.mount('#demo-combobox-api', {
+  minChars: 1,
+  placeholder: 'Type a name…',
+  name: 'userId',
+  fetchOptions: function (query) {
+    return fetch('https://jsonplaceholder.typicode.com/users')
+      .then(function (r) { return r.json(); })
+      .then(function (all) {
+        var q = String(query).toLowerCase();
+        return all
+          .filter(function (u) {
+            return !q || u.name.toLowerCase().indexOf(q) !== -1;
+          })
+          .slice(0, 8)
+          .map(function (u) {
+            return { value: String(u.id), label: u.name + ' — ' + u.email };
+          });
+      });
+  }
+});</code></pre>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -110,6 +176,51 @@
       <p class="help mt-2">In this demo the fetch URL is set in script (JSONPlaceholder). Listen for
         <code class="text-mono">combobox-change</code> on the root to react to selection.
       </p>
+
+      <div class="accordion mt-4 mb-8" data-accordion>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#code" /></svg>
+            Source code
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <pre><code>&lt;div id="demo-search-autocomplete"&gt;&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#terminal" /></svg>
+            JavaScript
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <pre><code>Downstage.searchAutocomplete.mount('#demo-search-autocomplete', {
+  minChars: 1,
+  placeholder: 'Search users…',
+  fetchSuggestions: function (query) {
+    return fetch('https://jsonplaceholder.typicode.com/users')
+      .then(function (r) { return r.json(); })
+      .then(function (all) {
+        var q = String(query).toLowerCase();
+        return all
+          .filter(function (u) {
+            return !q || u.name.toLowerCase().indexOf(q) !== -1;
+          })
+          .slice(0, 10)
+          .map(function (u) {
+            return { value: String(u.id), label: u.name + ' (' + u.email + ')' };
+          });
+      });
+  }
+});</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="demo-section" id="kanban">
@@ -126,24 +237,151 @@
         card reverts.
       </p>
       <div data-kanban data-kanban-fetch-url="../demo/kanban-board.json" data-kanban-move-url="https://httpbin.org/post" data-kanban-move-method="POST" data-kanban-move-credentials="omit"></div>
+
+      <div class="accordion mt-4 mb-8" data-accordion>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#code" /></svg>
+            Source code
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <pre><code>&lt;div data-kanban
+  data-kanban-fetch-url="../demo/kanban-board.json"
+  data-kanban-move-url="https://httpbin.org/post"
+  data-kanban-move-method="POST"
+  data-kanban-move-credentials="omit"&gt;&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#terminal" /></svg>
+            JavaScript
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <pre><code>Downstage.kanban.mount('#board', {
+  fetchUrl: '../demo/kanban-board.json',
+  moveUrl: 'https://httpbin.org/post',
+  moveMethod: 'POST',
+  moveCredentials: 'omit'
+});</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="demo-section" id="datatable">
       <p class="demo-section-title">04 — Data UI</p>
       <h2>Data table</h2>
 
-      <div class="grid" style="gap: var(--space-8); align-items: start;">
-        <div class="col-12">
-          <p class="text-sm text-muted mb-2">Local: sort, filter, pagination in the browser (<code
-              class="text-mono">data-data-table-demo</code>).</p>
-          <div data-data-table data-data-table-demo></div>
+      <p class="text-sm text-muted mb-2">Local: sort, filter, pagination in the browser (<code
+          class="text-mono">data-data-table-demo</code>).</p>
+      <div data-data-table data-data-table-demo></div>
+
+      <div class="accordion mt-4 mb-8" data-accordion>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#code" /></svg>
+            Source code
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <pre><code>&lt;div data-data-table data-data-table-demo&gt;&lt;/div&gt;</code></pre>
+            </div>
+          </div>
         </div>
-        <div class="col-12">
-          <p class="text-sm text-muted mb-2">Remote-style: one HTTP request, then client-side paging/sort/filter on the
-            result set (illustrates <code class="text-mono">fetchRemote</code>; your server can return
-            <code class="text-mono">{ rows, total }</code> per page).
-          </p>
-          <div id="demo-data-table-remote"></div>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#terminal" /></svg>
+            JavaScript
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <pre><code>Downstage.dataTable.mount('#my-table', {
+  mode: 'local',
+  pageSize: 5,
+  columns: [
+    { key: 'name', label: 'Name' },
+    { key: 'email', label: 'Email' },
+    { key: 'role', label: 'Role' }
+  ],
+  rows: [
+    { name: 'Ada Lovelace', email: 'ada@example.com', role: 'Admin' },
+    { name: 'Alan Turing', email: 'alan@example.com', role: 'Editor' },
+    { name: 'Grace Hopper', email: 'grace@example.com', role: 'Editor' },
+    { name: 'Edsger Dijkstra', email: 'edsger@example.com', role: 'Viewer' },
+    { name: 'Margaret Hamilton', email: 'margaret@example.com', role: 'Admin' },
+    { name: 'Ken Thompson', email: 'ken@example.com', role: 'Viewer' }
+  ]
+});</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="text-sm text-muted mb-2">Remote-style: one HTTP request, then client-side paging/sort/filter on the
+        result set (illustrates <code class="text-mono">fetchRemote</code>; your server can return
+        <code class="text-mono">{ rows, total }</code> per page).
+      </p>
+      <div id="demo-data-table-remote"></div>
+
+      <div class="accordion mt-4 mb-8" data-accordion>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#code" /></svg>
+            Source code
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <pre><code>&lt;div id="demo-data-table-remote"&gt;&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#terminal" /></svg>
+            JavaScript
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <pre><code>Downstage.dataTable.mount('#demo-data-table-remote', {
+  mode: 'remote',
+  pageSize: 4,
+  searchPlaceholder: 'Filter loaded users…',
+  columns: [
+    { key: 'name', label: 'Name' },
+    { key: 'email', label: 'Email' },
+    { key: 'company', label: 'Company' }
+  ],
+  fetchRemote: function (params) {
+    // params: { page, pageSize, q, sortKey, sortDir }
+    return fetch('https://jsonplaceholder.typicode.com/users')
+      .then(function (r) { return r.json(); })
+      .then(function (all) {
+        var rows = all.map(function (u) {
+          return {
+            name: u.name,
+            email: u.email,
+            company: u.company.name
+          };
+        });
+        var total = rows.length;
+        var start = (params.page - 1) * params.pageSize;
+        return { rows: rows.slice(start, start + params.pageSize), total: total };
+      });
+  }
+});</code></pre>
+            </div>
+          </div>
         </div>
       </div>
     </section>

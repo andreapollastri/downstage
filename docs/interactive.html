@@ -74,10 +74,13 @@
           <a href="#tabs">Tabs</a>
           <a href="#accordion">Accordion</a>
           <a href="#modal">Modal</a>
+          <a href="#sidebar-nav">Sidebar nav</a>
           <a href="#js-api">JavaScript API</a>
         </nav>
       </aside>
       <div class="docs-content doc-stack">
+
+    <!-- ============================== TABS ============================== -->
     <section class="demo-section" id="tabs">
       <p class="demo-section-title">12 — Components</p>
       <h2>Tabs</h2>
@@ -114,6 +117,40 @@
             <code>htmlEditor</code>, and more. Each has an <code>init()</code> method called automatically on
             DOMContentLoaded.
           </p>
+        </div>
+      </div>
+
+      <div class="accordion mt-4 mb-8" data-accordion>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#code" /></svg>
+            Source code
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <pre><code>&lt;div class="tabs" data-tabs&gt;
+  &lt;ul class="tabs-list" role="tablist"&gt;
+    &lt;li&gt;&lt;button class="tab" role="tab" data-tab="t1"&gt;Overview&lt;/button&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;button class="tab" role="tab" data-tab="t2"&gt;Installation&lt;/button&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;button class="tab" role="tab" data-tab="t3"&gt;Configuration&lt;/button&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;div class="tab-panel" data-tab-panel="t1"&gt;
+    &lt;h4&gt;Overview&lt;/h4&gt;
+    &lt;p&gt;Panel content here.&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="tab-panel" data-tab-panel="t2"&gt;
+    &lt;h4&gt;Installation&lt;/h4&gt;
+    &lt;p&gt;Panel content here.&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="tab-panel" data-tab-panel="t3"&gt;
+    &lt;h4&gt;Configuration&lt;/h4&gt;
+    &lt;p&gt;Panel content here.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -188,36 +225,95 @@
           </div>
         </div>
       </div>
+
+      <div class="accordion mt-4 mb-8" data-accordion>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#code" /></svg>
+            Source code
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <pre><code>&lt;div class="accordion" data-accordion="single"&gt;
+  &lt;div class="accordion-item is-open"&gt;
+    &lt;button class="accordion-header"&gt;
+      Question text
+      &lt;svg class="icon accordion-icon"&gt;
+        &lt;use href="downstage-icons.svg#plus" /&gt;
+      &lt;/svg&gt;
+    &lt;/button&gt;
+    &lt;div class="accordion-content"&gt;
+      &lt;div class="accordion-body"&gt;
+        Answer content here.
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class="accordion-item"&gt;
+    &lt;button class="accordion-header"&gt;
+      Another question
+      &lt;svg class="icon accordion-icon"&gt;
+        &lt;use href="downstage-icons.svg#plus" /&gt;
+      &lt;/svg&gt;
+    &lt;/button&gt;
+    &lt;div class="accordion-content"&gt;
+      &lt;div class="accordion-body"&gt;
+        Answer content here.
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- ============================== MODAL ============================== -->
     <section class="demo-section" id="modal">
       <p class="demo-section-title">14 — Components</p>
-      <h2>Modal &amp; Sidebar nav</h2>
+      <h2>Modal</h2>
+      <p class="text-soft">Click the button to open the dialog.</p>
 
-      <div class="grid mt-6">
-        <div class="col-6">
-          <h4>Modal</h4>
-          <p class="text-soft text-sm mt-2">Click the button to open the dialog.</p>
-          <button class="btn btn-danger mt-4"
-            onclick="document.getElementById('demo-modal').classList.remove('hidden')">
-            <svg class="icon">
-              <use href="../downstage-icons.svg#trash" />
-            </svg>
-            Delete entry
+      <button class="btn btn-danger mt-4"
+        onclick="document.getElementById('demo-modal').classList.remove('hidden')">
+        <svg class="icon">
+          <use href="../downstage-icons.svg#trash" />
+        </svg>
+        Delete entry
+      </button>
+
+      <div class="accordion mt-4 mb-8" data-accordion>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#code" /></svg>
+            Source code
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
           </button>
-        </div>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <pre><code>&lt;button class="btn btn-danger"
+  onclick="document.getElementById('demo-modal').classList.remove('hidden')"&gt;
+  &lt;svg class="icon"&gt;&lt;use href="downstage-icons.svg#trash" /&gt;&lt;/svg&gt;
+  Delete entry
+&lt;/button&gt;
 
-        <div class="col-6">
-          <h4>Sidebar nav</h4>
-          <p class="text-soft text-sm mt-2">Vertical style as in settings pages.</p>
-          <nav class="nav-vertical mt-4" style="max-width: 200px;">
-            <a href="#" class="active">Settings</a>
-            <a href="#">Account</a>
-            <a href="#">Domain</a>
-            <a href="#">Export</a>
-            <a href="#">Feedback</a>
-          </nav>
+&lt;div id="demo-modal" class="modal-overlay hidden"
+  onclick="if(event.target===this)this.classList.add('hidden')"&gt;
+  &lt;div class="modal"&gt;
+    &lt;div class="modal-title"&gt;Delete Entry&lt;/div&gt;
+    &lt;div class="modal-body"&gt;Are you sure? This action is irreversible.&lt;/div&gt;
+    &lt;div class="modal-footer"&gt;
+      &lt;button class="btn btn-secondary"
+        onclick="document.getElementById('demo-modal').classList.add('hidden')"&gt;Cancel&lt;/button&gt;
+      &lt;button class="btn btn-primary"
+        onclick="document.getElementById('demo-modal').classList.add('hidden')"&gt;Confirm&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -235,6 +331,42 @@
         </div>
       </div>
     </div>
+
+    <!-- ============================== SIDEBAR NAV ============================== -->
+    <section class="demo-section" id="sidebar-nav">
+      <p class="demo-section-title">15 — Components</p>
+      <h2>Sidebar nav</h2>
+      <p class="text-soft">Vertical style as in settings pages.</p>
+
+      <nav class="nav-vertical mt-4" style="max-width: 200px;">
+        <a href="#" class="active">Settings</a>
+        <a href="#">Account</a>
+        <a href="#">Domain</a>
+        <a href="#">Export</a>
+        <a href="#">Feedback</a>
+      </nav>
+
+      <div class="accordion mt-4 mb-8" data-accordion>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#code" /></svg>
+            Source code
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <pre><code>&lt;nav class="nav-vertical" style="max-width: 200px;"&gt;
+  &lt;a href="#" class="active"&gt;Settings&lt;/a&gt;
+  &lt;a href="#"&gt;Account&lt;/a&gt;
+  &lt;a href="#"&gt;Domain&lt;/a&gt;
+  &lt;a href="#"&gt;Export&lt;/a&gt;
+  &lt;a href="#"&gt;Feedback&lt;/a&gt;
+&lt;/nav&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- ============================== JAVASCRIPT API ============================== -->
     <section class="demo-section" id="js-api">

@@ -60,12 +60,17 @@
           <a href="#buttons">Buttons</a>
           <a href="#forms">Forms</a>
           <a href="#copy-fields">Copyable fields</a>
+          <a href="#alerts">Alerts</a>
+          <a href="#badges">Badges</a>
+          <a href="#file-cards">File cards</a>
           <a href="#table">Table</a>
           <a href="#html-editor">HTML editor</a>
           <a href="#timeline">Timeline</a>
         </nav>
       </aside>
       <div class="docs-content doc-stack">
+
+    <!-- ═══════════════════ 01 · BREADCRUMB ═══════════════════ -->
 
     <section class="demo-section" id="breadcrumb">
       <p class="demo-section-title">01 — Navigation</p>
@@ -85,7 +90,36 @@
           <li>Layout &amp; forms</li>
         </ol>
       </nav>
+
+      <div class="accordion mt-4 mb-8" data-accordion>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#code" /></svg>
+            Source code
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <pre><code>&lt;nav aria-label="Breadcrumb"&gt;
+  &lt;ol class="breadcrumb"&gt;
+    &lt;li&gt;
+      &lt;a href="/" aria-label="Home"&gt;
+        &lt;svg class="icon" aria-hidden="true"&gt;
+          &lt;use href="downstage-icons.svg#home" /&gt;
+        &lt;/svg&gt;
+      &lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href="/docs"&gt;Documentation&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;Current page&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/nav&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
+
+    <!-- ═══════════════════ 02 · BUTTONS ═══════════════════ -->
 
     <section class="demo-section" id="buttons">
       <p class="demo-section-title">02 — Components</p>
@@ -127,279 +161,621 @@
         <button class="btn" disabled>Disabled</button>
       </div>
 
+      <div class="accordion mt-4 mb-8" data-accordion>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#code" /></svg>
+            Source code
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <pre><code>&lt;div class="cluster"&gt;
+  &lt;button class="btn"&gt;Default&lt;/button&gt;
+  &lt;button class="btn btn-primary"&gt;
+    &lt;svg class="icon"&gt;&lt;use href="downstage-icons.svg#save" /&gt;&lt;/svg&gt;
+    Save
+  &lt;/button&gt;
+  &lt;button class="btn btn-secondary"&gt;
+    &lt;svg class="icon"&gt;&lt;use href="downstage-icons.svg#filter" /&gt;&lt;/svg&gt;
+    Filter
+  &lt;/button&gt;
+  &lt;button class="btn btn-ghost"&gt;Ghost&lt;/button&gt;
+  &lt;button class="btn btn-danger"&gt;
+    &lt;svg class="icon"&gt;&lt;use href="downstage-icons.svg#trash" /&gt;&lt;/svg&gt;
+    Delete
+  &lt;/button&gt;
+  &lt;button class="btn btn-danger-solid"&gt;
+    &lt;svg class="icon"&gt;&lt;use href="downstage-icons.svg#x" /&gt;&lt;/svg&gt;
+    Confirm
+  &lt;/button&gt;
+  &lt;button class="btn btn-success"&gt;
+    &lt;svg class="icon"&gt;&lt;use href="downstage-icons.svg#check" /&gt;&lt;/svg&gt;
+    Approve
+  &lt;/button&gt;
+  &lt;button class="btn" disabled&gt;Disabled&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <h4 class="mt-8 mb-2">Sizes</h4>
       <div class="cluster mt-4">
         <button class="btn btn-sm btn-primary">Small</button>
         <button class="btn btn-primary">Default</button>
         <button class="btn btn-lg btn-primary">Large</button>
       </div>
+
+      <div class="accordion mt-4 mb-8" data-accordion>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#code" /></svg>
+            Source code
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <pre><code>&lt;button class="btn btn-sm btn-primary"&gt;Small&lt;/button&gt;
+&lt;button class="btn btn-primary"&gt;Default&lt;/button&gt;
+&lt;button class="btn btn-lg btn-primary"&gt;Large&lt;/button&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
+
+    <!-- ═══════════════════ 03 · FORMS ═══════════════════ -->
 
     <section class="demo-section" id="forms">
       <p class="demo-section-title">03 — Components</p>
       <h2>Forms</h2>
 
-      <div class="grid mt-6">
-        <div class="col-6">
-          <div class="card">
-            <div class="card-header">
-              <h4 style="margin: 0;">
-                <svg class="icon">
-                  <use href="../downstage-icons.svg#user-plus" />
-                </svg>
-                Create account
-              </h4>
-              <span class="badge">Demo</span>
-            </div>
+      <h3 class="mt-6 mb-2">Create account</h3>
+      <p class="text-soft text-sm mb-4">Card form with text inputs, select, checkbox, switch, and validation states.</p>
 
-            <div class="stack">
-              <div class="field">
-                <label class="label" for="demo-name">Username</label>
-                <input id="demo-name" class="input" type="text" placeholder="username" value="john">
-              </div>
+      <div class="card mt-6" style="max-width: 480px;">
+        <div class="card-header">
+          <h4 style="margin: 0;">
+            <svg class="icon">
+              <use href="../downstage-icons.svg#user-plus" />
+            </svg>
+            Create account
+          </h4>
+          <span class="badge">Demo</span>
+        </div>
 
-              <div class="field">
-                <label class="label" for="demo-email">Email</label>
-                <input id="demo-email" class="input" type="email" placeholder="you@example.com">
-                <span class="help">We will never share your email.</span>
-              </div>
+        <div class="stack">
+          <div class="field">
+            <label class="label" for="demo-name">Username</label>
+            <input id="demo-name" class="input" type="text" placeholder="username" value="john">
+          </div>
 
-              <div class="field has-error">
-                <label class="label" for="demo-pwd">Password</label>
-                <input id="demo-pwd" class="input" type="password" value="123">
-                <span class="error">At least 8 characters.</span>
-              </div>
+          <div class="field">
+            <label class="label" for="demo-email">Email</label>
+            <input id="demo-email" class="input" type="email" placeholder="you@example.com">
+            <span class="help">We will never share your email.</span>
+          </div>
 
-              <div class="field">
-                <label class="label" for="demo-role">Role</label>
-                <select id="demo-role" class="select">
-                  <option>Developer</option>
-                  <option>Designer</option>
-                  <option>PM</option>
-                </select>
-              </div>
+          <div class="field has-error">
+            <label class="label" for="demo-pwd">Password</label>
+            <input id="demo-pwd" class="input" type="password" value="123">
+            <span class="error">At least 8 characters.</span>
+          </div>
 
-              <label class="check">
-                <input type="checkbox" checked>
-                <span>I accept the terms of service</span>
-              </label>
+          <div class="field">
+            <label class="label" for="demo-role">Role</label>
+            <select id="demo-role" class="select">
+              <option>Developer</option>
+              <option>Designer</option>
+              <option>PM</option>
+            </select>
+          </div>
 
-              <div class="cluster" style="justify-content: space-between;">
-                <span class="text-subtle">Auto-save enabled</span>
-                <label class="switch">
-                  <input type="checkbox" checked>
-                  <span class="switch-slider"></span>
-                </label>
-              </div>
-            </div>
+          <label class="check">
+            <input type="checkbox" checked>
+            <span>I accept the terms of service</span>
+          </label>
 
-            <div class="card-footer">
-              <button class="btn btn-secondary">Cancel</button>
-              <button class="btn btn-primary">
-                <svg class="icon">
-                  <use href="../downstage-icons.svg#save" />
-                </svg>
-                Save
-              </button>
-            </div>
+          <div class="cluster" style="justify-content: space-between;">
+            <span class="text-subtle">Auto-save enabled</span>
+            <label class="switch">
+              <input type="checkbox" checked>
+              <span class="switch-slider"></span>
+            </label>
           </div>
         </div>
 
-        <div class="col-6">
-          <h4 class="mb-2" style="margin-top: 0;">Minimal underline</h4>
-          <p class="text-subtle text-sm mb-4">Single bottom border, transparent to the page background (<code
-              class="text-mono">--bg</code>).</p>
-
-          <form class="stack" action="#" method="get" onsubmit="return false;">
-            <div class="field">
-              <label class="label" for="demo-min-name">Name</label>
-              <input id="demo-min-name" class="input input-minimal" type="text" placeholder="Your name"
-                autocomplete="name">
-            </div>
-            <div class="field">
-              <label class="label" for="demo-min-email">Email</label>
-              <input id="demo-min-email" class="input input-minimal" type="email" placeholder="you@example.com"
-                autocomplete="email">
-            </div>
-            <div class="field">
-              <label class="label" for="demo-min-topic">Topic</label>
-              <select id="demo-min-topic" class="select select-minimal">
-                <option>General</option>
-                <option>Support</option>
-                <option>Partnership</option>
-              </select>
-            </div>
-            <div class="field">
-              <label class="label" for="demo-min-msg">Message</label>
-              <textarea id="demo-min-msg" class="textarea textarea-minimal" placeholder="Brief message"></textarea>
-            </div>
-            <div class="field">
-              <span class="label" id="demo-min-attach-label">Attachment</span>
-              <div class="upload-drop" data-upload-drop role="group" aria-labelledby="demo-min-attach-label">
-                <input id="demo-min-file" class="sr-only" type="file" multiple aria-describedby="demo-min-file-hint">
-                <div class="upload-drop-zone" tabindex="0" role="button"
-                  aria-label="Drop files here or browse to upload">
-                  <svg class="icon icon-lg" aria-hidden="true">
-                    <use href="../downstage-icons.svg#upload" />
-                  </svg>
-                  <span class="upload-drop-text">Drop files here or <label for="demo-min-file"
-                      class="upload-drop-browse">browse</label></span>
-                  <span id="demo-min-file-hint" class="help">PDF, PNG — demo only</span>
-                </div>
-                <ul class="upload-drop-list" hidden></ul>
-              </div>
-            </div>
-            <div class="cluster mt-2" style="justify-content: flex-end;">
-              <button type="button" class="btn btn-ghost">Cancel</button>
-              <button type="submit" class="btn btn-primary">Send</button>
-            </div>
-          </form>
+        <div class="card-footer">
+          <button class="btn btn-secondary">Cancel</button>
+          <button class="btn btn-primary">
+            <svg class="icon">
+              <use href="../downstage-icons.svg#save" />
+            </svg>
+            Save
+          </button>
         </div>
       </div>
 
-      <h3 class="mt-8 mb-2" id="copy-fields" tabindex="-1">Copyable fields</h3>
-      <p class="text-soft text-sm mb-4">Read-only or disabled values with a <strong>copy</strong> action (<code
-          class="text-mono">.input-copy-wrap</code> + <code class="text-mono">downstage.js</code>). Use <code
-          class="text-mono">.input-copy-wrap-minimal</code> for underline controls on the page background.</p>
+      <div class="accordion mt-4 mb-8" data-accordion>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#code" /></svg>
+            Source code
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <pre><code>&lt;div class="card"&gt;
+  &lt;div class="card-header"&gt;
+    &lt;h4 style="margin: 0;"&gt;
+      &lt;svg class="icon"&gt;&lt;use href="downstage-icons.svg#user-plus" /&gt;&lt;/svg&gt;
+      Create account
+    &lt;/h4&gt;
+    &lt;span class="badge"&gt;Demo&lt;/span&gt;
+  &lt;/div&gt;
 
-      <div class="grid mt-2" style="gap: var(--space-8); align-items: start;">
-        <div class="col-6">
-          <div class="field">
-            <label class="label" for="demo-copy-textarea">Read-only textarea</label>
-            <div class="input-copy-wrap">
-              <textarea id="demo-copy-textarea" class="textarea" readonly rows="4">curl -s https://example.com/install.sh | sh</textarea>
-              <button type="button" class="input-copy-btn">
-                <svg class="icon icon-sm" aria-hidden="true">
-                  <use href="../downstage-icons.svg#copy" />
-                </svg>
-                <span class="input-copy-btn-label">Copy</span>
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="col-6">
-          <div class="field">
-            <label class="label" for="demo-copy-disabled">Disabled input</label>
-            <div class="input-copy-wrap">
-              <input id="demo-copy-disabled" class="input" type="text"
-                value="ds_live_51H8k0AbCdEfGhIjKlMnOpQr0123456789" disabled>
-              <button type="button" class="input-copy-btn">
-                <svg class="icon icon-sm" aria-hidden="true">
-                  <use href="../downstage-icons.svg#copy" />
-                </svg>
-                <span class="input-copy-btn-label">Copy</span>
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="col-6">
-          <div class="field">
-            <label class="label" for="demo-copy-textarea-min">Minimal textarea</label>
-            <div class="input-copy-wrap input-copy-wrap-minimal">
-              <textarea id="demo-copy-textarea-min" class="textarea textarea-minimal" readonly rows="4">export DOWNSTAGE_THEME=auto
-export PATH="$HOME/.local/bin:$PATH"</textarea>
-              <button type="button" class="input-copy-btn">
-                <svg class="icon icon-sm" aria-hidden="true">
-                  <use href="../downstage-icons.svg#copy" />
-                </svg>
-                <span class="input-copy-btn-label">Copy</span>
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="col-6">
-          <div class="field">
-            <label class="label" for="demo-copy-disabled-min">Minimal disabled input</label>
-            <div class="input-copy-wrap input-copy-wrap-minimal">
-              <input id="demo-copy-disabled-min" class="input input-minimal" type="text"
-                value="pk_test_51H8k0AbCdEfGhIjKlMnOpQr0123456789" disabled>
-              <button type="button" class="input-copy-btn">
-                <svg class="icon icon-sm" aria-hidden="true">
-                  <use href="../downstage-icons.svg#copy" />
-                </svg>
-                <span class="input-copy-btn-label">Copy</span>
-              </button>
+  &lt;div class="stack"&gt;
+    &lt;div class="field"&gt;
+      &lt;label class="label" for="username"&gt;Username&lt;/label&gt;
+      &lt;input id="username" class="input" type="text" placeholder="username"&gt;
+    &lt;/div&gt;
+
+    &lt;div class="field"&gt;
+      &lt;label class="label" for="email"&gt;Email&lt;/label&gt;
+      &lt;input id="email" class="input" type="email" placeholder="you@example.com"&gt;
+      &lt;span class="help"&gt;We will never share your email.&lt;/span&gt;
+    &lt;/div&gt;
+
+    &lt;div class="field has-error"&gt;
+      &lt;label class="label" for="password"&gt;Password&lt;/label&gt;
+      &lt;input id="password" class="input" type="password"&gt;
+      &lt;span class="error"&gt;At least 8 characters.&lt;/span&gt;
+    &lt;/div&gt;
+
+    &lt;div class="field"&gt;
+      &lt;label class="label" for="role"&gt;Role&lt;/label&gt;
+      &lt;select id="role" class="select"&gt;
+        &lt;option&gt;Developer&lt;/option&gt;
+        &lt;option&gt;Designer&lt;/option&gt;
+      &lt;/select&gt;
+    &lt;/div&gt;
+
+    &lt;label class="check"&gt;
+      &lt;input type="checkbox" checked&gt;
+      &lt;span&gt;I accept the terms of service&lt;/span&gt;
+    &lt;/label&gt;
+
+    &lt;div class="cluster" style="justify-content: space-between;"&gt;
+      &lt;span class="text-subtle"&gt;Auto-save enabled&lt;/span&gt;
+      &lt;label class="switch"&gt;
+        &lt;input type="checkbox" checked&gt;
+        &lt;span class="switch-slider"&gt;&lt;/span&gt;
+      &lt;/label&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class="card-footer"&gt;
+    &lt;button class="btn btn-secondary"&gt;Cancel&lt;/button&gt;
+    &lt;button class="btn btn-primary"&gt;
+      &lt;svg class="icon"&gt;&lt;use href="downstage-icons.svg#save" /&gt;&lt;/svg&gt;
+      Save
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="grid mt-8">
-        <div class="col-12">
-          <div class="stack">
-            <div class="alert alert-info">
-              <svg class="icon icon-lg">
-                <use href="../downstage-icons.svg#info" />
-              </svg>
-              <div><strong>Info</strong> — This is an informational alert.</div>
-            </div>
-            <div class="alert alert-success">
-              <svg class="icon icon-lg">
-                <use href="../downstage-icons.svg#check-circle" />
-              </svg>
-              <div><strong>Success</strong> — Changes have been saved.</div>
-            </div>
-            <div class="alert alert-warning">
-              <svg class="icon icon-lg">
-                <use href="../downstage-icons.svg#alert" />
-              </svg>
-              <div><strong>Warning</strong> — Your session expires in 5 minutes.</div>
-            </div>
-            <div class="alert alert-danger">
-              <svg class="icon icon-lg">
-                <use href="../downstage-icons.svg#x-circle" />
-              </svg>
-              <div><strong>Error</strong> — Unable to complete the operation.</div>
-            </div>
+      <h3 class="mt-10 mb-2">Minimal underline</h3>
+      <p class="text-subtle text-sm mb-4">Single bottom border, transparent to the page background (<code class="text-mono">--bg</code>).</p>
 
-            <h4 class="mt-4">Badges</h4>
-            <div class="cluster">
-              <span class="badge">Default</span>
-              <span class="badge badge-success">Success</span>
-              <span class="badge badge-danger">Danger</span>
-              <span class="badge badge-warning">Warning</span>
-              <span class="badge badge-info">Info</span>
+      <form class="stack" style="max-width: 480px;" action="#" method="get" onsubmit="return false;">
+        <div class="field">
+          <label class="label" for="demo-min-name">Name</label>
+          <input id="demo-min-name" class="input input-minimal" type="text" placeholder="Your name" autocomplete="name">
+        </div>
+        <div class="field">
+          <label class="label" for="demo-min-email">Email</label>
+          <input id="demo-min-email" class="input input-minimal" type="email" placeholder="you@example.com" autocomplete="email">
+        </div>
+        <div class="field">
+          <label class="label" for="demo-min-topic">Topic</label>
+          <select id="demo-min-topic" class="select select-minimal">
+            <option>General</option>
+            <option>Support</option>
+            <option>Partnership</option>
+          </select>
+        </div>
+        <div class="field">
+          <label class="label" for="demo-min-msg">Message</label>
+          <textarea id="demo-min-msg" class="textarea textarea-minimal" placeholder="Brief message"></textarea>
+        </div>
+        <div class="field">
+          <span class="label" id="demo-min-attach-label">Attachment</span>
+          <div class="upload-drop" data-upload-drop role="group" aria-labelledby="demo-min-attach-label">
+            <input id="demo-min-file" class="sr-only" type="file" multiple aria-describedby="demo-min-file-hint">
+            <div class="upload-drop-zone" tabindex="0" role="button" aria-label="Drop files here or browse to upload">
+              <svg class="icon icon-lg" aria-hidden="true">
+                <use href="../downstage-icons.svg#upload" />
+              </svg>
+              <span class="upload-drop-text">Drop files here or <label for="demo-min-file" class="upload-drop-browse">browse</label></span>
+              <span id="demo-min-file-hint" class="help">PDF, PNG — demo only</span>
             </div>
+            <ul class="upload-drop-list" hidden></ul>
+          </div>
+        </div>
+        <div class="cluster mt-2" style="justify-content: flex-end;">
+          <button type="button" class="btn btn-ghost">Cancel</button>
+          <button type="submit" class="btn btn-primary">Send</button>
+        </div>
+      </form>
 
-            <h4 class="mt-4">File card</h4>
-            <a href="#" class="file-card">
-              <span class="file-card-icon">
-                <svg class="icon icon-xl">
-                  <use href="../downstage-icons.svg#file-pdf" />
-                </svg>
-              </span>
-              <div class="file-card-body">
-                <div class="file-card-title">contract-2026.pdf</div>
-                <div class="file-card-meta">2.4 MB · 12 pages</div>
-              </div>
-              <svg class="icon">
-                <use href="../downstage-icons.svg#download" />
-              </svg>
-            </a>
-            <a href="#" class="file-card">
-              <span class="file-card-icon">
-                <svg class="icon icon-xl">
-                  <use href="../downstage-icons.svg#file-image" />
-                </svg>
-              </span>
-              <div class="file-card-body">
-                <div class="file-card-title">screenshot.png</div>
-                <div class="file-card-meta">340 KB</div>
-              </div>
-              <svg class="icon">
-                <use href="../downstage-icons.svg#download" />
-              </svg>
-            </a>
+      <div class="accordion mt-4 mb-8" data-accordion>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#code" /></svg>
+            Source code
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <pre><code>&lt;form class="stack"&gt;
+  &lt;div class="field"&gt;
+    &lt;label class="label" for="name"&gt;Name&lt;/label&gt;
+    &lt;input id="name" class="input input-minimal" type="text" placeholder="Your name"&gt;
+  &lt;/div&gt;
+  &lt;div class="field"&gt;
+    &lt;label class="label" for="email"&gt;Email&lt;/label&gt;
+    &lt;input id="email" class="input input-minimal" type="email" placeholder="you@example.com"&gt;
+  &lt;/div&gt;
+  &lt;div class="field"&gt;
+    &lt;label class="label" for="topic"&gt;Topic&lt;/label&gt;
+    &lt;select id="topic" class="select select-minimal"&gt;
+      &lt;option&gt;General&lt;/option&gt;
+      &lt;option&gt;Support&lt;/option&gt;
+    &lt;/select&gt;
+  &lt;/div&gt;
+  &lt;div class="field"&gt;
+    &lt;label class="label" for="message"&gt;Message&lt;/label&gt;
+    &lt;textarea id="message" class="textarea textarea-minimal" placeholder="Brief message"&gt;&lt;/textarea&gt;
+  &lt;/div&gt;
+  &lt;div class="field"&gt;
+    &lt;span class="label"&gt;Attachment&lt;/span&gt;
+    &lt;div class="upload-drop" data-upload-drop&gt;
+      &lt;input class="sr-only" type="file" multiple&gt;
+      &lt;div class="upload-drop-zone" tabindex="0" role="button"&gt;
+        &lt;svg class="icon icon-lg" aria-hidden="true"&gt;
+          &lt;use href="downstage-icons.svg#upload" /&gt;
+        &lt;/svg&gt;
+        &lt;span class="upload-drop-text"&gt;Drop files here or &lt;label class="upload-drop-browse"&gt;browse&lt;/label&gt;&lt;/span&gt;
+        &lt;span class="help"&gt;PDF, PNG&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;ul class="upload-drop-list" hidden&gt;&lt;/ul&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="cluster mt-2" style="justify-content: flex-end;"&gt;
+    &lt;button type="button" class="btn btn-ghost"&gt;Cancel&lt;/button&gt;
+    &lt;button type="submit" class="btn btn-primary"&gt;Send&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/form&gt;</code></pre>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="demo-section" id="table">
+    <!-- ═══════════════════ 04 · COPYABLE FIELDS ═══════════════════ -->
+
+    <section class="demo-section" id="copy-fields">
       <p class="demo-section-title">04 — Components</p>
+      <h2>Copyable fields</h2>
+      <p class="text-soft text-sm mb-4">Read-only or disabled values with a <strong>copy</strong> action (<code class="text-mono">.input-copy-wrap</code> + <code class="text-mono">downstage.js</code>). Use <code class="text-mono">.input-copy-wrap-minimal</code> for underline controls on the page background.</p>
+
+      <div class="stack mt-6" style="max-width: 480px;">
+        <div class="field">
+          <label class="label" for="demo-copy-textarea">Read-only textarea</label>
+          <div class="input-copy-wrap">
+            <textarea id="demo-copy-textarea" class="textarea" readonly rows="4">curl -s https://example.com/install.sh | sh</textarea>
+            <button type="button" class="input-copy-btn">
+              <svg class="icon icon-sm" aria-hidden="true">
+                <use href="../downstage-icons.svg#copy" />
+              </svg>
+              <span class="input-copy-btn-label">Copy</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="stack mt-6" style="max-width: 480px;">
+        <div class="field">
+          <label class="label" for="demo-copy-disabled">Disabled input</label>
+          <div class="input-copy-wrap">
+            <input id="demo-copy-disabled" class="input" type="text" value="ds_live_51H8k0AbCdEfGhIjKlMnOpQr0123456789" disabled>
+            <button type="button" class="input-copy-btn">
+              <svg class="icon icon-sm" aria-hidden="true">
+                <use href="../downstage-icons.svg#copy" />
+              </svg>
+              <span class="input-copy-btn-label">Copy</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="stack mt-6" style="max-width: 480px;">
+        <div class="field">
+          <label class="label" for="demo-copy-textarea-min">Minimal textarea</label>
+          <div class="input-copy-wrap input-copy-wrap-minimal">
+            <textarea id="demo-copy-textarea-min" class="textarea textarea-minimal" readonly rows="4">export DOWNSTAGE_THEME=auto
+export PATH="$HOME/.local/bin:$PATH"</textarea>
+            <button type="button" class="input-copy-btn">
+              <svg class="icon icon-sm" aria-hidden="true">
+                <use href="../downstage-icons.svg#copy" />
+              </svg>
+              <span class="input-copy-btn-label">Copy</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="stack mt-6" style="max-width: 480px;">
+        <div class="field">
+          <label class="label" for="demo-copy-disabled-min">Minimal disabled input</label>
+          <div class="input-copy-wrap input-copy-wrap-minimal">
+            <input id="demo-copy-disabled-min" class="input input-minimal" type="text" value="pk_test_51H8k0AbCdEfGhIjKlMnOpQr0123456789" disabled>
+            <button type="button" class="input-copy-btn">
+              <svg class="icon icon-sm" aria-hidden="true">
+                <use href="../downstage-icons.svg#copy" />
+              </svg>
+              <span class="input-copy-btn-label">Copy</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion mt-4 mb-8" data-accordion>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#code" /></svg>
+            Source code
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <pre><code>&lt;!-- Read-only textarea with copy --&gt;
+&lt;div class="field"&gt;
+  &lt;label class="label"&gt;Read-only textarea&lt;/label&gt;
+  &lt;div class="input-copy-wrap"&gt;
+    &lt;textarea class="textarea" readonly rows="4"&gt;Content here&lt;/textarea&gt;
+    &lt;button type="button" class="input-copy-btn"&gt;
+      &lt;svg class="icon icon-sm" aria-hidden="true"&gt;
+        &lt;use href="downstage-icons.svg#copy" /&gt;
+      &lt;/svg&gt;
+      &lt;span class="input-copy-btn-label"&gt;Copy&lt;/span&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Disabled input with copy --&gt;
+&lt;div class="field"&gt;
+  &lt;label class="label"&gt;Disabled input&lt;/label&gt;
+  &lt;div class="input-copy-wrap"&gt;
+    &lt;input class="input" type="text" value="..." disabled&gt;
+    &lt;button type="button" class="input-copy-btn"&gt;
+      &lt;svg class="icon icon-sm" aria-hidden="true"&gt;
+        &lt;use href="downstage-icons.svg#copy" /&gt;
+      &lt;/svg&gt;
+      &lt;span class="input-copy-btn-label"&gt;Copy&lt;/span&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Minimal textarea with copy --&gt;
+&lt;div class="field"&gt;
+  &lt;label class="label"&gt;Minimal textarea&lt;/label&gt;
+  &lt;div class="input-copy-wrap input-copy-wrap-minimal"&gt;
+    &lt;textarea class="textarea textarea-minimal" readonly rows="4"&gt;Content&lt;/textarea&gt;
+    &lt;button type="button" class="input-copy-btn"&gt;
+      &lt;svg class="icon icon-sm" aria-hidden="true"&gt;
+        &lt;use href="downstage-icons.svg#copy" /&gt;
+      &lt;/svg&gt;
+      &lt;span class="input-copy-btn-label"&gt;Copy&lt;/span&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Minimal disabled input with copy --&gt;
+&lt;div class="field"&gt;
+  &lt;label class="label"&gt;Minimal disabled input&lt;/label&gt;
+  &lt;div class="input-copy-wrap input-copy-wrap-minimal"&gt;
+    &lt;input class="input input-minimal" type="text" value="..." disabled&gt;
+    &lt;button type="button" class="input-copy-btn"&gt;
+      &lt;svg class="icon icon-sm" aria-hidden="true"&gt;
+        &lt;use href="downstage-icons.svg#copy" /&gt;
+      &lt;/svg&gt;
+      &lt;span class="input-copy-btn-label"&gt;Copy&lt;/span&gt;
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════ 05 · ALERTS ═══════════════════ -->
+
+    <section class="demo-section" id="alerts">
+      <p class="demo-section-title">05 — Components</p>
+      <h2>Alerts</h2>
+      <p class="text-soft">Contextual feedback messages. Use <code>.alert</code> with a variant class (<code>.alert-info</code>, <code>.alert-success</code>, <code>.alert-warning</code>, <code>.alert-danger</code>).</p>
+
+      <div class="stack mt-6">
+        <div class="alert alert-info">
+          <svg class="icon icon-lg">
+            <use href="../downstage-icons.svg#info" />
+          </svg>
+          <div><strong>Info</strong> — This is an informational alert.</div>
+        </div>
+        <div class="alert alert-success">
+          <svg class="icon icon-lg">
+            <use href="../downstage-icons.svg#check-circle" />
+          </svg>
+          <div><strong>Success</strong> — Changes have been saved.</div>
+        </div>
+        <div class="alert alert-warning">
+          <svg class="icon icon-lg">
+            <use href="../downstage-icons.svg#alert" />
+          </svg>
+          <div><strong>Warning</strong> — Your session expires in 5 minutes.</div>
+        </div>
+        <div class="alert alert-danger">
+          <svg class="icon icon-lg">
+            <use href="../downstage-icons.svg#x-circle" />
+          </svg>
+          <div><strong>Error</strong> — Unable to complete the operation.</div>
+        </div>
+      </div>
+
+      <div class="accordion mt-4 mb-8" data-accordion>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#code" /></svg>
+            Source code
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <pre><code>&lt;div class="alert alert-info"&gt;
+  &lt;svg class="icon icon-lg"&gt;&lt;use href="downstage-icons.svg#info" /&gt;&lt;/svg&gt;
+  &lt;div&gt;&lt;strong&gt;Info&lt;/strong&gt; — Informational message.&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="alert alert-success"&gt;
+  &lt;svg class="icon icon-lg"&gt;&lt;use href="downstage-icons.svg#check-circle" /&gt;&lt;/svg&gt;
+  &lt;div&gt;&lt;strong&gt;Success&lt;/strong&gt; — Changes saved.&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="alert alert-warning"&gt;
+  &lt;svg class="icon icon-lg"&gt;&lt;use href="downstage-icons.svg#alert" /&gt;&lt;/svg&gt;
+  &lt;div&gt;&lt;strong&gt;Warning&lt;/strong&gt; — Session expires soon.&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="alert alert-danger"&gt;
+  &lt;svg class="icon icon-lg"&gt;&lt;use href="downstage-icons.svg#x-circle" /&gt;&lt;/svg&gt;
+  &lt;div&gt;&lt;strong&gt;Error&lt;/strong&gt; — Operation failed.&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════ 06 · BADGES ═══════════════════ -->
+
+    <section class="demo-section" id="badges">
+      <p class="demo-section-title">06 — Components</p>
+      <h2>Badges</h2>
+      <p class="text-soft">Inline status labels. Use <code>.badge</code> with an optional variant class.</p>
+
+      <div class="cluster mt-6">
+        <span class="badge">Default</span>
+        <span class="badge badge-success">Success</span>
+        <span class="badge badge-danger">Danger</span>
+        <span class="badge badge-warning">Warning</span>
+        <span class="badge badge-info">Info</span>
+      </div>
+
+      <div class="accordion mt-4 mb-8" data-accordion>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#code" /></svg>
+            Source code
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <pre><code>&lt;span class="badge"&gt;Default&lt;/span&gt;
+&lt;span class="badge badge-success"&gt;Success&lt;/span&gt;
+&lt;span class="badge badge-danger"&gt;Danger&lt;/span&gt;
+&lt;span class="badge badge-warning"&gt;Warning&lt;/span&gt;
+&lt;span class="badge badge-info"&gt;Info&lt;/span&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════ 07 · FILE CARDS ═══════════════════ -->
+
+    <section class="demo-section" id="file-cards">
+      <p class="demo-section-title">07 — Components</p>
+      <h2>File cards</h2>
+      <p class="text-soft">Downloadable file links with icon, title, and metadata. Use <code>a.file-card</code>.</p>
+
+      <div class="stack mt-6" style="max-width: 480px;">
+        <a href="#" class="file-card">
+          <span class="file-card-icon">
+            <svg class="icon icon-xl">
+              <use href="../downstage-icons.svg#file-pdf" />
+            </svg>
+          </span>
+          <div class="file-card-body">
+            <div class="file-card-title">contract-2026.pdf</div>
+            <div class="file-card-meta">2.4 MB · 12 pages</div>
+          </div>
+          <svg class="icon">
+            <use href="../downstage-icons.svg#download" />
+          </svg>
+        </a>
+        <a href="#" class="file-card">
+          <span class="file-card-icon">
+            <svg class="icon icon-xl">
+              <use href="../downstage-icons.svg#file-image" />
+            </svg>
+          </span>
+          <div class="file-card-body">
+            <div class="file-card-title">screenshot.png</div>
+            <div class="file-card-meta">340 KB</div>
+          </div>
+          <svg class="icon">
+            <use href="../downstage-icons.svg#download" />
+          </svg>
+        </a>
+      </div>
+
+      <div class="accordion mt-4 mb-8" data-accordion>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#code" /></svg>
+            Source code
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <pre><code>&lt;a href="/files/document.pdf" class="file-card"&gt;
+  &lt;span class="file-card-icon"&gt;
+    &lt;svg class="icon icon-xl"&gt;&lt;use href="downstage-icons.svg#file-pdf" /&gt;&lt;/svg&gt;
+  &lt;/span&gt;
+  &lt;div class="file-card-body"&gt;
+    &lt;div class="file-card-title"&gt;document.pdf&lt;/div&gt;
+    &lt;div class="file-card-meta"&gt;2.4 MB · 12 pages&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;svg class="icon"&gt;&lt;use href="downstage-icons.svg#download" /&gt;&lt;/svg&gt;
+&lt;/a&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════ 08 · TABLE ═══════════════════ -->
+
+    <section class="demo-section" id="table">
+      <p class="demo-section-title">08 — Components</p>
       <h2>Table</h2>
-      <p class="text-soft">Default in card, then minimal on <code>--bg</code>, compact, striped, and combined variants.
-      </p>
+      <p class="text-soft">Default in card, then minimal on <code>--bg</code>, compact, striped, and combined variants.</p>
 
       <div class="card mt-6" style="padding: 0; overflow: hidden;">
         <div class="table-wrap" role="region" aria-label="Projects table" tabindex="0">
@@ -442,10 +818,44 @@ export PATH="$HOME/.local/bin:$PATH"</textarea>
         </div>
       </div>
 
+      <div class="accordion mt-4 mb-8" data-accordion>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#code" /></svg>
+            Source code
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <pre><code>&lt;div class="card" style="padding: 0; overflow: hidden;"&gt;
+  &lt;div class="table-wrap" role="region" aria-label="Table" tabindex="0"&gt;
+    &lt;table class="table"&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th&gt;Project&lt;/th&gt;
+          &lt;th&gt;Status&lt;/th&gt;
+          &lt;th&gt;Owner&lt;/th&gt;
+          &lt;th class="text-right"&gt;Build&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;App&lt;/td&gt;
+          &lt;td&gt;&lt;span class="badge badge-success"&gt;Stable&lt;/span&gt;&lt;/td&gt;
+          &lt;td&gt;team&lt;/td&gt;
+          &lt;td class="text-right text-mono"&gt;#1284&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <h4 class="mt-10 mb-2">Minimal (page background)</h4>
-      <p class="text-soft text-sm mb-4">No card: only bottom borders on rows, cells sit on <code>--bg</code> like
-        minimal
-        inputs. Class <code>table table-minimal</code>.</p>
+      <p class="text-soft text-sm mb-4">No card: only bottom borders on rows, cells sit on <code>--bg</code> like minimal inputs. Class <code>table table-minimal</code>.</p>
       <div class="table-wrap" role="region" aria-label="Minimal projects table" tabindex="0">
         <table class="table table-minimal">
           <thead>
@@ -479,6 +889,36 @@ export PATH="$HOME/.local/bin:$PATH"</textarea>
         </table>
       </div>
 
+      <div class="accordion mt-4 mb-8" data-accordion>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#code" /></svg>
+            Source code
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <pre><code>&lt;div class="table-wrap" role="region" aria-label="Table" tabindex="0"&gt;
+  &lt;table class="table table-minimal"&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th&gt;Project&lt;/th&gt;
+        &lt;th&gt;Status&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;App&lt;/td&gt;
+        &lt;td&gt;&lt;span class="badge badge-success"&gt;Stable&lt;/span&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <h4 class="mt-10 mb-2">Compact</h4>
       <p class="text-soft text-sm mb-4">Tighter padding — <code>table table-compact</code> inside a card.</p>
       <div class="card mt-4" style="padding: 0; overflow: hidden;">
@@ -505,6 +945,38 @@ export PATH="$HOME/.local/bin:$PATH"</textarea>
               </tr>
             </tbody>
           </table>
+        </div>
+      </div>
+
+      <div class="accordion mt-4 mb-8" data-accordion>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#code" /></svg>
+            Source code
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <pre><code>&lt;div class="card" style="padding: 0; overflow: hidden;"&gt;
+  &lt;div class="table-wrap"&gt;
+    &lt;table class="table table-compact"&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th&gt;Key&lt;/th&gt;
+          &lt;th&gt;Value&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td class="text-mono"&gt;theme&lt;/td&gt;
+          &lt;td&gt;light&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -541,6 +1013,42 @@ export PATH="$HOME/.local/bin:$PATH"</textarea>
         </div>
       </div>
 
+      <div class="accordion mt-4 mb-8" data-accordion>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#code" /></svg>
+            Source code
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <pre><code>&lt;div class="card" style="padding: 0; overflow: hidden;"&gt;
+  &lt;div class="table-wrap"&gt;
+    &lt;table class="table table-striped"&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th&gt;Event&lt;/th&gt;
+          &lt;th&gt;Time&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;Deploy&lt;/td&gt;
+          &lt;td class="text-mono"&gt;09:41&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;Build OK&lt;/td&gt;
+          &lt;td class="text-mono"&gt;09:38&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <h4 class="mt-10 mb-2">Minimal + compact</h4>
       <p class="text-soft text-sm mb-4">Combine modifiers: <code>table table-minimal table-compact</code>.</p>
       <div class="table-wrap mt-4" role="region" aria-label="Compact minimal table" tabindex="0">
@@ -567,10 +1075,42 @@ export PATH="$HOME/.local/bin:$PATH"</textarea>
           </tbody>
         </table>
       </div>
+
+      <div class="accordion mt-4 mb-8" data-accordion>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#code" /></svg>
+            Source code
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <pre><code>&lt;div class="table-wrap" role="region" aria-label="Table" tabindex="0"&gt;
+  &lt;table class="table table-minimal table-compact"&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;
+        &lt;th&gt;Setting&lt;/th&gt;
+        &lt;th class="text-right"&gt;Value&lt;/th&gt;
+      &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;Font&lt;/td&gt;
+        &lt;td class="text-right text-mono"&gt;Space Grotesk&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
+    <!-- ═══════════════════ 09 · HTML EDITOR ═══════════════════ -->
+
     <section class="demo-section" id="html-editor">
-      <p class="demo-section-title">05 — Components</p>
+      <p class="demo-section-title">09 — Components</p>
       <h2>HTML editor</h2>
       <p class="text-soft">Toolbar on <code class="text-mono">contenteditable</code> with
         <code class="text-mono">document.execCommand</code> and a link dialog (<code class="text-mono">mailto</code>,
@@ -587,17 +1127,54 @@ export PATH="$HOME/.local/bin:$PATH"</textarea>
         <p>Select text and use the toolbar to format.</p>
       </div>
 
+      <div class="accordion mt-4 mb-8" data-accordion>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#code" /></svg>
+            Source code
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <pre><code>&lt;div class="html-editor" data-html-editor-mount&gt;
+  &lt;p&gt;Initial content goes here.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion mt-4 mb-8" data-accordion>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#code" /></svg>
+            JS configuration
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <pre><code>Downstage.htmlEditor.mount(element, {
+  showRawSwitch: true,
+  toolbarExclude: ['h7'],
+  initialHtml: '&lt;p&gt;Hello world&lt;/p&gt;'
+});</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <h4 class="mt-8 mb-2">Snippet: blockquote</h4>
-      <p class="text-subtle text-sm mb-4">Typical markup for a quote inside the editor (design system <code
-          class="text-mono">blockquote</code> styles).</p>
+      <p class="text-subtle text-sm mb-4">Typical markup for a quote inside the editor (design system <code class="text-mono">blockquote</code> styles).</p>
       <pre class="code-snippet mt-4" tabindex="0"><span class="c-tag">&lt;blockquote&gt;</span>
   <span class="c-tag">&lt;p&gt;</span>Design is the contrast of substance and appearance.<span class="c-tag">&lt;/p&gt;</span>
   <span class="c-tag">&lt;footer&gt;</span>— Paul Rand<span class="c-tag">&lt;/footer&gt;</span>
 <span class="c-tag">&lt;/blockquote&gt;</span></pre>
     </section>
 
+    <!-- ═══════════════════ 10 · TIMELINE ═══════════════════ -->
+
     <section class="demo-section" id="timeline">
-      <p class="demo-section-title">06 — Components</p>
+      <p class="demo-section-title">10 — Components</p>
       <h2>Timeline</h2>
       <p class="text-soft">Vertical ordered list with a line and markers. Use <code>&lt;ol class="timeline"&gt;</code>;
         each entry is a <code>.timeline-item</code> with <code>.timeline-marker</code> and
@@ -644,6 +1221,31 @@ export PATH="$HOME/.local/bin:$PATH"</textarea>
         </li>
       </ol>
 
+      <div class="accordion mt-4 mb-8" data-accordion>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#code" /></svg>
+            Source code
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <pre><code>&lt;ol class="timeline" aria-label="Roadmap"&gt;
+  &lt;li class="timeline-item"&gt;
+    &lt;span class="timeline-marker" aria-hidden="true"&gt;&lt;/span&gt;
+    &lt;div class="timeline-content"&gt;
+      &lt;time class="timeline-date" datetime="2025-06"&gt;Jun 2025&lt;/time&gt;
+      &lt;h3 class="timeline-title"&gt;Title&lt;/h3&gt;
+      &lt;p class="timeline-desc"&gt;Description text.&lt;/p&gt;
+      &lt;span class="timeline-badge"&gt;&lt;span class="badge"&gt;Label&lt;/span&gt;&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <h4 class="mt-12 mb-2">Compact variant</h4>
       <p class="text-soft text-sm mb-4">Add <code>.timeline--compact</code> for tighter line spacing.</p>
       <ol class="timeline timeline--compact" aria-label="Short milestones">
@@ -664,6 +1266,30 @@ export PATH="$HOME/.local/bin:$PATH"</textarea>
           </div>
         </li>
       </ol>
+
+      <div class="accordion mt-4 mb-8" data-accordion>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#code" /></svg>
+            Source code
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <pre><code>&lt;ol class="timeline timeline--compact" aria-label="Milestones"&gt;
+  &lt;li class="timeline-item"&gt;
+    &lt;span class="timeline-marker" aria-hidden="true"&gt;&lt;/span&gt;
+    &lt;div class="timeline-content"&gt;
+      &lt;time class="timeline-date" datetime="2026-04"&gt;Apr 2026&lt;/time&gt;
+      &lt;h3 class="timeline-title"&gt;Title&lt;/h3&gt;
+      &lt;p class="timeline-desc"&gt;Description text.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
       </div>
