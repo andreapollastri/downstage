@@ -1,0 +1,70 @@
+{
+  "regions": [
+    {
+      "id": "ne",
+      "name": "Northeast",
+      "provinces": [
+        {
+          "id": "ny",
+          "name": "New York",
+          "cities": [
+            { "id": "nyc", "name": "New York City" },
+            { "id": "buf", "name": "Buffalo" }
+          ]
+        },
+        {
+          "id": "ma",
+          "name": "Massachusetts",
+          "cities": [
+            { "id": "bos", "name": "Boston" },
+            { "id": "cam", "name": "Cambridge" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sw",
+      "name": "Southwest",
+      "provinces": [
+        {
+          "id": "ca",
+          "name": "California",
+          "cities": [
+            { "id": "sf", "name": "San Francisco" },
+            { "id": "la", "name": "Los Angeles" }
+          ]
+        },
+        {
+          "id": "az",
+          "name": "Arizona",
+          "cities": [
+            { "id": "phx", "name": "Phoenix" },
+            { "id": "tuc", "name": "Tucson" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mw",
+      "name": "Midwest",
+      "provinces": [
+        {
+          "id": "il",
+          "name": "Illinois",
+          "cities": [
+            { "id": "chi", "name": "Chicago" },
+            { "id": "aur", "name": "Aurora" }
+          ]
+        },
+        {
+          "id": "oh",
+          "name": "Ohio",
+          "cities": [
+            { "id": "cle", "name": "Cleveland" },
+            { "id": "col", "name": "Columbus" }
+          ]
+        }
+      ]
+    }
+  ]
+}

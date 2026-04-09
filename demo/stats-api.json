@@ -1,0 +1,36 @@
+{
+  "kpis": [
+    {
+      "label": "Active users",
+      "value": "1,284",
+      "change": "+3.1%",
+      "deltaClass": "up"
+    },
+    {
+      "label": "Churn",
+      "value": "2.1%",
+      "change": "−0.4pp",
+      "deltaClass": "up"
+    },
+    {
+      "label": "Latency p95",
+      "value": "142ms",
+      "change": "+8ms",
+      "deltaClass": "down"
+    }
+  ],
+  "bar": {
+    "datasetLabel": "Sign-ups",
+    "labels": ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+    "values": [12, 19, 15, 25, 22, 30]
+  },
+  "line": {
+    "datasetLabel": "Sessions",
+    "labels": ["W1", "W2", "W3", "W4", "W5", "W6", "W7", "W8"],
+    "values": [420, 510, 480, 620, 590, 640, 710, 680]
+  },
+  "pie": {
+    "labels": ["Direct", "Organic", "Referral", "Social"],
+    "values": [38, 32, 22, 8]
+  }
+}

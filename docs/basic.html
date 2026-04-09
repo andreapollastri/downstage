@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../favicon.ico" sizes="any">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <title>Basic — downstage.css</title>
   <link rel="stylesheet" href="../downstage.css">
   <link rel="stylesheet" href="../demo/demo.css">
@@ -57,6 +59,8 @@
         <div class="docs-sidebar-title">On this page</div>
         <nav class="docs-nav" aria-label="Section">
           <a href="#tutorial">Quick start</a>
+          <a href="#cdn">CDN (downstage.it)</a>
+          <a href="#starter">Starter template</a>
           <a href="#palette">Palette</a>
           <a href="#typography">Typography</a>
           <a href="#grid">Grid</a>
@@ -70,8 +74,28 @@
       <p class="demo-section-title">01 — Getting started</p>
       <h2>Quick start</h2>
 
+      <div class="mt-8" id="cdn">
+        <h4>Install via CDN</h4>
+        <p class="text-soft mt-2 text-sm">
+          Load the framework from the canonical host
+          <a href="https://downstage.it/" rel="noopener">downstage.it</a>
+          without copying files into your project. Use the same filenames as a local install, with an absolute origin.
+          The snippets use <code>https://</code> so they work on HTTPS pages without mixed-content blocking.
+        </p>
+        <pre
+          class="code-snippet mt-4"><span class="c-tag">&lt;link</span> <span class="c-attr">rel</span>=<span class="c-string">"stylesheet"</span> <span class="c-attr">href</span>=<span class="c-string">"https://downstage.it/downstage.css"</span><span class="c-tag">&gt;</span>
+<span class="c-tag">&lt;script</span> <span class="c-attr">src</span>=<span class="c-string">"https://downstage.it/downstage.js"</span> <span class="c-attr">defer</span><span class="c-tag">&gt;&lt;/script&gt;</span></pre>
+        <p class="text-soft mt-4 text-sm">
+          Pre-load the icon sprite and reference symbols with the same path prefix:
+        </p>
+        <pre
+          class="code-snippet mt-4"><span class="c-tag">&lt;object</span> <span class="c-attr">data</span>=<span class="c-string">"https://downstage.it/downstage-icons.svg"</span> <span class="c-attr">type</span>=<span class="c-string">"image/svg+xml"</span> <span class="c-attr">style</span>=<span class="c-string">"display:none"</span> <span class="c-attr">aria-hidden</span>=<span class="c-string">"true"</span><span class="c-tag">&gt;&lt;/object&gt;</span>
+<span class="c-comment">&lt;!-- … --&gt;</span>
+<span class="c-tag">&lt;svg</span> <span class="c-attr">class</span>=<span class="c-string">"icon"</span><span class="c-tag">&gt;&lt;use</span> <span class="c-attr">href</span>=<span class="c-string">"https://downstage.it/downstage-icons.svg#rocket"</span><span class="c-tag">/&gt;&lt;/svg&gt;</span></pre>
+      </div>
+
       <div class="mt-8">
-        <h4>1. Include the files</h4>
+        <h4>1. Include the files (local)</h4>
         <p class="text-soft mt-2 text-sm">CSS always, JS only if you need interactive behaviors.</p>
         <pre
           class="code-snippet mt-4"><span class="c-tag">&lt;link</span> <span class="c-attr">rel</span>=<span class="c-string">"stylesheet"</span> <span class="c-attr">href</span>=<span class="c-string">"downstage.css"</span><span class="c-tag">&gt;</span>
@@ -106,9 +130,750 @@
 
     </section>
 
+    <!-- ============================== STARTER TEMPLATE ============================== -->
+    <section class="demo-section" id="starter">
+      <p class="demo-section-title">02 — Getting started</p>
+      <h2>Starter template</h2>
+      <p class="text-soft" style="max-width: 640px;">
+        Every downstage page follows the same skeleton:
+        <strong>head &rarr; icon sprite &rarr; navbar &rarr; main &rarr; footer &rarr; scripts</strong>.
+        Below is the minimal version and an anatomy breakdown, followed by a
+        richer real-world example.
+      </p>
+
+      <!-- ── Minimal boilerplate ── -->
+      <h3 class="mt-8 mb-2">Minimal blank page</h3>
+      <p class="text-sm text-muted mb-4">The absolute minimum to get a working page with navbar, content area and footer.</p>
+
+      <div class="demo-frame mt-6 mb-6">
+        <div class="demo-frame-bar">
+          <span class="demo-frame-dot"></span>
+          <span class="demo-frame-dot"></span>
+          <span class="demo-frame-dot"></span>
+          <span style="margin-left: var(--space-2);">my-page.html</span>
+        </div>
+        <div class="demo-frame-body">
+          <nav class="navbar" style="pointer-events: none;">
+            <div class="navbar-inner">
+              <span class="navbar-brand">
+                <svg class="icon" width="20" height="20"><use href="../downstage-icons.svg#hash" /></svg>
+                My&nbsp;App
+              </span>
+              <div class="navbar-menu" style="display: flex;">
+                <div class="navbar-menu-scroll">
+                  <span class="navbar-link active">Home</span>
+                  <span class="navbar-link">About</span>
+                  <span class="navbar-link">Contact</span>
+                  <div class="navbar-actions">
+                    <div class="btn-group" role="group">
+                      <span class="btn btn-sm"><svg class="icon"><use href="../downstage-icons.svg#sun" /></svg></span>
+                      <span class="btn btn-sm"><svg class="icon"><use href="../downstage-icons.svg#moon" /></svg></span>
+                      <span class="btn btn-sm">Auto</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
+
+          <div style="padding: var(--space-12) var(--space-6);">
+            <h1>Welcome</h1>
+            <p class="text-soft mt-4">Start building your page here.</p>
+          </div>
+
+          <footer class="footer">
+            <div class="footer-inner">
+              <div class="footer-grid">
+                <div>
+                  <div class="footer-brand">
+                    <svg class="icon" width="20" height="20"><use href="../downstage-icons.svg#hash" /></svg>
+                    My App
+                  </div>
+                  <p class="footer-tagline">A short description of your project.</p>
+                </div>
+                <div>
+                  <div class="footer-title">Links</div>
+                  <ul class="footer-links">
+                    <li><span>Home</span></li>
+                    <li><span>About</span></li>
+                    <li><span>Contact</span></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="footer-bottom">
+                <div>&copy; 2026 Your Name</div>
+              </div>
+            </div>
+          </footer>
+        </div>
+      </div>
+
+      <div class="accordion mt-4 mb-8" data-accordion>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#code" /></svg>
+            Minimal page — copy &amp; paste
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en" data-theme="auto"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;My Page&lt;/title&gt;
+  &lt;link rel="stylesheet" href="downstage.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;object data="downstage-icons.svg" type="image/svg+xml"
+          style="display:none" aria-hidden="true"&gt;&lt;/object&gt;
+
+  &lt;nav class="navbar" id="main-nav"&gt;
+    &lt;div class="navbar-inner"&gt;
+      &lt;a class="navbar-brand" href="/"&gt;
+        &lt;svg class="icon" width="20" height="20"&gt;
+          &lt;use href="downstage-icons.svg#hash" /&gt;
+        &lt;/svg&gt;
+        My&amp;nbsp;App
+      &lt;/a&gt;
+      &lt;button class="navbar-toggle" aria-label="Open menu"
+              aria-expanded="false" aria-controls="navbar-menu"&gt;
+        &lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;
+      &lt;/button&gt;
+      &lt;div class="navbar-menu" id="navbar-menu"&gt;
+        &lt;div class="navbar-menu-scroll"&gt;
+          &lt;a href="/" class="navbar-link active"&gt;Home&lt;/a&gt;
+          &lt;a href="/about" class="navbar-link"&gt;About&lt;/a&gt;
+          &lt;a href="/contact" class="navbar-link"&gt;Contact&lt;/a&gt;
+          &lt;div class="navbar-actions"&gt;
+            &lt;div class="btn-group" role="group" aria-label="Theme"&gt;
+              &lt;button class="btn btn-sm" data-set-theme="light" aria-label="Light"&gt;
+                &lt;svg class="icon"&gt;&lt;use href="downstage-icons.svg#sun" /&gt;&lt;/svg&gt;
+              &lt;/button&gt;
+              &lt;button class="btn btn-sm" data-set-theme="dark" aria-label="Dark"&gt;
+                &lt;svg class="icon"&gt;&lt;use href="downstage-icons.svg#moon" /&gt;&lt;/svg&gt;
+              &lt;/button&gt;
+              &lt;button class="btn btn-sm" data-set-theme="auto" aria-label="Auto"&gt;Auto&lt;/button&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/nav&gt;
+
+  &lt;main class="container" style="padding-block: var(--space-16);"&gt;
+    &lt;h1&gt;Welcome&lt;/h1&gt;
+    &lt;p class="text-soft mt-4"&gt;Start building your page here.&lt;/p&gt;
+  &lt;/main&gt;
+
+  &lt;footer class="footer"&gt;
+    &lt;div class="footer-inner"&gt;
+      &lt;div class="footer-grid"&gt;
+        &lt;div&gt;
+          &lt;div class="footer-brand"&gt;
+            &lt;svg class="icon" width="20" height="20"&gt;
+              &lt;use href="downstage-icons.svg#hash" /&gt;
+            &lt;/svg&gt;
+            My App
+          &lt;/div&gt;
+          &lt;p class="footer-tagline"&gt;A short description of your project.&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+          &lt;div class="footer-title"&gt;Links&lt;/div&gt;
+          &lt;ul class="footer-links"&gt;
+            &lt;li&gt;&lt;a href="/"&gt;Home&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="/about"&gt;About&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="/contact"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="footer-bottom"&gt;
+        &lt;div&gt;&amp;copy; 2026 Your Name&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/footer&gt;
+
+  &lt;script src="downstage.js" defer&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Anatomy table ── -->
+      <h3 class="mt-8 mb-4">Anatomy — block by block</h3>
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th style="width: 25%;">Block</th>
+              <th style="width: 35%;">Key classes / attributes</th>
+              <th>What it does</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>&lt;html data-theme&gt;</code></td>
+              <td><code>data-theme="auto | light | dark"</code></td>
+              <td>Sets the colour mode. <code>auto</code> follows the OS preference.
+                  <code>downstage.js</code> reads this and enables the theme-switcher buttons.</td>
+            </tr>
+            <tr>
+              <td><code>&lt;object&gt;</code> sprite</td>
+              <td><code>style="display:none"</code></td>
+              <td>Pre-loads the SVG icon sprite so that every <code>&lt;use href="…#icon"&gt;</code>
+                  resolves immediately. Hidden from sight and screen readers.</td>
+            </tr>
+            <tr>
+              <td><code>.navbar</code></td>
+              <td><code>.navbar-inner</code>, <code>.navbar-brand</code>, <code>.navbar-toggle</code>,
+                  <code>.navbar-menu</code></td>
+              <td>Sticky top bar. On desktop the links display inline; on mobile they collapse
+                  behind a hamburger (<code>.navbar-toggle</code>) that <code>downstage.js</code>
+                  manages via <code>aria-expanded</code>.</td>
+            </tr>
+            <tr>
+              <td><code>.navbar-link.active</code></td>
+              <td><code>.navbar-link</code> + <code>.active</code></td>
+              <td>Marks the current page in the navbar. Add <code>.active</code> to highlight it.</td>
+            </tr>
+            <tr>
+              <td><code>.navbar-actions</code></td>
+              <td><code>.btn-group</code>, <code>data-set-theme</code></td>
+              <td>Right-aligned action slot. The <code>data-set-theme</code> buttons
+                  switch light/dark/auto — handled automatically by <code>downstage.js</code>.</td>
+            </tr>
+            <tr>
+              <td><code>.navbar-dropdown</code></td>
+              <td><code>&lt;details&gt;</code> + <code>.navbar-dropdown-panel</code></td>
+              <td>Optional dropdown inside the navbar. Uses native <code>&lt;details&gt;</code>
+                  for zero-JS fallback; <code>downstage.js</code> adds close-on-outside-click.</td>
+            </tr>
+            <tr>
+              <td><code>.container</code></td>
+              <td><code>style="padding-block: …"</code></td>
+              <td>Centred max-width wrapper for content. Add vertical padding as needed.</td>
+            </tr>
+            <tr>
+              <td><code>.footer</code></td>
+              <td><code>.footer-inner</code>, <code>.footer-grid</code>, <code>.footer-brand</code>,
+                  <code>.footer-title</code>, <code>.footer-links</code>, <code>.footer-bottom</code></td>
+              <td>Multi-column footer. <code>.footer-grid</code> auto-flows columns;
+                  <code>.footer-bottom</code> sits at the base (copyright, social icons).</td>
+            </tr>
+            <tr>
+              <td><code>&lt;script defer&gt;</code></td>
+              <td><code>defer</code></td>
+              <td>Loads <code>downstage.js</code> without blocking the page. On
+                  <code>DOMContentLoaded</code> it auto-inits every component
+                  (navbar, tabs, accordion, combobox, etc.).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="help mt-4">
+        Paths assume <code>downstage.css</code>, <code>downstage.js</code>, and
+        <code>downstage-icons.svg</code> are in the same folder as your HTML file.
+        Adjust <code>href</code> / <code>src</code> if you use a different structure.
+      </p>
+
+      <!-- ── Real-world example ── -->
+      <h3 class="mt-10 mb-2">Real-world example</h3>
+      <p class="text-sm text-muted mb-4">A more complete page with a dropdown nav, breadcrumb, hero text, feature cards, a contact form, and a full footer with social icons.</p>
+
+      <div class="demo-frame mt-6 mb-6">
+        <div class="demo-frame-bar">
+          <span class="demo-frame-dot"></span>
+          <span class="demo-frame-dot"></span>
+          <span class="demo-frame-dot"></span>
+          <span style="margin-left: var(--space-2);">acme-inc.html</span>
+        </div>
+        <div class="demo-frame-body">
+          <!-- Navbar preview -->
+          <nav class="navbar" style="pointer-events: none;">
+            <div class="navbar-inner">
+              <span class="navbar-brand">
+                <svg class="icon" width="20" height="20"><use href="../downstage-icons.svg#rocket" /></svg>
+                Acme&nbsp;Inc.
+              </span>
+              <div class="navbar-menu" style="display: flex;">
+                <div class="navbar-menu-scroll">
+                  <span class="navbar-link active">Home</span>
+                  <span class="navbar-link">Products <svg class="icon icon-sm" style="vertical-align: -1px;"><use href="../downstage-icons.svg#chevron-down" /></svg></span>
+                  <span class="navbar-link">Pricing</span>
+                  <span class="navbar-link">Contact</span>
+                  <div class="navbar-actions">
+                    <div class="btn-group" role="group">
+                      <span class="btn btn-sm"><svg class="icon"><use href="../downstage-icons.svg#sun" /></svg></span>
+                      <span class="btn btn-sm"><svg class="icon"><use href="../downstage-icons.svg#moon" /></svg></span>
+                      <span class="btn btn-sm">Auto</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
+
+          <div style="padding: var(--space-6);">
+            <!-- Breadcrumb -->
+            <nav aria-label="Breadcrumb preview">
+              <ol class="breadcrumb">
+                <li><svg class="icon"><use href="../downstage-icons.svg#home" /></svg></li>
+                <li>Home</li>
+              </ol>
+            </nav>
+
+            <!-- Hero -->
+            <div style="padding-block: var(--space-8);">
+              <h1>Build something great</h1>
+              <p class="text-soft mt-4" style="max-width: 540px; font-size: var(--fs-md);">
+                Acme Inc. helps teams ship faster with less complexity.
+                No bloat, no lock-in, just clean tools.
+              </p>
+              <div class="cluster mt-6">
+                <span class="btn btn-primary">
+                  Get started
+                  <svg class="icon"><use href="../downstage-icons.svg#arrow-right" /></svg>
+                </span>
+                <span class="btn btn-secondary">
+                  <svg class="icon"><use href="../downstage-icons.svg#file-text" /></svg>
+                  Documentation
+                </span>
+              </div>
+            </div>
+
+            <!-- Feature cards -->
+            <div class="grid mt-4" style="gap: var(--space-6);">
+              <div class="col-4">
+                <div class="card">
+                  <h4>
+                    <svg class="icon" style="vertical-align: -2px;"><use href="../downstage-icons.svg#zap" /></svg>
+                    Fast
+                  </h4>
+                  <p class="text-soft text-sm mt-2">Optimised builds ship in milliseconds. No cold starts, no waiting.</p>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="card">
+                  <h4>
+                    <svg class="icon" style="vertical-align: -2px;"><use href="../downstage-icons.svg#shield" /></svg>
+                    Secure
+                  </h4>
+                  <p class="text-soft text-sm mt-2">End-to-end encryption and automatic vulnerability scanning included.</p>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="card">
+                  <h4>
+                    <svg class="icon" style="vertical-align: -2px;"><use href="../downstage-icons.svg#layers" /></svg>
+                    Flexible
+                  </h4>
+                  <p class="text-soft text-sm mt-2">Works with any stack. Drop it into your existing project in minutes.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Alert -->
+            <div class="alert alert-info mt-6">
+              <svg class="icon"><use href="../downstage-icons.svg#info" /></svg>
+              <div>
+                <strong>Tip:</strong> All colours, spacing, and radii are
+                CSS custom properties you can override in a single file.
+              </div>
+            </div>
+
+            <!-- Contact form -->
+            <div style="padding-block: var(--space-8);">
+              <h2 class="mb-4">Get in touch</h2>
+              <div style="max-width: 480px;">
+                <div class="field">
+                  <label class="label">Name</label>
+                  <input class="input" type="text" placeholder="Jane Doe" tabindex="-1">
+                </div>
+                <div class="field mt-4">
+                  <label class="label">Email</label>
+                  <input class="input" type="email" placeholder="jane@example.com" tabindex="-1">
+                </div>
+                <div class="field mt-4">
+                  <label class="label">Message</label>
+                  <textarea class="input" rows="3" placeholder="How can we help?" tabindex="-1"></textarea>
+                </div>
+                <span class="btn btn-primary mt-6">
+                  <svg class="icon"><use href="../downstage-icons.svg#send" /></svg>
+                  Send message
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Footer preview -->
+          <footer class="footer">
+            <div class="footer-inner">
+              <div class="footer-grid">
+                <div>
+                  <div class="footer-brand">
+                    <svg class="icon" width="20" height="20"><use href="../downstage-icons.svg#rocket" /></svg>
+                    Acme Inc.
+                  </div>
+                  <p class="footer-tagline">Clean tools for modern teams.</p>
+                </div>
+                <div>
+                  <div class="footer-title">Product</div>
+                  <ul class="footer-links">
+                    <li><span>Widgets</span></li>
+                    <li><span>Gadgets</span></li>
+                    <li><span>Services</span></li>
+                  </ul>
+                </div>
+                <div>
+                  <div class="footer-title">Company</div>
+                  <ul class="footer-links">
+                    <li><span>About</span></li>
+                    <li><span>Blog</span></li>
+                    <li><span>Careers</span></li>
+                  </ul>
+                </div>
+                <div>
+                  <div class="footer-title">Legal</div>
+                  <ul class="footer-links">
+                    <li><span>Privacy</span></li>
+                    <li><span>Terms</span></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="footer-bottom">
+                <div>&copy; 2026 Acme Inc. &middot; All rights reserved</div>
+                <div class="footer-social">
+                  <span aria-label="GitHub"><svg class="icon"><use href="../downstage-icons.svg#github" /></svg></span>
+                  <span aria-label="LinkedIn"><svg class="icon"><use href="../downstage-icons.svg#linkedin" /></svg></span>
+                  <span aria-label="Email"><svg class="icon"><use href="../downstage-icons.svg#mail" /></svg></span>
+                </div>
+              </div>
+            </div>
+          </footer>
+        </div>
+      </div>
+
+      <div class="accordion mt-4 mb-8" data-accordion>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#code" /></svg>
+            Full real-world page — copy &amp; paste
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en" data-theme="auto"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Acme Inc.&lt;/title&gt;
+  &lt;link rel="stylesheet" href="downstage.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;object data="downstage-icons.svg" type="image/svg+xml"
+          style="display:none" aria-hidden="true"&gt;&lt;/object&gt;
+
+  &lt;!-- ====== NAVBAR with dropdown ====== --&gt;
+  &lt;nav class="navbar" id="main-nav"&gt;
+    &lt;div class="navbar-inner"&gt;
+      &lt;a class="navbar-brand" href="/"&gt;
+        &lt;svg class="icon" width="20" height="20"&gt;
+          &lt;use href="downstage-icons.svg#rocket" /&gt;
+        &lt;/svg&gt;
+        Acme&amp;nbsp;Inc.
+      &lt;/a&gt;
+
+      &lt;button class="navbar-toggle" aria-label="Open menu"
+              aria-expanded="false" aria-controls="navbar-menu"&gt;
+        &lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;
+      &lt;/button&gt;
+
+      &lt;div class="navbar-menu" id="navbar-menu"&gt;
+        &lt;div class="navbar-menu-scroll"&gt;
+          &lt;a href="/" class="navbar-link active"&gt;Home&lt;/a&gt;
+
+          &lt;!-- Dropdown menu --&gt;
+          &lt;details class="navbar-dropdown"&gt;
+            &lt;summary class="navbar-dropdown-summary"&gt;
+              Products
+              &lt;svg class="icon icon-sm navbar-dropdown-chevron" aria-hidden="true"&gt;
+                &lt;use href="downstage-icons.svg#chevron-down" /&gt;
+              &lt;/svg&gt;
+            &lt;/summary&gt;
+            &lt;div class="navbar-dropdown-panel"&gt;
+              &lt;a href="/widgets" class="navbar-dropdown-link"&gt;Widgets&lt;/a&gt;
+              &lt;a href="/gadgets" class="navbar-dropdown-link"&gt;Gadgets&lt;/a&gt;
+              &lt;a href="/services" class="navbar-dropdown-link"&gt;Services&lt;/a&gt;
+            &lt;/div&gt;
+          &lt;/details&gt;
+
+          &lt;a href="/pricing" class="navbar-link"&gt;Pricing&lt;/a&gt;
+          &lt;a href="/contact" class="navbar-link"&gt;Contact&lt;/a&gt;
+
+          &lt;div class="navbar-actions"&gt;
+            &lt;div class="btn-group" role="group" aria-label="Theme"&gt;
+              &lt;button class="btn btn-sm" data-set-theme="light" aria-label="Light"&gt;
+                &lt;svg class="icon"&gt;&lt;use href="downstage-icons.svg#sun" /&gt;&lt;/svg&gt;
+              &lt;/button&gt;
+              &lt;button class="btn btn-sm" data-set-theme="dark" aria-label="Dark"&gt;
+                &lt;svg class="icon"&gt;&lt;use href="downstage-icons.svg#moon" /&gt;&lt;/svg&gt;
+              &lt;/button&gt;
+              &lt;button class="btn btn-sm" data-set-theme="auto" aria-label="Auto"&gt;Auto&lt;/button&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/nav&gt;
+
+  &lt;!-- ====== MAIN CONTENT ====== --&gt;
+  &lt;main class="container" style="padding-block: var(--space-16);"&gt;
+
+    &lt;!-- Breadcrumb --&gt;
+    &lt;nav aria-label="Breadcrumb"&gt;
+      &lt;ol class="breadcrumb"&gt;
+        &lt;li&gt;&lt;a href="/"&gt;
+          &lt;svg class="icon"&gt;&lt;use href="downstage-icons.svg#home" /&gt;&lt;/svg&gt;
+        &lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;Home&lt;/li&gt;
+      &lt;/ol&gt;
+    &lt;/nav&gt;
+
+    &lt;!-- Hero --&gt;
+    &lt;section style="padding-block: var(--space-12);"&gt;
+      &lt;h1&gt;Build something great&lt;/h1&gt;
+      &lt;p class="text-soft mt-4" style="max-width: 540px; font-size: var(--fs-md);"&gt;
+        Acme Inc. helps teams ship faster with less complexity.
+        No bloat, no lock-in, just clean tools.
+      &lt;/p&gt;
+      &lt;div class="cluster mt-8"&gt;
+        &lt;a href="/pricing" class="btn btn-primary"&gt;
+          Get started
+          &lt;svg class="icon"&gt;&lt;use href="downstage-icons.svg#arrow-right" /&gt;&lt;/svg&gt;
+        &lt;/a&gt;
+        &lt;a href="/docs" class="btn btn-secondary"&gt;
+          &lt;svg class="icon"&gt;&lt;use href="downstage-icons.svg#file-text" /&gt;&lt;/svg&gt;
+          Documentation
+        &lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;!-- Feature cards (3 columns) --&gt;
+    &lt;section style="padding-block: var(--space-12);"&gt;
+      &lt;h2 class="mb-6"&gt;Why Acme?&lt;/h2&gt;
+      &lt;div class="grid" style="gap: var(--space-6);"&gt;
+        &lt;div class="col-4"&gt;
+          &lt;div class="card"&gt;
+            &lt;h4&gt;
+              &lt;svg class="icon" style="vertical-align: -2px;"&gt;
+                &lt;use href="downstage-icons.svg#zap" /&gt;
+              &lt;/svg&gt;
+              Fast
+            &lt;/h4&gt;
+            &lt;p class="text-soft text-sm mt-2"&gt;
+              Optimised builds ship in milliseconds.
+              No cold starts, no waiting.
+            &lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="col-4"&gt;
+          &lt;div class="card"&gt;
+            &lt;h4&gt;
+              &lt;svg class="icon" style="vertical-align: -2px;"&gt;
+                &lt;use href="downstage-icons.svg#shield" /&gt;
+              &lt;/svg&gt;
+              Secure
+            &lt;/h4&gt;
+            &lt;p class="text-soft text-sm mt-2"&gt;
+              End-to-end encryption and automatic
+              vulnerability scanning included.
+            &lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="col-4"&gt;
+          &lt;div class="card"&gt;
+            &lt;h4&gt;
+              &lt;svg class="icon" style="vertical-align: -2px;"&gt;
+                &lt;use href="downstage-icons.svg#layers" /&gt;
+              &lt;/svg&gt;
+              Flexible
+            &lt;/h4&gt;
+            &lt;p class="text-soft text-sm mt-2"&gt;
+              Works with any stack. Drop it into
+              your existing project in minutes.
+            &lt;/p&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;!-- Alert --&gt;
+    &lt;div class="alert alert-info mb-8"&gt;
+      &lt;svg class="icon"&gt;&lt;use href="downstage-icons.svg#info" /&gt;&lt;/svg&gt;
+      &lt;div&gt;
+        &lt;strong&gt;Tip:&lt;/strong&gt; All colours, spacing, and radii are
+        CSS custom properties you can override in a single file.
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Contact form --&gt;
+    &lt;section style="padding-block: var(--space-12);"&gt;
+      &lt;h2 class="mb-6"&gt;Get in touch&lt;/h2&gt;
+      &lt;form style="max-width: 480px;"&gt;
+        &lt;div class="field"&gt;
+          &lt;label class="label" for="c-name"&gt;Name&lt;/label&gt;
+          &lt;input class="input" id="c-name" type="text" placeholder="Jane Doe"&gt;
+        &lt;/div&gt;
+        &lt;div class="field mt-4"&gt;
+          &lt;label class="label" for="c-email"&gt;Email&lt;/label&gt;
+          &lt;input class="input" id="c-email" type="email" placeholder="jane@example.com"&gt;
+        &lt;/div&gt;
+        &lt;div class="field mt-4"&gt;
+          &lt;label class="label" for="c-message"&gt;Message&lt;/label&gt;
+          &lt;textarea class="input" id="c-message" rows="4" placeholder="How can we help?"&gt;&lt;/textarea&gt;
+        &lt;/div&gt;
+        &lt;button class="btn btn-primary mt-6" type="submit"&gt;
+          &lt;svg class="icon"&gt;&lt;use href="downstage-icons.svg#send" /&gt;&lt;/svg&gt;
+          Send message
+        &lt;/button&gt;
+      &lt;/form&gt;
+    &lt;/section&gt;
+
+  &lt;/main&gt;
+
+  &lt;!-- ====== FOOTER with multiple columns + social ====== --&gt;
+  &lt;footer class="footer"&gt;
+    &lt;div class="footer-inner"&gt;
+      &lt;div class="footer-grid"&gt;
+        &lt;div&gt;
+          &lt;div class="footer-brand"&gt;
+            &lt;svg class="icon" width="20" height="20"&gt;
+              &lt;use href="downstage-icons.svg#rocket" /&gt;
+            &lt;/svg&gt;
+            Acme Inc.
+          &lt;/div&gt;
+          &lt;p class="footer-tagline"&gt;
+            Clean tools for modern teams.
+          &lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+          &lt;div class="footer-title"&gt;Product&lt;/div&gt;
+          &lt;ul class="footer-links"&gt;
+            &lt;li&gt;&lt;a href="/widgets"&gt;Widgets&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="/gadgets"&gt;Gadgets&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="/services"&gt;Services&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="/pricing"&gt;Pricing&lt;/a&gt;&lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+          &lt;div class="footer-title"&gt;Company&lt;/div&gt;
+          &lt;ul class="footer-links"&gt;
+            &lt;li&gt;&lt;a href="/about"&gt;About&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="/blog"&gt;Blog&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="/careers"&gt;Careers&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="/contact"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+          &lt;div class="footer-title"&gt;Legal&lt;/div&gt;
+          &lt;ul class="footer-links"&gt;
+            &lt;li&gt;&lt;a href="/privacy"&gt;Privacy&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="/terms"&gt;Terms&lt;/a&gt;&lt;/li&gt;
+          &lt;/ul&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="footer-bottom"&gt;
+        &lt;div&gt;&amp;copy; 2026 Acme Inc. &amp;middot; All rights reserved&lt;/div&gt;
+        &lt;div class="footer-social"&gt;
+          &lt;a href="#" aria-label="GitHub"&gt;
+            &lt;svg class="icon"&gt;&lt;use href="downstage-icons.svg#github" /&gt;&lt;/svg&gt;
+          &lt;/a&gt;
+          &lt;a href="#" aria-label="LinkedIn"&gt;
+            &lt;svg class="icon"&gt;&lt;use href="downstage-icons.svg#linkedin" /&gt;&lt;/svg&gt;
+          &lt;/a&gt;
+          &lt;a href="#" aria-label="Email"&gt;
+            &lt;svg class="icon"&gt;&lt;use href="downstage-icons.svg#mail" /&gt;&lt;/svg&gt;
+          &lt;/a&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/footer&gt;
+
+  &lt;script src="downstage.js" defer&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h4>Components used in this example</h4>
+      <div class="table-responsive mt-2 mb-4">
+        <table class="table table-sm">
+          <thead>
+            <tr><th>Component</th><th>Classes</th><th>Notes</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Navbar dropdown</td>
+              <td><code>&lt;details class="navbar-dropdown"&gt;</code></td>
+              <td>Uses native <code>&lt;details&gt;</code>; JS adds close-on-outside-click</td>
+            </tr>
+            <tr>
+              <td>Breadcrumb</td>
+              <td><code>.breadcrumb</code></td>
+              <td>Semantic <code>&lt;nav aria-label="Breadcrumb"&gt;</code></td>
+            </tr>
+            <tr>
+              <td>Buttons</td>
+              <td><code>.btn .btn-primary</code>, <code>.btn-secondary</code></td>
+              <td>Icon + text; wrap multiple buttons in <code>.cluster</code> for auto-gap</td>
+            </tr>
+            <tr>
+              <td>Grid + Cards</td>
+              <td><code>.grid</code> &rarr; <code>.col-4</code> &rarr; <code>.card</code></td>
+              <td>12-column grid; <code>.col-4</code> = 3 cards per row</td>
+            </tr>
+            <tr>
+              <td>Alert</td>
+              <td><code>.alert .alert-info</code></td>
+              <td>Variants: <code>-success</code>, <code>-danger</code>, <code>-warning</code>, <code>-info</code></td>
+            </tr>
+            <tr>
+              <td>Form fields</td>
+              <td><code>.field</code>, <code>.label</code>, <code>.input</code></td>
+              <td>Stack <code>.field</code> blocks; works with <code>&lt;input&gt;</code>, <code>&lt;textarea&gt;</code>, <code>&lt;select&gt;</code></td>
+            </tr>
+            <tr>
+              <td>Footer social</td>
+              <td><code>.footer-social</code></td>
+              <td>Inline icon links in <code>.footer-bottom</code>; use <code>aria-label</code> for a11y</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="alert alert-success">
+        <svg class="icon"><use href="../downstage-icons.svg#check-circle" /></svg>
+        <div>
+          <strong>Ready to go.</strong>
+          Copy either template, drop the three framework files
+          (<code>downstage.css</code>, <code>downstage.js</code>,
+          <code>downstage-icons.svg</code>) in the same folder,
+          and open it in a browser.
+        </div>
+      </div>
+    </section>
+
     <!-- ============================== COLORS ============================== -->
     <section class="demo-section" id="palette">
-      <p class="demo-section-title">02 — Palette</p>
+      <p class="demo-section-title">03 — Palette</p>
       <h2>Colors</h2>
       <p class="text-soft" style="max-width: 540px;">
         A warm desaturated neutral scale, two brand colors (sage + taupe)
@@ -275,7 +1040,7 @@
 
     <!-- ============================== TYPOGRAPHY ============================== -->
     <section class="demo-section" id="typography">
-      <p class="demo-section-title">03 — Typography</p>
+      <p class="demo-section-title">04 — Typography</p>
       <h2>Typography</h2>
       <p class="text-soft">Space Grotesk, self-hosted as a variable font.</p>
 
@@ -320,7 +1085,7 @@
 
     <!-- ============================== GRID ============================== -->
     <section class="demo-section" id="grid">
-      <p class="demo-section-title">04 — Layout</p>
+      <p class="demo-section-title">05 — Layout</p>
       <h2>Grid system</h2>
       <p class="text-soft">12 columns. Consistent gap. Use <code>.col-N</code> inside <code>.grid</code>.</p>
 
@@ -441,7 +1206,7 @@
 
     <!-- ============================== ICONS ============================== -->
     <section class="demo-section" id="icons">
-      <p class="demo-section-title">05 — Icons</p>
+      <p class="demo-section-title">06 — Icons</p>
       <h2>Icon set</h2>
       <p class="text-soft text-sm mb-4" style="max-width: 640px;">
         Ship <code>downstage-icons.svg</code> next to your HTML (or fix paths). Prefer a local server so external
@@ -475,11 +1240,26 @@
           </svg> xl</span>
       </div>
 
+      <h4 class="mt-8 mb-4">Loading spinner (<code class="text-mono">.rotate</code>)</h4>
+      <p class="text-soft text-sm mb-4" style="max-width: 640px;">
+        Add <code class="text-mono">.rotate</code> to any <code class="text-mono">.icon</code> for a smooth 360° loop.
+        Works best with circular arrows (e.g. <code class="text-mono">#refresh</code>). Pair with an accessible label:
+        hide the decorative icon with <code class="text-mono">aria-hidden="true"</code> and set
+        <code class="text-mono">aria-busy="true"</code> / <code class="text-mono">aria-label</code> on the button or region.
+      </p>
+      <div class="cluster mt-2 mb-2" style="align-items: center;">
+        <button type="button" class="btn btn-secondary btn-sm" disabled aria-busy="true" aria-label="Loading example">
+          <svg class="icon rotate" width="16" height="16" aria-hidden="true"><use href="../downstage-icons.svg#refresh" /></svg>
+          Saving…
+        </button>
+        <span class="text-sm text-muted"><svg class="icon rotate" aria-hidden="true"><use href="../downstage-icons.svg#refresh" /></svg> Inline</span>
+      </div>
+
       <div class="accordion mt-4 mb-8" data-accordion>
         <div class="accordion-item">
           <button class="accordion-header">
             <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#code" /></svg>
-            Source code
+            HTML — sizes
             <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
           </button>
           <div class="accordion-content">
@@ -488,6 +1268,27 @@
 &lt;svg class="icon"&gt;&lt;use href="downstage-icons.svg#star" /&gt;&lt;/svg&gt;          &lt;!-- default --&gt;
 &lt;svg class="icon icon-lg"&gt;&lt;use href="downstage-icons.svg#star" /&gt;&lt;/svg&gt;  &lt;!-- lg --&gt;
 &lt;svg class="icon icon-xl"&gt;&lt;use href="downstage-icons.svg#star" /&gt;&lt;/svg&gt;  &lt;!-- xl --&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#code" /></svg>
+            HTML + CSS — <code class="text-mono">.rotate</code> (spinner)
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <pre><code>&lt;svg class="icon icon-lg rotate" aria-hidden="true"&gt;
+  &lt;use href="downstage-icons.svg#refresh" /&gt;
+&lt;/svg&gt;
+
+&lt;button type="button" class="btn btn-primary" disabled aria-busy="true" aria-label="Saving"&gt;
+  &lt;svg class="icon rotate" aria-hidden="true"&gt;&lt;use href="downstage-icons.svg#refresh" /&gt;&lt;/svg&gt;
+  Save
+&lt;/button&gt;</code></pre>
+              <p class="text-sm text-muted mb-0 mt-4">Animation: <code class="text-mono">@keyframes ds-icon-spin</code> on
+                <code class="text-mono">.icon.rotate</code> (0.75s linear infinite). Under <code class="text-mono">prefers-reduced-motion: reduce</code>, one turn takes 1.5s.</p>
             </div>
           </div>
         </div>
@@ -1110,7 +1911,7 @@
 
     <!-- ============================== JAVASCRIPT API ============================== -->
     <section class="demo-section" id="js-api">
-      <p class="demo-section-title">06 — Reference</p>
+      <p class="demo-section-title">07 — Reference</p>
       <h2>JavaScript API</h2>
 
           <div class="docs-chapter" id="doc-install">
@@ -1154,34 +1955,211 @@
 
           <div class="docs-chapter" id="doc-api">
             <h3>JavaScript API</h3>
-            <p><code>downstage.js</code> is <strong>JavaScript with built-in components</strong>. It exposes
-              <code>window.Downstage</code> with the following modules:
-            </p>
+            <p><code>downstage.js</code> assigns <code>window.Downstage</code>. Include it with <code>defer</code>; each
+              submodule runs <code>init()</code> on <code>DOMContentLoaded</code> to wire declarative markup. For content
+              injected later, call <code>Downstage.*.init()</code> again or <code>mount(selector, options)</code> on the
+              new root.</p>
+
+            <h4 id="doc-global-config">Global configuration</h4>
+            <div class="table-wrap mb-4">
+              <table class="table table-compact table-striped">
+                <thead>
+                  <tr><th>API</th><th>Description</th></tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code class="text-mono">Downstage.configure({ locale, basePath, messages })</code></td>
+                    <td>Passes options to <code class="text-mono">Downstage.i18n.configure</code>: load a locale JSON from
+                      <code>basePath</code>, or merge inline <code>messages</code> for overrides.</td>
+                  </tr>
+                  <tr>
+                    <td><code class="text-mono">Downstage.i18n</code></td>
+                    <td><code>setLocale(code)</code>, <code>getLocale()</code>, <code>t('key', { vars })</code>,
+                      <code>get('path')</code> for nested objects.</td>
+                  </tr>
+                  <tr>
+                    <td><code class="text-mono">window.__DOWNSTAGE_ICONS_BASE__</code></td>
+                    <td>Optional path prefix for the SVG sprite (documentation pages set e.g.
+                      <code class="text-mono">"../downstage-icons.svg"</code> for <code>&lt;use href&gt;</code>).</td>
+                  </tr>
+                  <tr>
+                    <td><code class="text-mono">window.__DOWNSTAGE_LOCALE_BASE__</code></td>
+                    <td>Optional folder for JSON locales (default <code class="text-mono">"locales/"</code>).</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h4 id="doc-module-index">Module index</h4>
+            <p class="text-sm text-muted mb-2">Typical pattern: declarative attributes on a container, or
+              <code>Downstage.&lt;module&gt;.mount('#id', { … })</code>. Options often mirror
+              <code>data-*</code> names in camelCase (<code>data-calendar-fetch-url</code> → <code>fetchUrl</code>).</p>
+            <div class="table-wrap mb-4">
+              <table class="table table-compact table-striped">
+                <thead>
+                  <tr>
+                    <th>Module</th>
+                    <th>Declarative hook</th>
+                    <th>Primary API</th>
+                    <th>Documentation</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><code class="text-mono">theme</code></td>
+                    <td><code class="text-mono">[data-set-theme]</code></td>
+                    <td><code>get()</code>, <code>set('light'|'dark'|'auto')</code></td>
+                    <td><a href="basic.html#doc-theming">Theming</a></td>
+                  </tr>
+                  <tr>
+                    <td><code class="text-mono">navbar</code></td>
+                    <td><code class="text-mono">.navbar</code> + toggle</td>
+                    <td><code>init()</code></td>
+                    <td>—</td>
+                  </tr>
+                  <tr>
+                    <td><code class="text-mono">tabs</code></td>
+                    <td><code class="text-mono">[data-tabs]</code></td>
+                    <td><code>mount(el)</code></td>
+                    <td><a href="interactive.html#tabs">Tabs</a></td>
+                  </tr>
+                  <tr>
+                    <td><code class="text-mono">accordion</code></td>
+                    <td><code class="text-mono">[data-accordion]</code> (optional <code>="single"</code>)</td>
+                    <td><code>init()</code></td>
+                    <td><a href="interactive.html#accordion">Accordion</a></td>
+                  </tr>
+                  <tr>
+                    <td><code class="text-mono">wizard</code></td>
+                    <td><code class="text-mono">[data-wizard]</code>, <code class="text-mono">data-wizard-free</code></td>
+                    <td><code>mount(el, { free, onStepChange, onComplete })</code> → <code>goToStep</code>, <code>next</code>, <code>prev</code></td>
+                    <td><a href="interactive.html#wizard">Wizard</a></td>
+                  </tr>
+                  <tr>
+                    <td><code class="text-mono">formValidate</code></td>
+                    <td><code class="text-mono">form[data-form-validate]</code></td>
+                    <td><code>mount(form, { live, onValid })</code>, <code>validateField(input)</code></td>
+                    <td><a href="ui-components.html#form-validation">Form validation</a></td>
+                  </tr>
+                  <tr>
+                    <td><code class="text-mono">lightbox</code></td>
+                    <td><code class="text-mono">[data-lightbox="setId"]</code></td>
+                    <td><code>open(nodes, index)</code>, <code>close()</code></td>
+                    <td><a href="media.html#gallery">Gallery</a></td>
+                  </tr>
+                  <tr>
+                    <td><code class="text-mono">slider</code></td>
+                    <td><code class="text-mono">[data-slider]</code>, <code class="text-mono">data-slider-auto</code></td>
+                    <td><code>init()</code></td>
+                    <td><a href="media.html#slider">Slider</a></td>
+                  </tr>
+                  <tr>
+                    <td><code class="text-mono">videoPlayer</code></td>
+                    <td><code class="text-mono">[data-video-player]</code></td>
+                    <td>Wraps <code>&lt;video&gt;</code></td>
+                    <td><a href="media.html#videoplayer">Video</a></td>
+                  </tr>
+                  <tr>
+                    <td><code class="text-mono">audioPlayer</code></td>
+                    <td><code class="text-mono">[data-audio-player]</code></td>
+                    <td><code>data-src</code>, <code>data-title</code>, <code>data-artist</code></td>
+                    <td><a href="media.html#audioplayer">Audio</a></td>
+                  </tr>
+                  <tr>
+                    <td><code class="text-mono">uploadDrop</code></td>
+                    <td><code class="text-mono">[data-upload-drop]</code></td>
+                    <td><code>init()</code></td>
+                    <td>—</td>
+                  </tr>
+                  <tr>
+                    <td><code class="text-mono">htmlEditor</code></td>
+                    <td>mount / <code class="text-mono">data-html-editor-mount</code></td>
+                    <td><code>mount('#el', { preset, showRawSwitch, toolbarExclude })</code></td>
+                    <td><a href="ui-components.html#html-editor">HTML editor</a></td>
+                  </tr>
+                  <tr>
+                    <td><code class="text-mono">combobox</code></td>
+                    <td><code class="text-mono">[data-combobox]</code></td>
+                    <td><code>mount(el, options)</code></td>
+                    <td><a href="data.html#combobox">Combobox</a></td>
+                  </tr>
+                  <tr>
+                    <td><code class="text-mono">searchAutocomplete</code></td>
+                    <td>often mount-only</td>
+                    <td><code>mount('#el', { fetchSuggestions, … })</code></td>
+                    <td><a href="data.html#search">Search</a></td>
+                  </tr>
+                  <tr>
+                    <td><code class="text-mono">inputAutocomplete</code></td>
+                    <td>mount</td>
+                    <td>Inline / modal create flows</td>
+                    <td><a href="data.html#input-autocomplete">Input autocomplete</a></td>
+                  </tr>
+                  <tr>
+                    <td><code class="text-mono">tagInput</code></td>
+                    <td><code class="text-mono">[data-tag-input]</code> + <code class="text-mono">data-tag-input-*</code></td>
+                    <td><code>mount(el, options)</code></td>
+                    <td><a href="data.html#tag-input">Tag input</a></td>
+                  </tr>
+                  <tr>
+                    <td><code class="text-mono">kanban</code></td>
+                    <td><code class="text-mono">[data-kanban]</code></td>
+                    <td><code>mount(el, { fetchUrl, moveUrl, fetchBoard, moveCard, … })</code></td>
+                    <td><a href="data.html#kanban">Kanban</a></td>
+                  </tr>
+                  <tr>
+                    <td><code class="text-mono">dataTable</code></td>
+                    <td><code class="text-mono">[data-data-table]</code></td>
+                    <td><code>mount(el, { mode, columns, rows, fetchRemote })</code></td>
+                    <td><a href="data.html#datatable">Data table</a></td>
+                  </tr>
+                  <tr>
+                    <td><code class="text-mono">calendar</code></td>
+                    <td><code class="text-mono">[data-calendar]</code></td>
+                    <td><code>mount(el, { fetchUrl, defaultView, fetchEvents, … })</code></td>
+                    <td><a href="data.html#calendar">Calendar</a></td>
+                  </tr>
+                  <tr>
+                    <td><code class="text-mono">orderList</code></td>
+                    <td>mount</td>
+                    <td>Large options surface — see Data UI page</td>
+                    <td><a href="data.html#order-list">Order list</a></td>
+                  </tr>
+                  <tr>
+                    <td><code class="text-mono">copyField</code></td>
+                    <td><code class="text-mono">[data-copy-field]</code></td>
+                    <td><code>init()</code></td>
+                    <td><a href="ui-components.html#copy-fields">Copy fields</a></td>
+                  </tr>
+                  <tr>
+                    <td><code class="text-mono">passwordInput</code></td>
+                    <td><code class="text-mono">[data-password-toggle]</code></td>
+                    <td><code>init()</code></td>
+                    <td>—</td>
+                  </tr>
+                  <tr>
+                    <td><code class="text-mono">datePicker</code> / <code class="text-mono">dateRange</code></td>
+                    <td><code class="text-mono">[data-datepicker]</code>, <code class="text-mono">[data-daterange]</code></td>
+                    <td><code>init()</code> / <code>mount</code></td>
+                    <td><a href="ui-components.html#date-fields">Date fields</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h4 id="doc-api-examples">Quick calls</h4>
             <pre><code>Downstage.theme.set('dark');
-Downstage.theme.get();
-Downstage.lightbox.open(set, 0);
-Downstage.lightbox.close();
+// Lightbox: pass an array of { src, alt } (galleries usually use data-lightbox instead)
+Downstage.lightbox.open([{ src: 'photo.jpg', alt: 'Photo' }], 0);
 Downstage.htmlEditor.mount('#editor', { preset: 'demo' });
 Downstage.combobox.mount('#cb', { options: [{ value: 'a', label: 'Alpha' }] });
-Downstage.searchAutocomplete.mount('#search', { fetchSuggestions: async (q) =&gt; [...] });
 Downstage.kanban.mount('#board', {
   fetchUrl: '/api/kanban/board',
   moveUrl: '/api/kanban/move',
 });
-Downstage.dataTable.mount('#table', { mode: 'local', columns, rows });</code></pre>
-            <p class="text-soft text-sm">Kanban: use <code class="text-mono">fetchUrl</code> (GET board JSON) and
-              <code class="text-mono">moveUrl</code> (POST move payload), or <code class="text-mono">fetchBoard</code> /
-              <code class="text-mono">moveCard</code> callbacks. Attributes:
-              <code class="text-mono">data-kanban-fetch-url</code>,
-              <code class="text-mono">data-kanban-move-url</code>.
-            </p>
-            <p>Each module has an <code>init()</code> method auto-called on <code>DOMContentLoaded</code>. For
-              dynamically added content, call <code>init()</code> again. The HTML editor mounts with
-              <code>Downstage.htmlEditor.mount()</code> (or <code>data-html-editor-mount</code>). Combobox, search,
-              Kanban, and data table support programmatic <code>mount()</code> and selective declarative hooks (see
-              <code>#auth</code> and <code>#app-data</code> in <code>index.html</code>). Options include
-              <code>showRawSwitch</code> and <code>toolbarExclude</code> on the HTML editor.
-            </p>
+Downstage.dataTable.mount('#table', { mode: 'local', columns: [], rows: [] });</code></pre>
+            <p class="text-soft text-sm mb-0">Heavy options (order list, data table remote mode, HTML editor toolbar) are documented on the
+              <a href="data.html">Data UI</a> and <a href="ui-components.html">UI Components</a> pages next to each demo.</p>
           </div>
     </section>
 
@@ -1202,20 +2180,34 @@ Downstage.dataTable.mount('#table', { mode: 'local', columns, rows });</code></p
         <div>
           <div class="footer-title">Documentation</div>
           <ul class="footer-links">
-            <li><a href="index.html">All sections</a></li>
             <li><a href="basic.html">Basic</a></li>
-            <li><a href="interactive.html">Interactive UI</a></li>
+            <li><a href="media.html">Media</a></li>
+            <li><a href="templates.html">Templates</a></li>
           </ul>
         </div>
         <div>
-          <div class="footer-title">Site</div>
+          <div class="footer-title">Components</div>
           <ul class="footer-links">
-            <li><a href="../index.html">Home</a></li>
+            <li><a href="ui-components.html">UI Components</a></li>
+            <li><a href="interactive.html">Interactive UI</a></li>
+            <li><a href="data.html">Data UI</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-title">Legal</div>
+          <ul class="footer-links">
+            <li><a href="https://raw.githubusercontent.com/andreapollastri/downstage/refs/heads/main/LICENSE.md" target="_blank" rel="noopener noreferrer">MIT License</a></li>
+            <li><a href="https://floriankarsten.github.io/space-grotesk/" target="_blank" rel="noopener noreferrer">Font credits</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
         <div>© 2026 <a href="https://web.ap.it" target="_blank" rel="noopener">Andrea Pollastri</a></div>
+        <div class="footer-social">
+          <a href="https://github.com/andreapollastri" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><svg class="icon">
+              <use href="../downstage-icons.svg#github" />
+            </svg></a>
+        </div>
       </div>
     </div>
   </footer>

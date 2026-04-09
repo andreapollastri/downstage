@@ -1,0 +1,32 @@
+{
+  "resources": [
+    { "id": "room-a", "title": "Room A" },
+    { "id": "room-b", "title": "Room B" },
+    { "id": "room-c", "title": "Room C" },
+    { "id": "dev-1", "title": "Alice" },
+    { "id": "dev-2", "title": "Bob" },
+    { "id": "dev-3", "title": "Carol" }
+  ],
+  "events": [
+    { "id": 1, "title": "Sprint planning", "start": "2026-04-06T09:00", "end": "2026-04-06T10:30", "resourceId": "room-a", "color": "#5a6b5d" },
+    { "id": 2, "title": "Design review", "start": "2026-04-06T14:00", "end": "2026-04-06T15:00", "resourceId": "room-b", "color": "#8a7a68" },
+    { "id": 3, "title": "API integration", "start": "2026-04-06T09:00", "end": "2026-04-08T17:00", "resourceId": "dev-1", "color": "#5f7a8a" },
+    { "id": 4, "title": "Stakeholder demo", "start": "2026-04-07T11:00", "end": "2026-04-07T12:00", "resourceId": "room-a", "color": "#a85a4f" },
+    { "id": 5, "title": "UI polish", "start": "2026-04-07T09:00", "end": "2026-04-09T17:00", "resourceId": "dev-2", "color": "#c08a3e" },
+    { "id": 6, "title": "Code review", "start": "2026-04-08T10:00", "end": "2026-04-08T11:30", "resourceId": "room-c", "color": "#5a6b5d" },
+    { "id": 7, "title": "Database migration", "start": "2026-04-08T13:00", "end": "2026-04-10T17:00", "resourceId": "dev-3", "color": "#6b8266" },
+    { "id": 8, "title": "Team standup", "start": "2026-04-09T09:00", "end": "2026-04-09T09:15", "resourceId": "room-b", "color": "#5f7a8a" },
+    { "id": 9, "title": "1:1 with manager", "start": "2026-04-09T14:00", "end": "2026-04-09T14:45", "resourceId": "room-a", "color": "#8a7a68" },
+    { "id": 10, "title": "Release v2.1", "start": "2026-04-10T16:00", "end": "2026-04-10T17:00", "resourceId": "room-a", "color": "#a85a4f" },
+    { "id": 11, "title": "QA testing", "start": "2026-04-09T10:00", "end": "2026-04-11T17:00", "resourceId": "dev-1", "color": "#c08a3e" },
+    { "id": 12, "title": "Retrospective", "start": "2026-04-10T15:00", "end": "2026-04-10T16:00", "resourceId": "room-b", "color": "#5a6b5d" },
+    { "id": 13, "title": "Infra monitoring", "start": "2026-04-11T09:00", "end": "2026-04-11T11:00", "resourceId": "dev-2", "color": "#5f7a8a" },
+    { "id": 14, "title": "Workshop: a11y", "start": "2026-04-11T14:00", "end": "2026-04-11T16:00", "resourceId": "room-c", "color": "#6b8266" },
+    { "id": 15, "title": "Client call", "start": "2026-04-12T10:00", "end": "2026-04-12T11:00", "resourceId": "room-a", "color": "#a85a4f" },
+    { "id": 16, "title": "Docs sprint", "start": "2026-04-10T09:00", "end": "2026-04-12T17:00", "resourceId": "dev-3", "color": "#8a7a68" },
+    { "id": 17, "title": "Lunch & learn", "start": "2026-04-09T12:00", "end": "2026-04-09T13:00", "resourceId": "room-c", "color": "#c08a3e" },
+    { "id": 18, "title": "Backlog grooming", "start": "2026-04-07T15:00", "end": "2026-04-07T16:30", "resourceId": "room-b", "color": "#5a6b5d" },
+    { "id": 19, "title": "Performance audit", "start": "2026-04-06T11:00", "end": "2026-04-06T12:00", "resourceId": "dev-3", "color": "#5f7a8a" },
+    { "id": 20, "title": "Deploy staging", "start": "2026-04-08T16:00", "end": "2026-04-08T17:00", "resourceId": "dev-1", "color": "#6b8266" }
+  ]
+}

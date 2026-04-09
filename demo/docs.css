@@ -74,3 +74,180 @@ a.doc-hub-card:hover {
 .doc-stack .demo-section:last-child {
   border-bottom: none;
 }
+
+/* Cap long code blocks inside accordions so the page stays scrollable */
+.accordion-body pre {
+  max-height: 28rem;
+  overflow-y: auto;
+}
+
+/* Page preview frame — shows live components inside a bordered container */
+.demo-frame {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.demo-frame-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  background: var(--bg-sunken);
+  border-bottom: 1px solid var(--border);
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+}
+
+.demo-frame-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--border-strong);
+}
+
+.demo-frame-body {
+  padding: var(--space-6);
+}
+
+.demo-frame-body > .navbar {
+  position: relative;
+  border-bottom: 1px solid var(--border);
+  border-radius: 0;
+  margin: calc(-1 * var(--space-6));
+  margin-bottom: var(--space-6);
+}
+
+.demo-frame-body > .footer {
+  margin: var(--space-6) calc(-1 * var(--space-6)) calc(-1 * var(--space-6));
+  border-radius: 0;
+}
+
+/* Leaflet map demos (docs only — Leaflet loaded from CDN on map pages) */
+/* Isolate stacking: Leaflet uses z-index 600–800 on panes/controls; without this, zoom
+   controls can paint above the sticky navbar (z-index 200). */
+.ds-map-demo {
+  position: relative;
+  z-index: 0;
+  isolation: isolate;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--bg-sunken);
+}
+
+.ds-map-demo .leaflet-container {
+  font-family: inherit;
+}
+
+.ds-map-demo--tall {
+  height: min(28rem, 70vh);
+  min-height: 16rem;
+}
+
+.ds-map-demo--card {
+  height: 14rem;
+  border-radius: var(--radius);
+}
+
+/* Mini map without card chrome: flat strip, no outer border */
+.ds-map-demo--minimal {
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  border-radius: var(--radius-lg);
+  height: 12rem;
+}
+
+.ds-map-demo--minimal .leaflet-container {
+  background: transparent;
+}
+
+.ds-map-demo--minimal .leaflet-control-attribution {
+  font-size: 0.65rem;
+  line-height: 1.2;
+  padding: 2px 6px;
+  margin: 0;
+  background: color-mix(in srgb, var(--bg-elevated) 88%, transparent);
+  border-radius: var(--radius-sm) 0 0 0;
+  color: var(--text-muted);
+  max-width: 100%;
+}
+
+.ds-leaflet-marker-wrap {
+  background: transparent;
+  border: none;
+}
+
+.ds-leaflet-marker-pin {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  margin: 0 auto;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  background: var(--pin-color, var(--brand-primary));
+  box-shadow:
+    0 2px 6px rgb(0 0 0 / 0.25),
+    inset 0 1px 0 rgb(255 255 255 / 0.2);
+}
+
+/* Larger branded pin for compact map cards */
+.ds-leaflet-marker-pin--card {
+  width: 36px;
+  height: 36px;
+  border-radius: 50% 50% 50% 0;
+  box-shadow:
+    0 3px 10px rgb(0 0 0 / 0.28),
+    inset 0 1px 0 rgb(255 255 255 / 0.25);
+}
+
+.ds-leaflet-marker-pin--card::after {
+  width: 12px;
+  height: 12px;
+  margin: -6px 0 0 -6px;
+}
+
+.ds-leaflet-marker-pin::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  margin: -5px 0 0 -5px;
+  border-radius: 50%;
+  background: rgb(255 255 255 / 0.95);
+}
+
+.ds-map-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--bg-elevated);
+  max-width: 24rem;
+}
+
+.ds-map-card-body {
+  padding: var(--space-4) var(--space-4) 0;
+}
+
+.ds-map-card-title {
+  margin: 0 0 var(--space-1);
+  font-size: var(--fs-md);
+  font-weight: var(--fw-semibold);
+}
+
+.ds-map-card-meta {
+  margin: 0;
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+
+.ds-map-card .ds-map-demo {
+  border: none;
+  border-radius: 0;
+  border-top: 1px solid var(--border);
+  margin-top: var(--space-3);
+}

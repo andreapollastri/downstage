@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../favicon.ico" sizes="any">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <title>Interactive UI — downstage.css</title>
   <link rel="stylesheet" href="../downstage.css">
   <link rel="stylesheet" href="../demo/demo.css">
@@ -73,8 +75,11 @@
         <nav class="docs-nav" aria-label="Section">
           <a href="#tabs">Tabs</a>
           <a href="#accordion">Accordion</a>
+          <a href="#cascading-selects">Cascading selects</a>
           <a href="#modal">Modal</a>
+          <a href="#slideover">Slideover</a>
           <a href="#sidebar-nav">Sidebar nav</a>
+          <a href="#wizard">Wizard</a>
           <a href="#js-api">JavaScript API</a>
         </nav>
       </aside>
@@ -149,6 +154,26 @@
     &lt;p&gt;Panel content here.&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#terminal" /></svg>
+            Data attributes &amp; JavaScript
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <p class="text-sm text-muted mb-2">Root: <code class="text-mono">data-tabs</code> on
+                <code class="text-mono">.tabs</code>. Tab buttons: <code class="text-mono">data-tab="id"</code> (unique per set).
+                Panels: <code class="text-mono">data-tab-panel="id"</code> matching the active tab. Optional:
+                <code class="text-mono">class="active"</code> on a tab for initial selection.</p>
+              <pre><code>// Wire a single root after dynamic insert:
+Downstage.tabs.mount(document.querySelector('#my-tabs'));
+
+// Or re-run auto-init for the whole document:
+Downstage.tabs.init();</code></pre>
             </div>
           </div>
         </div>
@@ -267,12 +292,196 @@
             </div>
           </div>
         </div>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#terminal" /></svg>
+            JavaScript (<code class="text-mono">Downstage.accordion</code>)
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <pre><code>Downstage.accordion.init();        // all [data-accordion] on the page
+Downstage.accordion.mount(el);    // single container</code></pre>
+              <p class="text-sm text-muted mb-0">Exclusive mode: <code class="text-mono">data-accordion="single"</code> on the root
+                (only one <code class="text-mono">.accordion-item.is-open</code> at a time).</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Embedded JSON: same schema as demo/cascading-geo.json (local demo — no fetch) -->
+    <script type="application/json" id="demo-cascade-geo-local-data">{"regions":[{"id":"ne","name":"Northeast","provinces":[{"id":"ny","name":"New York","cities":[{"id":"nyc","name":"New York City"},{"id":"buf","name":"Buffalo"}]},{"id":"ma","name":"Massachusetts","cities":[{"id":"bos","name":"Boston"},{"id":"cam","name":"Cambridge"}]}]},{"id":"sw","name":"Southwest","provinces":[{"id":"ca","name":"California","cities":[{"id":"sf","name":"San Francisco"},{"id":"la","name":"Los Angeles"}]},{"id":"az","name":"Arizona","cities":[{"id":"phx","name":"Phoenix"},{"id":"tuc","name":"Tucson"}]}]},{"id":"mw","name":"Midwest","provinces":[{"id":"il","name":"Illinois","cities":[{"id":"chi","name":"Chicago"},{"id":"aur","name":"Aurora"}]},{"id":"oh","name":"Ohio","cities":[{"id":"cle","name":"Cleveland"},{"id":"col","name":"Columbus"}]}]}]}</script>
+
+    <!-- ============================== CASCADING SELECTS ============================== -->
+    <section class="demo-section" id="cascading-selects">
+      <p class="demo-section-title">14 — Components</p>
+      <h2>Cascading selects</h2>
+      <p class="text-soft">Two patterns for dependent <code class="text-mono">&lt;select&gt;</code> chains. <strong>Local</strong> reads a nested hierarchy (Region → Province → City) from an embedded JSON block—no network round trip. <strong>Remote</strong> uses the public <a href="https://jsonplaceholder.typicode.com" target="_blank" rel="noopener noreferrer">JSONPlaceholder</a> API (<strong>User → Post → Comment</strong>): each step issues a real <code class="text-mono">fetch</code> to <code class="text-mono">jsonplaceholder.typicode.com</code> over HTTPS with CORS enabled for browsers.</p>
+
+      <h3 class="mt-8 mb-2">Local data</h3>
+      <p class="text-sm text-muted mb-3">The hierarchy is parsed from a <code class="text-mono">&lt;script type="application/json"&gt;</code> node in the document—no HTTP request. Use this approach for small static datasets or values inlined at build time.</p>
+      <div id="demo-cascade-local" class="stack mt-2" style="max-width: 480px;">
+        <div class="field">
+          <label class="label" for="demo-cascade-local-region">Region</label>
+          <select id="demo-cascade-local-region" class="select" data-cascade-region></select>
+        </div>
+        <div class="field">
+          <label class="label" for="demo-cascade-local-province">Province</label>
+          <select id="demo-cascade-local-province" class="select" data-cascade-province></select>
+        </div>
+        <div class="field">
+          <label class="label" for="demo-cascade-local-city">City</label>
+          <select id="demo-cascade-local-city" class="select" data-cascade-city></select>
+        </div>
+      </div>
+
+      <h3 class="mt-10 mb-2">Remote API</h3>
+      <p class="text-sm text-muted mb-3"><a href="https://jsonplaceholder.typicode.com" target="_blank" rel="noopener noreferrer">JSONPlaceholder</a> serves sample REST resources over HTTPS with CORS. This demo performs: (1) <code class="text-mono">GET /users</code> on load, (2) <code class="text-mono">GET /posts?userId=…</code> after a user is selected, (3) <code class="text-mono">GET /comments?postId=…</code> after a post is selected—<strong>three distinct requests</strong> to <code class="text-mono">jsonplaceholder.typicode.com</code>. In DevTools, open Network → Fetch/XHR to inspect traffic. <strong>Reload users</strong> repeats only the first request.</p>
+      <p id="demo-cascade-remote-status" class="text-sm text-muted mb-2" role="status" aria-live="polite"></p>
+      <p class="text-sm text-muted mb-2">Enable <strong>Preserve log</strong>, then step through User → Post → Comment to observe each call.</p>
+      <button type="button" class="btn btn-sm btn-secondary mb-3" id="demo-cascade-remote-refetch">Reload users (GET /users)</button>
+      <div id="demo-cascade-remote" class="stack mt-2" style="max-width: 480px;">
+        <div class="field">
+          <label class="label" for="demo-cascade-remote-user">User</label>
+          <select id="demo-cascade-remote-user" class="select" data-jp-user></select>
+        </div>
+        <div class="field">
+          <label class="label" for="demo-cascade-remote-post">Post</label>
+          <select id="demo-cascade-remote-post" class="select" data-jp-post></select>
+        </div>
+        <div class="field">
+          <label class="label" for="demo-cascade-remote-comment">Comment</label>
+          <select id="demo-cascade-remote-comment" class="select" data-jp-comment></select>
+        </div>
+      </div>
+
+      <div class="accordion mt-4 mb-8" data-accordion>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#code" /></svg>
+            HTML — Local cascade
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <pre><code>&lt;script type="application/json" id="demo-cascade-geo-local-data"&gt;
+{ "regions": [ … ] }
+&lt;/script&gt;
+
+&lt;div id="demo-cascade-local" class="stack"&gt;
+  &lt;div class="field"&gt;
+    &lt;label class="label" for="region"&gt;Region&lt;/label&gt;
+    &lt;select id="region" class="select" data-cascade-region&gt;&lt;/select&gt;
+  &lt;/div&gt;
+  &lt;div class="field"&gt;
+    &lt;label class="label" for="province"&gt;Province&lt;/label&gt;
+    &lt;select id="province" class="select" data-cascade-province&gt;&lt;/select&gt;
+  &lt;/div&gt;
+  &lt;div class="field"&gt;
+    &lt;label class="label" for="city"&gt;City&lt;/label&gt;
+    &lt;select id="city" class="select" data-cascade-city&gt;&lt;/select&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+              <p class="text-sm text-muted mb-0">Wiring is implemented in <code class="text-mono">demo/demo.js</code>
+                (<code class="text-mono">wireCascadingGeoSelects</code>) by reading JSON from the script block.</p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#code" /></svg>
+            HTML — Remote cascade (JSONPlaceholder)
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <pre><code>&lt;p id="demo-cascade-remote-status" role="status"&gt;&lt;/p&gt;
+&lt;button type="button" id="demo-cascade-remote-refetch"&gt;Reload users&lt;/button&gt;
+
+&lt;div id="demo-cascade-remote" class="stack"&gt;
+  &lt;div class="field"&gt;
+    &lt;label class="label" for="u"&gt;User&lt;/label&gt;
+    &lt;select id="u" class="select" data-jp-user&gt;&lt;/select&gt;
+  &lt;/div&gt;
+  &lt;div class="field"&gt;
+    &lt;label class="label" for="p"&gt;Post&lt;/label&gt;
+    &lt;select id="p" class="select" data-jp-post&gt;&lt;/select&gt;
+  &lt;/div&gt;
+  &lt;div class="field"&gt;
+    &lt;label class="label" for="c"&gt;Comment&lt;/label&gt;
+    &lt;select id="c" class="select" data-jp-comment&gt;&lt;/select&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+              <p class="text-sm text-muted mb-0">Handlers live in <code class="text-mono">demo/demo.js</code>
+                (<code class="text-mono">initJsonPlaceholderCascading</code>).</p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#code" /></svg>
+            CSS (layout)
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <p class="text-sm text-muted mb-2">Uses standard form primitives from <code class="text-mono">downstage.css</code>:
+                <code class="text-mono">.stack</code> (vertical spacing), <code class="text-mono">.field</code>,
+                <code class="text-mono">.label</code>, <code class="text-mono">.select</code>. No extra stylesheet is required for this demo.</p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#code" /></svg>
+            JSON schema (Region / Province / City)
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <pre><code>{
+  "regions": [
+    {
+      "id": "ne",
+      "name": "Northeast",
+      "provinces": [
+        {
+          "id": "ny",
+          "name": "New York",
+          "cities": [
+            { "id": "nyc", "name": "New York City" }
+          ]
+        }
+      ]
+    }
+  ]
+}</code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#terminal" /></svg>
+            JavaScript (JSONPlaceholder)
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <pre><code>var base = 'https://jsonplaceholder.typicode.com';
+
+fetch(base + '/users').then(r =&gt; r.json());           // 1 — fill users
+fetch(base + '/posts?userId=' + id).then(r =&gt; r.json()); // 2 — after user
+fetch(base + '/comments?postId=' + id).then(r =&gt; r.json()); // 3 — after post</code></pre>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- ============================== MODAL ============================== -->
     <section class="demo-section" id="modal">
-      <p class="demo-section-title">14 — Components</p>
+      <p class="demo-section-title">15 — Components</p>
       <h2>Modal</h2>
       <p class="text-soft">Click the button to open the dialog.</p>
 
@@ -316,6 +525,82 @@
           </div>
         </div>
       </div>
+
+      <h3 class="mt-10 mb-2" id="modal-chained">Chained modals</h3>
+      <p class="text-soft text-sm mb-4">Confirm first, then open a second dialog with a form (e.g. “Are you sure?” → billing details). The second dialog uses <code class="text-mono">data-form-validate</code> on its inner form.</p>
+      <button type="button" class="btn btn-primary" id="demo-modal-chain-open">
+        <svg class="icon" aria-hidden="true"><use href="../downstage-icons.svg#chevron-right" /></svg>
+        Start chain…
+      </button>
+
+      <div class="accordion mt-4 mb-8" data-accordion>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#code" /></svg>
+            Chained modals — HTML
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <pre><code>&lt;button type="button" id="demo-modal-chain-open"&gt;Start chain…&lt;/button&gt;
+
+&lt;!-- 1) Confirm --&gt;
+&lt;div id="demo-modal-chain-confirm" class="modal-overlay hidden"
+     onclick="if(event.target===this)this.classList.add('hidden')"&gt;
+  &lt;div class="modal" role="dialog" aria-modal="true" onclick="event.stopPropagation()"&gt;
+    &lt;div class="modal-title"&gt;Continue?&lt;/div&gt;
+    &lt;div class="modal-body"&gt;…&lt;/div&gt;
+    &lt;div class="modal-footer"&gt;
+      &lt;button type="button" class="btn btn-secondary" data-chain-close&gt;Cancel&lt;/button&gt;
+      &lt;button type="button" class="btn btn-primary" data-chain-continue&gt;Continue&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- 2) Form (add data-form-validate on form for Downstage.formValidate) --&gt;
+&lt;div id="demo-modal-chain-form" class="modal-overlay hidden"
+     onclick="if(event.target===this)this.classList.add('hidden')"&gt;
+  &lt;div class="modal" role="dialog" aria-modal="true" onclick="event.stopPropagation()"&gt;
+    &lt;div class="modal-title"&gt;Billing details&lt;/div&gt;
+    &lt;div class="modal-body"&gt;
+      &lt;form id="demo-form-chain" novalidate&gt;
+        &lt;div class="field"&gt;
+          &lt;label class="label" for="line1"&gt;Address&lt;/label&gt;
+          &lt;input id="line1" class="input" name="line1" required&gt;
+          &lt;span class="error" aria-live="polite"&gt;&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/form&gt;
+    &lt;/div&gt;
+    &lt;div class="modal-footer"&gt;
+      &lt;button type="button" class="btn btn-secondary" data-chain-close&gt;Cancel&lt;/button&gt;
+      &lt;button type="submit" class="btn btn-primary" form="demo-form-chain"&gt;Save&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#terminal" /></svg>
+            Chained modals — JavaScript
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <p class="text-sm text-muted mb-2">Open the first overlay, then swap to the second on Continue; wire
+                <code class="text-mono">data-chain-close</code> / <code class="text-mono">data-chain-continue</code>.
+                Full logic: <code class="text-mono">demo/demo.js</code> (search for <code class="text-mono">demo-modal-chain</code>).</p>
+              <pre><code>document.getElementById('demo-modal-chain-open')
+  .addEventListener('click', function () {
+    document.getElementById('demo-modal-chain-confirm').classList.remove('hidden');
+  });
+// Continue → hide confirm, show form modal
+// Cancel → .classList.add('hidden') on active overlay</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Modal markup -->
@@ -332,9 +617,141 @@
       </div>
     </div>
 
+    <!-- Chained modals (confirm → form) -->
+    <div id="demo-modal-chain-confirm" class="modal-overlay hidden" onclick="if(event.target===this)this.classList.add('hidden')" role="presentation">
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="demo-chain-confirm-title" onclick="event.stopPropagation()">
+        <div class="modal-title" id="demo-chain-confirm-title">Continue?</div>
+        <div class="modal-body">The next step will ask for a billing address. You can cancel at any time.</div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-chain-close>Cancel</button>
+          <button type="button" class="btn btn-primary" data-chain-continue>Continue</button>
+        </div>
+      </div>
+    </div>
+    <div id="demo-modal-chain-form" class="modal-overlay hidden" onclick="if(event.target===this)this.classList.add('hidden')" role="presentation">
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="demo-chain-form-title" onclick="event.stopPropagation()">
+        <div class="modal-title" id="demo-chain-form-title">Billing details</div>
+        <div class="modal-body">
+          <form id="demo-form-chain" novalidate>
+            <div class="stack">
+              <div class="field">
+                <label class="label" for="demo-chain-line1">Address line 1</label>
+                <input id="demo-chain-line1" class="input" name="line1" type="text" required autocomplete="address-line1">
+                <span class="error" aria-live="polite"></span>
+              </div>
+              <div class="field">
+                <label class="label" for="demo-chain-city">City</label>
+                <input id="demo-chain-city" class="input" name="city" type="text" required autocomplete="address-level2">
+                <span class="error" aria-live="polite"></span>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-chain-close>Cancel</button>
+          <button type="submit" class="btn btn-primary" form="demo-form-chain">Save</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================== SLIDEOVER ============================== -->
+    <section class="demo-section" id="slideover">
+      <p class="demo-section-title">16 — Components</p>
+      <h2>Slideover</h2>
+      <p class="text-soft">A panel that slides in from the right (useful for quick edits, filters, or mobile-friendly drawers). Structure: <code class="text-mono">.slideover-overlay</code> (full-screen backdrop) + <code class="text-mono">.slideover-panel</code> with <code class="text-mono">.slideover-header</code>, <code class="text-mono">.slideover-body</code>, optional <code class="text-mono">.slideover-footer</code>.</p>
+
+      <button type="button" class="btn btn-secondary mt-4" id="demo-slideover-open">
+        <svg class="icon" aria-hidden="true"><use href="../downstage-icons.svg#filter" /></svg>
+        Open slideover
+      </button>
+
+      <div class="accordion mt-4 mb-8" data-accordion>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#code" /></svg>
+            Source code
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <pre><code>&lt;div id="my-slideover" class="slideover-overlay hidden" aria-hidden="true"&gt;
+  &lt;aside class="slideover-panel" role="dialog" aria-labelledby="so-title"&gt;
+    &lt;div class="slideover-header"&gt;
+      &lt;h2 class="slideover-title" id="so-title"&gt;Filters&lt;/h2&gt;
+      &lt;button type="button" class="btn btn-ghost btn-sm" data-slideover-close aria-label="Close"&gt;×&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="slideover-body"&gt;…&lt;/div&gt;
+    &lt;div class="slideover-footer"&gt;
+      &lt;button type="button" class="btn btn-primary"&gt;Apply&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/aside&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#terminal" /></svg>
+            JavaScript (open / close)
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <p class="text-sm text-muted mb-2">No dedicated <code class="text-mono">Downstage.slideover</code> module — toggle
+                <code class="text-mono">.hidden</code> on the overlay and sync <code class="text-mono">aria-hidden</code>.
+                Close targets use <code class="text-mono">[data-slideover-close]</code>.</p>
+              <pre><code>var el = document.getElementById('demo-slideover');
+document.getElementById('demo-slideover-open').addEventListener('click', function () {
+  el.classList.remove('hidden');
+  el.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+});
+el.querySelectorAll('[data-slideover-close]').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    el.classList.add('hidden');
+    el.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  });
+});</code></pre>
+              <p class="text-sm text-muted mb-0">Reference implementation: <code class="text-mono">demo/demo.js</code>.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div id="demo-slideover" class="slideover-overlay hidden" aria-hidden="true" onclick="if(event.target===this){ this.classList.add('hidden'); document.body.style.overflow=''; this.setAttribute('aria-hidden','true'); }">
+      <aside class="slideover-panel" role="dialog" aria-modal="true" aria-labelledby="demo-slideover-title" onclick="event.stopPropagation()">
+        <div class="slideover-header">
+          <h2 class="slideover-title" id="demo-slideover-title">Quick note</h2>
+          <button type="button" class="btn btn-ghost btn-sm" data-slideover-close aria-label="Close">
+            <svg class="icon" width="18" height="18" aria-hidden="true"><use href="../downstage-icons.svg#x" /></svg>
+          </button>
+        </div>
+        <div class="slideover-body">
+          <form class="stack" id="demo-slideover-form" novalidate>
+            <div class="field">
+              <label class="label" for="demo-so-title">Title</label>
+              <input id="demo-so-title" class="input" type="text" name="title" required placeholder="Meeting notes">
+              <span class="error" aria-live="polite"></span>
+            </div>
+            <div class="field">
+              <label class="label" for="demo-so-body">Notes</label>
+              <textarea id="demo-so-body" class="textarea" name="body" rows="4" placeholder="…"></textarea>
+              <span class="error" aria-live="polite"></span>
+            </div>
+          </form>
+        </div>
+        <div class="slideover-footer">
+          <button type="button" class="btn btn-ghost" data-slideover-close>Cancel</button>
+          <button type="submit" class="btn btn-primary" form="demo-slideover-form">Save</button>
+        </div>
+      </aside>
+    </div>
+
     <!-- ============================== SIDEBAR NAV ============================== -->
     <section class="demo-section" id="sidebar-nav">
-      <p class="demo-section-title">15 — Components</p>
+      <p class="demo-section-title">17 — Components</p>
       <h2>Sidebar nav</h2>
       <p class="text-soft">Vertical style as in settings pages.</p>
 
@@ -368,11 +785,223 @@
       </div>
     </section>
 
+    <!-- ============================== WIZARD ============================== -->
+    <section class="demo-section" id="wizard">
+      <p class="demo-section-title">18 — Components</p>
+      <h2>Wizard</h2>
+      <p class="text-soft">Multi-step flow with optional step navigation and footer actions. Mark up a root
+        <code class="text-mono">.wizard</code> with <code class="text-mono">data-wizard</code>, one
+        <code class="text-mono">.wizard-panel</code> for each step (order = DOM order), nav buttons with
+        <code class="text-mono">data-wizard-goto</code> (0-based index), and
+        <code class="text-mono">data-wizard-prev</code> / <code class="text-mono">data-wizard-next</code>.
+        <strong>Linear</strong> (default): users can only open steps they have already reached.
+        <strong>Free</strong> (<code class="text-mono">data-wizard-free="true"</code>): any step can be opened from the nav.
+        Labels come from i18n (<code class="text-mono">wizard.*</code>); optional
+        <code class="text-mono">[data-wizard-progress]</code> shows “Step <em>n</em> of <em>m</em>”.
+        Initialize with <code class="text-mono">Downstage.wizard.mount(el, options)</code> or rely on auto-init.</p>
+
+      <h3 class="text-base mt-8 mb-2">Default (linear)</h3>
+      <p class="text-sm text-muted mb-3">Numbered pills, previous/next, progress text. Later steps in the nav stay disabled until you advance with <strong>Next</strong>.</p>
+      <div class="wizard mt-2" data-wizard id="demo-wizard-linear" aria-labelledby="demo-wizard-linear-title">
+        <p id="demo-wizard-linear-title" class="text-sm mb-0" style="font-weight: var(--fw-medium)">New project</p>
+        <ol class="wizard-nav" role="tablist" aria-label="Wizard steps">
+          <li>
+            <button type="button" class="wizard-nav-item" data-wizard-goto="0" role="tab">
+              <span class="wizard-nav-num" aria-hidden="true">1</span>
+              Basics
+            </button>
+          </li>
+          <li>
+            <button type="button" class="wizard-nav-item" data-wizard-goto="1" role="tab">
+              <span class="wizard-nav-num" aria-hidden="true">2</span>
+              Details
+            </button>
+          </li>
+          <li>
+            <button type="button" class="wizard-nav-item" data-wizard-goto="2" role="tab">
+              <span class="wizard-nav-num" aria-hidden="true">3</span>
+              Review
+            </button>
+          </li>
+        </ol>
+        <div class="wizard-panels">
+          <section class="wizard-panel" id="demo-wizard-linear-p0">
+            <p class="mt-0 mb-2"><strong>Name</strong> and visibility for the project.</p>
+            <label class="label" for="wiz-linear-name">Project name</label>
+            <input class="input" id="wiz-linear-name" type="text" placeholder="e.g. Spring launch" autocomplete="off">
+          </section>
+          <section class="wizard-panel" id="demo-wizard-linear-p1" hidden>
+            <p class="mt-0 mb-2">Add metadata; this step is only reachable after step 1 in linear mode.</p>
+            <label class="label" for="wiz-linear-desc">Description</label>
+            <textarea class="input" id="wiz-linear-desc" rows="3" placeholder="Short summary"></textarea>
+          </section>
+          <section class="wizard-panel" id="demo-wizard-linear-p2" hidden>
+            <p class="mt-0 mb-2">Confirm and submit. <strong>Finish</strong> runs the completion callback (see JS accordion below).</p>
+            <p class="text-sm text-muted mb-0">In your app you would POST the form or route to the next screen.</p>
+          </section>
+        </div>
+        <div class="wizard-footer">
+          <span class="wizard-meta" data-wizard-progress aria-live="polite"></span>
+          <div class="cluster" style="gap: var(--space-2); margin-left: auto;">
+            <button type="button" class="btn btn-ghost" data-wizard-prev>Previous</button>
+            <button type="button" class="btn btn-primary" data-wizard-next>Next</button>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="text-base mt-10 mb-2">Vertical layout + dots (free navigation)</h3>
+      <p class="text-sm text-muted mb-3">Add <code class="text-mono">.wizard--vertical</code> and
+        <code class="text-mono">.wizard-nav--dots</code> on the nav list. Set
+        <code class="text-mono">data-wizard-free="true"</code> so every step is available from the nav. Dot buttons use a visually hidden label for screen readers.</p>
+      <div class="wizard wizard--vertical mt-2" data-wizard data-wizard-free="true" id="demo-wizard-free" aria-label="Checkout wizard">
+        <ol class="wizard-nav wizard-nav--dots" role="tablist" aria-label="Wizard steps">
+          <li>
+            <button type="button" class="wizard-nav-item" data-wizard-goto="0" role="tab" title="Cart">
+              <span class="wizard-nav-num" aria-hidden="true"></span>
+              <span class="wizard-nav-label">Cart</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="wizard-nav-item" data-wizard-goto="1" role="tab" title="Shipping">
+              <span class="wizard-nav-num" aria-hidden="true"></span>
+              <span class="wizard-nav-label">Shipping</span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="wizard-nav-item" data-wizard-goto="2" role="tab" title="Payment">
+              <span class="wizard-nav-num" aria-hidden="true"></span>
+              <span class="wizard-nav-label">Payment</span>
+            </button>
+          </li>
+        </ol>
+        <div class="wizard-panels">
+          <section class="wizard-panel">
+            <p class="mt-0 mb-0">Cart contents and quantities.</p>
+          </section>
+          <section class="wizard-panel" hidden>
+            <p class="mt-0 mb-0">Address and delivery options.</p>
+          </section>
+          <section class="wizard-panel" hidden>
+            <p class="mt-0 mb-0">Payment method and review.</p>
+          </section>
+        </div>
+        <div class="wizard-footer">
+          <span class="wizard-meta" data-wizard-progress aria-live="polite"></span>
+          <div class="cluster" style="gap: var(--space-2); margin-left: auto;">
+            <button type="button" class="btn btn-ghost" data-wizard-prev>Previous</button>
+            <button type="button" class="btn btn-primary" data-wizard-next>Next</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion mt-4 mb-8" data-accordion>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#code" /></svg>
+            HTML (linear example)
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <pre><code>&lt;div class="wizard" data-wizard&gt;
+  &lt;ol class="wizard-nav" role="tablist" aria-label="Wizard steps"&gt;
+    &lt;li&gt;
+      &lt;button type="button" class="wizard-nav-item" data-wizard-goto="0" role="tab"&gt;
+        &lt;span class="wizard-nav-num" aria-hidden="true"&gt;1&lt;/span&gt; Basics
+      &lt;/button&gt;
+    &lt;/li&gt;
+    &lt;li&gt;…&lt;/li&gt;
+  &lt;/ol&gt;
+  &lt;div class="wizard-panels"&gt;
+    &lt;section class="wizard-panel"&gt;…&lt;/section&gt;
+    &lt;section class="wizard-panel" hidden&gt;…&lt;/section&gt;
+  &lt;/div&gt;
+  &lt;div class="wizard-footer"&gt;
+    &lt;span class="wizard-meta" data-wizard-progress&gt;&lt;/span&gt;
+    &lt;button type="button" class="btn btn-ghost" data-wizard-prev&gt;Previous&lt;/button&gt;
+    &lt;button type="button" class="btn btn-primary" data-wizard-next&gt;Next&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Free navigation (any step from nav) --&gt;
+&lt;div class="wizard wizard--vertical" data-wizard data-wizard-free="true"&gt; … &lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#terminal" /></svg>
+            JavaScript
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <pre><code>Downstage.wizard.mount(document.querySelector('#my-wizard'), {
+  free: false,
+  onStepChange: function (step, total) { console.log(step, total); },
+  onComplete: function () { console.log('done'); }
+});
+
+// API returned by mount:
+// .goToStep(0), .next(), .prev(), .getStep(), .getTotal()</code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#code" /></svg>
+            Options &amp; attributes
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <div class="table-wrap">
+                <table class="table table-compact table-striped">
+                  <thead>
+                    <tr><th>Attribute / option</th><th>Description</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code class="text-mono">data-wizard</code></td>
+                      <td>Root marker; required for auto-init.</td>
+                    </tr>
+                    <tr>
+                      <td><code class="text-mono">data-wizard-free="true"</code></td>
+                      <td>Allow any step from the nav (default linear progression).</td>
+                    </tr>
+                    <tr>
+                      <td><code class="text-mono">data-wizard-goto="n"</code></td>
+                      <td>0-based index on nav buttons.</td>
+                    </tr>
+                    <tr>
+                      <td><code class="text-mono">data-wizard-prev</code> / <code class="text-mono">data-wizard-next</code></td>
+                      <td>Footer controls; Next becomes “Finish” on the last step.</td>
+                    </tr>
+                    <tr>
+                      <td><code class="text-mono">data-wizard-progress</code></td>
+                      <td>Container filled with i18n “Step n of m”.</td>
+                    </tr>
+                    <tr>
+                      <td><code class="text-mono">options.free</code></td>
+                      <td>Same as <code class="text-mono">data-wizard-free</code> when calling <code class="text-mono">mount</code>.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ============================== JAVASCRIPT API ============================== -->
     <section class="demo-section" id="js-api">
       <p class="demo-section-title">04 — Reference</p>
       <h2>JavaScript API</h2>
-      <p class="text-soft">Technical reference: installation, configuration, theming, and the window.Downstage API.</p>
+      <p class="text-soft">This page focuses on interactive components (tabs, accordion, wizard, …). The
+        <strong>canonical reference</strong> for every <code class="text-mono">Downstage.*</code> module, global
+        configuration, and links to detailed option tables lives under
+        <a href="basic.html#doc-api">Basic → JavaScript API</a> (<code class="text-mono">basic.html#doc-api</code>).</p>
 
           <div class="docs-chapter" id="doc-install">
             <h3>Installation</h3>
@@ -415,34 +1044,17 @@
 
           <div class="docs-chapter" id="doc-api">
             <h3>JavaScript API</h3>
-            <p><code>downstage.js</code> is <strong>JavaScript with built-in components</strong>. It exposes
-              <code>window.Downstage</code> with the following modules:
-            </p>
-            <pre><code>Downstage.theme.set('dark');
-Downstage.theme.get();
-Downstage.lightbox.open(set, 0);
-Downstage.lightbox.close();
-Downstage.htmlEditor.mount('#editor', { preset: 'demo' });
-Downstage.combobox.mount('#cb', { options: [{ value: 'a', label: 'Alpha' }] });
-Downstage.searchAutocomplete.mount('#search', { fetchSuggestions: async (q) =&gt; [...] });
-Downstage.kanban.mount('#board', {
-  fetchUrl: '/api/kanban/board',
-  moveUrl: '/api/kanban/move',
-});
-Downstage.dataTable.mount('#table', { mode: 'local', columns, rows });</code></pre>
-            <p class="text-soft text-sm">Kanban: use <code class="text-mono">fetchUrl</code> (GET board JSON) and
-              <code class="text-mono">moveUrl</code> (POST move payload), or <code class="text-mono">fetchBoard</code> /
-              <code class="text-mono">moveCard</code> callbacks. Attributes:
-              <code class="text-mono">data-kanban-fetch-url</code>,
-              <code class="text-mono">data-kanban-move-url</code>.
-            </p>
-            <p>Each module has an <code>init()</code> method auto-called on <code>DOMContentLoaded</code>. For
-              dynamically added content, call <code>init()</code> again. The HTML editor mounts with
-              <code>Downstage.htmlEditor.mount()</code> (or <code>data-html-editor-mount</code>). Combobox, search,
-              Kanban, and data table support programmatic <code>mount()</code> and selective declarative hooks (see
-              <code>#auth</code> and <code>#app-data</code> in <code>index.html</code>). Options include
-              <code>showRawSwitch</code> and <code>toolbarExclude</code> on the HTML editor.
-            </p>
+            <p>See <a href="basic.html#doc-global-config">Global configuration</a> and the full
+              <a href="basic.html#doc-module-index">module index</a> on the Basic page. Interactive UI components on this page map to:</p>
+            <ul>
+              <li><code class="text-mono">Downstage.tabs</code> — <a href="#tabs">Tabs</a></li>
+              <li><code class="text-mono">Downstage.accordion</code> — <a href="#accordion">Accordion</a></li>
+              <li><code class="text-mono">Downstage.wizard</code> — <a href="#wizard">Wizard</a></li>
+              <li><code class="text-mono">Downstage.formValidate</code> — used with chained modals / slideover forms;
+                full options on <a href="ui-components.html#form-validation">Form validation</a></li>
+            </ul>
+            <p class="text-soft text-sm mb-0">Modal and slideover patterns here are CSS + small scripts in
+              <code class="text-mono">demo/demo.js</code>; there is no separate overlay framework API.</p>
           </div>
     </section>
       </div>
@@ -462,20 +1074,34 @@ Downstage.dataTable.mount('#table', { mode: 'local', columns, rows });</code></p
         <div>
           <div class="footer-title">Documentation</div>
           <ul class="footer-links">
-            <li><a href="index.html">All sections</a></li>
             <li><a href="basic.html">Basic</a></li>
-            <li><a href="interactive.html">Interactive UI</a></li>
+            <li><a href="media.html">Media</a></li>
+            <li><a href="templates.html">Templates</a></li>
           </ul>
         </div>
         <div>
-          <div class="footer-title">Site</div>
+          <div class="footer-title">Components</div>
           <ul class="footer-links">
-            <li><a href="../index.html">Home</a></li>
+            <li><a href="ui-components.html">UI Components</a></li>
+            <li><a href="interactive.html">Interactive UI</a></li>
+            <li><a href="data.html">Data UI</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-title">Legal</div>
+          <ul class="footer-links">
+            <li><a href="https://raw.githubusercontent.com/andreapollastri/downstage/refs/heads/main/LICENSE.md" target="_blank" rel="noopener noreferrer">MIT License</a></li>
+            <li><a href="https://floriankarsten.github.io/space-grotesk/" target="_blank" rel="noopener noreferrer">Font credits</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
         <div>© 2026 <a href="https://web.ap.it" target="_blank" rel="noopener">Andrea Pollastri</a></div>
+        <div class="footer-social">
+          <a href="https://github.com/andreapollastri" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><svg class="icon">
+              <use href="../downstage-icons.svg#github" />
+            </svg></a>
+        </div>
       </div>
     </div>
   </footer>

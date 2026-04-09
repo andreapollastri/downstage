@@ -21,6 +21,18 @@
     "next": "Successiva",
     "slide": "Diapositiva {n}"
   },
+  "wizard": {
+    "previous": "Indietro",
+    "next": "Avanti",
+    "finish": "Fine",
+    "stepOf": "Passo {current} di {total}"
+  },
+  "formValidate": {
+    "required": "Questo campo è obbligatorio.",
+    "email": "Inserisci un indirizzo email valido.",
+    "minLength": "Usa almeno {min} caratteri.",
+    "pattern": "Formato non valido."
+  },
   "videoPlayer": {
     "play": "Riproduci",
     "pause": "Pausa",
@@ -41,6 +53,28 @@
   "searchAutocomplete": {
     "placeholder": "Cerca…"
   },
+  "inputAutocomplete": {
+    "loading": "Caricamento…",
+    "noResults": "Nessun risultato",
+    "createNew": "Crea \"{text}\"…",
+    "creating": "Creazione in corso…",
+    "createFailed": "Creazione fallita",
+    "modalCreate": "Crea nuovo…",
+    "modalTitle": "Nuovo elemento",
+    "modalClose": "Chiudi",
+    "modalCancel": "Annulla",
+    "modalSave": "Crea",
+    "modalSaving": "Salvataggio…",
+    "modalFailed": "Creazione fallita. Riprovare."
+  },
+  "tagInput": {
+    "loading": "Caricamento…",
+    "noResults": "Nessun risultato",
+    "createNew": "Crea \"{text}\"…",
+    "creating": "Creazione in corso…",
+    "createFailed": "Creazione fallita",
+    "removeTag": "Rimuovi {tag}"
+  },
   "kanban": {
     "dragHint": "Trascina le schede tra le colonne",
     "refresh": "Aggiorna",
@@ -56,6 +90,41 @@
     "pageInfo": "Pagina {page} / {totalPages}",
     "previous": "Precedente",
     "next": "Successiva"
+  },
+  "dateRange": {
+    "from": "Da",
+    "to": "A"
+  },
+  "calendar": {
+    "previous": "Prec",
+    "next": "Succ",
+    "today": "Oggi",
+    "month": "Mese",
+    "week": "Settimana",
+    "day": "Giorno",
+    "timeline": "Timeline",
+    "resource": "Risorsa",
+    "allEvents": "Tutti gli eventi",
+    "loading": "Caricamento…",
+    "loadFailed": "Impossibile caricare gli eventi"
+  },
+  "orderList": {
+    "searchPlaceholder": "Cerca articoli…",
+    "removeItem": "Rimuovi",
+    "dragHint": "Trascina per riordinare",
+    "manualSort": "Ordine manuale",
+    "columnSort": "Ordina per colonne",
+    "switchToManual": "Passa all'ordinamento manuale",
+    "switchToColumn": "Passa all'ordinamento per colonne",
+    "itemCount": "{count} articoli",
+    "empty": "Nessun articolo",
+    "createNew": "Crea nuovo articolo…",
+    "createTitle": "Nuovo articolo",
+    "createClose": "Chiudi",
+    "createCancel": "Annulla",
+    "createSave": "Aggiungi articolo",
+    "createSaving": "Salvataggio…",
+    "createFailed": "Creazione fallita. Riprovare."
   },
   "htmlEditor": {
     "initialHtml": "<p>Seleziona il testo e usa la barra per formattare.</p>",

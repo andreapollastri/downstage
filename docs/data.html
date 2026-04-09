@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../favicon.ico" sizes="any">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <title>Data UI — downstage.css</title>
   <link rel="stylesheet" href="../downstage.css">
   <link rel="stylesheet" href="../demo/demo.css">
   <link rel="stylesheet" href="../demo/docs.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
 </head>
+
 <body class="doc-page">
   <div hidden></div>
   <object data="../downstage-icons.svg" type="image/svg+xml" style="display:none" aria-hidden="true"></object>
@@ -52,10 +57,14 @@
           <div class="navbar-actions">
             <div class="btn-group" role="group" aria-label="Theme">
               <button class="btn btn-sm" data-set-theme="light" aria-label="Light theme">
-                <svg class="icon"><use href="../downstage-icons.svg#sun" /></svg>
+                <svg class="icon">
+                  <use href="../downstage-icons.svg#sun" />
+                </svg>
               </button>
               <button class="btn btn-sm" data-set-theme="dark" aria-label="Dark theme">
-                <svg class="icon"><use href="../downstage-icons.svg#moon" /></svg>
+                <svg class="icon">
+                  <use href="../downstage-icons.svg#moon" />
+                </svg>
               </button>
               <button class="btn btn-sm" data-set-theme="auto" aria-label="Auto theme">Auto</button>
             </div>
@@ -73,33 +82,43 @@
         <nav class="docs-nav" aria-label="Section">
           <a href="#combobox">Combobox</a>
           <a href="#search">Search</a>
+          <a href="#input-autocomplete">Input Autocomplete</a>
+          <a href="#tag-input">Tag Input</a>
           <a href="#kanban">Kanban</a>
           <a href="#datatable">Data table</a>
+          <a href="#order-list">Order List</a>
+          <a href="#map">Map</a>
+          <a href="#calendar">Calendar</a>
+          <a href="#stats">Statistics</a>
         </nav>
       </aside>
       <div class="docs-content doc-stack">
 
-    <section class="demo-section" id="combobox">
-      <p class="demo-section-title">01 — Data UI</p>
-      <h2>Combobox</h2>
-      <p class="text-soft">Autocomplete combobox (local JSON or remote <code class="text-mono">?q=</code>).</p>
+        <section class="demo-section" id="combobox">
+          <p class="demo-section-title">01 — Data UI</p>
+          <h2>Combobox</h2>
+          <p class="text-soft">Autocomplete combobox (local JSON or remote <code class="text-mono">?q=</code>).</p>
 
-      <p class="text-sm text-muted mb-2">Local options via <code class="text-mono">data-combobox-local</code></p>
-      <span class="label">City</span>
-      <div id="demo-combobox-local" data-combobox data-combobox-name="city"
-        data-combobox-local='[{"value":"at","label":"Athens"},{"value":"be","label":"Berlin"},{"value":"ca","label":"Cairo"},{"value":"dk","label":"Denver"},{"value":"es","label":"Edinburgh"}]'
-        data-combobox-placeholder="Type to filter…"></div>
+          <p class="text-sm text-muted mb-2">Local options via <code class="text-mono">data-combobox-local</code></p>
+          <span class="label">City</span>
+          <div id="demo-combobox-local" data-combobox data-combobox-name="city"
+            data-combobox-local='[{"value":"at","label":"Athens"},{"value":"be","label":"Berlin"},{"value":"ca","label":"Cairo"},{"value":"dk","label":"Denver"},{"value":"es","label":"Edinburgh"}]'
+            data-combobox-placeholder="Type to filter…"></div>
 
-      <div class="accordion mt-4 mb-8" data-accordion>
-        <div class="accordion-item">
-          <button class="accordion-header">
-            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#code" /></svg>
-            Source code
-            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
-          </button>
-          <div class="accordion-content">
-            <div class="accordion-body">
-              <pre><code>&lt;span class="label"&gt;City&lt;/span&gt;
+          <div class="accordion mt-4 mb-8" data-accordion>
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <svg class="icon icon-sm" aria-hidden="true">
+                  <use href="../downstage-icons.svg#code" />
+                </svg>
+                Source code
+                <svg class="icon accordion-icon" aria-hidden="true">
+                  <use href="../downstage-icons.svg#plus" />
+                </svg>
+              </button>
+              <div class="accordion-content">
+                <div class="accordion-body">
+                  <pre><code>&lt;span class="label"&gt;City&lt;/span&gt;
 &lt;div data-combobox
   data-combobox-name="city"
   data-combobox-local='[
@@ -110,38 +129,46 @@
     {"value":"es","label":"Edinburgh"}
   ]'
   data-combobox-placeholder="Type to filter…"&gt;&lt;/div&gt;</code></pre>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
 
-      <p class="text-sm text-muted mb-2">Remote: <code class="text-mono">Downstage.combobox.mount</code> + async
-        fetch (demo uses JSONPlaceholder users).</p>
-      <span class="label">User</span>
-      <div id="demo-combobox-api"></div>
+          <p class="text-sm text-muted mb-2">Remote: <code class="text-mono">Downstage.combobox.mount</code> + async
+            fetch (demo uses JSONPlaceholder users).</p>
+          <span class="label">User</span>
+          <div id="demo-combobox-api"></div>
 
-      <div class="accordion mt-4 mb-8" data-accordion>
-        <div class="accordion-item">
-          <button class="accordion-header">
-            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#code" /></svg>
-            Source code
-            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
-          </button>
-          <div class="accordion-content">
-            <div class="accordion-body">
-              <pre><code>&lt;div id="demo-combobox-api"&gt;&lt;/div&gt;</code></pre>
+          <div class="accordion mt-4 mb-8" data-accordion>
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <svg class="icon icon-sm" aria-hidden="true">
+                  <use href="../downstage-icons.svg#code" />
+                </svg>
+                Source code
+                <svg class="icon accordion-icon" aria-hidden="true">
+                  <use href="../downstage-icons.svg#plus" />
+                </svg>
+              </button>
+              <div class="accordion-content">
+                <div class="accordion-body">
+                  <pre><code>&lt;div id="demo-combobox-api"&gt;&lt;/div&gt;</code></pre>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <button class="accordion-header">
-            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#terminal" /></svg>
-            JavaScript
-            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
-          </button>
-          <div class="accordion-content">
-            <div class="accordion-body">
-              <pre><code>Downstage.combobox.mount('#demo-combobox-api', {
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <svg class="icon icon-sm" aria-hidden="true">
+                  <use href="../downstage-icons.svg#terminal" />
+                </svg>
+                JavaScript
+                <svg class="icon accordion-icon" aria-hidden="true">
+                  <use href="../downstage-icons.svg#plus" />
+                </svg>
+              </button>
+              <div class="accordion-content">
+                <div class="accordion-body">
+                  <pre><code>Downstage.combobox.mount('#demo-combobox-api', {
   minChars: 1,
   placeholder: 'Type a name…',
   name: 'userId',
@@ -161,44 +188,53 @@
       });
   }
 });</code></pre>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </section>
 
-    <section class="demo-section" id="search">
-      <p class="demo-section-title">02 — Data UI</p>
-      <h2>Search</h2>
+        <section class="demo-section" id="search">
+          <p class="demo-section-title">02 — Data UI</p>
+          <h2>Search</h2>
 
-      <p class="text-sm text-muted mb-2">API-backed suggestions; same pattern as the combobox with a search icon.</p>
-      <div id="demo-search-autocomplete"></div>
-      <p class="help mt-2">In this demo the fetch URL is set in script (JSONPlaceholder). Listen for
-        <code class="text-mono">combobox-change</code> on the root to react to selection.
-      </p>
+          <p class="text-sm text-muted mb-2">API-backed suggestions; same pattern as the combobox with a search icon.
+          </p>
+          <div id="demo-search-autocomplete"></div>
+          <p class="help mt-2">In this demo the fetch URL is set in script (JSONPlaceholder). Listen for
+            <code class="text-mono">combobox-change</code> on the root to react to selection.
+          </p>
 
-      <div class="accordion mt-4 mb-8" data-accordion>
-        <div class="accordion-item">
-          <button class="accordion-header">
-            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#code" /></svg>
-            Source code
-            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
-          </button>
-          <div class="accordion-content">
-            <div class="accordion-body">
-              <pre><code>&lt;div id="demo-search-autocomplete"&gt;&lt;/div&gt;</code></pre>
+          <div class="accordion mt-4 mb-8" data-accordion>
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <svg class="icon icon-sm" aria-hidden="true">
+                  <use href="../downstage-icons.svg#code" />
+                </svg>
+                Source code
+                <svg class="icon accordion-icon" aria-hidden="true">
+                  <use href="../downstage-icons.svg#plus" />
+                </svg>
+              </button>
+              <div class="accordion-content">
+                <div class="accordion-body">
+                  <pre><code>&lt;div id="demo-search-autocomplete"&gt;&lt;/div&gt;</code></pre>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <button class="accordion-header">
-            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#terminal" /></svg>
-            JavaScript
-            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
-          </button>
-          <div class="accordion-content">
-            <div class="accordion-body">
-              <pre><code>Downstage.searchAutocomplete.mount('#demo-search-autocomplete', {
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <svg class="icon icon-sm" aria-hidden="true">
+                  <use href="../downstage-icons.svg#terminal" />
+                </svg>
+                JavaScript
+                <svg class="icon accordion-icon" aria-hidden="true">
+                  <use href="../downstage-icons.svg#plus" />
+                </svg>
+              </button>
+              <div class="accordion-content">
+                <div class="accordion-body">
+                  <pre><code>Downstage.searchAutocomplete.mount('#demo-search-autocomplete', {
   minChars: 1,
   placeholder: 'Search users…',
   fetchSuggestions: function (query) {
@@ -217,94 +253,890 @@
       });
   }
 });</code></pre>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </section>
 
-    <section class="demo-section" id="kanban">
-      <p class="demo-section-title">03 — Data UI</p>
-      <h2>Kanban</h2>
+        <section class="demo-section" id="input-autocomplete">
+          <p class="demo-section-title">03 — Data UI</p>
+          <h2>Input Autocomplete</h2>
+          <p class="text-soft">Single-value autocomplete that searches via <strong>GET</strong> (API or custom function)
+            and stores the selected <code class="text-mono">value</code> in a hidden input while displaying the
+            <code class="text-mono">label</code>. Two creation modes are available when no match is found:
+            <strong>inline</strong> (one-click POST of the typed text) or <strong>modal</strong> (multi-field form
+            before the POST).
+          </p>
 
-      <p class="text-sm text-muted mb-4">Board data is loaded with <strong>GET</strong>
-        <code class="text-mono">../demo/kanban-board.json</code> (same origin). Moving a card sends a <strong>POST</strong>
-        with
-        JSON (<code class="text-mono">cardId</code>, <code class="text-mono">fromColumnId</code>,
-        <code class="text-mono">toColumnId</code>, <code class="text-mono">toIndex</code>) to a demo endpoint; swap
-        <code class="text-mono">fetchUrl</code> / <code class="text-mono">moveUrl</code> for your API. On failed move
-        the
-        card reverts.
-      </p>
-      <div data-kanban data-kanban-fetch-url="../demo/kanban-board.json" data-kanban-move-url="https://httpbin.org/post" data-kanban-move-method="POST" data-kanban-move-credentials="omit"></div>
+          <!-- ── Demo 1: inline create ── -->
+          <h3 class="mt-6" id="input-autocomplete-inline">Inline create</h3>
+          <p class="text-sm text-muted mb-2">Demo: searches JSONPlaceholder users by name. If nothing matches, a
+            "Create …" row appears and sends a POST with the typed text.</p>
+          <span class="label">Author</span>
+          <div id="demo-input-autocomplete"></div>
+          <p class="help mt-2">Listen for <code class="text-mono">input-autocomplete-change</code> on the root.
+            The event detail contains <code class="text-mono">{ value, label, created }</code>.</p>
 
-      <div class="accordion mt-4 mb-8" data-accordion>
-        <div class="accordion-item">
-          <button class="accordion-header">
-            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#code" /></svg>
-            Source code
-            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
-          </button>
-          <div class="accordion-content">
-            <div class="accordion-body">
-              <pre><code>&lt;div data-kanban
+          <div class="accordion mt-4 mb-8" data-accordion>
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <svg class="icon icon-sm" aria-hidden="true">
+                  <use href="../downstage-icons.svg#code" />
+                </svg>
+                HTML markup
+                <svg class="icon accordion-icon" aria-hidden="true">
+                  <use href="../downstage-icons.svg#plus" />
+                </svg>
+              </button>
+              <div class="accordion-content">
+                <div class="accordion-body">
+                  <pre><code>&lt;span class="label"&gt;Author&lt;/span&gt;
+&lt;div id="demo-input-autocomplete"&gt;&lt;/div&gt;</code></pre>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <svg class="icon icon-sm" aria-hidden="true">
+                  <use href="../downstage-icons.svg#terminal" />
+                </svg>
+                JavaScript — fetchOptions + createOption
+                <svg class="icon accordion-icon" aria-hidden="true">
+                  <use href="../downstage-icons.svg#plus" />
+                </svg>
+              </button>
+              <div class="accordion-content">
+                <div class="accordion-body">
+                  <pre><code>Downstage.inputAutocomplete.mount('#demo-input-autocomplete', {
+  name: 'authorId',
+  placeholder: 'Search or create an author…',
+  minChars: 1,
+
+  fetchOptions: function (query) {
+    return fetch('https://jsonplaceholder.typicode.com/users')
+      .then(function (r) { return r.json(); })
+      .then(function (all) {
+        var q = String(query).toLowerCase();
+        return all
+          .filter(function (u) {
+            return !q || u.name.toLowerCase().indexOf(q) !== -1;
+          })
+          .slice(0, 8)
+          .map(function (u) {
+            return { value: String(u.id), label: u.name };
+          });
+      });
+  },
+
+  createOption: function (text) {
+    return fetch('https://jsonplaceholder.typicode.com/users', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name: text })
+    })
+    .then(function (r) { return r.json(); })
+    .then(function (u) {
+      return { value: String(u.id), label: text };
+    });
+  }
+});</code></pre>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <svg class="icon icon-sm" aria-hidden="true">
+                  <use href="../downstage-icons.svg#terminal" />
+                </svg>
+                JavaScript — URL-only shorthand
+                <svg class="icon accordion-icon" aria-hidden="true">
+                  <use href="../downstage-icons.svg#plus" />
+                </svg>
+              </button>
+              <div class="accordion-content">
+                <div class="accordion-body">
+                  <pre><code>// URL shorthand — component builds fetch/POST automatically
+Downstage.inputAutocomplete.mount('#el', {
+  name:           'authorId',
+  placeholder:    'Search or create…',
+  fetchUrl:       '/api/authors',        // GET /api/authors?q=…
+  createUrl:      '/api/authors',        // POST /api/authors { "name": "…" }
+  createPayloadKey: 'name',              // key used in the POST body (default)
+  createMethod:   'POST'                 // HTTP method (default)
+});</code></pre>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <svg class="icon icon-sm" aria-hidden="true">
+                  <use href="../downstage-icons.svg#terminal" />
+                </svg>
+                Data-attribute (declarative) setup
+                <svg class="icon accordion-icon" aria-hidden="true">
+                  <use href="../downstage-icons.svg#plus" />
+                </svg>
+              </button>
+              <div class="accordion-content">
+                <div class="accordion-body">
+                  <pre><code>&lt;!-- Auto-initialised by Downstage.inputAutocomplete.init() --&gt;
+&lt;div data-input-autocomplete
+     data-input-autocomplete-name="authorId"
+     data-input-autocomplete-placeholder="Search or create…"
+     data-input-autocomplete-fetch="/api/authors"
+     data-input-autocomplete-create="/api/authors"
+     data-input-autocomplete-create-key="name"
+     data-input-autocomplete-create-method="POST"
+     data-input-autocomplete-min-chars="1"
+     data-input-autocomplete-debounce="300"&gt;&lt;/div&gt;</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── Demo 2: modal create ── -->
+          <h3 class="mt-8" id="input-autocomplete-modal">Create via modal</h3>
+          <p class="text-soft">When you need more than just a name to create a new record, pass
+            <code class="text-mono">createFields</code> and the component opens a modal with N form fields before
+            sending the <strong>POST</strong>. The dropdown always shows a
+            <strong>"+ Create new…"</strong> option at the bottom; clicking it opens the modal, and the typed query
+            pre-fills the first field automatically.
+          </p>
+
+          <p class="text-sm text-muted mb-2">Demo: same user search, but creation goes through a modal with name,
+            email and role fields.</p>
+          <span class="label">Author (modal create)</span>
+          <div id="demo-iac-modal"></div>
+
+          <div class="accordion mt-4 mb-8" data-accordion>
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <svg class="icon icon-sm" aria-hidden="true">
+                  <use href="../downstage-icons.svg#code" />
+                </svg>
+                HTML markup
+                <svg class="icon accordion-icon" aria-hidden="true">
+                  <use href="../downstage-icons.svg#plus" />
+                </svg>
+              </button>
+              <div class="accordion-content">
+                <div class="accordion-body">
+                  <pre><code>&lt;span class="label"&gt;Author (modal create)&lt;/span&gt;
+&lt;div id="demo-iac-modal"&gt;&lt;/div&gt;</code></pre>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <svg class="icon icon-sm" aria-hidden="true">
+                  <use href="../downstage-icons.svg#terminal" />
+                </svg>
+                JavaScript — fetchOptions + createOption + createFields
+                <svg class="icon accordion-icon" aria-hidden="true">
+                  <use href="../downstage-icons.svg#plus" />
+                </svg>
+              </button>
+              <div class="accordion-content">
+                <div class="accordion-body">
+                  <pre><code>Downstage.inputAutocomplete.mount('#demo-iac-modal', {
+  name: 'authorId',
+  placeholder: 'Search or create an author…',
+  minChars: 1,
+
+  // Search — same as inline example
+  fetchOptions: function (query) {
+    return fetch('https://jsonplaceholder.typicode.com/users')
+      .then(function (r) { return r.json(); })
+      .then(function (all) {
+        var q = String(query).toLowerCase();
+        return all
+          .filter(function (u) {
+            return !q || u.name.toLowerCase().indexOf(q) !== -1;
+          })
+          .slice(0, 8)
+          .map(function (u) {
+            return { value: String(u.id), label: u.name };
+          });
+      });
+  },
+
+  // Modal configuration
+  createTitle: 'New Author',
+  createFields: [
+    { key: 'name',  label: 'Full name', required: true,
+      placeholder: 'Jane Doe' },
+    { key: 'email', label: 'E-mail', required: true,
+      type: 'email', placeholder: 'jane@example.com' },
+    { key: 'role',  label: 'Role', type: 'select',
+      options: [
+        { value: 'author',   label: 'Author' },
+        { value: 'editor',   label: 'Editor' },
+        { value: 'reviewer', label: 'Reviewer' }
+      ]
+    }
+  ],
+
+  // Receives the full form data object
+  createOption: function (data) {
+    // data = { name: "Jane Doe", email: "jane@…", role: "editor" }
+    return fetch('https://jsonplaceholder.typicode.com/users', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    })
+    .then(function (r) { return r.json(); })
+    .then(function (u) {
+      return { value: String(u.id), label: data.name };
+    });
+  }
+});</code></pre>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <svg class="icon icon-sm" aria-hidden="true">
+                  <use href="../downstage-icons.svg#terminal" />
+                </svg>
+                JavaScript — URL shorthand + createFields
+                <svg class="icon accordion-icon" aria-hidden="true">
+                  <use href="../downstage-icons.svg#plus" />
+                </svg>
+              </button>
+              <div class="accordion-content">
+                <div class="accordion-body">
+                  <pre><code>// When createFields is present, createUrl POSTs the full
+// form data object instead of just { [payloadKey]: text }
+Downstage.inputAutocomplete.mount('#el', {
+  fetchUrl:    '/api/authors',
+  createUrl:   '/api/authors',
+  createTitle: 'New Author',
+  createFields: [
+    { key: 'name',  label: 'Name',  required: true },
+    { key: 'email', label: 'Email', required: true, type: 'email' },
+    { key: 'phone', label: 'Phone', placeholder: '+1 …' }
+  ]
+});</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── Mount options ── -->
+          <h3 class="mb-2">Mount options</h3>
+          <p class="text-sm text-muted mb-2"><code
+              class="text-mono">Downstage.inputAutocomplete.mount(el, options)</code></p>
+          <div class="table-wrap mb-4">
+            <table class="table table-compact table-striped">
+              <thead>
+                <tr>
+                  <th>Option</th>
+                  <th>Type</th>
+                  <th>Default</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code class="text-mono">name</code></td>
+                  <td>string</td>
+                  <td><code class="text-mono">"inputAutocomplete"</code></td>
+                  <td>Name attribute of the hidden <code class="text-mono">&lt;input&gt;</code> that stores the selected
+                    value.</td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">placeholder</code></td>
+                  <td>string</td>
+                  <td><code class="text-mono">""</code></td>
+                  <td>Placeholder text for the search field.</td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">id</code></td>
+                  <td>string</td>
+                  <td>auto</td>
+                  <td>Custom <code class="text-mono">id</code> for the visible input. Auto-generated if omitted.</td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">value</code></td>
+                  <td>any</td>
+                  <td>—</td>
+                  <td>Initial hidden-input value (pre-select).</td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">initialLabel</code></td>
+                  <td>string</td>
+                  <td>—</td>
+                  <td>Initial display text matching the pre-selected <code class="text-mono">value</code>.</td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">minChars</code></td>
+                  <td>number</td>
+                  <td><code class="text-mono">1</code></td>
+                  <td>Minimum characters before search fires.</td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">debounceMs</code></td>
+                  <td>number</td>
+                  <td><code class="text-mono">300</code></td>
+                  <td>Debounce delay (ms) on the input event.</td>
+                </tr>
+                <tr>
+                  <td colspan="4" class="text-sm fw-semibold pt-4 pb-1" style="background:transparent">Search</td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">fetchOptions</code></td>
+                  <td>function</td>
+                  <td>—</td>
+                  <td>Custom search: <code class="text-mono">function(query) → Promise&lt;[{ value, label }]&gt;</code>.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">fetchUrl</code></td>
+                  <td>string</td>
+                  <td>—</td>
+                  <td>API endpoint; the component appends <code class="text-mono">?q=…</code> and expects a JSON array
+                    (or <code class="text-mono">{ results }</code> / <code class="text-mono">{ items }</code> /
+                    <code class="text-mono">{ data }</code>).
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="4" class="text-sm fw-semibold pt-4 pb-1" style="background:transparent">Inline create
+                    (simple)</td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">createOption</code></td>
+                  <td>function</td>
+                  <td>—</td>
+                  <td><strong>Without</strong> <code class="text-mono">createFields</code>:
+                    <code class="text-mono">function(text) → Promise&lt;{ value, label }&gt;</code>.<br>
+                    <strong>With</strong> <code class="text-mono">createFields</code>:
+                    <code class="text-mono">function(data) → Promise&lt;{ value, label }&gt;</code> where
+                    <code class="text-mono">data</code> is the full form object.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">createUrl</code></td>
+                  <td>string</td>
+                  <td>—</td>
+                  <td>POST endpoint for creation. Auto-generates <code class="text-mono">createOption</code> if not
+                    provided.</td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">createMethod</code></td>
+                  <td>string</td>
+                  <td><code class="text-mono">"POST"</code></td>
+                  <td>HTTP method for <code class="text-mono">createUrl</code>.</td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">createPayloadKey</code></td>
+                  <td>string</td>
+                  <td><code class="text-mono">"name"</code></td>
+                  <td>Key used in the POST body for inline create: <code class="text-mono">{ [key]: text }</code>.
+                    Ignored when <code class="text-mono">createFields</code> is set.</td>
+                </tr>
+                <tr>
+                  <td colspan="4" class="text-sm fw-semibold pt-4 pb-1" style="background:transparent">Modal create
+                    (advanced)</td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">createFields</code></td>
+                  <td>array</td>
+                  <td>—</td>
+                  <td>Array of field definitions for the creation modal. When set, clicking
+                    "Create new…" opens a modal instead of posting inline.
+                    See <strong>Create field options</strong> below.</td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">createTitle</code></td>
+                  <td>string</td>
+                  <td>i18n <code class="text-mono">modalTitle</code></td>
+                  <td>Title shown in the modal header.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- ── Create field options ── -->
+          <h3 class="mb-2">Create field options</h3>
+          <p class="text-sm text-muted mb-2">Each object in the <code class="text-mono">createFields</code> array
+            accepts:</p>
+          <div class="table-wrap mb-4">
+            <table class="table table-compact table-striped">
+              <thead>
+                <tr>
+                  <th>Property</th>
+                  <th>Type</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code class="text-mono">key</code></td>
+                  <td>string</td>
+                  <td><strong>Required.</strong> Property name in the data object sent to <code
+                      class="text-mono">createOption</code> / POST body.</td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">label</code></td>
+                  <td>string</td>
+                  <td>Human-readable label. Defaults to <code class="text-mono">key</code>.</td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">type</code></td>
+                  <td>string</td>
+                  <td>Input type: <code class="text-mono">"text"</code> (default), <code
+                      class="text-mono">"email"</code>,
+                    <code class="text-mono">"number"</code>, <code class="text-mono">"textarea"</code>,
+                    <code class="text-mono">"select"</code>.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">required</code></td>
+                  <td>boolean</td>
+                  <td>If <code class="text-mono">true</code>, the field is validated before submit.</td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">placeholder</code></td>
+                  <td>string</td>
+                  <td>Input placeholder text.</td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">default</code></td>
+                  <td>any</td>
+                  <td>Default value when the modal opens.</td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">options</code></td>
+                  <td>array</td>
+                  <td>For <code class="text-mono">type: "select"</code>. Array of
+                    <code class="text-mono">{ value, label }</code> objects or plain strings.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">step</code></td>
+                  <td>number</td>
+                  <td>Step increment for <code class="text-mono">type: "number"</code> inputs.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- ── Data attributes ── -->
+          <h3 class="mb-2">Data attributes</h3>
+          <p class="text-sm text-muted mb-2">For declarative setup (auto-initialised by
+            <code class="text-mono">Downstage.inputAutocomplete.init()</code>):
+          </p>
+          <div class="table-wrap mb-4">
+            <table class="table table-compact table-striped">
+              <thead>
+                <tr>
+                  <th>Attribute</th>
+                  <th>Maps to</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code class="text-mono">data-input-autocomplete</code></td>
+                  <td>Activates the component on the element.</td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">data-input-autocomplete-name</code></td>
+                  <td><code class="text-mono">name</code></td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">data-input-autocomplete-placeholder</code></td>
+                  <td><code class="text-mono">placeholder</code></td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">data-input-autocomplete-fetch</code></td>
+                  <td><code class="text-mono">fetchUrl</code></td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">data-input-autocomplete-create</code></td>
+                  <td><code class="text-mono">createUrl</code></td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">data-input-autocomplete-create-key</code></td>
+                  <td><code class="text-mono">createPayloadKey</code></td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">data-input-autocomplete-create-method</code></td>
+                  <td><code class="text-mono">createMethod</code></td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">data-input-autocomplete-min-chars</code></td>
+                  <td><code class="text-mono">minChars</code></td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">data-input-autocomplete-debounce</code></td>
+                  <td><code class="text-mono">debounceMs</code></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- ── Programmatic API ── -->
+          <h3 class="mb-2">Programmatic API</h3>
+          <p class="text-sm text-muted mb-2"><code class="text-mono">Downstage.inputAutocomplete.mount()</code> returns
+            an object:</p>
+          <div class="table-wrap mb-4">
+            <table class="table table-compact table-striped">
+              <thead>
+                <tr>
+                  <th>Property / Method</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code class="text-mono">root</code></td>
+                  <td>The container DOM element.</td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">input</code></td>
+                  <td>The visible text <code class="text-mono">&lt;input&gt;</code>.</td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">hidden</code></td>
+                  <td>The hidden <code class="text-mono">&lt;input&gt;</code> that stores the value.</td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">getValue()</code></td>
+                  <td>Returns the current hidden input value.</td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">setValue(val, label)</code></td>
+                  <td>Programmatically sets the value and display label.</td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">clear()</code></td>
+                  <td>Clears both the hidden value and visible text.</td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">destroy()</code></td>
+                  <td>Removes all DOM and classes; restores the root element.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- ── Events ── -->
+          <h3 class="mb-2">Events</h3>
+          <p class="text-sm text-muted mb-4">The component dispatches a bubbling
+            <code class="text-mono">CustomEvent</code> on the root element:
+          </p>
+          <div class="table-wrap mb-4">
+            <table class="table table-compact table-striped">
+              <thead>
+                <tr>
+                  <th>Event</th>
+                  <th>detail</th>
+                  <th>Fires when</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code class="text-mono">input-autocomplete-change</code></td>
+                  <td><code class="text-mono">{ value, label, created }</code></td>
+                  <td>A value is selected from the dropdown or a new item is created (inline or modal).
+                    <code class="text-mono">created</code> is <code class="text-mono">true</code> when the item was
+                    just created.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="accordion mt-2 mb-4" data-accordion>
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <svg class="icon icon-sm" aria-hidden="true">
+                  <use href="../downstage-icons.svg#terminal" />
+                </svg>
+                Event listener example
+                <svg class="icon accordion-icon" aria-hidden="true">
+                  <use href="../downstage-icons.svg#plus" />
+                </svg>
+              </button>
+              <div class="accordion-content">
+                <div class="accordion-body">
+                  <pre><code>document.getElementById('my-autocomplete')
+  .addEventListener('input-autocomplete-change', function (e) {
+    console.log('Selected:', e.detail.value, e.detail.label);
+    if (e.detail.created) {
+      console.log('This item was just created!');
+    }
+  });</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="demo-section" id="tag-input">
+          <p class="demo-section-title">04 — Data UI</p>
+          <h2>Tag Input</h2>
+          <p class="text-soft">Multi-value tag field with <strong>GET</strong> autocomplete and optional
+            <strong>POST</strong> to create new tags on the fly. Selected tags appear as removable pills;
+            the hidden input stores a JSON array of <code class="text-mono">{value, label}</code> objects.
+          </p>
+
+          <p class="text-sm text-muted mb-2">Demo: search JSONPlaceholder users as tags. Type something that doesn't
+            match to create a new one.</p>
+          <span class="label">Skills</span>
+          <div id="demo-tag-input"></div>
+          <p class="help mt-2">Listen for <code class="text-mono">tag-input-change</code> on the root.
+            <code class="text-mono">event.detail.tags</code> is the full array. Press <kbd>Backspace</kbd> on an empty
+            field to remove the last tag.
+          </p>
+
+          <div class="accordion mt-4 mb-8" data-accordion>
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <svg class="icon icon-sm" aria-hidden="true">
+                  <use href="../downstage-icons.svg#code" />
+                </svg>
+                Source code
+                <svg class="icon accordion-icon" aria-hidden="true">
+                  <use href="../downstage-icons.svg#plus" />
+                </svg>
+              </button>
+              <div class="accordion-content">
+                <div class="accordion-body">
+                  <pre><code>&lt;span class="label"&gt;Skills&lt;/span&gt;
+&lt;div id="demo-tag-input"&gt;&lt;/div&gt;</code></pre>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <svg class="icon icon-sm" aria-hidden="true">
+                  <use href="../downstage-icons.svg#terminal" />
+                </svg>
+                JavaScript
+                <svg class="icon accordion-icon" aria-hidden="true">
+                  <use href="../downstage-icons.svg#plus" />
+                </svg>
+              </button>
+              <div class="accordion-content">
+                <div class="accordion-body">
+                  <pre><code>Downstage.tagInput.mount('#demo-tag-input', {
+  name: 'skills',
+  placeholder: 'Add a skill…',
+  minChars: 1,
+  fetchOptions: function (query) {
+    return fetch('https://jsonplaceholder.typicode.com/users')
+      .then(function (r) { return r.json(); })
+      .then(function (all) {
+        var q = String(query).toLowerCase();
+        return all
+          .filter(function (u) {
+            return !q || u.name.toLowerCase().indexOf(q) !== -1;
+          })
+          .slice(0, 8)
+          .map(function (u) {
+            return { value: String(u.id), label: u.name };
+          });
+      });
+  },
+  createOption: function (text) {
+    return fetch('https://jsonplaceholder.typicode.com/users', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name: text })
+    })
+      .then(function (r) { return r.json(); })
+      .then(function (u) {
+        return { value: String(u.id), label: text };
+      });
+  }
+});
+
+// Or use data attributes:
+// &lt;div data-tag-input
+//   data-tag-input-name="skills"
+//   data-tag-input-fetch="/api/skills"
+//   data-tag-input-create="/api/skills"
+//   data-tag-input-create-key="name"
+//   data-tag-input-placeholder="Add a skill…"
+//   data-tag-input-max="10"&gt;&lt;/div&gt;
+//
+// Programmatic API:
+// var tags = Downstage.tagInput.mount(…);
+// tags.getTags();          // [{value, label}, …]
+// tags.addTag('5', 'Go');
+// tags.removeTag('5');
+// tags.clear();</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="demo-section" id="kanban">
+          <p class="demo-section-title">05 — Data UI</p>
+          <h2>Kanban</h2>
+
+          <p class="text-sm text-muted mb-4">Board data is loaded with <strong>GET</strong>
+            <code class="text-mono">../demo/kanban-board.json</code> (same origin). Moving a card sends a
+            <strong>POST</strong>
+            with
+            JSON (<code class="text-mono">cardId</code>, <code class="text-mono">fromColumnId</code>,
+            <code class="text-mono">toColumnId</code>, <code class="text-mono">toIndex</code>) to a demo endpoint; swap
+            <code class="text-mono">fetchUrl</code> / <code class="text-mono">moveUrl</code> for your API. On failed
+            move
+            the
+            card reverts.
+          </p>
+          <div data-kanban data-kanban-fetch-url="../demo/kanban-board.json"
+            data-kanban-move-url="https://httpbin.org/post" data-kanban-move-method="POST"
+            data-kanban-move-credentials="omit"></div>
+
+          <div class="accordion mt-4 mb-8" data-accordion>
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <svg class="icon icon-sm" aria-hidden="true">
+                  <use href="../downstage-icons.svg#code" />
+                </svg>
+                Source code
+                <svg class="icon accordion-icon" aria-hidden="true">
+                  <use href="../downstage-icons.svg#plus" />
+                </svg>
+              </button>
+              <div class="accordion-content">
+                <div class="accordion-body">
+                  <pre><code>&lt;div data-kanban
   data-kanban-fetch-url="../demo/kanban-board.json"
   data-kanban-move-url="https://httpbin.org/post"
   data-kanban-move-method="POST"
   data-kanban-move-credentials="omit"&gt;&lt;/div&gt;</code></pre>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <button class="accordion-header">
-            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#terminal" /></svg>
-            JavaScript
-            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
-          </button>
-          <div class="accordion-content">
-            <div class="accordion-body">
-              <pre><code>Downstage.kanban.mount('#board', {
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <svg class="icon icon-sm" aria-hidden="true">
+                  <use href="../downstage-icons.svg#terminal" />
+                </svg>
+                JavaScript
+                <svg class="icon accordion-icon" aria-hidden="true">
+                  <use href="../downstage-icons.svg#plus" />
+                </svg>
+              </button>
+              <div class="accordion-content">
+                <div class="accordion-body">
+                  <pre><code>Downstage.kanban.mount('#board', {
   fetchUrl: '../demo/kanban-board.json',
   moveUrl: 'https://httpbin.org/post',
   moveMethod: 'POST',
   moveCredentials: 'omit'
 });</code></pre>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <svg class="icon icon-sm" aria-hidden="true">
+                  <use href="../downstage-icons.svg#code" />
+                </svg>
+                Declarative attributes (<code class="text-mono">data-kanban-*</code>)
+                <svg class="icon accordion-icon" aria-hidden="true">
+                  <use href="../downstage-icons.svg#plus" />
+                </svg>
+              </button>
+              <div class="accordion-content">
+                <div class="accordion-body">
+                  <div class="table-wrap">
+                    <table class="table table-compact table-striped">
+                      <thead>
+                        <tr>
+                          <th>Attribute</th>
+                          <th>Maps to</th>
+                          <th>Description</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><code class="text-mono">data-kanban-fetch-url</code></td>
+                          <td><code class="text-mono">fetchUrl</code></td>
+                          <td>GET JSON board: <code
+                              class="text-mono">{ columns: [{ id, title, cards: [{ id, title, meta }] }] }</code></td>
+                        </tr>
+                        <tr>
+                          <td><code class="text-mono">data-kanban-fetch-credentials</code></td>
+                          <td><code class="text-mono">fetchCredentials</code></td>
+                          <td><code class="text-mono">same-origin</code> (default), <code class="text-mono">omit</code>,
+                            or <code class="text-mono">include</code> for the board request.</td>
+                        </tr>
+                        <tr>
+                          <td><code class="text-mono">data-kanban-move-url</code></td>
+                          <td><code class="text-mono">moveUrl</code></td>
+                          <td>POST endpoint for card moves (JSON body with <code class="text-mono">cardId</code>, <code
+                              class="text-mono">fromColumnId</code>, <code class="text-mono">toColumnId</code>, <code
+                              class="text-mono">toIndex</code>).</td>
+                        </tr>
+                        <tr>
+                          <td><code class="text-mono">data-kanban-move-method</code></td>
+                          <td><code class="text-mono">moveMethod</code></td>
+                          <td>HTTP method (default <code class="text-mono">POST</code>).</td>
+                        </tr>
+                        <tr>
+                          <td><code class="text-mono">data-kanban-move-credentials</code></td>
+                          <td><code class="text-mono">moveCredentials</code></td>
+                          <td>Fetch <code class="text-mono">credentials</code> for the move request; auto <code
+                              class="text-mono">omit</code> for cross-origin if unset.</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <p class="text-sm text-muted mb-0">Alternatively pass <code class="text-mono">fetchBoard</code> /
+                    <code class="text-mono">moveCard</code>
+                    functions in <code class="text-mono">mount(el, options)</code> instead of URLs.</p>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </section>
 
-    <section class="demo-section" id="datatable">
-      <p class="demo-section-title">04 — Data UI</p>
-      <h2>Data table</h2>
+        <section class="demo-section" id="datatable">
+          <p class="demo-section-title">06 — Data UI</p>
+          <h2>Data table</h2>
 
-      <p class="text-sm text-muted mb-2">Local: sort, filter, pagination in the browser (<code
-          class="text-mono">data-data-table-demo</code>).</p>
-      <div data-data-table data-data-table-demo></div>
+          <p class="text-sm text-muted mb-2">Local: sort, filter, pagination in the browser (<code
+              class="text-mono">data-data-table-demo</code>).</p>
+          <div data-data-table data-data-table-demo></div>
 
-      <div class="accordion mt-4 mb-8" data-accordion>
-        <div class="accordion-item">
-          <button class="accordion-header">
-            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#code" /></svg>
-            Source code
-            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
-          </button>
-          <div class="accordion-content">
-            <div class="accordion-body">
-              <pre><code>&lt;div data-data-table data-data-table-demo&gt;&lt;/div&gt;</code></pre>
+          <div class="accordion mt-4 mb-8" data-accordion>
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <svg class="icon icon-sm" aria-hidden="true">
+                  <use href="../downstage-icons.svg#code" />
+                </svg>
+                Source code
+                <svg class="icon accordion-icon" aria-hidden="true">
+                  <use href="../downstage-icons.svg#plus" />
+                </svg>
+              </button>
+              <div class="accordion-content">
+                <div class="accordion-body">
+                  <pre><code>&lt;div data-data-table data-data-table-demo&gt;&lt;/div&gt;</code></pre>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <button class="accordion-header">
-            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#terminal" /></svg>
-            JavaScript
-            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
-          </button>
-          <div class="accordion-content">
-            <div class="accordion-body">
-              <pre><code>Downstage.dataTable.mount('#my-table', {
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <svg class="icon icon-sm" aria-hidden="true">
+                  <use href="../downstage-icons.svg#terminal" />
+                </svg>
+                JavaScript
+                <svg class="icon accordion-icon" aria-hidden="true">
+                  <use href="../downstage-icons.svg#plus" />
+                </svg>
+              </button>
+              <div class="accordion-content">
+                <div class="accordion-body">
+                  <pre><code>Downstage.dataTable.mount('#my-table', {
   mode: 'local',
   pageSize: 5,
   columns: [
@@ -321,39 +1153,47 @@
     { name: 'Ken Thompson', email: 'ken@example.com', role: 'Viewer' }
   ]
 });</code></pre>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
 
-      <p class="text-sm text-muted mb-2">Remote-style: one HTTP request, then client-side paging/sort/filter on the
-        result set (illustrates <code class="text-mono">fetchRemote</code>; your server can return
-        <code class="text-mono">{ rows, total }</code> per page).
-      </p>
-      <div id="demo-data-table-remote"></div>
+          <p class="text-sm text-muted mb-2">Remote-style: one HTTP request, then client-side paging/sort/filter on the
+            result set (illustrates <code class="text-mono">fetchRemote</code>; your server can return
+            <code class="text-mono">{ rows, total }</code> per page).
+          </p>
+          <div id="demo-data-table-remote"></div>
 
-      <div class="accordion mt-4 mb-8" data-accordion>
-        <div class="accordion-item">
-          <button class="accordion-header">
-            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#code" /></svg>
-            Source code
-            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
-          </button>
-          <div class="accordion-content">
-            <div class="accordion-body">
-              <pre><code>&lt;div id="demo-data-table-remote"&gt;&lt;/div&gt;</code></pre>
+          <div class="accordion mt-4 mb-8" data-accordion>
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <svg class="icon icon-sm" aria-hidden="true">
+                  <use href="../downstage-icons.svg#code" />
+                </svg>
+                Source code
+                <svg class="icon accordion-icon" aria-hidden="true">
+                  <use href="../downstage-icons.svg#plus" />
+                </svg>
+              </button>
+              <div class="accordion-content">
+                <div class="accordion-body">
+                  <pre><code>&lt;div id="demo-data-table-remote"&gt;&lt;/div&gt;</code></pre>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <button class="accordion-header">
-            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#terminal" /></svg>
-            JavaScript
-            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
-          </button>
-          <div class="accordion-content">
-            <div class="accordion-body">
-              <pre><code>Downstage.dataTable.mount('#demo-data-table-remote', {
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <svg class="icon icon-sm" aria-hidden="true">
+                  <use href="../downstage-icons.svg#terminal" />
+                </svg>
+                JavaScript
+                <svg class="icon accordion-icon" aria-hidden="true">
+                  <use href="../downstage-icons.svg#plus" />
+                </svg>
+              </button>
+              <div class="accordion-content">
+                <div class="accordion-body">
+                  <pre><code>Downstage.dataTable.mount('#demo-data-table-remote', {
   mode: 'remote',
   pageSize: 4,
   searchPlaceholder: 'Filter loaded users…',
@@ -380,11 +1220,988 @@
       });
   }
 });</code></pre>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </section>
+
+        <section class="demo-section" id="order-list">
+          <p class="demo-section-title">07 — Data UI</p>
+          <h2>Order List</h2>
+
+          <p class="text-soft mb-4">Search-to-add item list — ideal for <strong>invoices</strong>,
+            <strong>orders</strong>, and <strong>quote builders</strong>.
+            Items are selected via an autocomplete search and added to a configurable table.
+            Columns can map to object properties, render <strong>quantity +/−</strong> controls, or use
+            <strong>computed</strong> values (e.g.&nbsp;unit cost × qty). Adding a duplicate increments quantity.
+            Switch between <strong>column sort</strong> (click headers) and <strong>manual sort</strong>
+            (drag handle reorder). Output is a JSON array with <code class="text-mono">sort_order</code> on every item.
+            Optionally, a <strong>"Create new item"</strong> modal lets users add items not yet in the catalog.
+          </p>
+
+          <h3 class="mb-2">Live demo</h3>
+          <p class="text-sm text-muted mb-2">Search a product, click to add (duplicates auto-increment qty).
+            Toggle <strong>Manual sort</strong> to drag-reorder rows. Type a term with no match to see "Create new
+            item…".</p>
+
+          <div data-order-list data-order-list-demo></div>
+
+          <div id="demo-order-list-output" class="mt-4 mb-4" style="display:none">
+            <h4 class="text-sm mb-2">JSON output</h4>
+            <pre id="demo-order-list-json" class="p-4"
+              style="background:var(--bg-sunken);border-radius:var(--radius-lg);font-size:var(--fs-xs);max-height:16rem;overflow:auto"></pre>
+          </div>
+
+          <!-- Source code accordion -->
+          <div class="accordion mt-4 mb-8" data-accordion>
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <svg class="icon icon-sm" aria-hidden="true">
+                  <use href="../downstage-icons.svg#code" />
+                </svg>
+                Source code
+                <svg class="icon accordion-icon" aria-hidden="true">
+                  <use href="../downstage-icons.svg#plus" />
+                </svg>
+              </button>
+              <div class="accordion-content">
+                <div class="accordion-body">
+                  <pre><code>&lt;div data-order-list data-order-list-demo&gt;&lt;/div&gt;</code></pre>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <svg class="icon icon-sm" aria-hidden="true">
+                  <use href="../downstage-icons.svg#terminal" />
+                </svg>
+                JavaScript (local options + create modal)
+                <svg class="icon accordion-icon" aria-hidden="true">
+                  <use href="../downstage-icons.svg#plus" />
+                </svg>
+              </button>
+              <div class="accordion-content">
+                <div class="accordion-body">
+                  <pre><code>var products = [
+  { value: { codice: 'P001', nome: 'Widget Pro', unita: 'pz', costo: 12.50 }, label: 'P001 — Widget Pro' },
+  { value: { codice: 'P002', nome: 'Gadget Lite', unita: 'pz', costo: 8.00 }, label: 'P002 — Gadget Lite' },
+  // …more items
+];
+
+Downstage.orderList.mount('[data-order-list-demo]', {
+  name: 'invoice_items',
+  placeholder: 'Search products…',
+  itemKey: 'codice',
+  options: products,
+  columns: [
+    { key: 'codice', label: 'Code',       from: 'value.codice' },
+    { key: 'nome',   label: 'Product',    from: 'value.nome' },
+    { key: 'qty',    label: 'Qty',        type: 'qty' },
+    { key: 'unita',  label: 'Unit',       from: 'value.unita' },
+    { key: 'costo',  label: 'Unit price', from: 'value.costo' },
+    { key: 'totale', label: 'Total',      compute: function (item) {
+        return ((item.qty || 1) * (item.value.costo || 0)).toFixed(2);
+      }
+    },
+  ],
+  createTitle: 'New product',
+  createFields: [
+    { key: 'codice', label: 'Product code', type: 'text',   required: true },
+    { key: 'nome',   label: 'Product name', type: 'text',   required: true },
+    { key: 'unita',  label: 'Unit',         type: 'select', options: ['pz','h','yr','ea'] },
+    { key: 'costo',  label: 'Unit price',   type: 'number', required: true, step: '0.01' },
+  ],
+  createOption: function (data) {
+    return fetch('/api/items', { method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    }).then(function (r) { return r.json(); });
+  },
+  onChange: function (items) {
+    console.log('Order changed:', items);
+  }
+});</code></pre>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <svg class="icon icon-sm" aria-hidden="true">
+                  <use href="../downstage-icons.svg#terminal" />
+                </svg>
+                JavaScript (remote fetch API)
+                <svg class="icon accordion-icon" aria-hidden="true">
+                  <use href="../downstage-icons.svg#plus" />
+                </svg>
+              </button>
+              <div class="accordion-content">
+                <div class="accordion-body">
+                  <pre><code>// Search items from your API (GET /api/products?q=query)
+Downstage.orderList.mount('#my-order', {
+  name: 'order_items',
+  fetchUrl: '/api/products',     // automatic GET ?q=…
+  // OR custom fetch function:
+  // fetchOptions: function (query) {
+  //   return fetch('/api/products?search=' + encodeURIComponent(query))
+  //     .then(function (r) { return r.json(); })
+  //     .then(function (data) {
+  //       return data.map(function (p) {
+  //         return {
+  //           value: { id: p.id, name: p.name, unit: p.unit, price: p.price },
+  //           label: p.id + ' — ' + p.name
+  //         };
+  //       });
+  //     });
+  // },
+  itemKey: 'id',
+  columns: [
+    { key: 'id',    label: 'ID',         from: 'value.id' },
+    { key: 'name',  label: 'Product',    from: 'value.name' },
+    { key: 'qty',   label: 'Qty',        type: 'qty' },
+    { key: 'price', label: 'Unit price', from: 'value.price' },
+    { key: 'total', label: 'Total',      compute: function (item) {
+        return ((item.qty || 1) * (item.value.price || 0)).toFixed(2);
+      }
+    },
+  ],
+});</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Options reference -->
+          <h3 class="mb-2">Mount options</h3>
+          <div class="table-wrap mb-4">
+            <table class="table table-compact table-striped">
+              <thead>
+                <tr>
+                  <th>Option</th>
+                  <th>Type</th>
+                  <th>Default</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code class="text-mono">name</code></td>
+                  <td>string</td>
+                  <td><code class="text-mono">"order_items"</code></td>
+                  <td>Name of the hidden <code class="text-mono">&lt;input&gt;</code> that holds the JSON output (for
+                    form submission).</td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">columns</code></td>
+                  <td>array</td>
+                  <td><code class="text-mono">[]</code></td>
+                  <td>Column definitions — see <strong>Column options</strong> below.</td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">options</code></td>
+                  <td>array</td>
+                  <td><code class="text-mono">[]</code></td>
+                  <td>Local item array: <code class="text-mono">[{ value, label }]</code>. <code
+                      class="text-mono">value</code> can be a string or object.</td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">fetchUrl</code></td>
+                  <td>string</td>
+                  <td>—</td>
+                  <td>API endpoint; component appends <code class="text-mono">?q=…</code> and expects a JSON array (or
+                    <code class="text-mono">{ results }</code> / <code class="text-mono">{ items }</code>).</td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">fetchOptions</code></td>
+                  <td>function</td>
+                  <td>—</td>
+                  <td>Custom search: <code class="text-mono">function(query) → Promise&lt;[{ value, label }]&gt;</code>.
+                  </td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">itemKey</code></td>
+                  <td>string</td>
+                  <td>—</td>
+                  <td>Dot-path into <code class="text-mono">value</code> used for duplicate detection. If omitted, the
+                    entire value is compared.</td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">items</code></td>
+                  <td>array</td>
+                  <td><code class="text-mono">[]</code></td>
+                  <td>Pre-populated rows: <code class="text-mono">[{ value, qty?, sort_order? }]</code>.</td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">sortMode</code></td>
+                  <td>string</td>
+                  <td><code class="text-mono">"column"</code></td>
+                  <td>Initial sort mode: <code class="text-mono">"column"</code> (click headers) or <code
+                      class="text-mono">"manual"</code> (drag reorder).</td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">placeholder</code></td>
+                  <td>string</td>
+                  <td>i18n key</td>
+                  <td>Search input placeholder text.</td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">minChars</code></td>
+                  <td>number</td>
+                  <td>0 local, 1 remote</td>
+                  <td>Minimum characters before search runs.</td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">debounceMs</code></td>
+                  <td>number</td>
+                  <td>250</td>
+                  <td>Debounce delay (ms) for search input.</td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">onChange</code></td>
+                  <td>function</td>
+                  <td>—</td>
+                  <td>Callback: <code class="text-mono">function(items)</code> — called on every add / remove / qty
+                    change / reorder.</td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">createTitle</code></td>
+                  <td>string</td>
+                  <td>i18n key</td>
+                  <td>Modal heading when creating a new item.</td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">createFields</code></td>
+                  <td>array</td>
+                  <td>—</td>
+                  <td>Field definitions for the create modal — see <strong>Create field options</strong> below. Required
+                    to enable creation.</td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">createOption</code></td>
+                  <td>function</td>
+                  <td>—</td>
+                  <td>Async callback: <code class="text-mono">function(data) → Promise&lt;{ value, label }&gt;</code>.
+                    Receives form data, returns the new item.</td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">createUrl</code></td>
+                  <td>string</td>
+                  <td>—</td>
+                  <td>Shorthand: POST JSON to this URL instead of providing <code class="text-mono">createOption</code>.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 class="mb-2">Column options</h3>
+          <p class="text-sm text-muted mb-2">Each entry in the <code class="text-mono">columns</code> array configures
+            one table column.</p>
+          <div class="table-wrap mb-4">
+            <table class="table table-compact table-striped">
+              <thead>
+                <tr>
+                  <th>Property</th>
+                  <th>Type</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code class="text-mono">key</code></td>
+                  <td>string</td>
+                  <td>Unique column identifier (used internally and as sort key).</td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">label</code></td>
+                  <td>string</td>
+                  <td>Header text. Falls back to <code class="text-mono">key</code>.</td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">from</code></td>
+                  <td>string</td>
+                  <td>Dot-notation path resolved on the row item, e.g.&nbsp;<code
+                      class="text-mono">"value.codice"</code>.</td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">type</code></td>
+                  <td>string</td>
+                  <td>Set to <code class="text-mono">"qty"</code> to render +/− quantity controls. Only one qty column
+                    per list.</td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">compute</code></td>
+                  <td>function</td>
+                  <td><code class="text-mono">function(item) → value</code> — computed display value (e.g.&nbsp;qty ×
+                    price). Not sortable by header click.</td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">render</code></td>
+                  <td>function</td>
+                  <td><code class="text-mono">function(cellValue, item) → html</code> — custom HTML for the cell.</td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">sortable</code></td>
+                  <td>boolean</td>
+                  <td>Set to <code class="text-mono">false</code> to disable column-sort on this header. Default <code
+                      class="text-mono">true</code> (auto-disabled for qty / computed).</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 class="mb-2">Create field options</h3>
+          <p class="text-sm text-muted mb-2">Each entry in <code class="text-mono">createFields</code> generates one
+            form field inside the create modal.</p>
+          <div class="table-wrap mb-4">
+            <table class="table table-compact table-striped">
+              <thead>
+                <tr>
+                  <th>Property</th>
+                  <th>Type</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code class="text-mono">key</code></td>
+                  <td>string</td>
+                  <td>Property name in the submitted data object.</td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">label</code></td>
+                  <td>string</td>
+                  <td>Field label text.</td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">type</code></td>
+                  <td>string</td>
+                  <td><code class="text-mono">"text"</code> (default), <code class="text-mono">"number"</code>, <code
+                      class="text-mono">"select"</code>, or <code class="text-mono">"textarea"</code>.</td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">options</code></td>
+                  <td>array</td>
+                  <td>For <code class="text-mono">type: "select"</code>: array of strings or <code
+                      class="text-mono">{ value, label }</code> objects.</td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">required</code></td>
+                  <td>boolean</td>
+                  <td>If true, submission is blocked when field is empty.</td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">placeholder</code></td>
+                  <td>string</td>
+                  <td>Input placeholder text.</td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">default</code></td>
+                  <td>any</td>
+                  <td>Default value when the modal opens.</td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">step</code></td>
+                  <td>string</td>
+                  <td>Step attribute for number inputs (e.g.&nbsp;<code class="text-mono">"0.01"</code>).</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 class="mb-2">Programmatic API</h3>
+          <p class="text-sm text-muted mb-2"><code class="text-mono">Downstage.orderList.mount()</code> returns an
+            object:</p>
+          <div class="table-wrap mb-4">
+            <table class="table table-compact table-striped">
+              <thead>
+                <tr>
+                  <th>Method / property</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code class="text-mono">root</code></td>
+                  <td>The mounted DOM element.</td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">getItems()</code></td>
+                  <td>Returns the current items array: <code class="text-mono">[{ value, qty, sort_order }]</code>.</td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">setItems(arr)</code></td>
+                  <td>Replaces all items and re-renders.</td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">addItem(value)</code></td>
+                  <td>Adds an item (or increments qty if duplicate).</td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">removeItem(index)</code></td>
+                  <td>Removes the item at the given index.</td>
+                </tr>
+                <tr>
+                  <td><code class="text-mono">refresh()</code></td>
+                  <td>Re-renders the table.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3 class="mb-2">Events</h3>
+          <p class="text-sm text-muted mb-4">The component dispatches a bubbling <code
+              class="text-mono">order-list-change</code>
+            custom event on the root element. Access data via <code class="text-mono">event.detail.items</code>.</p>
+
+          <h3 class="mb-2">JSON output format</h3>
+          <div class="accordion mb-8" data-accordion>
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <svg class="icon icon-sm" aria-hidden="true">
+                  <use href="../downstage-icons.svg#code" />
+                </svg>
+                Example output
+                <svg class="icon accordion-icon" aria-hidden="true">
+                  <use href="../downstage-icons.svg#plus" />
+                </svg>
+              </button>
+              <div class="accordion-content">
+                <div class="accordion-body">
+                  <pre><code>[
+  {
+    "value": { "codice": "P001", "nome": "Widget Pro", "unita": "pz", "costo": 12.50 },
+    "qty": 3,
+    "sort_order": 0
+  },
+  {
+    "value": { "codice": "P003", "nome": "Service Pack", "unita": "h", "costo": 45.00 },
+    "qty": 1,
+    "sort_order": 1
+  }
+]</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="demo-section" id="map">
+          <p class="demo-section-title">08 — Data UI</p>
+          <h2>Map</h2>
+
+          <p class="text-soft mb-4">Interactive markers loaded with <code class="text-mono">GET</code> from your API.
+            The demo uses <a href="https://leafletjs.com/" target="_blank" rel="noopener">Leaflet</a> (open source) with
+            <strong>CARTO Voyager</strong> tiles over <strong>OpenStreetMap</strong> data — no Google Maps key or
+            billing;
+            attribution is shown on the map.
+          </p>
+
+          <p class="text-sm text-muted mb-2">JSON shape: <code
+              class="text-mono">{ "markers": [{ "lat", "lng", "title", "description", "color" }] }</code>
+            — extend with your own fields and read them in the popup.</p>
+
+          <div id="demo-map-data-api" class="ds-map-demo ds-map-demo--tall" data-demo-map-api
+            aria-label="Map with API markers"></div>
+          <p class="help mt-2">Demo file: <code class="text-mono">../demo/map-pins.json</code>. Replace the URL with
+            <code class="text-mono">GET /api/locations</code> (same JSON).
+          </p>
+
+          <div class="accordion mt-4 mb-8" data-accordion>
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <svg class="icon icon-sm" aria-hidden="true">
+                  <use href="../downstage-icons.svg#code" />
+                </svg>
+                HTML
+                <svg class="icon accordion-icon" aria-hidden="true">
+                  <use href="../downstage-icons.svg#plus" />
+                </svg>
+              </button>
+              <div class="accordion-content">
+                <div class="accordion-body">
+                  <pre><code>&lt;!-- Leaflet CSS + JS from CDN; then a container --&gt;
+&lt;div id="my-map" class="ds-map-demo ds-map-demo--tall"&gt;&lt;/div&gt;</code></pre>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <svg class="icon icon-sm" aria-hidden="true">
+                  <use href="../downstage-icons.svg#terminal" />
+                </svg>
+                JavaScript (GET markers + popups)
+                <svg class="icon accordion-icon" aria-hidden="true">
+                  <use href="../downstage-icons.svg#plus" />
+                </svg>
+              </button>
+              <div class="accordion-content">
+                <div class="accordion-body">
+                  <pre><code>fetch('/api/locations')
+  .then(function (r) { return r.json(); })
+  .then(function (data) {
+    var markers = data.markers || data;
+    var map = L.map('my-map').setView([45.5, 9.2], 6);
+    L.tileLayer(
+      'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
+      {
+        attribution: '&amp;copy; OSM &amp;copy; CARTO',
+        subdomains: 'abcd',
+        maxZoom: 20
+      }
+    ).addTo(map);
+    var group = L.featureGroup();
+    markers.forEach(function (m) {
+      var icon = L.divIcon({
+        className: 'ds-leaflet-marker-wrap',
+        html: '&lt;div class="ds-leaflet-marker-pin" style="--pin-color:' + (m.color || '#5a6b5d') + '"&gt;&lt;/div&gt;',
+        iconSize: [32, 40],
+        iconAnchor: [16, 40]
+      });
+      L.marker([m.lat, m.lng], { icon: icon })
+        .bindPopup('&lt;strong&gt;' + m.title + '&lt;/strong&gt;&lt;br&gt;' + m.description)
+        .addTo(group);
+    });
+    map.fitBounds(group.getBounds().pad(0.15));
+  });</code></pre>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <svg class="icon icon-sm" aria-hidden="true">
+                  <use href="../downstage-icons.svg#code" />
+                </svg>
+                CSS &amp; Leaflet
+                <svg class="icon accordion-icon" aria-hidden="true">
+                  <use href="../downstage-icons.svg#plus" />
+                </svg>
+              </button>
+              <div class="accordion-content">
+                <div class="accordion-body">
+                  <p class="text-sm text-muted mb-2">Include Leaflet before your script. Map height and card chrome come
+                    from
+                    <code class="text-mono">downstage.css</code> / <code class="text-mono">demo.css</code> (<code
+                      class="text-mono">.ds-map-demo</code>,
+                    <code class="text-mono">.ds-map-demo--tall</code>). Custom markers use <code
+                      class="text-mono">.ds-leaflet-marker-pin</code>
+                    with <code class="text-mono">--pin-color</code>.
+                  </p>
+                  <pre><code>&lt;link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""&gt;
+&lt;script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""&gt;&lt;/script&gt;</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="demo-section" id="calendar">
+          <p class="demo-section-title">09 — Data UI</p>
+          <h2>Calendar</h2>
+
+          <p class="text-soft mb-4">Full calendar with <strong>month</strong>, <strong>week</strong>,
+            <strong>day</strong> and <strong>timeline</strong> (Gantt / resource) views.
+            Events and resources are fetched from your API via
+            <code class="text-mono">fetchUrl</code> or a custom
+            <code class="text-mono">fetchEvents</code> function.
+          </p>
+
+          <h3 class="mb-2">Month / Week / Day</h3>
+          <p class="text-sm text-muted mb-2">Default <strong>month</strong> view — switch to week, day or timeline with
+            the
+            toolbar. Events come from
+            <code class="text-mono">../demo/calendar-events.json</code>.
+          </p>
+          <div data-calendar data-calendar-demo></div>
+
+          <div class="accordion mt-4 mb-8" data-accordion>
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <svg class="icon icon-sm" aria-hidden="true">
+                  <use href="../downstage-icons.svg#code" />
+                </svg>
+                Source code
+                <svg class="icon accordion-icon" aria-hidden="true">
+                  <use href="../downstage-icons.svg#plus" />
+                </svg>
+              </button>
+              <div class="accordion-content">
+                <div class="accordion-body">
+                  <pre><code>&lt;div data-calendar
+  data-calendar-fetch-url="/api/events"
+  data-calendar-default-view="month"&gt;&lt;/div&gt;</code></pre>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <svg class="icon icon-sm" aria-hidden="true">
+                  <use href="../downstage-icons.svg#terminal" />
+                </svg>
+                JavaScript
+                <svg class="icon accordion-icon" aria-hidden="true">
+                  <use href="../downstage-icons.svg#plus" />
+                </svg>
+              </button>
+              <div class="accordion-content">
+                <div class="accordion-body">
+                  <pre><code>Downstage.calendar.mount('#my-calendar', {
+  fetchUrl: '/api/events',
+  defaultView: 'month',   // month | week | day | timeline
+  timelineHours: [8, 18],
+  onEventClick: function (ev) {
+    console.log('Clicked:', ev);
+  }
+});
+
+// API should return JSON:
+// {
+//   "resources": [
+//     { "id": "room-a", "title": "Room A" },
+//     { "id": "dev-1", "title": "Alice" }
+//   ],
+//   "events": [
+//     {
+//       "id": 1,
+//       "title": "Sprint planning",
+//       "start": "2026-04-09T09:00",
+//       "end": "2026-04-09T10:30",
+//       "resourceId": "room-a",
+//       "color": "#5a6b5d"
+//     }
+//   ]
+// }
+//
+// Query params sent: ?start=...&amp;end=...&amp;view=month</code></pre>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <svg class="icon icon-sm" aria-hidden="true">
+                  <use href="../downstage-icons.svg#code" />
+                </svg>
+                Declarative attributes (<code class="text-mono">data-calendar-*</code>)
+                <svg class="icon accordion-icon" aria-hidden="true">
+                  <use href="../downstage-icons.svg#plus" />
+                </svg>
+              </button>
+              <div class="accordion-content">
+                <div class="accordion-body">
+                  <p class="text-sm text-muted mb-2">On the root element, any <code
+                      class="text-mono">data-calendar-foo-bar</code>
+                    becomes the <code class="text-mono">mount</code> option <code class="text-mono">fooBar</code>
+                    (dataset → camelCase).</p>
+                  <div class="table-wrap">
+                    <table class="table table-compact table-striped">
+                      <thead>
+                        <tr>
+                          <th>Attribute</th>
+                          <th>Option</th>
+                          <th>Description</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><code class="text-mono">data-calendar-fetch-url</code></td>
+                          <td><code class="text-mono">fetchUrl</code></td>
+                          <td>GET endpoint; <code class="text-mono">start</code>, <code class="text-mono">end</code>,
+                            <code class="text-mono">view</code> are sent as query params.</td>
+                        </tr>
+                        <tr>
+                          <td><code class="text-mono">data-calendar-fetch-credentials</code></td>
+                          <td><code class="text-mono">fetchCredentials</code></td>
+                          <td><code class="text-mono">same-origin</code> (default), <code class="text-mono">omit</code>,
+                            or <code class="text-mono">include</code>.</td>
+                        </tr>
+                        <tr>
+                          <td><code class="text-mono">data-calendar-default-view</code></td>
+                          <td><code class="text-mono">defaultView</code></td>
+                          <td><code class="text-mono">month</code> | <code class="text-mono">week</code> | <code
+                              class="text-mono">day</code> | <code class="text-mono">timeline</code></td>
+                        </tr>
+                        <tr>
+                          <td><code class="text-mono">data-calendar-demo</code></td>
+                          <td>—</td>
+                          <td>Internal flag for the documentation demo (loads bundled JSON).</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <p class="text-sm text-muted mb-0">For full control, use <code
+                      class="text-mono">Downstage.calendar.mount(el, { fetchEvents: function (params) { … } })</code>.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="mb-2">Timeline (Gantt)</h3>
+          <p class="text-sm text-muted mb-2">Start directly in <strong>timeline</strong> view to see resources on
+            rows and days on columns. Each event is a horizontal bar across the resource track.</p>
+          <div data-calendar data-calendar-demo data-calendar-default-view="timeline"></div>
+
+          <div class="accordion mt-4 mb-8" data-accordion>
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <svg class="icon icon-sm" aria-hidden="true">
+                  <use href="../downstage-icons.svg#code" />
+                </svg>
+                Source code
+                <svg class="icon accordion-icon" aria-hidden="true">
+                  <use href="../downstage-icons.svg#plus" />
+                </svg>
+              </button>
+              <div class="accordion-content">
+                <div class="accordion-body">
+                  <pre><code>&lt;div data-calendar
+  data-calendar-fetch-url="/api/events"
+  data-calendar-default-view="timeline"&gt;&lt;/div&gt;</code></pre>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <svg class="icon icon-sm" aria-hidden="true">
+                  <use href="../downstage-icons.svg#terminal" />
+                </svg>
+                JavaScript
+                <svg class="icon accordion-icon" aria-hidden="true">
+                  <use href="../downstage-icons.svg#plus" />
+                </svg>
+              </button>
+              <div class="accordion-content">
+                <div class="accordion-body">
+                  <pre><code>Downstage.calendar.mount('#gantt', {
+  fetchUrl: '/api/events',
+  defaultView: 'timeline',
+  timelineHours: [8, 18],
+  // weekStart: 1, // 0 = Sunday, 1 = Monday (default)
+  onEventClick: function (ev) {
+    console.log('Event:', ev.title, ev.resourceId);
+  }
+});
+
+// Programmatic API:
+// var cal = Downstage.calendar.mount(…);
+// cal.setView('week');
+// cal.setDate('2026-05-01');
+// cal.refresh();
+// cal.getView();  // 'week'
+// cal.getDate();  // Date object</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============================== STATISTICS (API + Chart.js) ============================== -->
+        <section class="demo-section" id="stats">
+          <p class="demo-section-title">10 — Data UI</p>
+          <h2>Statistics &amp; charts</h2>
+          <p class="text-soft mb-4">
+            KPI cards use existing <code class="text-mono">.stat-card</code> / <code
+              class="text-mono">.dashboard-grid</code> styles.
+            Classic bar, line, and doughnut (pie) charts are rendered with
+            <a href="https://www.chartjs.org/" target="_blank" rel="noopener noreferrer">Chart.js</a> from a JSON
+            payload — the same
+            shape you would return from <code class="text-mono">GET /api/metrics</code>. A second line chart polls a
+            <strong>live public API</strong> (BTC/USDT spot from Binance every 4s) so you can compare static batch data
+            vs. real-time polling. Colors follow CSS variables so they track light/dark theme.
+          </p>
+          <p id="demo-stats-status" class="text-sm text-muted mb-2" role="status" aria-live="polite"></p>
+          <button type="button" class="btn btn-sm btn-secondary mb-6" id="demo-stats-refetch">Reload data</button>
+
+          <div id="demo-stats-api-root">
+            <div class="dashboard-grid" id="demo-stats-kpis" aria-label="Key metrics"></div>
+
+            <div class="grid grid-2 mt-6" style="align-items: stretch;">
+              <div class="chart-card">
+                <div class="chart-header">
+                  <div>
+                    <div class="chart-title">Bar — monthly sign-ups</div>
+                    <div class="chart-subtitle">Category scale</div>
+                  </div>
+                </div>
+                <div class="chart-canvas chart-canvas--chartjs">
+                  <canvas id="demo-stats-chart-bar" aria-label="Bar chart"></canvas>
+                </div>
+              </div>
+              <div class="chart-card">
+                <div class="chart-header">
+                  <div>
+                    <div class="chart-title">Doughnut — traffic mix</div>
+                    <div class="chart-subtitle">Share of sessions</div>
+                  </div>
+                </div>
+                <div class="chart-canvas chart-canvas--chartjs">
+                  <canvas id="demo-stats-chart-doughnut" aria-label="Doughnut chart"></canvas>
+                </div>
+              </div>
+            </div>
+
+            <div class="chart-card mt-6">
+              <div class="chart-header">
+                <div>
+                  <div class="chart-title">Line — sessions over time</div>
+                  <div class="chart-subtitle">Trend / time series</div>
+                </div>
+              </div>
+              <div class="chart-canvas chart-canvas--chartjs" style="height: 280px;">
+                <canvas id="demo-stats-chart-line" aria-label="Line chart"></canvas>
+              </div>
+            </div>
+
+            <div class="chart-card mt-6">
+              <div class="chart-header">
+                <div>
+                  <div class="chart-title">Line — live (real-time)</div>
+                  <div class="chart-subtitle">Same style as above · data from repeated <code class="text-mono">fetch</code>
+                  </div>
+                </div>
+              </div>
+              <p id="demo-stats-line-live-status" class="text-sm text-muted mb-2" role="status" aria-live="polite"></p>
+              <div class="chart-canvas chart-canvas--chartjs" style="height: 280px;">
+                <canvas id="demo-stats-chart-line-live" aria-label="Live line chart"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion mt-4 mb-8" data-accordion>
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <svg class="icon icon-sm" aria-hidden="true">
+                  <use href="../downstage-icons.svg#code" />
+                </svg>
+                Expected JSON (API contract)
+                <svg class="icon accordion-icon" aria-hidden="true">
+                  <use href="../downstage-icons.svg#plus" />
+                </svg>
+              </button>
+              <div class="accordion-content">
+                <div class="accordion-body">
+                  <pre><code>{
+  "kpis": [
+    { "label": "Active users", "value": "1,284", "change": "+3%", "deltaClass": "up" },
+    { "label": "Churn", "value": "2.1%", "change": "−0.4pp", "deltaClass": "up" },
+    { "label": "Latency p95", "value": "142ms", "change": "+8ms", "deltaClass": "down" }
+  ],
+  "bar": {
+    "datasetLabel": "Sign-ups",
+    "labels": ["Jan", "Feb"],
+    "values": [12, 19]
+  },
+  "line": {
+    "datasetLabel": "Sessions",
+    "labels": ["W1", "W2"],
+    "values": [420, 510]
+  },
+  "pie": {
+    "labels": ["Direct", "Organic"],
+    "values": [60, 40]
+  }
+}</code></pre>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <svg class="icon icon-sm" aria-hidden="true">
+                  <use href="../downstage-icons.svg#terminal" />
+                </svg>
+                JavaScript (fetch + Chart.js)
+                <svg class="icon accordion-icon" aria-hidden="true">
+                  <use href="../downstage-icons.svg#plus" />
+                </svg>
+              </button>
+              <div class="accordion-content">
+                <div class="accordion-body">
+                  <pre><code>fetch('/api/metrics', { credentials: 'same-origin' })
+  .then(function (r) { return r.json(); })
+  .then(function (data) {
+    // data.kpis → render .stat-card nodes
+    // data.bar / data.line → new Chart(canvas, { type: 'bar' | 'line', … })
+    // data.pie → new Chart(canvas, { type: 'doughnut', … })
+  });</code></pre>
+                  <p class="text-sm text-muted mb-0 mt-4">This page loads <code
+                      class="text-mono">demo/stats-api.json</code> next to
+                    <code class="text-mono">demo.js</code>. Add <code class="text-mono">chart.js</code> before your
+                    bundle; the demo uses the UMD build.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <svg class="icon icon-sm" aria-hidden="true">
+                  <use href="../downstage-icons.svg#terminal" />
+                </svg>
+                JavaScript — live line (<code class="text-mono">setInterval</code> + <code class="text-mono">fetch</code>)
+                <svg class="icon accordion-icon" aria-hidden="true">
+                  <use href="../downstage-icons.svg#plus" />
+                </svg>
+              </button>
+              <div class="accordion-content">
+                <div class="accordion-body">
+                  <p class="text-sm text-muted mb-3">Poll your metric endpoint on a timer, push the new sample into arrays,
+                    cap the window, then <code class="text-mono">chart.update('none')</code>. The demo calls Binance’s
+                    public ticker (CORS allowed); in production, call your own API or a backend proxy.</p>
+                  <pre><code>var labels = [], values = [], maxPoints = 18;
+var chart = new Chart(canvas, { /* same line options as static chart */ });
+
+function poll() {
+  fetch('/api/metrics/live', { cache: 'no-store' })
+    .then(function (r) { return r.json(); })
+    .then(function (d) {
+      var t = new Date().toLocaleTimeString();
+      labels.push(t);
+      values.push(d.value);
+      if (labels.length > maxPoints) { labels.shift(); values.shift(); }
+      chart.data.labels = labels;
+      chart.data.datasets[0].data = values;
+      chart.update('none');
+    });
+}
+
+poll();
+setInterval(poll, 4000);</code></pre>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <button class="accordion-header">
+                <svg class="icon icon-sm" aria-hidden="true">
+                  <use href="../downstage-icons.svg#code" />
+                </svg>
+                HTML structure
+                <svg class="icon accordion-icon" aria-hidden="true">
+                  <use href="../downstage-icons.svg#plus" />
+                </svg>
+              </button>
+              <div class="accordion-content">
+                <div class="accordion-body">
+                  <pre><code>&lt;div class="dashboard-grid"&gt;
+  &lt;article class="stat-card"&gt;
+    &lt;span class="stat-label"&gt;Active users&lt;/span&gt;
+    &lt;span class="stat-value"&gt;1,284&lt;/span&gt;
+    &lt;span class="stat-change is-up"&gt;+3%&lt;/span&gt;
+  &lt;/article&gt;
+&lt;/div&gt;
+
+&lt;div class="chart-card"&gt;
+  &lt;div class="chart-header"&gt;
+    &lt;div class="chart-title"&gt;Title&lt;/div&gt;
+    &lt;div class="chart-subtitle"&gt;Subtitle&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="chart-canvas chart-canvas--chartjs"&gt;
+    &lt;canvas id="my-chart"&gt;&lt;/canvas&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
       </div>
     </div>
@@ -395,7 +2212,9 @@
       <div class="footer-grid">
         <div>
           <div class="footer-brand">
-            <svg class="icon" width="20" height="20"><use href="../downstage-icons.svg#hash" /></svg>
+            <svg class="icon" width="20" height="20">
+              <use href="../downstage-icons.svg#hash" />
+            </svg>
             downstage.css
           </div>
           <p class="footer-tagline">Minimal Nordic design system — zero dependencies.</p>
@@ -403,26 +2222,46 @@
         <div>
           <div class="footer-title">Documentation</div>
           <ul class="footer-links">
-            <li><a href="index.html">All sections</a></li>
             <li><a href="basic.html">Basic</a></li>
-            <li><a href="interactive.html">Interactive UI</a></li>
+            <li><a href="media.html">Media</a></li>
+            <li><a href="templates.html">Templates</a></li>
           </ul>
         </div>
         <div>
-          <div class="footer-title">Site</div>
+          <div class="footer-title">Components</div>
           <ul class="footer-links">
-            <li><a href="../index.html">Home</a></li>
+            <li><a href="ui-components.html">UI Components</a></li>
+            <li><a href="interactive.html">Interactive UI</a></li>
+            <li><a href="data.html">Data UI</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-title">Legal</div>
+          <ul class="footer-links">
+            <li><a href="https://raw.githubusercontent.com/andreapollastri/downstage/refs/heads/main/LICENSE.md"
+                target="_blank" rel="noopener noreferrer">MIT License</a></li>
+            <li><a href="https://floriankarsten.github.io/space-grotesk/" target="_blank" rel="noopener noreferrer">Font
+                credits</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
         <div>© 2026 <a href="https://web.ap.it" target="_blank" rel="noopener">Andrea Pollastri</a></div>
+        <div class="footer-social">
+          <a href="https://github.com/andreapollastri" aria-label="GitHub" target="_blank"
+            rel="noopener noreferrer"><svg class="icon">
+              <use href="../downstage-icons.svg#github" />
+            </svg></a>
+        </div>
       </div>
     </div>
   </footer>
 
   <script>window.__DOWNSTAGE_ICONS_BASE__ = "../downstage-icons.svg"; window.__DOWNSTAGE_LOCALE_BASE__ = "../locales/";</script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin="" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" crossorigin="" defer></script>
   <script src="../downstage.js" defer></script>
   <script src="../demo/demo.js" defer></script>
 </body>
+
 </html>

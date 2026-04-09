@@ -4,6 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <title>downstage.css — Minimal Nordic Design System</title>
   <link rel="stylesheet" href="downstage.css">
   <link rel="stylesheet" href="demo/demo.css">
@@ -21,7 +23,7 @@
         <svg class="icon" width="20" height="20">
           <use href="downstage-icons.svg#hash" />
         </svg>
-        downstage<span class="text-muted">.css</span>
+        downstage
       </a>
 
       <button class="navbar-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="navbar-menu">
@@ -55,10 +57,14 @@
           <div class="navbar-actions">
             <div class="btn-group" role="group" aria-label="Theme">
               <button class="btn btn-sm" data-set-theme="light" aria-label="Light theme">
-                <svg class="icon"><use href="downstage-icons.svg#sun" /></svg>
+                <svg class="icon">
+                  <use href="downstage-icons.svg#sun" />
+                </svg>
               </button>
               <button class="btn btn-sm" data-set-theme="dark" aria-label="Dark theme">
-                <svg class="icon"><use href="downstage-icons.svg#moon" /></svg>
+                <svg class="icon">
+                  <use href="downstage-icons.svg#moon" />
+                </svg>
               </button>
               <button class="btn btn-sm" data-set-theme="auto" aria-label="Auto theme">Auto</button>
             </div>
@@ -84,23 +90,7 @@
             <use href="downstage-icons.svg#arrow-right" />
           </svg>
         </a>
-        <a href="docs/basic.html" class="btn btn-secondary">
-          <svg class="icon">
-            <use href="downstage-icons.svg#file-text" />
-          </svg>
-          Quick start
-        </a>
       </div>
-
-      <nav aria-label="Breadcrumb" class="mt-16">
-        <ol class="breadcrumb">
-          <li><a href="index.html"><svg class="icon">
-                <use href="downstage-icons.svg#home" />
-              </svg></a></li>
-          <li><a href="docs/index.html">Documentation</a></li>
-          <li>Overview</li>
-        </ol>
-      </nav>
     </section>
 
     <section class="demo-section">
@@ -113,7 +103,8 @@
             </svg>
             Design tokens
           </h4>
-          <p class="text-soft text-sm mt-2">Nordic palette, typography, spacing, and dark mode from one theme surface.</p>
+          <p class="text-soft text-sm mt-2">Nordic palette, typography, spacing, and dark mode from one theme surface.
+          </p>
         </div>
         <div class="col-4">
           <h4>
@@ -122,7 +113,8 @@
             </svg>
             Semantic components
           </h4>
-          <p class="text-soft text-sm mt-2">Buttons, forms, cards, navigation, and page templates without utility soup.</p>
+          <p class="text-soft text-sm mt-2">Buttons, forms, cards, navigation, and page templates without utility soup.
+          </p>
         </div>
         <div class="col-4">
           <h4>
@@ -191,7 +183,8 @@
       <div class="grid" style="gap: var(--space-8); align-items: center;">
         <div class="col-6">
           <h2 class="mb-4">Built for developers</h2>
-          <p class="text-soft">No build step. No npm. Just drop the CSS and JS files and start building. Every component is a simple class name — readable in any template engine.</p>
+          <p class="text-soft">No build step. No npm. Just drop the CSS and JS files and start building. Every component
+            is a simple class name — readable in any template engine.</p>
           <div class="cluster mt-6">
             <a href="docs/basic.html" class="btn btn-secondary">
               <svg class="icon">
@@ -199,7 +192,6 @@
               </svg>
               Quick start
             </a>
-            <a href="docs/interactive.html#js-api" class="btn btn-ghost">JavaScript API</a>
           </div>
         </div>
         <div class="col-6">
@@ -224,7 +216,7 @@
             <svg class="icon" width="20" height="20">
               <use href="downstage-icons.svg#hash" />
             </svg>
-            downstage.css
+            downstage
           </div>
           <p class="footer-tagline">
             Minimal nordic design system for developers who love clean code.
@@ -235,9 +227,9 @@
         <div>
           <div class="footer-title">Documentation</div>
           <ul class="footer-links">
-            <li><a href="docs/index.html">All sections</a></li>
             <li><a href="docs/basic.html">Basic</a></li>
-            <li><a href="docs/interactive.html">Interactive UI</a></li>
+            <li><a href="docs/media.html">Media</a></li>
+            <li><a href="docs/templates.html">Templates</a></li>
           </ul>
         </div>
 
@@ -245,29 +237,29 @@
           <div class="footer-title">Components</div>
           <ul class="footer-links">
             <li><a href="docs/ui-components.html">UI Components</a></li>
-            <li><a href="docs/media.html">Media</a></li>
+            <li><a href="docs/interactive.html">Interactive UI</a></li>
             <li><a href="docs/data.html">Data UI</a></li>
-            <li><a href="docs/templates.html">Templates</a></li>
           </ul>
         </div>
 
         <div>
           <div class="footer-title">Legal</div>
           <ul class="footer-links">
-            <li><a href="#">MIT License</a></li>
-            <li><a href="#">Font credits</a></li>
+            <li><a href="https://raw.githubusercontent.com/andreapollastri/downstage/refs/heads/main/LICENSE.md"
+                target="_blank" rel="noopener noreferrer">MIT License</a></li>
+            <li><a href="https://floriankarsten.github.io/space-grotesk/" target="_blank" rel="noopener noreferrer">Font
+                credits</a></li>
           </ul>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <div>© 2026 <a href="https://web.ap.it" target="_blank" rel="noopener">Andrea Pollastri</a> · Crafted with care</div>
+        <div>© 2026 <a href="https://web.ap.it" target="_blank" rel="noopener">Andrea Pollastri</a> · Crafted with care
+        </div>
         <div class="footer-social">
-          <a href="#" aria-label="GitHub"><svg class="icon">
+          <a href="https://github.com/andreapollastri" aria-label="GitHub" target="_blank"
+            rel="noopener noreferrer"><svg class="icon">
               <use href="downstage-icons.svg#github" />
-            </svg></a>
-          <a href="#" aria-label="Email"><svg class="icon">
-              <use href="downstage-icons.svg#mail" />
             </svg></a>
         </div>
       </div>

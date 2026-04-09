@@ -3,10 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../favicon.ico" sizes="any">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
   <title>UI Components — downstage.css</title>
   <link rel="stylesheet" href="../downstage.css">
   <link rel="stylesheet" href="../demo/demo.css">
   <link rel="stylesheet" href="../demo/docs.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
 </head>
 <body class="doc-page">
   <div hidden></div>
@@ -59,6 +62,9 @@
           <a href="#breadcrumb">Breadcrumb</a>
           <a href="#buttons">Buttons</a>
           <a href="#forms">Forms</a>
+          <a href="#input-affix">Input prefix &amp; suffix</a>
+          <a href="#form-validation">Form validation</a>
+          <a href="#date-fields">Date fields</a>
           <a href="#copy-fields">Copyable fields</a>
           <a href="#alerts">Alerts</a>
           <a href="#badges">Badges</a>
@@ -66,6 +72,7 @@
           <a href="#table">Table</a>
           <a href="#html-editor">HTML editor</a>
           <a href="#timeline">Timeline</a>
+          <a href="#mini-map">Mini map</a>
         </nav>
       </aside>
       <div class="docs-content doc-stack">
@@ -460,6 +467,359 @@
     &lt;button type="submit" class="btn btn-primary"&gt;Send&lt;/button&gt;
   &lt;/div&gt;
 &lt;/form&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════ 03a · INPUT PREFIX / SUFFIX ═══════════════════ -->
+
+    <section class="demo-section" id="input-affix">
+      <p class="demo-section-title">03a — Components</p>
+      <h2>Input prefix &amp; suffix</h2>
+      <p class="text-soft">Wrap the control in <code class="text-mono">.input-affix</code> and add
+        <code class="text-mono">.input-affix__prefix</code> and/or <code class="text-mono">.input-affix__suffix</code>
+        for non-editable labels (scheme, currency, units). The inner field keeps <code class="text-mono">.input</code>;
+        focus ring applies to the whole group via <code class="text-mono">:focus-within</code>.</p>
+
+      <div class="stack mt-6" style="max-width: 480px;">
+        <div class="field">
+          <label class="label" for="demo-affix-url">Website</label>
+          <div class="input-affix">
+            <span class="input-affix__prefix" aria-hidden="true">https://</span>
+            <input id="demo-affix-url" class="input" type="text" inputmode="url" placeholder="example.com" autocomplete="url">
+          </div>
+          <span class="help">Prefix is visual only — append the scheme in your submit handler if needed.</span>
+        </div>
+        <div class="field">
+          <label class="label" for="demo-affix-eur">Amount (EUR)</label>
+          <div class="input-affix">
+            <input id="demo-affix-eur" class="input" type="text" inputmode="decimal" placeholder="0,00" autocomplete="off">
+            <span class="input-affix__suffix" aria-hidden="true">€</span>
+          </div>
+        </div>
+        <div class="field">
+          <label class="label" for="demo-affix-both">Width × height</label>
+          <div class="input-affix">
+            <span class="input-affix__prefix" aria-hidden="true">W</span>
+            <input id="demo-affix-both" class="input" type="text" placeholder="1920" inputmode="numeric" autocomplete="off">
+            <span class="input-affix__suffix" aria-hidden="true">px</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion mt-4 mb-8" data-accordion>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#code" /></svg>
+            Source code
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <pre><code>&lt;div class="field"&gt;
+  &lt;label class="label" for="url"&gt;Website&lt;/label&gt;
+  &lt;div class="input-affix"&gt;
+    &lt;span class="input-affix__prefix"&gt;https://&lt;/span&gt;
+    &lt;input id="url" class="input" type="text" placeholder="example.com"&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="field"&gt;
+  &lt;label class="label" for="amt"&gt;Amount&lt;/label&gt;
+  &lt;div class="input-affix"&gt;
+    &lt;input id="amt" class="input" type="text" placeholder="0,00"&gt;
+    &lt;span class="input-affix__suffix"&gt;€&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════ 03b · FORM VALIDATION (JS) ═══════════════════ -->
+
+    <section class="demo-section" id="form-validation">
+      <p class="demo-section-title">03b — Components</p>
+      <h2>Form validation (JS)</h2>
+      <p class="text-soft"><code class="text-mono">downstage.js</code> includes a small helper:
+        add <code class="text-mono">data-form-validate</code> on a <code class="text-mono">&lt;form&gt;</code> (or call
+        <code class="text-mono">Downstage.formValidate.mount(form, options)</code>). It checks
+        <code class="text-mono">required</code>, <code class="text-mono">type="email"</code>,
+        <code class="text-mono">minlength</code>, and <code class="text-mono">pattern</code>, toggles
+        <code class="text-mono">.field.has-error</code>, and fills a <code class="text-mono">.error</code> node when present.
+        Messages come from i18n (<code class="text-mono">formValidate.*</code>) or from
+        <code class="text-mono">data-error-*</code> on the <code class="text-mono">.field</code>.</p>
+
+      <form id="demo-form-validation" class="stack mt-6" style="max-width: 480px;" action="#" method="post" novalidate>
+        <div class="field">
+          <label class="label" for="demo-val-name">Display name</label>
+          <input id="demo-val-name" class="input" type="text" name="name" required minlength="2" autocomplete="name">
+          <span class="error" aria-live="polite"></span>
+        </div>
+        <div class="field">
+          <label class="label" for="demo-val-email">Work email</label>
+          <input id="demo-val-email" class="input" type="email" name="email" required autocomplete="email">
+          <span class="error" aria-live="polite"></span>
+        </div>
+        <div class="field">
+          <label class="label" for="demo-val-code">Invite code</label>
+          <input id="demo-val-code" class="input" type="text" name="code" pattern="[A-Z0-9]{6}" placeholder="e.g. AB12CD" autocomplete="off">
+          <span class="help">Optional — six uppercase letters or digits if provided.</span>
+          <span class="error" aria-live="polite"></span>
+        </div>
+        <div class="field">
+          <label class="check">
+            <input id="demo-val-terms" type="checkbox" name="terms" required>
+            <span>I agree to the demo terms</span>
+          </label>
+          <span class="error" aria-live="polite"></span>
+        </div>
+        <p id="demo-validate-status" class="text-sm badge badge-success mt-2" style="display: none;" role="status"></p>
+        <div class="cluster mt-2" style="justify-content: flex-end;">
+          <button type="reset" class="btn btn-ghost">Reset</button>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+
+      <div class="accordion mt-4 mb-8" data-accordion>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#code" /></svg>
+            HTML
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <pre><code>&lt;form id="demo-form-validation" data-form-validate novalidate&gt;
+  &lt;div class="field"&gt;
+    &lt;label class="label" for="name"&gt;Name&lt;/label&gt;
+    &lt;input id="name" class="input" type="text" name="name" required minlength="2"&gt;
+    &lt;span class="error" aria-live="polite"&gt;&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="field"&gt;
+    &lt;label class="label" for="email"&gt;Email&lt;/label&gt;
+    &lt;input id="email" class="input" type="email" name="email" required&gt;
+    &lt;span class="error" aria-live="polite"&gt;&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;button type="submit" class="btn btn-primary"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+              <p class="text-sm text-muted mb-0">Put each control in <code class="text-mono">.field</code> with a sibling
+                <code class="text-mono">.error</code> for messages. Use <code class="text-mono">novalidate</code> so the script controls display.</p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#terminal" /></svg>
+            JavaScript
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <pre><code>// Auto: any form with data-form-validate on DOMContentLoaded
+
+// Manual:
+Downstage.formValidate.mount(document.querySelector('#my-form'), {
+  live: true,
+  onValid: function (e) { e.preventDefault(); /* fetch… */ }
+});
+
+// Field API (e.g. after dynamic value set):
+Downstage.formValidate.validateField(document.querySelector('#email'));</code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#code" /></svg>
+            <code class="text-mono">mount</code> options &amp; overrides
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <div class="table-wrap">
+                <table class="table table-compact table-striped">
+                  <thead>
+                    <tr><th>Option</th><th>Type</th><th>Default</th><th>Description</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code class="text-mono">live</code></td>
+                      <td>boolean</td>
+                      <td><code class="text-mono">true</code></td>
+                      <td>Re-validate on input/blur after an error was shown.</td>
+                    </tr>
+                    <tr>
+                      <td><code class="text-mono">onValid</code></td>
+                      <td>function</td>
+                      <td>—</td>
+                      <td>If the form passes validation on submit, called as <code class="text-mono">onValid.call(form, event)</code>; use <code class="text-mono">preventDefault</code> to handle async submit.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="text-sm text-muted mb-2">Per-field message overrides on <code class="text-mono">.field</code> or input:
+                <code class="text-mono">data-error-required</code>, <code class="text-mono">data-error-email</code>,
+                <code class="text-mono">data-error-minlength</code>, <code class="text-mono">data-error-pattern</code>.
+                Otherwise strings come from i18n <code class="text-mono">formValidate.*</code>.</p>
+              <p class="text-sm text-muted mb-0">Validated constraints: <code class="text-mono">required</code> (including checkboxes),
+                <code class="text-mono">type="email"</code>, <code class="text-mono">minlength</code>, <code class="text-mono">pattern</code>.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════ 03c · DATE FIELDS ═══════════════════ -->
+
+    <section class="demo-section" id="date-fields">
+      <p class="demo-section-title">03c — Components</p>
+      <h2>Date fields</h2>
+      <p class="text-soft text-sm mb-4">Native <code class="text-mono">date</code> and <code class="text-mono">datetime-local</code> inputs,
+        plus a <strong>date range</strong> pair with automatic min / max constraints between the two fields.</p>
+
+      <h3 class="mt-6 mb-2">Date input</h3>
+      <p class="text-sm text-muted mb-2">A single date field. Add <code class="text-mono">data-datepicker-type="datetime"</code> for date+time.</p>
+      <div class="stack" style="max-width: 480px;">
+        <div class="field">
+          <label class="label" for="demo-date-only">Date only</label>
+          <div data-datepicker data-datepicker-name="birthday" data-datepicker-value="2026-04-09">
+            <input id="demo-date-only" class="input" type="date" value="2026-04-09">
+          </div>
+        </div>
+        <div class="field">
+          <label class="label" for="demo-datetime">Date + time</label>
+          <div data-datepicker data-datepicker-type="datetime" data-datepicker-name="appointment">
+            <input id="demo-datetime" class="input" type="datetime-local" value="2026-04-09T14:30">
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion mt-4 mb-8" data-accordion>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#code" /></svg>
+            Source code
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <pre><code>&lt;!-- Date only --&gt;
+&lt;div class="field"&gt;
+  &lt;label class="label" for="birthday"&gt;Date only&lt;/label&gt;
+  &lt;div data-datepicker data-datepicker-name="birthday"&gt;
+    &lt;input id="birthday" class="input" type="date"&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Date + time --&gt;
+&lt;div class="field"&gt;
+  &lt;label class="label" for="appt"&gt;Date + time&lt;/label&gt;
+  &lt;div data-datepicker data-datepicker-type="datetime" data-datepicker-name="appointment"&gt;
+    &lt;input id="appt" class="input" type="datetime-local"&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="mt-8 mb-2">Date range</h3>
+      <p class="text-sm text-muted mb-2">Two linked fields — selecting a <em>From</em> date automatically sets
+        <code class="text-mono">min</code> on the <em>To</em> field (and vice-versa). Works with both
+        <code class="text-mono">date</code> and <code class="text-mono">datetime</code>.</p>
+      <div style="max-width: 480px;">
+        <div data-daterange data-daterange-from-name="start_date" data-daterange-to-name="end_date"></div>
+      </div>
+      <p class="help mt-2">Try picking a <em>From</em> date — the <em>To</em> field will prevent earlier dates.</p>
+
+      <div class="accordion mt-4 mb-8" data-accordion>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#code" /></svg>
+            Source code
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <pre><code>&lt;!-- Date range (date only) --&gt;
+&lt;div data-daterange
+  data-daterange-from-name="start_date"
+  data-daterange-to-name="end_date"&gt;&lt;/div&gt;
+
+&lt;!-- Datetime range --&gt;
+&lt;div data-daterange
+  data-daterange-type="datetime"
+  data-daterange-from-name="start_at"
+  data-daterange-to-name="end_at"&gt;&lt;/div&gt;
+
+&lt;!-- With global min / max boundaries --&gt;
+&lt;div data-daterange
+  data-daterange-min="2026-01-01"
+  data-daterange-max="2026-12-31"
+  data-daterange-from-name="from"
+  data-daterange-to-name="to"&gt;&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#terminal" /></svg>
+            JavaScript
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <pre><code>// Programmatic mount
+var range = Downstage.dateRange.mount('#my-range', {
+  type: 'datetime',       // 'date' (default) or 'datetime'
+  fromName: 'start_at',
+  toName: 'end_at',
+  min: '2026-01-01',      // global floor
+  max: '2026-12-31',      // global ceiling
+  fromLabel: 'Check-in',  // custom labels
+  toLabel: 'Check-out',
+});
+
+// API
+range.getFrom();           // '2026-04-09'
+range.getTo();             // '2026-04-12'
+range.setFrom('2026-05-01');
+range.setTo('2026-05-07');
+range.setMin('2026-04-01');
+range.setMax('2026-06-30');
+
+// Event
+el.addEventListener('daterange-change', function (e) {
+  console.log(e.detail.from, e.detail.to);
+});</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="mt-8 mb-2">Datetime range</h3>
+      <p class="text-sm text-muted mb-2">Same component with <code class="text-mono">data-daterange-type="datetime"</code>.</p>
+      <div style="max-width: 480px;">
+        <div data-daterange data-daterange-type="datetime" data-daterange-from-name="start_at" data-daterange-to-name="end_at"></div>
+      </div>
+
+      <div class="accordion mt-4 mb-8" data-accordion>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#code" /></svg>
+            Source code
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <pre><code>&lt;div data-daterange
+  data-daterange-type="datetime"
+  data-daterange-from-name="start_at"
+  data-daterange-to-name="end_at"&gt;&lt;/div&gt;</code></pre>
             </div>
           </div>
         </div>
@@ -1163,12 +1523,6 @@ export PATH="$HOME/.local/bin:$PATH"</textarea>
         </div>
       </div>
 
-      <h4 class="mt-8 mb-2">Snippet: blockquote</h4>
-      <p class="text-subtle text-sm mb-4">Typical markup for a quote inside the editor (design system <code class="text-mono">blockquote</code> styles).</p>
-      <pre class="code-snippet mt-4" tabindex="0"><span class="c-tag">&lt;blockquote&gt;</span>
-  <span class="c-tag">&lt;p&gt;</span>Design is the contrast of substance and appearance.<span class="c-tag">&lt;/p&gt;</span>
-  <span class="c-tag">&lt;footer&gt;</span>— Paul Rand<span class="c-tag">&lt;/footer&gt;</span>
-<span class="c-tag">&lt;/blockquote&gt;</span></pre>
     </section>
 
     <!-- ═══════════════════ 10 · TIMELINE ═══════════════════ -->
@@ -1292,6 +1646,88 @@ export PATH="$HOME/.local/bin:$PATH"</textarea>
       </div>
     </section>
 
+    <!-- ═══════════════════ 11 · MINI MAP ═══════════════════ -->
+
+    <section class="demo-section" id="mini-map">
+      <p class="demo-section-title">11 — Components</p>
+      <h2>Mini map</h2>
+      <p class="text-soft">A compact map for contact or venue blocks: same stack as
+        <a href="data.html#map">Data UI → Map</a> — <strong>Leaflet</strong> + CARTO / OSM (no Google Maps).
+        The marker uses a custom <code class="text-mono">L.divIcon</code> (CSS pin + brand color).</p>
+
+      <h3 class="text-base mt-8 mb-2">In a card</h3>
+      <p class="text-sm text-muted mb-3">Title and address above the map, single bordered block.</p>
+      <div class="ds-map-card mt-2">
+        <div class="ds-map-card-body">
+          <h3 class="ds-map-card-title">Showroom</h3>
+          <p class="ds-map-card-meta">Duomo area · Milan</p>
+        </div>
+        <div id="demo-ui-mini-map" class="ds-map-demo ds-map-demo--card" data-demo-mini-map aria-label="Mini map with custom marker"></div>
+      </div>
+
+      <h3 class="text-base mt-10 mb-2">Minimal (unboxed)</h3>
+      <p class="text-sm text-muted mb-3">Map strip only: no card chrome, no outer border; standard (smaller) pin.</p>
+      <div id="demo-ui-mini-map-minimal" class="ds-map-demo ds-map-demo--minimal" data-demo-mini-map-minimal aria-label="Minimal mini map"></div>
+
+      <div class="accordion mt-4 mb-8" data-accordion>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#code" /></svg>
+            HTML
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <pre><code>&lt;!-- In a card --&gt;
+&lt;div class="ds-map-card"&gt;
+  &lt;div class="ds-map-card-body"&gt;
+    &lt;h3 class="ds-map-card-title"&gt;Venue&lt;/h3&gt;
+    &lt;p class="ds-map-card-meta"&gt;Address line&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div id="venue-map" class="ds-map-demo ds-map-demo--card"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Minimal: map container only --&gt;
+&lt;div id="venue-map-minimal" class="ds-map-demo ds-map-demo--minimal"&gt;&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <svg class="icon icon-sm" aria-hidden="true"><use href="../downstage-icons.svg#terminal" /></svg>
+            JavaScript (custom pin)
+            <svg class="icon accordion-icon" aria-hidden="true"><use href="../downstage-icons.svg#plus" /></svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              <pre><code>var map = L.map('venue-map', {
+  scrollWheelZoom: false,
+  attributionControl: true
+}).setView([45.4642, 9.19], 15);
+
+L.tileLayer(
+  'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',
+  { attribution: '…', subdomains: 'abcd', maxZoom: 20 }
+).addTo(map);
+
+var pin = L.divIcon({
+  className: 'ds-leaflet-marker-wrap',
+  html: '&lt;div class="ds-leaflet-marker-pin ds-leaflet-marker-pin--card" ' +
+    'style="--pin-color:var(--brand-primary)"&gt;&lt;/div&gt;',
+  iconSize: [40, 48],
+  iconAnchor: [20, 48],
+  popupAnchor: [0, -44]
+});
+
+L.marker([45.4642, 9.19], { icon: pin })
+  .addTo(map)
+  .bindPopup('We are here');</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
       </div>
     </div>
   </main>
@@ -1309,25 +1745,40 @@ export PATH="$HOME/.local/bin:$PATH"</textarea>
         <div>
           <div class="footer-title">Documentation</div>
           <ul class="footer-links">
-            <li><a href="index.html">All sections</a></li>
             <li><a href="basic.html">Basic</a></li>
-            <li><a href="interactive.html">Interactive UI</a></li>
+            <li><a href="media.html">Media</a></li>
+            <li><a href="templates.html">Templates</a></li>
           </ul>
         </div>
         <div>
-          <div class="footer-title">Site</div>
+          <div class="footer-title">Components</div>
           <ul class="footer-links">
-            <li><a href="../index.html">Home</a></li>
+            <li><a href="ui-components.html">UI Components</a></li>
+            <li><a href="interactive.html">Interactive UI</a></li>
+            <li><a href="data.html">Data UI</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-title">Legal</div>
+          <ul class="footer-links">
+            <li><a href="https://raw.githubusercontent.com/andreapollastri/downstage/refs/heads/main/LICENSE.md" target="_blank" rel="noopener noreferrer">MIT License</a></li>
+            <li><a href="https://floriankarsten.github.io/space-grotesk/" target="_blank" rel="noopener noreferrer">Font credits</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
         <div>© 2026 <a href="https://web.ap.it" target="_blank" rel="noopener">Andrea Pollastri</a></div>
+        <div class="footer-social">
+          <a href="https://github.com/andreapollastri" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><svg class="icon">
+              <use href="../downstage-icons.svg#github" />
+            </svg></a>
+        </div>
       </div>
     </div>
   </footer>
 
   <script>window.__DOWNSTAGE_ICONS_BASE__ = "../downstage-icons.svg"; window.__DOWNSTAGE_LOCALE_BASE__ = "../locales/";</script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin="" defer></script>
   <script src="../downstage.js" defer></script>
   <script src="../demo/demo.js" defer></script>
 </body>

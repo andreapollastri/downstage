@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="downstage">
+  <rect width="32" height="32" rx="7" fill="#fffdf7"/>
+  <g fill="none" stroke="#5a6b5d" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M11 8v16M21 8v16M7 12h18M7 20h18"/>
+  </g>
+</svg>

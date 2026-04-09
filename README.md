@@ -1,6 +1,6 @@
 # downstage.css
 
-Minimal Nordic design system — lightweight, zero dependencies, for sites and web apps where content comes before ornament. **downstage.js** adds **JavaScript with built-in components** (tabs, lightbox, HTML editor, Kanban, data table, i18n, and more).
+Minimal Nordic design system — lightweight, zero dependencies, for sites and web apps where content comes before ornament. **downstage.js** adds **JavaScript with built-in components** (tabs, lightbox, HTML editor, Kanban, data table, order list, i18n, and more).
 
 Clean typography, warm desaturated palette, thin borders, light shadows, integrated dark mode.
 
@@ -71,7 +71,7 @@ your-project/
 </html>
 ```
 
-Layout and styling work from **CSS alone**; **`downstage.js`** layers **built-in interactive components** (theme persistence, navbar, tabs, accordion, lightbox, HTML editor, combobox, Kanban, data table, and more).
+Layout and styling work from **CSS alone**; **`downstage.js`** layers **built-in interactive components** (theme persistence, navbar, tabs, accordion, lightbox, HTML editor, combobox, Kanban, data table, order list, and more).
 
 ---
 
@@ -268,9 +268,9 @@ Merges dropped files into the input; click on zone opens file dialog.
 
 See [HTML editor (detailed)](#html-editor-detailed).
 
-### App UI (auth, combobox, Kanban, data table)
+### App UI (auth, combobox, Kanban, data table, order list)
 
-Markup plus **`downstage.js`** built-in behaviors for sign-in flows, autocomplete fields, boards, and tables. See **`docs/apps.html`**.
+Markup plus **`downstage.js`** built-in behaviors for sign-in flows, autocomplete fields, boards, tables, and order/invoice builders. See **`docs/apps.html`** and **`docs/data.html`**.
 
 #### Authentication shells
 
@@ -327,7 +327,7 @@ Centered **`.auth-shell`** (optional min-height) wraps **`.auth-card`** (max-wid
 | `#timeline` | `ol.timeline`, `.timeline-item`, `.timeline--compact` |
 | `#shop` | `.shop-grid`, `.shop-card`, `.product-detail`, `.cart`, checkout / payment panels |
 | `docs/apps.html` (auth blocks) | `.auth-shell`, `.auth-card`, sign in / sign up / recovery / 2FA patterns |
-| `docs/apps.html` (data UI) | Combobox, search autocomplete, Kanban, data table (JS-backed demos) |
+| `docs/apps.html` (data UI) | Combobox, search autocomplete, Kanban, data table, order list (JS-backed demos) |
 | `#filters` | Image filter classes (see [Utilities](#utilities)) |
 
 ### Sidebar nav (settings-style)
@@ -441,6 +441,130 @@ Global: **`window.Downstage`**. Every module exposes **`init()`**, invoked once 
 | ----------------- | ----------- |
 | `init()` | Mounts `[data-data-table][data-data-table-demo]` with sample rows. |
 | `mount(el, options)` | Local or remote table; `fetchRemote` for server-driven pagination/sort/filter. Returns `{ refresh }`. |
+
+### `Downstage.orderList`
+
+Search-to-add item list for invoices, orders, and quote builders. Autocomplete search (local or API), configurable columns with quantity controls and computed values, column sort / drag-reorder, JSON output, optional create-via-modal.
+
+| Method / selector | Description |
+| ----------------- | ----------- |
+| `init()` | Mounts `[data-order-list]` (skips `[data-order-list-demo]`). |
+| `mount(el, options)` | Returns `{ root, getItems, setItems, addItem, removeItem, refresh }`. |
+
+**Mount options:**
+
+| Option | Type | Default | Description |
+| ------ | ---- | ------- | ----------- |
+| `name` | string | `"order_items"` | Hidden input name for form submission. |
+| `columns` | array | `[]` | Column definitions (see below). |
+| `options` | array | `[]` | Local items: `[{ value, label }]`. `value` can be a string or object. |
+| `fetchUrl` | string | — | GET endpoint; appends `?q=…`, expects JSON array or `{ results }` / `{ items }`. |
+| `fetchOptions` | function | — | Custom: `function(query) → Promise<[{ value, label }]>`. |
+| `itemKey` | string | — | Dot-path into `value` for duplicate detection (e.g. `"codice"`). |
+| `items` | array | `[]` | Pre-populated rows: `[{ value, qty?, sort_order? }]`. |
+| `sortMode` | string | `"column"` | Initial mode: `"column"` (header click) or `"manual"` (drag reorder). |
+| `placeholder` | string | i18n | Search input placeholder. |
+| `minChars` | number | 0 local / 1 remote | Min characters before search fires. |
+| `debounceMs` | number | 250 | Search debounce delay (ms). |
+| `onChange` | function | — | `function(items)` — fired on every change. |
+| `createTitle` | string | i18n | Modal heading for create form. |
+| `createFields` | array | — | Modal field definitions (see below). Required to enable creation. |
+| `createOption` | function | — | `function(data) → Promise<{ value, label }>`. Receives form data, returns the new item. |
+| `createUrl` | string | — | POST JSON to this URL instead of `createOption`. |
+
+**Column definition:**
+
+| Property | Type | Description |
+| -------- | ---- | ----------- |
+| `key` | string | Unique column id (used as sort key). |
+| `label` | string | Header text. |
+| `from` | string | Dot-path resolved on the row, e.g. `"value.codice"`. |
+| `type` | string | `"qty"` renders +/− controls. One qty column per list. |
+| `compute` | function | `function(item) → displayValue`. Not sortable by header. |
+| `render` | function | `function(cellValue, item) → html`. Custom cell HTML. |
+| `sortable` | boolean | `false` to disable header sort (auto-disabled for qty / computed). |
+
+**Create field definition:**
+
+| Property | Type | Description |
+| -------- | ---- | ----------- |
+| `key` | string | Property name in submitted data. |
+| `label` | string | Field label. |
+| `type` | string | `"text"`, `"number"`, `"select"`, or `"textarea"`. |
+| `options` | array | For select: strings or `{ value, label }`. |
+| `required` | boolean | Block submit when empty. |
+| `placeholder` | string | Input placeholder. |
+| `default` | any | Default value on open. |
+| `step` | string | Step for number inputs (e.g. `"0.01"`). |
+
+**Event:** `order-list-change` (bubbling `CustomEvent`) — `event.detail.items` is the full JSON array.
+
+**Output format:**
+
+```json
+[
+  {
+    "value": { "codice": "P001", "nome": "Widget Pro", "unita": "pz", "costo": 12.50 },
+    "qty": 3,
+    "sort_order": 0
+  }
+]
+```
+
+**Example — local items with create modal:**
+
+```js
+Downstage.orderList.mount('#invoice', {
+  name: 'invoice_items',
+  itemKey: 'codice',
+  options: [
+    { value: { codice: 'P001', nome: 'Widget', unita: 'pz', costo: 12.5 }, label: 'P001 — Widget' },
+  ],
+  columns: [
+    { key: 'codice', label: 'Code',       from: 'value.codice' },
+    { key: 'nome',   label: 'Product',    from: 'value.nome' },
+    { key: 'qty',    label: 'Qty',        type: 'qty' },
+    { key: 'costo',  label: 'Unit price', from: 'value.costo' },
+    { key: 'totale', label: 'Total',      compute: function (item) {
+        return ((item.qty || 1) * (item.value.costo || 0)).toFixed(2);
+      }
+    },
+  ],
+  createFields: [
+    { key: 'codice', label: 'Code',  type: 'text',   required: true },
+    { key: 'nome',   label: 'Name',  type: 'text',   required: true },
+    { key: 'unita',  label: 'Unit',  type: 'select', options: ['pz','h','yr'] },
+    { key: 'costo',  label: 'Price', type: 'number', required: true, step: '0.01' },
+  ],
+  createOption: function (data) {
+    return fetch('/api/items', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    }).then(function (r) { return r.json(); });
+  },
+});
+```
+
+**Example — remote fetch API:**
+
+```js
+Downstage.orderList.mount('#order', {
+  fetchUrl: '/api/products',      // GET /api/products?q=widget
+  // OR: fetchOptions: function (q) { return fetch(…).then(…); },
+  itemKey: 'id',
+  columns: [
+    { key: 'id',    label: 'ID',      from: 'value.id' },
+    { key: 'name',  label: 'Name',    from: 'value.name' },
+    { key: 'qty',   label: 'Qty',     type: 'qty' },
+    { key: 'price', label: 'Price',   from: 'value.price' },
+    { key: 'total', label: 'Total',   compute: function (item) {
+        return ((item.qty || 1) * (item.value.price || 0)).toFixed(2);
+      }
+    },
+  ],
+});
+```
 
 ---
 

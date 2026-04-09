@@ -4,6 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <title>downstage.css — Minimal Nordic Design System</title>
   <link rel="stylesheet" href="downstage.css">
   <link rel="stylesheet" href="demo/demo.css">
@@ -1563,13 +1565,6 @@ export PATH="$HOME/.local/bin:$PATH"</textarea>
         <p>Select text and use the toolbar to format.</p>
       </div>
 
-      <h4 class="mt-8 mb-2">Snippet: blockquote</h4>
-      <p class="text-subtle text-sm mb-4">Typical markup for a quote inside the editor (design system <code
-          class="text-mono">blockquote</code> styles).</p>
-      <pre class="code-snippet mt-4" tabindex="0"><span class="c-tag">&lt;blockquote&gt;</span>
-  <span class="c-tag">&lt;p&gt;</span>Design is the contrast of substance and appearance.<span class="c-tag">&lt;/p&gt;</span>
-  <span class="c-tag">&lt;footer&gt;</span>— Paul Rand<span class="c-tag">&lt;/footer&gt;</span>
-<span class="c-tag">&lt;/blockquote&gt;</span></pre>
     </section>
 
     <!-- ============================== TABLE ============================== -->
@@ -3285,47 +3280,37 @@ Downstage.dataTable.mount('#table', { mode: 'local', columns, rows });</code></p
         </div>
 
         <div>
-          <div class="footer-title">Product</div>
+          <div class="footer-title">Documentation</div>
           <ul class="footer-links">
-            <li><a href="#tutorial">Tutorial</a></li>
-            <li><a href="#buttons">Components</a></li>
-            <li><a href="#icons">Icons</a></li>
-            <li><a href="#">Changelog</a></li>
+            <li><a href="docs/basic.html">Basic</a></li>
+            <li><a href="docs/media.html">Media</a></li>
+            <li><a href="docs/templates.html">Templates</a></li>
           </ul>
         </div>
 
         <div>
-          <div class="footer-title">Resources</div>
+          <div class="footer-title">Components</div>
           <ul class="footer-links">
-            <li><a href="#">Documentation</a></li>
-            <li><a href="#">Examples</a></li>
-            <li><a href="#">GitHub</a></li>
-            <li><a href="#">Roadmap</a></li>
+            <li><a href="docs/ui-components.html">UI Components</a></li>
+            <li><a href="docs/interactive.html">Interactive UI</a></li>
+            <li><a href="docs/data.html">Data UI</a></li>
           </ul>
         </div>
 
         <div>
           <div class="footer-title">Legal</div>
           <ul class="footer-links">
-            <li><a href="#">MIT License</a></li>
-            <li><a href="#">Privacy</a></li>
-            <li><a href="#">Font credits</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="https://raw.githubusercontent.com/andreapollastri/downstage/refs/heads/main/LICENSE.md" target="_blank" rel="noopener noreferrer">MIT License</a></li>
+            <li><a href="https://floriankarsten.github.io/space-grotesk/" target="_blank" rel="noopener noreferrer">Font credits</a></li>
           </ul>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <div>© 2026 <a href="https://web.ap.it" target="_blank">Andrea Pollastri</a> · Crafted with care</div>
+        <div>© 2026 <a href="https://web.ap.it" target="_blank" rel="noopener">Andrea Pollastri</a> · Crafted with care</div>
         <div class="footer-social">
-          <a href="#" aria-label="GitHub"><svg class="icon">
+          <a href="https://github.com/andreapollastri" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><svg class="icon">
               <use href="downstage-icons.svg#github" />
-            </svg></a>
-          <a href="#" aria-label="Email"><svg class="icon">
-              <use href="downstage-icons.svg#mail" />
-            </svg></a>
-          <a href="#" aria-label="Globe"><svg class="icon">
-              <use href="downstage-icons.svg#globe" />
             </svg></a>
         </div>
       </div>
