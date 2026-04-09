@@ -176,10 +176,61 @@
       </button>
 
       <div class="navbar-menu" id="navbar-menu">
+        <div class="navbar-menu-scroll">
         <a href="#tutorial" class="navbar-link active">Tutorial</a>
-        <a href="#components" class="navbar-link">Components</a>
+
+        <details class="navbar-dropdown">
+          <summary class="navbar-dropdown-summary">
+            Components
+            <svg class="icon icon-sm navbar-dropdown-chevron" aria-hidden="true">
+              <use href="downstage-icons.svg#chevron-down" />
+            </svg>
+          </summary>
+          <div class="navbar-dropdown-panel navbar-dropdown-panel--grouped" role="group" aria-label="Component sections">
+            <div class="navbar-dropdown-group" role="group" aria-labelledby="nav-components-foundation">
+              <p class="navbar-dropdown-group-title" id="nav-components-foundation">Foundation</p>
+              <a href="#grid" class="navbar-dropdown-link">Grid</a>
+              <a href="#buttons" class="navbar-dropdown-link">Buttons</a>
+              <a href="#forms" class="navbar-dropdown-link">Forms</a>
+              <a href="#table" class="navbar-dropdown-link">Table</a>
+            </div>
+            <div class="navbar-dropdown-group" role="group" aria-labelledby="nav-components-interactive">
+              <p class="navbar-dropdown-group-title" id="nav-components-interactive">Interactive</p>
+              <a href="#tabs" class="navbar-dropdown-link">Tabs</a>
+              <a href="#accordion" class="navbar-dropdown-link">Accordion</a>
+              <a href="#modal" class="navbar-dropdown-link">Modal</a>
+            </div>
+            <div class="navbar-dropdown-group" role="group" aria-labelledby="nav-components-media">
+              <p class="navbar-dropdown-group-title" id="nav-components-media">Media</p>
+              <a href="#gallery" class="navbar-dropdown-link">Gallery</a>
+              <a href="#slider" class="navbar-dropdown-link">Slider</a>
+              <a href="#videoplayer" class="navbar-dropdown-link">Video</a>
+              <a href="#audioplayer" class="navbar-dropdown-link">Audio</a>
+            </div>
+            <div class="navbar-dropdown-group" role="group" aria-labelledby="nav-components-pages">
+              <p class="navbar-dropdown-group-title" id="nav-components-pages">Page templates</p>
+              <a href="#docs-demo" class="navbar-dropdown-link">Docs</a>
+              <a href="#dashboard-demo" class="navbar-dropdown-link">Dashboard</a>
+              <a href="#portfolio" class="navbar-dropdown-link">Portfolio</a>
+              <a href="#blog" class="navbar-dropdown-link">Blog</a>
+              <a href="#links" class="navbar-dropdown-link">Links</a>
+            </div>
+            <div class="navbar-dropdown-group" role="group" aria-labelledby="nav-components-people">
+              <p class="navbar-dropdown-group-title" id="nav-components-people">People &amp; profile</p>
+              <a href="#about" class="navbar-dropdown-link">About</a>
+              <a href="#profile" class="navbar-dropdown-link">Profile</a>
+              <a href="#team" class="navbar-dropdown-link">Team</a>
+              <a href="#timeline" class="navbar-dropdown-link">Timeline</a>
+            </div>
+            <div class="navbar-dropdown-group" role="group" aria-labelledby="nav-components-commerce">
+              <p class="navbar-dropdown-group-title" id="nav-components-commerce">Shop &amp; tools</p>
+              <a href="#shop" class="navbar-dropdown-link">Shop</a>
+              <a href="#filters" class="navbar-dropdown-link">Image filters</a>
+            </div>
+          </div>
+        </details>
+
         <a href="#icons" class="navbar-link">Icons</a>
-        <a href="#dashboard-demo" class="navbar-link">Dashboard</a>
 
         <div class="navbar-actions">
           <div class="btn-group" role="group" aria-label="Theme">
@@ -195,6 +246,7 @@
             </button>
             <button class="btn btn-sm" data-set-theme="auto" aria-label="Auto theme">Auto</button>
           </div>
+        </div>
         </div>
       </div>
     </div>
@@ -217,7 +269,7 @@
             <use href="downstage-icons.svg#arrow-right" />
           </svg>
         </a>
-        <a href="#components" class="btn btn-secondary">
+        <a href="#buttons" class="btn btn-secondary">
           <svg class="icon">
             <use href="downstage-icons.svg#code" />
           </svg>
@@ -1073,7 +1125,7 @@
     </section>
 
     <!-- ============================== GRID ============================== -->
-    <section class="demo-section">
+    <section class="demo-section" id="grid">
       <p class="demo-section-title">05 — Layout</p>
       <h2>Grid system</h2>
       <p class="text-soft">12 columns. Consistent gap. Use <code>.col-N</code> inside <code>.grid</code>.</p>
@@ -1103,7 +1155,7 @@
     </section>
 
     <!-- ============================== BUTTONS ============================== -->
-    <section class="demo-section" id="components">
+    <section class="demo-section" id="buttons">
       <p class="demo-section-title">06 — Components</p>
       <h2>Buttons</h2>
 
@@ -1152,7 +1204,7 @@
     </section>
 
     <!-- ============================== FORMS ============================== -->
-    <section class="demo-section">
+    <section class="demo-section" id="forms">
       <p class="demo-section-title">07 — Components</p>
       <h2>Forms</h2>
 
@@ -1346,9 +1398,11 @@
     </section>
 
     <!-- ============================== TABLE ============================== -->
-    <section class="demo-section">
+    <section class="demo-section" id="table">
       <p class="demo-section-title">08 — Components</p>
       <h2>Table</h2>
+      <p class="text-soft">Default in card, then minimal on <code>--bg</code>, compact, striped, and combined variants.
+      </p>
 
       <div class="card mt-6" style="padding: 0; overflow: hidden;">
         <div class="table-wrap" role="region" aria-label="Projects table" tabindex="0">
@@ -1390,10 +1444,135 @@
           </table>
         </div>
       </div>
+
+      <h4 class="mt-10 mb-2">Minimal (page background)</h4>
+      <p class="text-soft text-sm mb-4">No card: only bottom borders on rows, cells sit on <code>--bg</code> like minimal
+        inputs. Class <code>table table-minimal</code>.</p>
+      <div class="table-wrap" role="region" aria-label="Minimal projects table" tabindex="0">
+        <table class="table table-minimal">
+          <thead>
+            <tr>
+              <th>Project</th>
+              <th>Status</th>
+              <th>Owner</th>
+              <th class="text-right">Build</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>cipi.sh</strong><br><span class="text-subtle">v4.2.1</span></td>
+              <td><span class="badge badge-success">Stable</span></td>
+              <td>team</td>
+              <td class="text-right text-mono">#1284</td>
+            </tr>
+            <tr>
+              <td><strong>init</strong><br><span class="text-subtle">scaffolder</span></td>
+              <td><span class="badge badge-warning">Beta</span></td>
+              <td>team</td>
+              <td class="text-right text-mono">#0421</td>
+            </tr>
+            <tr>
+              <td><strong>downstage.css</strong><br><span class="text-subtle">design system</span></td>
+              <td><span class="badge badge-info">RC</span></td>
+              <td>team</td>
+              <td class="text-right text-mono">#0042</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4 class="mt-10 mb-2">Compact</h4>
+      <p class="text-soft text-sm mb-4">Tighter padding — <code>table table-compact</code> inside a card.</p>
+      <div class="card mt-4" style="padding: 0; overflow: hidden;">
+        <div class="table-wrap">
+          <table class="table table-compact">
+            <thead>
+              <tr>
+                <th>Key</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-mono">theme</td>
+                <td>light</td>
+              </tr>
+              <tr>
+                <td class="text-mono">version</td>
+                <td>0.4.0</td>
+              </tr>
+              <tr>
+                <td class="text-mono">license</td>
+                <td>MIT</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <h4 class="mt-10 mb-2">Striped</h4>
+      <p class="text-soft text-sm mb-4">Alternating rows — <code>table table-striped</code>.</p>
+      <div class="card mt-4" style="padding: 0; overflow: hidden;">
+        <div class="table-wrap">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Event</th>
+                <th>Time</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Deploy</td>
+                <td class="text-mono">09:41</td>
+              </tr>
+              <tr>
+                <td>Build OK</td>
+                <td class="text-mono">09:38</td>
+              </tr>
+              <tr>
+                <td>PR merged</td>
+                <td class="text-mono">09:12</td>
+              </tr>
+              <tr>
+                <td>Push</td>
+                <td class="text-mono">09:10</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <h4 class="mt-10 mb-2">Minimal + compact</h4>
+      <p class="text-soft text-sm mb-4">Combine modifiers: <code>table table-minimal table-compact</code>.</p>
+      <div class="table-wrap mt-4" role="region" aria-label="Compact minimal table" tabindex="0">
+        <table class="table table-minimal table-compact">
+          <thead>
+            <tr>
+              <th>Setting</th>
+              <th class="text-right">Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Font</td>
+              <td class="text-right text-mono">Space Grotesk</td>
+            </tr>
+            <tr>
+              <td>Radius</td>
+              <td class="text-right text-mono">8px</td>
+            </tr>
+            <tr>
+              <td>Container</td>
+              <td class="text-right text-mono">72ch</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </section>
 
     <!-- ============================== TABS ============================== -->
-    <section class="demo-section">
+    <section class="demo-section" id="tabs">
       <p class="demo-section-title">09 — Components</p>
       <h2>Tabs</h2>
       <p class="text-soft">Auto-init via <code>data-tabs</code>. Arrow keys ←/→ to navigate.</p>
@@ -1432,7 +1611,7 @@
     </section>
 
     <!-- ============================== ACCORDION ============================== -->
-    <section class="demo-section">
+    <section class="demo-section" id="accordion">
       <p class="demo-section-title">10 — Components</p>
       <h2>Accordion</h2>
       <p class="text-soft">Add <code>data-accordion="single"</code> for exclusive mode.</p>
@@ -1503,7 +1682,7 @@
     </section>
 
     <!-- ============================== MODAL ============================== -->
-    <section class="demo-section">
+    <section class="demo-section" id="modal">
       <p class="demo-section-title">11 — Components</p>
       <h2>Modal &amp; Sidebar nav</h2>
 
@@ -1900,9 +2079,950 @@ Downstage.lightbox.close();</code></pre>
       </div>
     </section>
 
+    <!-- ============================== PORTFOLIO ============================== -->
+    <section class="demo-section" id="portfolio">
+      <p class="demo-section-title">18 — Components</p>
+      <h2>Portfolio</h2>
+      <p class="text-soft">Project cards in a responsive grid. Use <code>.portfolio-item</code> as a block or wrap the
+        whole card in <code>&lt;a&gt;</code>. Optional <code>.portfolio-item--featured</code> spans two columns on wide
+        viewports.</p>
+
+      <div class="portfolio mt-8">
+        <a href="#" class="portfolio-item portfolio-item--featured">
+          <div class="portfolio-media">
+            <img src="https://picsum.photos/seed/portfolio1/1200/520" alt="Northwind console preview">
+          </div>
+          <div class="portfolio-body">
+            <span class="portfolio-meta">Product · 2025</span>
+            <h3 class="portfolio-title">Northwind console</h3>
+            <p class="portfolio-desc">Design system and UI kit for internal tools. Tokens, components, and
+              documentation in one place.</p>
+            <div class="portfolio-tags">
+              <span class="badge">UI</span>
+              <span class="badge badge-info">React</span>
+              <span class="badge">Design</span>
+            </div>
+          </div>
+          <div class="portfolio-footer">
+            <span class="text-subtle text-sm">Case study</span>
+            <span class="portfolio-link">
+              View
+              <svg class="icon" aria-hidden="true">
+                <use href="downstage-icons.svg#arrow-right" />
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <a href="#" class="portfolio-item">
+          <div class="portfolio-media">
+            <img src="https://picsum.photos/seed/portfolio2/800/500" alt="Studio Meridian preview">
+          </div>
+          <div class="portfolio-body">
+            <span class="portfolio-meta">Web · 2024</span>
+            <h3 class="portfolio-title">Studio Meridian</h3>
+            <p class="portfolio-desc">Marketing site with editorial layouts and a restrained palette.</p>
+            <div class="portfolio-tags">
+              <span class="badge badge-success">Live</span>
+              <span class="badge">Astro</span>
+            </div>
+          </div>
+          <div class="portfolio-footer">
+            <span class="text-subtle text-sm">Brand &amp; dev</span>
+            <span class="portfolio-link">
+              View
+              <svg class="icon" aria-hidden="true">
+                <use href="downstage-icons.svg#arrow-right" />
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <a href="#" class="portfolio-item">
+          <div class="portfolio-media">
+            <img src="https://picsum.photos/seed/portfolio3/800/500" alt="downstage.css preview">
+          </div>
+          <div class="portfolio-body">
+            <span class="portfolio-meta">Open source</span>
+            <h3 class="portfolio-title">downstage.css</h3>
+            <p class="portfolio-desc">This very design system — minimal Nordic components, zero dependencies.</p>
+            <div class="portfolio-tags">
+              <span class="badge">CSS</span>
+              <span class="badge badge-warning">WIP</span>
+            </div>
+          </div>
+          <div class="portfolio-footer">
+            <span class="text-subtle text-sm">Library</span>
+            <span class="portfolio-link">
+              View
+              <svg class="icon" aria-hidden="true">
+                <use href="downstage-icons.svg#arrow-right" />
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <article class="portfolio-item">
+          <div class="portfolio-media">
+            <img src="https://picsum.photos/seed/portfolio4/800/500" alt="Audio visualizer preview">
+          </div>
+          <div class="portfolio-body">
+            <span class="portfolio-meta">Experiment</span>
+            <h3 class="portfolio-title">Audio visualizer</h3>
+            <p class="portfolio-desc">Non-linked card example using <code>&lt;article&gt;</code> for a static teaser.
+            </p>
+            <div class="portfolio-tags">
+              <span class="badge">Canvas</span>
+            </div>
+          </div>
+          <div class="portfolio-footer">
+            <span class="text-subtle text-sm">Prototype</span>
+            <button type="button" class="btn btn-sm btn-secondary">Details</button>
+          </div>
+        </article>
+      </div>
+
+      <h4 class="mt-12 mb-2">Minimal</h4>
+      <p class="text-soft text-sm mb-6">Variante compatta su <code class="text-mono">--bg</code>: solo bordi orizzontali,
+        senza card chrome — come <code class="text-mono">.table-minimal</code> e <code
+          class="text-mono">.input-minimal</code>. Usa <code class="text-mono">.portfolio.portfolio--minimal</code> e
+        <code class="text-mono">.portfolio-item--minimal</code>.</p>
+      <div class="portfolio portfolio--minimal mt-6">
+        <a href="#" class="portfolio-item portfolio-item--minimal">
+          <div class="portfolio-media">
+            <img src="https://picsum.photos/seed/pmin1/400/400" alt="Atlas maps preview">
+          </div>
+          <div class="portfolio-body">
+            <span class="portfolio-meta">Maps · 2025</span>
+            <h3 class="portfolio-title">Atlas</h3>
+            <p class="portfolio-desc">Tile server e palette coerente con il design system.</p>
+            <div class="portfolio-tags">
+              <span class="badge">Geo</span>
+              <span class="badge badge-info">API</span>
+            </div>
+          </div>
+          <div class="portfolio-footer">
+            <span class="text-subtle text-sm">Product</span>
+            <span class="portfolio-link">
+              View
+              <svg class="icon" aria-hidden="true">
+                <use href="downstage-icons.svg#arrow-right" />
+              </svg>
+            </span>
+          </div>
+        </a>
+        <a href="#" class="portfolio-item portfolio-item--minimal">
+          <div class="portfolio-media">
+            <img src="https://picsum.photos/seed/pmin2/400/400" alt="Ledger app preview">
+          </div>
+          <div class="portfolio-body">
+            <span class="portfolio-meta">Finance</span>
+            <h3 class="portfolio-title">Ledger mobile</h3>
+            <p class="portfolio-desc">Flussi di approvazione e notifiche in tempo reale.</p>
+            <div class="portfolio-tags">
+              <span class="badge badge-success">Shipped</span>
+            </div>
+          </div>
+          <div class="portfolio-footer">
+            <span class="text-subtle text-sm">Case study</span>
+            <span class="portfolio-link">
+              View
+              <svg class="icon" aria-hidden="true">
+                <use href="downstage-icons.svg#arrow-right" />
+              </svg>
+            </span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ============================== BLOG ============================== -->
+    <section class="demo-section" id="blog">
+      <p class="demo-section-title">19 — Components</p>
+      <h2>Blog</h2>
+      <p class="text-soft">Article teasers with <code>.blog-card</code> inside <code>.blog-list--grid</code> or a
+        vertical
+        <code>.blog-list</code>. Meta line supports date, category, and reading time.
+      </p>
+
+      <div class="blog-list blog-list--grid mt-8">
+        <a href="#" class="blog-card">
+          <div class="blog-card-media">
+            <img src="https://picsum.photos/seed/blog1/800/450"
+              alt="Abstract gradient for blog post about design tokens">
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <time datetime="2026-03-12">12 Mar 2026</time>
+              <span class="badge badge-info">Tutorial</span>
+              <span>6 min read</span>
+            </div>
+            <h3 class="blog-card-title">Tokens first: theming without the noise</h3>
+            <p class="blog-card-excerpt">How we structure CSS variables so light, dark, and brand swaps stay
+              predictable.
+            </p>
+            <div class="blog-card-footer">
+              <span class="text-subtle text-sm">John Doe</span>
+              <span class="blog-read-more">
+                Read
+                <svg class="icon" aria-hidden="true">
+                  <use href="downstage-icons.svg#arrow-right" />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="blog-card">
+          <div class="blog-card-media">
+            <img src="https://picsum.photos/seed/blog2/800/450" alt="Workspace photo for static design system article">
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <time datetime="2026-02-28">28 Feb 2026</time>
+              <span class="badge">Notes</span>
+              <span>3 min read</span>
+            </div>
+            <h3 class="blog-card-title">Shipping a static design system</h3>
+            <p class="blog-card-excerpt">No build step, no npm — just HTML, CSS, and a thin layer of JS where it helps.
+            </p>
+            <div class="blog-card-footer">
+              <span class="text-subtle text-sm">Team</span>
+              <span class="blog-read-more">
+                Read
+                <svg class="icon" aria-hidden="true">
+                  <use href="downstage-icons.svg#arrow-right" />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="blog-card">
+          <div class="blog-card-media">
+            <img src="https://picsum.photos/seed/blog3/800/450" alt="Texture image for changelog post">
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <time datetime="2026-01-15">15 Jan 2026</time>
+              <span class="badge badge-success">Changelog</span>
+              <span>2 min read</span>
+            </div>
+            <h3 class="blog-card-title">What changed in 0.4</h3>
+            <p class="blog-card-excerpt">Portfolio grid, blog cards, and tighter focus styles across components.</p>
+            <div class="blog-card-footer">
+              <span class="text-subtle text-sm">Release</span>
+              <span class="blog-read-more">
+                Read
+                <svg class="icon" aria-hidden="true">
+                  <use href="downstage-icons.svg#arrow-right" />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <h4 class="mt-12 mb-2">Stacked list</h4>
+      <p class="text-soft text-sm mb-6">Same card pattern in a vertical <code>.blog-list</code> for archive pages.</p>
+      <div class="blog-list blog-list--narrow">
+        <a href="#" class="blog-card blog-card--compact">
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <time datetime="2025-11-02">2 Nov 2025</time>
+              <span class="badge badge-warning">Draft</span>
+            </div>
+            <h3 class="blog-card-title">Accessibility checklist for forms</h3>
+            <p class="blog-card-excerpt">Labels, errors, and focus order — a short list we use before shipping.</p>
+            <div class="blog-card-footer">
+              <span class="text-subtle text-sm">A11y</span>
+              <span class="blog-read-more">
+                Read
+                <svg class="icon" aria-hidden="true">
+                  <use href="downstage-icons.svg#arrow-right" />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </a>
+        <a href="#" class="blog-card blog-card--compact">
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <time datetime="2025-09-18">18 Sept 2025</time>
+            </div>
+            <h3 class="blog-card-title">Why we still like vanilla JS</h3>
+            <p class="blog-card-excerpt">Progressive enhancement and fewer moving parts in production.</p>
+            <div class="blog-card-footer">
+              <span class="text-subtle text-sm">Engineering</span>
+              <span class="blog-read-more">
+                Read
+                <svg class="icon" aria-hidden="true">
+                  <use href="downstage-icons.svg#arrow-right" />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <h4 class="mt-12 mb-2">Minimal</h4>
+      <p class="text-soft text-sm mb-6">Lista con <code class="text-mono">.blog-list--minimal</code> e <code
+          class="text-mono">.blog-card--minimal</code>: thumb a sinistra (su viewport larghi), niente ombra né bordo
+        pieno.</p>
+      <div class="blog-list blog-list--grid blog-list--minimal mt-6">
+        <a href="#" class="blog-card blog-card--minimal">
+          <div class="blog-card-media">
+            <img src="https://picsum.photos/seed/bmin1/400/400" alt="Gradient for minimal blog card">
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <time datetime="2026-04-01">1 Apr 2026</time>
+              <span class="badge">Notes</span>
+              <span>4 min</span>
+            </div>
+            <h3 class="blog-card-title">Minimal lists in production</h3>
+            <p class="blog-card-excerpt">Quando togliere il contenitore migliora scansione e densità.</p>
+            <div class="blog-card-footer">
+              <span class="text-subtle text-sm">Editorial</span>
+              <span class="blog-read-more">
+                Read
+                <svg class="icon" aria-hidden="true">
+                  <use href="downstage-icons.svg#arrow-right" />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </a>
+        <a href="#" class="blog-card blog-card--minimal">
+          <div class="blog-card-media">
+            <img src="https://picsum.photos/seed/bmin2/400/400" alt="Texture for second minimal post">
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <time datetime="2026-03-20">20 Mar 2026</time>
+              <span class="badge badge-info">Guide</span>
+              <span>7 min</span>
+            </div>
+            <h3 class="blog-card-title">Spacing tokens for archives</h3>
+            <p class="blog-card-excerpt">Allineare ritmo verticale tra teaser e paginazione.</p>
+            <div class="blog-card-footer">
+              <span class="text-subtle text-sm">Design</span>
+              <span class="blog-read-more">
+                Read
+                <svg class="icon" aria-hidden="true">
+                  <use href="downstage-icons.svg#arrow-right" />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ============================== LINKS ============================== -->
+    <section class="demo-section" id="links">
+      <p class="demo-section-title">20 — Components</p>
+      <h2>Links</h2>
+      <p class="text-soft">Stack of outbound links — useful for a “link in bio” page or a compact resources list. Use
+        <code>.link-list</code> + <code>a.link-item</code>
+      </p>
+
+      <div class="link-list mt-8">
+        <a href="https://github.com" class="link-item" target="_blank" rel="noopener noreferrer">
+          <span class="link-item-icon" aria-hidden="true">
+            <svg class="icon">
+              <use href="downstage-icons.svg#github" />
+            </svg>
+          </span>
+          <span class="link-item-body">
+            <span class="link-item-title">GitHub</span>
+            <span class="link-item-desc">Source and issues</span>
+          </span>
+          <span class="link-item-arrow" aria-hidden="true">
+            <svg class="icon">
+              <use href="downstage-icons.svg#external-link" />
+            </svg>
+          </span>
+        </a>
+        <a href="#" class="link-item">
+          <span class="link-item-icon" aria-hidden="true">
+            <svg class="icon">
+              <use href="downstage-icons.svg#globe" />
+            </svg>
+          </span>
+          <span class="link-item-body">
+            <span class="link-item-title">Documentation</span>
+            <span class="link-item-desc">Getting started &amp; examples</span>
+          </span>
+          <span class="link-item-arrow" aria-hidden="true">
+            <svg class="icon">
+              <use href="downstage-icons.svg#arrow-right" />
+            </svg>
+          </span>
+        </a>
+        <a href="#" class="link-item">
+          <span class="link-item-icon" aria-hidden="true">
+            <svg class="icon">
+              <use href="downstage-icons.svg#mail" />
+            </svg>
+          </span>
+          <span class="link-item-body">
+            <span class="link-item-title">Contact</span>
+            <span class="link-item-desc">hello@example.com</span>
+          </span>
+          <span class="link-item-arrow" aria-hidden="true">
+            <svg class="icon">
+              <use href="downstage-icons.svg#arrow-right" />
+            </svg>
+          </span>
+        </a>
+        <a href="#blog" class="link-item">
+          <span class="link-item-icon" aria-hidden="true">
+            <svg class="icon">
+              <use href="downstage-icons.svg#message" />
+            </svg>
+          </span>
+          <span class="link-item-body">
+            <span class="link-item-title">Blog</span>
+            <span class="link-item-desc">Notes &amp; changelog</span>
+          </span>
+          <span class="link-item-arrow" aria-hidden="true">
+            <svg class="icon">
+              <use href="downstage-icons.svg#arrow-right" />
+            </svg>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ============================== ABOUT ============================== -->
+    <section class="demo-section" id="about">
+      <p class="demo-section-title">21 — Components</p>
+      <h2>About me</h2>
+      <p class="text-soft">Profile block with photo, role line, bio, and social icons. Markup uses <code>.about</code>,
+        <code>.about-media</code>, and <code>.about-content</code>.
+      </p>
+
+      <div class="about mt-8">
+        <div class="about-media">
+          <img src="https://picsum.photos/seed/aboutportrait/560/560" alt="Portrait of John Doe">
+        </div>
+        <div class="about-content">
+          <header>
+            <h3 class="about-name">John Doe</h3>
+            <p class="about-role">Designer &amp; developer · Bergamo, Italy</p>
+          </header>
+          <p class="about-bio">
+            I build calm interfaces and design systems that stay out of the way. downstage.css is a small, token-driven
+            toolkit for sites and apps that value clarity over noise — Nordic-inspired restraint, no build step
+            required.
+          </p>
+          <p class="about-bio">
+            When I’m not shipping UI, I’m probably refining typography, hiking, or chasing good espresso.
+          </p>
+          <div class="about-social" aria-label="Social profiles">
+            <a href="https://web.ap.it" target="_blank" rel="noopener noreferrer" aria-label="Website">
+              <svg class="icon">
+                <use href="downstage-icons.svg#globe" />
+              </svg>
+            </a>
+            <a href="#" aria-label="GitHub">
+              <svg class="icon">
+                <use href="downstage-icons.svg#github" />
+              </svg>
+            </a>
+            <a href="#" aria-label="Email">
+              <svg class="icon">
+                <use href="downstage-icons.svg#mail" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== TEAM ============================== -->
+    <section class="demo-section" id="team">
+      <p class="demo-section-title">22 — Components</p>
+      <h2>Il Team</h2>
+      <p class="text-soft">Griglia di persone con foto, ruolo e bio breve. Classi: <code>.team-grid</code>,
+        <code>.team-card</code>, <code>.team-avatar</code>, <code>.team-name</code>, <code>.team-role</code>,
+        <code>.team-bio</code>, opzionale <code>.team-links</code>.
+      </p>
+
+      <div class="team-grid mt-8">
+        <article class="team-card">
+          <div class="team-avatar">
+            <img src="https://picsum.photos/seed/team1/240/240" alt="Ritratto di John Doe">
+          </div>
+          <h3 class="team-name">John Doe</h3>
+          <p class="team-role">Founder &amp; design system</p>
+          <p class="team-bio">Cura downstage.css, i token e la documentazione. Interface calm, codice pulito.</p>
+          <div class="team-links" aria-label="Profilo Andrea">
+            <a href="https://web.ap.it" target="_blank" rel="noopener noreferrer" aria-label="Sito web">
+              <svg class="icon">
+                <use href="downstage-icons.svg#globe" />
+              </svg>
+            </a>
+            <a href="#" aria-label="GitHub">
+              <svg class="icon">
+                <use href="downstage-icons.svg#github" />
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="team-card">
+          <div class="team-avatar">
+            <img src="https://picsum.photos/seed/team2/240/240" alt="Ritratto di Elena Rossi">
+          </div>
+          <h3 class="team-name">Elena Rossi</h3>
+          <p class="team-role">Product design</p>
+          <p class="team-bio">Wireframe, prototipi e accessibilità. Porta coerenza tra componenti e pagine reali.</p>
+          <div class="team-links" aria-label="Profilo Elena">
+            <a href="#" aria-label="LinkedIn">
+              <svg class="icon">
+                <use href="downstage-icons.svg#user" />
+              </svg>
+            </a>
+            <a href="#" aria-label="Email">
+              <svg class="icon">
+                <use href="downstage-icons.svg#mail" />
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="team-card">
+          <div class="team-avatar">
+            <img src="https://picsum.photos/seed/team3/240/240" alt="Ritratto di Marco Bianchi">
+          </div>
+          <h3 class="team-name">Marco Bianchi</h3>
+          <p class="team-role">Frontend</p>
+          <p class="team-bio">JS vanilla, integrazioni e performance. Tiene leggeri i widget interattivi.</p>
+          <div class="team-links" aria-label="Profilo Marco">
+            <a href="#" aria-label="GitHub">
+              <svg class="icon">
+                <use href="downstage-icons.svg#github" />
+              </svg>
+            </a>
+            <a href="#" aria-label="Codice">
+              <svg class="icon">
+                <use href="downstage-icons.svg#code" />
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="team-card">
+          <div class="team-avatar">
+            <img src="https://picsum.photos/seed/team4/240/240" alt="Ritratto di Sara Conti">
+          </div>
+          <h3 class="team-name">Sara Conti</h3>
+          <p class="team-role">Content &amp; community</p>
+          <p class="team-bio">Tutorial, changelog e feedback. Fa dialogare il progetto con chi lo usa.</p>
+          <div class="team-links" aria-label="Profilo Sara">
+            <a href="#blog" aria-label="Blog">
+              <svg class="icon">
+                <use href="downstage-icons.svg#message" />
+              </svg>
+            </a>
+            <a href="#" aria-label="Email">
+              <svg class="icon">
+                <use href="downstage-icons.svg#mail" />
+              </svg>
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============================== TIMELINE ============================== -->
+    <section class="demo-section" id="timeline">
+      <p class="demo-section-title">23 — Components</p>
+      <h2>Timeline</h2>
+      <p class="text-soft">Lista ordinata verticale con linea e marcatori. Usa <code>&lt;ol class="timeline"&gt;</code>,
+        ogni voce è <code>.timeline-item</code> con <code>.timeline-marker</code> e <code>.timeline-content</code>.</p>
+
+      <ol class="timeline mt-8" aria-label="Roadmap del progetto">
+        <li class="timeline-item">
+          <span class="timeline-marker" aria-hidden="true"></span>
+          <div class="timeline-content">
+            <time class="timeline-date" datetime="2025-06">Jun 2025</time>
+            <h3 class="timeline-title">Prima release pubblica</h3>
+            <p class="timeline-desc">CSS unico, icone sprite, JS opzionale per tabs, accordion e lightbox.</p>
+          </div>
+        </li>
+        <li class="timeline-item">
+          <span class="timeline-marker" aria-hidden="true"></span>
+          <div class="timeline-content">
+            <time class="timeline-date" datetime="2025-11">Nov 2025</time>
+            <h3 class="timeline-title">Portfolio e blog</h3>
+            <p class="timeline-desc">Card progetto e articoli con griglia responsive e varianti testuali.</p>
+            <span class="timeline-badge"><span class="badge">Release</span></span>
+          </div>
+        </li>
+        <li class="timeline-item">
+          <span class="timeline-marker" aria-hidden="true"></span>
+          <div class="timeline-content">
+            <time class="timeline-date" datetime="2026-03">Mar 2026</time>
+            <h3 class="timeline-title">Timeline e team</h3>
+            <p class="timeline-desc">Nuovi blocchi per cronologie, profili e pagine “link in bio” — sempre senza
+              dipendenze.</p>
+            <span class="timeline-badge"><span class="badge badge-success">Shipped</span></span>
+          </div>
+        </li>
+        <li class="timeline-item">
+          <span class="timeline-marker" aria-hidden="true"></span>
+          <div class="timeline-content">
+            <time class="timeline-date" datetime="2026-04-01">Q2 2026</time>
+            <h3 class="timeline-title">Documentazione e temi</h3>
+            <p class="timeline-desc">Guida alle variabili, esempi per tema scuro e snippet copy-paste per i componenti
+              più
+              usati.</p>
+            <span class="timeline-badge"><span class="badge badge-info">Planned</span></span>
+          </div>
+        </li>
+      </ol>
+
+      <h4 class="mt-12 mb-2">Variante compatta</h4>
+      <p class="text-soft text-sm mb-4">Aggiungi <code>.timeline--compact</code> per interlinea ridotta.</p>
+      <ol class="timeline timeline--compact" aria-label="Milestone brevi">
+        <li class="timeline-item">
+          <span class="timeline-marker" aria-hidden="true"></span>
+          <div class="timeline-content">
+            <time class="timeline-date" datetime="2026-04">Apr 2026</time>
+            <h3 class="timeline-title">Audit accessibilità</h3>
+            <p class="timeline-desc">Focus visibili e contrasti verificati sui componenti interattivi.</p>
+          </div>
+        </li>
+        <li class="timeline-item">
+          <span class="timeline-marker" aria-hidden="true"></span>
+          <div class="timeline-content">
+            <time class="timeline-date" datetime="2026-01">Jan 2026</time>
+            <h3 class="timeline-title">Esempi statici</h3>
+            <p class="timeline-desc">Pagina demo unica come riferimento visivo.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ============================== SHOP ============================== -->
+    <section class="demo-section" id="shop">
+      <p class="demo-section-title">24 — Components</p>
+      <h2>Shop</h2>
+      <p class="text-soft">Mini e-commerce patterns: product grid, product page, cart rows, and payment step. Solo markup
+        e CSS — collega la logica al tuo backend o a un servizio di pagamento.</p>
+
+      <h4 class="mt-10 mb-4">List</h4>
+      <div class="shop-grid">
+        <article class="shop-card">
+          <a href="#shop-detail" class="shop-card-hit" aria-label="Mug Sand — view product">
+            <div class="shop-card-media">
+              <span class="shop-card-badge"><span class="badge badge-success">New</span></span>
+              <img src="https://picsum.photos/seed/shop1/480/480" alt="Ceramic mug">
+            </div>
+            <div class="shop-card-body">
+              <p class="shop-card-meta">Tableware</p>
+              <h3 class="shop-card-title">Mug Sand</h3>
+              <p>
+                <span class="shop-price">€24,00</span>
+              </p>
+            </div>
+          </a>
+          <div class="shop-card-footer">
+            <span class="text-subtle text-sm">Glaze matte</span>
+            <button type="button" class="btn btn-sm btn-primary">Add</button>
+          </div>
+        </article>
+        <article class="shop-card">
+          <a href="#shop-detail" class="shop-card-hit" aria-label="Throw Fog — view product">
+            <div class="shop-card-media">
+              <img src="https://picsum.photos/seed/shop2/480/480" alt="Wool throw">
+            </div>
+            <div class="shop-card-body">
+              <p class="shop-card-meta">Home</p>
+              <h3 class="shop-card-title">Throw Fog</h3>
+              <p>
+                <span class="shop-price">€89,00</span>
+                <span class="shop-price-old">€110,00</span>
+              </p>
+            </div>
+          </a>
+          <div class="shop-card-footer">
+            <span class="badge badge-warning">-19%</span>
+            <button type="button" class="btn btn-sm btn-secondary">Add</button>
+          </div>
+        </article>
+        <article class="shop-card">
+          <a href="#shop-detail" class="shop-card-hit" aria-label="Lamp Arc — view product">
+            <div class="shop-card-media">
+              <img src="https://picsum.photos/seed/shop3/480/480" alt="Desk lamp">
+            </div>
+            <div class="shop-card-body">
+              <p class="shop-card-meta">Lighting</p>
+              <h3 class="shop-card-title">Lamp Arc</h3>
+              <p><span class="shop-price">€156,00</span></p>
+            </div>
+          </a>
+          <div class="shop-card-footer">
+            <span class="text-subtle text-sm">Steel / oak</span>
+            <button type="button" class="btn btn-sm btn-secondary">Add</button>
+          </div>
+        </article>
+      </div>
+
+      <h4 class="mt-12 mb-2">Minimal</h4>
+      <p class="text-soft text-sm mb-6">Griglia compatta con <code class="text-mono">.shop-grid--minimal</code> e <code
+          class="text-mono">.shop-card--minimal</code>: righe orizzontali come una tabella leggera.</p>
+      <div class="shop-grid shop-grid--minimal mt-6">
+        <article class="shop-card shop-card--minimal">
+          <a href="#shop-detail" class="shop-card-hit" aria-label="Bowl Clay — view product">
+            <div class="shop-card-media">
+              <img src="https://picsum.photos/seed/smin1/200/200" alt="Ceramic bowl">
+            </div>
+            <div class="shop-card-body">
+              <p class="shop-card-meta">Tableware</p>
+              <h3 class="shop-card-title">Bowl Clay</h3>
+              <p><span class="shop-price">€32,00</span></p>
+            </div>
+          </a>
+          <div class="shop-card-footer">
+            <span class="text-subtle text-sm">Stoneware</span>
+            <button type="button" class="btn btn-sm btn-primary">Add</button>
+          </div>
+        </article>
+        <article class="shop-card shop-card--minimal">
+          <a href="#shop-detail" class="shop-card-hit" aria-label="Tray Oak — view product">
+            <div class="shop-card-media">
+              <img src="https://picsum.photos/seed/smin2/200/200" alt="Wooden tray">
+            </div>
+            <div class="shop-card-body">
+              <p class="shop-card-meta">Serve</p>
+              <h3 class="shop-card-title">Tray Oak</h3>
+              <p>
+                <span class="shop-price">€58,00</span>
+                <span class="shop-price-old">€72,00</span>
+              </p>
+            </div>
+          </a>
+          <div class="shop-card-footer">
+            <span class="badge badge-warning">Sale</span>
+            <button type="button" class="btn btn-sm btn-secondary">Add</button>
+          </div>
+        </article>
+      </div>
+
+      <h4 class="mt-12 mb-4" id="shop-detail">Detail</h4>
+      <div class="product-detail mt-6">
+        <div class="product-gallery">
+          <img src="https://picsum.photos/seed/shopdetail/800/800" alt="Mug Sand — detail">
+        </div>
+        <div class="product-info">
+          <p class="text-subtle text-sm">Tableware · SKU DS-MUG-01</p>
+          <h3 class="product-title">Mug Sand</h3>
+          <p class="product-lead">Gres smaltato, impugnatura comoda, finitura opaca che non trattiene le ditate.</p>
+          <div class="product-price-row">
+            <span class="shop-price">€24,00</span>
+            <span class="text-subtle text-sm">In stock · ships in 2 days</span>
+          </div>
+          <div class="product-actions">
+            <label class="text-sm text-muted" for="shop-detail-qty">Qty</label>
+            <input id="shop-detail-qty" class="input shop-qty-input" type="number" value="1" min="1" max="99">
+            <button type="button" class="btn btn-primary">
+              <svg class="icon">
+                <use href="downstage-icons.svg#shopping-cart" />
+              </svg>
+              Add to cart
+            </button>
+          </div>
+          <p class="help">Free returns within 30 days. VAT included for EU.</p>
+        </div>
+      </div>
+
+      <h4 class="mt-12 mb-4" id="shop-cart">Cart</h4>
+      <div class="grid mt-6">
+        <div class="col-8">
+          <div class="cart" role="group" aria-label="Shopping cart">
+            <div class="cart-row">
+              <div class="cart-thumb">
+                <img src="https://picsum.photos/seed/shop1/120/120" alt="Mug Sand">
+              </div>
+              <div class="cart-line-main">
+                <p class="cart-line-title">Mug Sand</p>
+                <p class="cart-line-meta">Tableware · €24,00 each</p>
+              </div>
+              <div class="cart-line-end">
+                <div class="cart-line-qty">
+                  <label class="sr-only" for="cart-qty-1">Quantity</label>
+                  <input id="cart-qty-1" class="input shop-qty-input" type="number" value="2" min="1" max="99">
+                </div>
+                <div class="cart-line-price">€48,00</div>
+              </div>
+            </div>
+            <div class="cart-row">
+              <div class="cart-thumb">
+                <img src="https://picsum.photos/seed/shop2/120/120" alt="Throw Fog">
+              </div>
+              <div class="cart-line-main">
+                <p class="cart-line-title">Throw Fog</p>
+                <p class="cart-line-meta">Home · €89,00 each</p>
+              </div>
+              <div class="cart-line-end">
+                <div class="cart-line-qty">
+                  <label class="sr-only" for="cart-qty-2">Quantity</label>
+                  <input id="cart-qty-2" class="input shop-qty-input" type="number" value="1" min="1" max="99">
+                </div>
+                <div class="cart-line-price">€89,00</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="cart-summary">
+            <p class="cart-summary-title">Order summary</p>
+            <div class="cart-summary-row">
+              <span>Subtotal</span>
+              <span>€137,00</span>
+            </div>
+            <div class="cart-summary-row">
+              <span>Shipping</span>
+              <span>€6,00</span>
+            </div>
+            <div class="cart-summary-row cart-summary-row--total">
+              <span>Total</span>
+              <span>€143,00</span>
+            </div>
+            <button type="button" class="btn btn-primary btn-block mt-4">Checkout</button>
+          </div>
+        </div>
+      </div>
+
+      <h4 class="mt-12 mb-4" id="shop-payment">Payment</h4>
+      <div class="checkout-layout mt-6">
+        <div class="payment-panel">
+          <h3 class="payment-panel-title">Payment</h3>
+          <form class="stack" action="#" method="get" onsubmit="return false;">
+            <div class="field">
+              <label class="label" for="pay-card-name">Name on card</label>
+              <input id="pay-card-name" class="input" type="text" autocomplete="cc-name" placeholder="M. Rossi">
+            </div>
+            <div class="field">
+              <label class="label" for="pay-card-num">Card number</label>
+              <input id="pay-card-num" class="input" type="text" inputmode="numeric" autocomplete="cc-number"
+                placeholder="1234 5678 9012 3456">
+            </div>
+            <div class="payment-card-row">
+              <div class="field">
+                <label class="label" for="pay-card-exp">Expiry</label>
+                <input id="pay-card-exp" class="input" type="text" autocomplete="cc-exp" placeholder="MM / YY">
+              </div>
+              <div class="field">
+                <label class="label" for="pay-card-cvc">CVC</label>
+                <input id="pay-card-cvc" class="input" type="text" autocomplete="cc-csc" placeholder="123">
+              </div>
+            </div>
+            <div class="field">
+              <label class="check">
+                <input type="checkbox" checked>
+                <span>Save card for next time (demo only)</span>
+              </label>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Pay €143,00</button>
+          </form>
+        </div>
+        <aside class="order-recap" aria-label="Order recap">
+          <p class="order-recap-title">Your order</p>
+          <div class="order-recap-item">
+            <span>Mug Sand × 2</span>
+            <span>€48,00</span>
+          </div>
+          <div class="order-recap-item">
+            <span>Throw Fog × 1</span>
+            <span>€89,00</span>
+          </div>
+          <div class="order-recap-total">
+            <span>Total</span>
+            <span>€143,00</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ============================== PROFILE ============================== -->
+    <section class="demo-section" id="profile">
+      <p class="demo-section-title">25 — Components</p>
+      <h2>Profile</h2>
+      <p class="text-soft">Pattern per area account: dati utente, password e azioni di sicurezza. Solo markup demo —
+        collega a endpoint reali o al tuo provider auth.</p>
+
+      <div class="profile-shell mt-8">
+        <div class="profile-block">
+          <h3 class="profile-block-title">Account</h3>
+          <p class="profile-block-lead">Email e nome visualizzato. Usa <code class="text-mono">.input-minimal</code> per
+            coerenza con il resto della pagina.</p>
+          <form class="stack" action="#" method="get" onsubmit="return false;">
+            <div class="field">
+              <label class="label" for="profile-email">Email</label>
+              <input id="profile-email" class="input input-minimal" type="email" value="ada.lovelace@example.com"
+                autocomplete="email">
+            </div>
+            <div class="field">
+              <label class="label" for="profile-name">Display name</label>
+              <input id="profile-name" class="input input-minimal" type="text" value="Ada Lovelace" autocomplete="name">
+            </div>
+            <div class="field">
+              <label class="label" for="profile-locale">Language</label>
+              <select id="profile-locale" class="select select-minimal">
+                <option>Italiano</option>
+                <option>English</option>
+                <option>Français</option>
+              </select>
+            </div>
+            <div class="cluster mt-2" style="justify-content: flex-end;">
+              <button type="button" class="btn btn-ghost">Discard</button>
+              <button type="submit" class="btn btn-primary">Save changes</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="profile-block">
+          <h3 class="profile-block-title">Password</h3>
+          <p class="profile-block-lead">Aggiorna la password corrente. In produzione verifica l’attuale lato server.</p>
+          <form class="stack" action="#" method="get" onsubmit="return false;">
+            <div class="field">
+              <label class="label" for="profile-current-password">Current password</label>
+              <input id="profile-current-password" class="input input-minimal" type="password" autocomplete="current-password">
+            </div>
+            <div class="field">
+              <label class="label" for="profile-new-password">New password</label>
+              <input id="profile-new-password" class="input input-minimal" type="password" autocomplete="new-password"
+                aria-describedby="profile-pw-hint">
+              <p id="profile-pw-hint" class="help">Almeno 12 caratteri; evita password già usate altrove.</p>
+            </div>
+            <div class="field">
+              <label class="label" for="profile-confirm-password">Confirm new password</label>
+              <input id="profile-confirm-password" class="input input-minimal" type="password" autocomplete="new-password">
+            </div>
+            <div class="cluster mt-2" style="justify-content: flex-end;">
+              <button type="button" class="btn btn-secondary">Cancel</button>
+              <button type="submit" class="btn btn-primary">Update password</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="profile-block">
+          <h3 class="profile-block-title">Sessions</h3>
+          <p class="profile-block-lead">Revoca accessi su altri dispositivi dopo un cambio password o un accesso
+            sospetto.</p>
+          <button type="button" class="btn btn-secondary btn-sm">Sign out everywhere</button>
+        </div>
+      </div>
+    </section>
+
     <!-- ============================== IMAGE FILTERS ============================== -->
     <section class="demo-section" id="filters">
-      <p class="demo-section-title">18 — Utilities</p>
+      <p class="demo-section-title">26 — Utilities</p>
       <h2>Image Filters</h2>
       <p class="text-soft">CSS filter classes for quick image treatment. Hover variants restore the original.</p>
 
@@ -1984,7 +3104,7 @@ Downstage.lightbox.close();</code></pre>
           <div class="footer-title">Product</div>
           <ul class="footer-links">
             <li><a href="#tutorial">Tutorial</a></li>
-            <li><a href="#components">Components</a></li>
+            <li><a href="#buttons">Components</a></li>
             <li><a href="#icons">Icons</a></li>
             <li><a href="#">Changelog</a></li>
           </ul>

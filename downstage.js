@@ -75,16 +75,26 @@
         nav.classList.toggle("is-open", open);
         toggle.setAttribute("aria-expanded", open ? "true" : "false");
         toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+        /* Lock page scroll on small viewports so touch scrolls the menu panel, not the body */
+        if (window.matchMedia("(max-width: 768px)").matches) {
+          document.body.style.overflow = open ? "hidden" : "";
+        } else if (!open) {
+          document.body.style.overflow = "";
+        }
       }
 
       toggle.addEventListener("click", function () {
         setOpen(!nav.classList.contains("is-open"));
       });
 
-      // Close on link click
-      menu.querySelectorAll(".navbar-link").forEach(function (link) {
+      // Close on navigation link click (not on <summary> dropdown toggles)
+      menu.querySelectorAll(".navbar-link, .navbar-dropdown-link").forEach(function (link) {
         link.addEventListener("click", function () {
           setOpen(false);
+          if (link.classList.contains("navbar-dropdown-link")) {
+            var parentDetails = link.closest("details");
+            if (parentDetails) parentDetails.removeAttribute("open");
+          }
         });
       });
 
@@ -98,7 +108,10 @@
       // Close when returning to desktop
       const mq = window.matchMedia("(min-width: 769px)");
       const onChange = function (e) {
-        if (e.matches) setOpen(false);
+        if (e.matches) {
+          setOpen(false);
+          document.body.style.overflow = "";
+        }
       };
       if (mq.addEventListener) mq.addEventListener("change", onChange);
       else mq.addListener(onChange); // Safari < 14
