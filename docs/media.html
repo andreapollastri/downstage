@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Media — downstage.css</title>
+  <link rel="stylesheet" href="../downstage.css">
+  <link rel="stylesheet" href="../demo/demo.css">
+  <link rel="stylesheet" href="../demo/docs.css">
+</head>
+<body class="doc-page">
+  <div hidden></div>
+  <object data="../downstage-icons.svg" type="image/svg+xml" style="display:none" aria-hidden="true"></object>
+
+  <nav class="navbar" id="main-nav">
+    <div class="navbar-inner">
+      <a class="navbar-brand" href="../index.html">
+        <svg class="icon" width="20" height="20">
+          <use href="../downstage-icons.svg#hash" />
+        </svg>
+        downstage<span class="text-muted">.css</span>
+      </a>
+
+      <button class="navbar-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="navbar-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="navbar-menu" id="navbar-menu">
+        <div class="navbar-menu-scroll">
+          <a href="../index.html" class="navbar-link">Home</a>
+          <a href="index.html" class="navbar-link">Documentation</a>
+
+          <details class="navbar-dropdown">
+            <summary class="navbar-dropdown-summary">
+              Browse
+              <svg class="icon icon-sm navbar-dropdown-chevron" aria-hidden="true">
+                <use href="../downstage-icons.svg#chevron-down" />
+              </svg>
+            </summary>
+            <div class="navbar-dropdown-panel" role="group" aria-label="Documentation sections">
+              <a href="basic.html" class="navbar-dropdown-link">Basic</a>
+              <a href="ui-components.html" class="navbar-dropdown-link">UI Components</a>
+              <a href="interactive.html" class="navbar-dropdown-link">Interactive UI</a>
+              <a href="media.html" class="navbar-dropdown-link">Media</a>
+              <a href="data.html" class="navbar-dropdown-link">Data UI</a>
+              <a href="templates.html" class="navbar-dropdown-link">Templates</a>
+            </div>
+          </details>
+
+          <div class="navbar-actions">
+            <div class="btn-group" role="group" aria-label="Theme">
+              <button class="btn btn-sm" data-set-theme="light" aria-label="Light theme">
+                <svg class="icon"><use href="../downstage-icons.svg#sun" /></svg>
+              </button>
+              <button class="btn btn-sm" data-set-theme="dark" aria-label="Dark theme">
+                <svg class="icon"><use href="../downstage-icons.svg#moon" /></svg>
+              </button>
+              <button class="btn btn-sm" data-set-theme="auto" aria-label="Auto theme">Auto</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+  <main class="container doc-page-main">
+    <div class="docs-layout doc-page-docs-inner">
+      <aside class="docs-sidebar">
+        <div class="docs-sidebar-title">On this page</div>
+        <nav class="docs-nav" aria-label="Section">
+          <a href="#gallery">Gallery &amp; lightbox</a>
+          <a href="#slider">Slider</a>
+          <a href="#videoplayer">Video</a>
+          <a href="#audioplayer">Audio</a>
+          <a href="#filters">Image filters</a>
+        </nav>
+      </aside>
+      <div class="docs-content doc-stack">
+
+    <section class="demo-section" id="gallery">
+      <p class="demo-section-title">15 — Components</p>
+      <h2>Images, gallery &amp; lightbox</h2>
+      <p class="text-soft">
+        <code>.image-frame</code> wraps an image in a system-consistent border.
+        <code>.gallery</code> with <code>data-lightbox</code> opens the lightbox on click.
+      </p>
+
+      <div class="grid mt-8">
+        <div class="col-4">
+          <figure class="image-frame is-square">
+            <div class="image-media">
+              <img src="https://picsum.photos/seed/ds1/600/600" alt="Demo 1">
+            </div>
+            <figcaption class="image-caption">image-frame · ratio 1:1</figcaption>
+          </figure>
+        </div>
+
+        <div class="col-4">
+          <figure class="image-frame is-4-5">
+            <div class="image-media">
+              <img src="https://picsum.photos/seed/ds2/600/750" alt="Demo 2">
+            </div>
+            <figcaption class="image-caption">image-frame · ratio 4:5</figcaption>
+          </figure>
+        </div>
+
+        <div class="col-4">
+          <figure class="image-frame is-16-9">
+            <div class="image-media">
+              <img src="https://picsum.photos/seed/ds3/800/450" alt="Demo 3">
+            </div>
+            <figcaption class="image-caption">image-frame · ratio 16:9</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <h4 class="mt-12 mb-2">Gallery with lightbox</h4>
+      <p class="text-soft text-sm mb-6">Click any image to open the lightbox. Arrow keys ←/→ to navigate, Esc to close.
+      </p>
+      <div class="gallery gallery-4" data-lightbox="demo">
+        <a href="https://picsum.photos/seed/g1/1200/900" class="gallery-item">
+          <img src="https://picsum.photos/seed/g1/400/400" alt="Photo 1">
+        </a>
+        <a href="https://picsum.photos/seed/g2/1200/900" class="gallery-item">
+          <img src="https://picsum.photos/seed/g2/400/400" alt="Photo 2">
+        </a>
+        <a href="https://picsum.photos/seed/g3/1200/900" class="gallery-item">
+          <img src="https://picsum.photos/seed/g3/400/400" alt="Photo 3">
+        </a>
+        <a href="https://picsum.photos/seed/g4/1200/900" class="gallery-item">
+          <img src="https://picsum.photos/seed/g4/400/400" alt="Photo 4">
+        </a>
+        <a href="https://picsum.photos/seed/g5/1200/900" class="gallery-item">
+          <img src="https://picsum.photos/seed/g5/400/400" alt="Photo 5">
+        </a>
+        <a href="https://picsum.photos/seed/g6/1200/900" class="gallery-item">
+          <img src="https://picsum.photos/seed/g6/400/400" alt="Photo 6">
+        </a>
+        <a href="https://picsum.photos/seed/g7/1200/900" class="gallery-item">
+          <img src="https://picsum.photos/seed/g7/400/400" alt="Photo 7">
+        </a>
+        <a href="https://picsum.photos/seed/g8/1200/900" class="gallery-item">
+          <img src="https://picsum.photos/seed/g8/400/400" alt="Photo 8">
+        </a>
+      </div>
+    </section>
+
+    <!-- ============================== SLIDER ============================== -->
+    <section class="demo-section" id="slider">
+      <p class="demo-section-title">16 — Components</p>
+      <h2>Slider / Carousel</h2>
+      <p class="text-soft">Image carousel with dots and arrows. Add <code>data-slider-auto="5000"</code> for auto-play.
+      </p>
+
+      <h4 class="mt-8 mb-4">Image only with dots &amp; arrows</h4>
+      <div class="slider" data-slider data-slider-dots data-slider-arrows>
+        <div class="slider-track">
+          <div class="slider-slide"><img src="https://picsum.photos/seed/sl1/1200/500" alt="Slide 1"></div>
+          <div class="slider-slide"><img src="https://picsum.photos/seed/sl2/1200/500" alt="Slide 2"></div>
+          <div class="slider-slide"><img src="https://picsum.photos/seed/sl3/1200/500" alt="Slide 3"></div>
+          <div class="slider-slide"><img src="https://picsum.photos/seed/sl4/1200/500" alt="Slide 4"></div>
+        </div>
+      </div>
+
+      <h4 class="mt-12 mb-4">Hero slider (image + text overlay)</h4>
+      <div class="slider slider-hero" data-slider data-slider-dots data-slider-arrows data-slider-auto="6000">
+        <div class="slider-track">
+          <div class="slider-slide">
+            <img src="https://picsum.photos/seed/hero1/1200/500" alt="">
+            <div class="slider-hero-overlay">
+              <div class="slider-hero-content">
+                <h2>Nordic design at its core</h2>
+                <p>Clean lines, warm neutrals, functional beauty. Built for the web, crafted with intention.</p>
+              </div>
+            </div>
+          </div>
+          <div class="slider-slide">
+            <img src="https://picsum.photos/seed/hero2/1200/500" alt="">
+            <div class="slider-hero-overlay">
+              <div class="slider-hero-content">
+                <h2>Zero dependencies</h2>
+                <p>Pure CSS and vanilla JS. No build step, no npm, no complexity. Just drop and go.</p>
+              </div>
+            </div>
+          </div>
+          <div class="slider-slide">
+            <img src="https://picsum.photos/seed/hero3/1200/500" alt="">
+            <div class="slider-hero-overlay">
+              <div class="slider-hero-content">
+                <h2>Dark mode built-in</h2>
+                <p>Every token adapts automatically. One codebase, two themes, zero effort.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== VIDEO PLAYER ============================== -->
+    <section class="demo-section" id="videoplayer">
+      <p class="demo-section-title">17 — Components</p>
+      <h2>Video Player</h2>
+      <p class="text-soft">Minimal custom video player. Auto-builds controls from a <code>&lt;video&gt;</code> tag.</p>
+
+      <div class="video-player mt-6" data-video-player style="max-width:720px;">
+        <video src="https://www.w3schools.com/html/mov_bbb.mp4" preload="metadata"></video>
+      </div>
+    </section>
+
+    <!-- ============================== AUDIO PLAYER ============================== -->
+    <section class="demo-section" id="audioplayer">
+      <p class="demo-section-title">18 — Components</p>
+      <h2>Audio Player</h2>
+      <p class="text-soft">Lightweight audio player built from data attributes.</p>
+
+      <div class="stack mt-6" style="max-width:560px;">
+        <div class="audio-player" data-audio-player data-src="https://www.w3schools.com/html/horse.mp3"
+          data-title="Horse Sound" data-artist="W3Schools Sample">
+        </div>
+        <div class="audio-player" data-audio-player data-src="https://www.w3schools.com/html/horse.mp3"
+          data-title="Another Track" data-artist="Demo Artist">
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== IMAGE FILTERS ============================== -->
+    <section class="demo-section" id="filters">
+      <p class="demo-section-title">29 — Utilities</p>
+      <h2>Image Filters</h2>
+      <p class="text-soft">CSS filter classes for quick image treatment. Hover variants restore the original.</p>
+
+      <div class="grid mt-6">
+        <div class="col-3">
+          <figure class="image-frame is-square">
+            <div class="image-media"><img src="https://picsum.photos/seed/flt1/400/400" alt="Original"></div>
+            <figcaption class="image-caption">Original</figcaption>
+          </figure>
+        </div>
+        <div class="col-3">
+          <figure class="image-frame is-square">
+            <div class="image-media"><img src="https://picsum.photos/seed/flt1/400/400" alt="B/W" class="img-bw"></div>
+            <figcaption class="image-caption">.img-bw</figcaption>
+          </figure>
+        </div>
+        <div class="col-3">
+          <figure class="image-frame is-square">
+            <div class="image-media"><img src="https://picsum.photos/seed/flt1/400/400" alt="Sepia" class="img-sepia">
+            </div>
+            <figcaption class="image-caption">.img-sepia</figcaption>
+          </figure>
+        </div>
+        <div class="col-3">
+          <figure class="image-frame is-square">
+            <div class="image-media"><img src="https://picsum.photos/seed/flt1/400/400" alt="Muted" class="img-muted">
+            </div>
+            <figcaption class="image-caption">.img-muted</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <h4 class="mt-8 mb-4">Hover to reveal</h4>
+      <div class="grid">
+        <div class="col-4">
+          <figure class="image-frame is-16-9">
+            <div class="image-media"><img src="https://picsum.photos/seed/flt2/600/340" alt="B/W hover"
+                class="img-bw img-bw-hover"></div>
+            <figcaption class="image-caption">.img-bw .img-bw-hover</figcaption>
+          </figure>
+        </div>
+        <div class="col-4">
+          <figure class="image-frame is-16-9">
+            <div class="image-media"><img src="https://picsum.photos/seed/flt3/600/340" alt="Sepia hover"
+                class="img-sepia img-sepia-hover"></div>
+            <figcaption class="image-caption">.img-sepia .img-sepia-hover</figcaption>
+          </figure>
+        </div>
+        <div class="col-4">
+          <figure class="image-frame is-16-9">
+            <div class="image-media"><img src="https://picsum.photos/seed/flt4/600/340" alt="Warm" class="img-warm">
+            </div>
+            <figcaption class="image-caption">.img-warm</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">
+            <svg class="icon" width="20" height="20">
+              <use href="../downstage-icons.svg#hash" />
+            </svg>
+            downstage.css
+          </div>
+          <p class="footer-tagline">Minimal Nordic design system — zero dependencies.</p>
+        </div>
+        <div>
+          <div class="footer-title">Documentation</div>
+          <ul class="footer-links">
+            <li><a href="index.html">All sections</a></li>
+            <li><a href="basic.html">Basic</a></li>
+            <li><a href="interactive.html">Interactive UI</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-title">Site</div>
+          <ul class="footer-links">
+            <li><a href="../index.html">Home</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 <a href="https://web.ap.it" target="_blank" rel="noopener">Andrea Pollastri</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>window.__DOWNSTAGE_ICONS_BASE__ = "../downstage-icons.svg"; window.__DOWNSTAGE_LOCALE_BASE__ = "../locales/";</script>
+  <script src="../downstage.js" defer></script>
+  <script src="../demo/demo.js" defer></script>
+</body>
+</html>

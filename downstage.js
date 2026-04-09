@@ -18,6 +18,8 @@
    - Search autocomplete   ([data-search-autocomplete] + Downstage.searchAutocomplete.mount)
    - Kanban                ([data-kanban] + fetchUrl/moveUrl AJAX or mount callbacks)
    - Data table            ([data-data-table] + Downstage.dataTable.mount)
+   - Password visibility   (input[type=password] — eye toggle; opt out with data-password-toggle="off")
+   - Copy field           (.input-copy-wrap + .input-copy-btn — clipboard for readonly/disabled inputs)
    ============================================================================ */
 
 (function (window, document) {
@@ -25,10 +27,13 @@
 
   const Downstage = {};
 
+  var _iconsBase = "downstage-icons.svg";
+  function iconsHref(id) { return _iconsBase + "#" + id; }
+
   /* Built-in English (default fallback; override with locales/*.json or setLocale) */
   /* locales/_embed.js */
   var EMBEDDED_I18N_EN = JSON.parse(
-    '{"navbar":{"openMenu":"Open menu","closeMenu":"Close menu"},"lightbox":{"close":"Close","previous":"Previous","next":"Next"},"slider":{"previous":"Previous","next":"Next","slide":"Slide {n}"},"videoPlayer":{"play":"Play","pause":"Pause","mute":"Mute","unmute":"Unmute","enterFullscreen":"Enter fullscreen","exitFullscreen":"Exit fullscreen"},"audioPlayer":{"play":"Play","pause":"Pause","untitled":"Untitled"},"combobox":{"loading":"Loading…","noResults":"No results"},"searchAutocomplete":{"placeholder":"Search…"},"kanban":{"dragHint":"Drag cards between columns","refresh":"Refresh","loading":"Loading…","noColumns":"No columns","loadFailed":"Failed to load board"},"dataTable":{"filterPlaceholder":"Filter…","filterAria":"Filter table","showing":"Showing {start}–{end} of {total}","noRows":"No rows","pageInfo":"Page {page} / {totalPages}","previous":"Previous","next":"Next"},"htmlEditor":{"initialHtml":"<p>Select text and use the toolbar to format.</p>","placeholder":"Write here…","rawLeft":"Rich text","rawRight":"HTML source","rawSwitchTitle":"Switch to HTML source","rawSwitchAria":"HTML source mode","toolbarAria":"Text formatting","rawTextareaAria":"HTML source","toolbar":{"bold":{"title":"Bold","aria":"Bold"},"italic":{"title":"Italic","aria":"Italic"},"underline":{"title":"Underline","aria":"Underline"},"strikeThrough":{"title":"Strikethrough","aria":"Strikethrough"},"createLink":{"title":"Link","aria":"Insert link","label":"Link"},"justifyLeft":{"title":"Align left","aria":"Align left","label":"◀"},"justifyCenter":{"title":"Align center","aria":"Align center","label":"▣"},"justifyRight":{"title":"Align right","aria":"Align right","label":"▶"},"justifyFull":{"title":"Justify","aria":"Justify","label":"≡"},"h1":{"title":"Heading 1","aria":"Heading 1","label":"H1"},"h2":{"title":"Heading 2","aria":"Heading 2","label":"H2"},"h3":{"title":"Heading 3","aria":"Heading 3","label":"H3"},"h4":{"title":"Heading 4","aria":"Heading 4","label":"H4"},"h5":{"title":"Heading 5","aria":"Heading 5","label":"H5"},"h6":{"title":"Heading 6","aria":"Heading 6","label":"H6"},"h7":{"title":"Heading 7 (styled paragraph)","aria":"Heading 7","label":"H7"},"p":{"title":"Paragraph","aria":"Paragraph","label":"P"},"inlineCode":{"title":"Inline code","aria":"Inline code","html":"&lt;code&gt;"},"blockquote":{"title":"Quote","aria":"Quote","label":"“ ”"}},"linkModal":{"title":"Link","lede":"Website, email, phone, or custom URL (<code class=\\"text-mono\\">mailto:</code>, <code class=\\"text-mono\\">tel:</code>, anchors…).","kindLabel":"Type","kindAria":"Link type","valueLabelPlaceholder":"Address","valueAria":"Link address","valueLabelMailto":"Email address","valueLabelTel":"Phone number","valueLabelCustom":"URL or path","valueLabelUrl":"Web address","placeholderMailto":"name@example.com","placeholderTel":"+1 555 123 4567","placeholderCustom":"page.html#section or /path","placeholderUrl":"https://…","subjectLabel":"Email subject (optional)","subjectPh":"Message subject","targetLabel":"Open link in","relSpan":"<code class=\\"text-mono\\">rel=\\"noopener noreferrer\\"</code> (recommended for new-tab links)","cancel":"Cancel","apply":"Apply","closeAria":"Close dialog","kindOptions":[{"value":"url","label":"Web page (https)"},{"value":"mailto","label":"Email"},{"value":"tel","label":"Phone"},{"value":"custom","label":"Custom URL"}],"targetOptions":[{"value":"_self","label":"Same tab / window"},{"value":"_blank","label":"New tab"}]}}}',
+    '{"navbar":{"openMenu":"Open menu","closeMenu":"Close menu"},"password":{"show":"Show password","hide":"Hide password"},"copyField":{"copy":"Copy","copied":"Copied"},"lightbox":{"close":"Close","previous":"Previous","next":"Next"},"slider":{"previous":"Previous","next":"Next","slide":"Slide {n}"},"videoPlayer":{"play":"Play","pause":"Pause","mute":"Mute","unmute":"Unmute","enterFullscreen":"Enter fullscreen","exitFullscreen":"Exit fullscreen"},"audioPlayer":{"play":"Play","pause":"Pause","untitled":"Untitled"},"combobox":{"loading":"Loading…","noResults":"No results"},"searchAutocomplete":{"placeholder":"Search…"},"kanban":{"dragHint":"Drag cards between columns","refresh":"Refresh","loading":"Loading…","noColumns":"No columns","loadFailed":"Failed to load board"},"dataTable":{"filterPlaceholder":"Filter…","filterAria":"Filter table","showing":"Showing {start}–{end} of {total}","noRows":"No rows","pageInfo":"Page {page} / {totalPages}","previous":"Previous","next":"Next"},"htmlEditor":{"initialHtml":"<p>Select text and use the toolbar to format.</p>","placeholder":"Write here…","rawLeft":"Rich text","rawRight":"HTML source","rawSwitchTitle":"Switch to HTML source","rawSwitchAria":"HTML source mode","toolbarAria":"Text formatting","rawTextareaAria":"HTML source","toolbar":{"bold":{"title":"Bold","aria":"Bold"},"italic":{"title":"Italic","aria":"Italic"},"underline":{"title":"Underline","aria":"Underline"},"strikeThrough":{"title":"Strikethrough","aria":"Strikethrough"},"createLink":{"title":"Link","aria":"Insert link","label":"Link"},"justifyLeft":{"title":"Align left","aria":"Align left","label":"◀"},"justifyCenter":{"title":"Align center","aria":"Align center","label":"▣"},"justifyRight":{"title":"Align right","aria":"Align right","label":"▶"},"justifyFull":{"title":"Justify","aria":"Justify","label":"≡"},"h1":{"title":"Heading 1","aria":"Heading 1","label":"H1"},"h2":{"title":"Heading 2","aria":"Heading 2","label":"H2"},"h3":{"title":"Heading 3","aria":"Heading 3","label":"H3"},"h4":{"title":"Heading 4","aria":"Heading 4","label":"H4"},"h5":{"title":"Heading 5","aria":"Heading 5","label":"H5"},"h6":{"title":"Heading 6","aria":"Heading 6","label":"H6"},"h7":{"title":"Heading 7 (styled paragraph)","aria":"Heading 7","label":"H7"},"p":{"title":"Paragraph","aria":"Paragraph","label":"P"},"inlineCode":{"title":"Inline code","aria":"Inline code","html":"&lt;code&gt;"},"blockquote":{"title":"Quote","aria":"Quote","label":"“ ”"}},"linkModal":{"title":"Link","lede":"Website, email, phone, or custom URL (<code class=\\"text-mono\\">mailto:</code>, <code class=\\"text-mono\\">tel:</code>, anchors…).","kindLabel":"Type","kindAria":"Link type","valueLabelPlaceholder":"Address","valueAria":"Link address","valueLabelMailto":"Email address","valueLabelTel":"Phone number","valueLabelCustom":"URL or path","valueLabelUrl":"Web address","placeholderMailto":"name@example.com","placeholderTel":"+1 555 123 4567","placeholderCustom":"page.html#section or /path","placeholderUrl":"https://…","subjectLabel":"Email subject (optional)","subjectPh":"Message subject","targetLabel":"Open link in","relSpan":"<code class=\\"text-mono\\">rel=\\"noopener noreferrer\\"</code> (recommended for new-tab links)","cancel":"Cancel","apply":"Apply","closeAria":"Close dialog","kindOptions":[{"value":"url","label":"Web page (https)"},{"value":"mailto","label":"Email"},{"value":"tel","label":"Phone"},{"value":"custom","label":"Custom URL"}],"targetOptions":[{"value":"_self","label":"Same tab / window"},{"value":"_blank","label":"New tab"}]}}}',
   );
 
   Downstage.i18n = (function () {
@@ -404,17 +409,17 @@
         '<button class="lightbox-btn lightbox-close" aria-label="' +
         Downstage.i18n.t("lightbox.close") +
         '">' +
-        '<svg class="icon" width="20" height="20"><use href="downstage-icons.svg#x"/></svg>' +
+        '<svg class="icon" width="20" height="20"><use href="' + iconsHref("x") + '"/></svg>' +
         "</button>" +
         '<button class="lightbox-btn lightbox-prev" aria-label="' +
         Downstage.i18n.t("lightbox.previous") +
         '">' +
-        '<svg class="icon" width="20" height="20"><use href="downstage-icons.svg#chevron-left"/></svg>' +
+        '<svg class="icon" width="20" height="20"><use href="' + iconsHref("chevron-left") + '"/></svg>' +
         "</button>" +
         '<button class="lightbox-btn lightbox-next" aria-label="' +
         Downstage.i18n.t("lightbox.next") +
         '">' +
-        '<svg class="icon" width="20" height="20"><use href="downstage-icons.svg#chevron-right"/></svg>' +
+        '<svg class="icon" width="20" height="20"><use href="' + iconsHref("chevron-right") + '"/></svg>' +
         "</button>" +
         '<img class="lightbox-img" alt="">' +
         '<div class="lightbox-counter"></div>';
@@ -554,7 +559,7 @@
           prev.className = "slider-prev";
           prev.setAttribute("aria-label", Downstage.i18n.t("slider.previous"));
           prev.innerHTML =
-            '<svg class="icon" width="18" height="18"><use href="downstage-icons.svg#chevron-left"/></svg>';
+            '<svg class="icon" width="18" height="18"><use href="' + iconsHref("chevron-left") + '"/></svg>';
           root.appendChild(prev);
         }
         if (!next) {
@@ -562,7 +567,7 @@
           next.className = "slider-next";
           next.setAttribute("aria-label", Downstage.i18n.t("slider.next"));
           next.innerHTML =
-            '<svg class="icon" width="18" height="18"><use href="downstage-icons.svg#chevron-right"/></svg>';
+            '<svg class="icon" width="18" height="18"><use href="' + iconsHref("chevron-right") + '"/></svg>';
           root.appendChild(next);
         }
         prev.addEventListener("click", function () {
@@ -647,19 +652,19 @@
           '<button class="video-btn video-play-btn" aria-label="' +
           Downstage.i18n.t("videoPlayer.play") +
           '">' +
-          '<svg class="icon"><use href="downstage-icons.svg#play"/></svg>' +
+          '<svg class="icon"><use href="' + iconsHref("play") + '"/></svg>' +
           "</button>" +
           '<div class="video-progress"><div class="video-progress-bar"></div></div>' +
           '<span class="video-time">0:00</span>' +
           '<button class="video-btn video-mute-btn" aria-label="' +
           Downstage.i18n.t("videoPlayer.mute") +
           '">' +
-          '<svg class="icon"><use href="downstage-icons.svg#volume"/></svg>' +
+          '<svg class="icon"><use href="' + iconsHref("volume") + '"/></svg>' +
           "</button>" +
           '<button type="button" class="video-btn video-fullscreen-btn" aria-label="' +
           Downstage.i18n.t("videoPlayer.enterFullscreen") +
           '">' +
-          '<svg class="icon"><use href="downstage-icons.svg#fullscreen"/></svg>' +
+          '<svg class="icon"><use href="' + iconsHref("fullscreen") + '"/></svg>' +
           "</button>";
         root.appendChild(controls);
       }
@@ -669,7 +674,7 @@
         overlay = document.createElement("div");
         overlay.className = "video-overlay-play";
         overlay.innerHTML =
-          '<svg class="icon"><use href="downstage-icons.svg#play"/></svg>';
+          '<svg class="icon"><use href="' + iconsHref("play") + '"/></svg>';
         root.insertBefore(overlay, root.firstChild.nextSibling);
       }
 
@@ -702,9 +707,7 @@
           playing ? Downstage.i18n.t("videoPlayer.pause") : Downstage.i18n.t("videoPlayer.play")
         );
         playBtn.innerHTML =
-          '<svg class="icon"><use href="downstage-icons.svg#' +
-          (playing ? "pause" : "play") +
-          '"/></svg>';
+          '<svg class="icon"><use href="' + iconsHref(playing ? "pause" : "play") + '"/></svg>';
       }
 
       video.addEventListener("play", updateUI);
@@ -734,9 +737,7 @@
           video.muted ? Downstage.i18n.t("videoPlayer.unmute") : Downstage.i18n.t("videoPlayer.mute")
         );
         muteBtn.innerHTML =
-          '<svg class="icon"><use href="downstage-icons.svg#' +
-          (video.muted ? "volume" : "volume") +
-          '"/></svg>';
+          '<svg class="icon"><use href="' + iconsHref("volume") + '"/></svg>';
         muteBtn.style.opacity = video.muted ? "0.4" : "1";
       });
 
@@ -770,9 +771,7 @@
           fs ? Downstage.i18n.t("videoPlayer.exitFullscreen") : Downstage.i18n.t("videoPlayer.enterFullscreen")
         );
         fullscreenBtn.innerHTML =
-          '<svg class="icon"><use href="downstage-icons.svg#' +
-          (fs ? "fullscreen-exit" : "fullscreen") +
-          '"/></svg>';
+          '<svg class="icon"><use href="' + iconsHref(fs ? "fullscreen-exit" : "fullscreen") + '"/></svg>';
       }
 
       if (fullscreenBtn) {
@@ -830,7 +829,7 @@
           '<button class="audio-btn audio-play" aria-label="' +
           Downstage.i18n.t("audioPlayer.play") +
           '">' +
-          '<svg class="icon"><use href="downstage-icons.svg#play"/></svg>' +
+          '<svg class="icon"><use href="' + iconsHref("play") + '"/></svg>' +
           "</button>" +
           '<div class="audio-info">' +
           '<div class="audio-title">' +
@@ -875,17 +874,17 @@
       audio.addEventListener("play", function () {
         setPlayAria(true);
         playBtn.innerHTML =
-          '<svg class="icon"><use href="downstage-icons.svg#pause"/></svg>';
+          '<svg class="icon"><use href="' + iconsHref("pause") + '"/></svg>';
       });
       audio.addEventListener("pause", function () {
         setPlayAria(false);
         playBtn.innerHTML =
-          '<svg class="icon"><use href="downstage-icons.svg#play"/></svg>';
+          '<svg class="icon"><use href="' + iconsHref("play") + '"/></svg>';
       });
       audio.addEventListener("ended", function () {
         setPlayAria(false);
         playBtn.innerHTML =
-          '<svg class="icon"><use href="downstage-icons.svg#play"/></svg>';
+          '<svg class="icon"><use href="' + iconsHref("play") + '"/></svg>';
       });
 
       playBtn.addEventListener("click", function () {
@@ -1032,7 +1031,7 @@
     /* Non-text defaults; copy comes from Downstage.i18n.get("htmlEditor") */
     var PRESETS = {
       demo: {
-        iconsBase: "downstage-icons.svg",
+        iconsBase: null,
         showRawSwitch: false,
         toolbarExclude: [],
       },
@@ -1267,7 +1266,7 @@
     }
 
     function buildLinkModal(opts, uid) {
-      var icons = opts.iconsBase || "downstage-icons.svg";
+      var icons = opts.iconsBase || _iconsBase;
       var lm = opts.linkModal;
       var overlay = document.createElement("div");
       overlay.className = "html-editor-link-modal modal-overlay hidden";
@@ -1934,7 +1933,7 @@
         var searchIcon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
         searchIcon.setAttribute("class", "icon");
         searchIcon.setAttribute("aria-hidden", "true");
-        searchIcon.innerHTML = '<use href="downstage-icons.svg#search" />';
+        searchIcon.innerHTML = '<use href="' + iconsHref("search") + '" />';
         wrap.appendChild(searchIcon);
       }
       var input = document.createElement("input");
@@ -2395,18 +2394,11 @@
     }
 
     function init() {
-      document.querySelectorAll("[data-kanban]:not([data-kanban-mounted])").forEach(function (el) {
-        if (el.hasAttribute("data-kanban-demo")) {
-          mount(el, {
-            fetchUrl: "demo/kanban-board.json",
-            moveUrl: "https://httpbin.org/post",
-            moveMethod: "POST",
-            moveCredentials: "omit",
-          });
-          return;
-        }
-        mount(el, {});
-      });
+      document
+        .querySelectorAll("[data-kanban]:not([data-kanban-mounted]):not([data-kanban-demo])")
+        .forEach(function (el) {
+          mount(el, {});
+        });
     }
 
     return { init: init, mount: mount };
@@ -2650,28 +2642,139 @@
       return { root: root, refresh: refresh };
     }
 
+    function init() {}
+
+    return { init: init, mount: mount };
+  })();
+
+  /* ==========================================================================
+     PASSWORD VISIBILITY TOGGLE
+     Wraps input[type=password] with a button (eye / eye-off). Opt out: data-password-toggle="off".
+     ========================================================================== */
+
+  Downstage.passwordInput = (function () {
+    function updateToggle(btn, useEl, input) {
+      var visible = input.type === "text";
+      btn.setAttribute("aria-pressed", visible ? "true" : "false");
+      btn.setAttribute("aria-label", visible ? Downstage.i18n.t("password.hide") : Downstage.i18n.t("password.show"));
+      useEl.setAttribute("href", iconsHref(visible ? "eye-off" : "eye"));
+    }
+
+    function mount(input) {
+      if (!input || input.getAttribute("data-password-toggle") === "off") return null;
+      if (input.closest(".input-password-wrap")) return null;
+      if (input.type !== "password") return null;
+
+      var wrap = document.createElement("div");
+      wrap.className = "input-password-wrap";
+      if (input.classList.contains("input-minimal")) wrap.classList.add("input-password-wrap-minimal");
+
+      input.parentNode.insertBefore(wrap, input);
+      wrap.appendChild(input);
+
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "input-password-toggle";
+
+      var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+      svg.setAttribute("class", "icon");
+      svg.setAttribute("aria-hidden", "true");
+      svg.setAttribute("width", "20");
+      svg.setAttribute("height", "20");
+      var use = document.createElementNS("http://www.w3.org/2000/svg", "use");
+      use.setAttribute("href", iconsHref("eye"));
+      svg.appendChild(use);
+      btn.appendChild(svg);
+
+      updateToggle(btn, use, input);
+      wrap.appendChild(btn);
+
+      btn.addEventListener("click", function () {
+        input.type = input.type === "password" ? "text" : "password";
+        updateToggle(btn, use, input);
+      });
+
+      return { wrap: wrap, input: input, button: btn };
+    }
+
     function init() {
-      document.querySelectorAll("[data-data-table]:not([data-data-table-mounted])").forEach(function (el) {
-        if (el.getAttribute("data-data-table-demo") != null) {
-          mount(el, {
-            mode: "local",
-            pageSize: 5,
-            columns: [
-              { key: "name", label: "Name" },
-              { key: "email", label: "Email" },
-              { key: "role", label: "Role" },
-            ],
-            rows: [
-              { name: "Ada Lovelace", email: "ada@example.com", role: "Admin" },
-              { name: "Alan Turing", email: "alan@example.com", role: "Editor" },
-              { name: "Grace Hopper", email: "grace@example.com", role: "Editor" },
-              { name: "Edsger Dijkstra", email: "edsger@example.com", role: "Viewer" },
-              { name: "Margaret Hamilton", email: "margaret@example.com", role: "Admin" },
-              { name: "Ken Thompson", email: "ken@example.com", role: "Viewer" },
-            ],
-          });
+      document.querySelectorAll('input[type="password"]').forEach(function (el) {
+        mount(el);
+      });
+    }
+
+    return { init: init, mount: mount };
+  })();
+
+  /* ==========================================================================
+     COPY FIELD — .input-copy-wrap > input | textarea + .input-copy-btn
+     ========================================================================== */
+
+  Downstage.copyField = (function () {
+    var FEEDBACK_MS = 1800;
+
+    function getValue(el) {
+      if (!el) return "";
+      if (typeof el.value === "string") return el.value;
+      return el.textContent || "";
+    }
+
+    function copyToClipboard(text) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        return navigator.clipboard.writeText(text);
+      }
+      return new Promise(function (resolve, reject) {
+        try {
+          var ta = document.createElement("textarea");
+          ta.value = text;
+          ta.setAttribute("readonly", "");
+          ta.style.position = "fixed";
+          ta.style.left = "-9999px";
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand("copy");
+          document.body.removeChild(ta);
+          resolve();
+        } catch (e) {
+          reject(e);
         }
       });
+    }
+
+    function bind(wrap) {
+      var field = wrap.querySelector("input, textarea");
+      var btn = wrap.querySelector(".input-copy-btn");
+      if (!field || !btn) return;
+
+      var labelEl = btn.querySelector(".input-copy-btn-label");
+      var copyMsg = Downstage.i18n.t("copyField.copy");
+      var copiedMsg = Downstage.i18n.t("copyField.copied");
+      if (labelEl) labelEl.textContent = copyMsg;
+      btn.setAttribute("aria-label", copyMsg);
+
+      var timer = null;
+      btn.addEventListener("click", function () {
+        copyToClipboard(getValue(field)).then(
+          function () {
+            if (labelEl) labelEl.textContent = copiedMsg;
+            btn.setAttribute("aria-label", copiedMsg);
+            if (timer) clearTimeout(timer);
+            timer = setTimeout(function () {
+              if (labelEl) labelEl.textContent = copyMsg;
+              btn.setAttribute("aria-label", copyMsg);
+            }, FEEDBACK_MS);
+          },
+          function () {}
+        );
+      });
+    }
+
+    function init() {
+      document.querySelectorAll(".input-copy-wrap").forEach(bind);
+    }
+
+    function mount(wrap) {
+      if (wrap && wrap.classList && wrap.classList.contains("input-copy-wrap")) bind(wrap);
     }
 
     return { init: init, mount: mount };
@@ -2687,8 +2790,15 @@
   }
 
   ready(function () {
+    if (typeof window !== "undefined" && window.__DOWNSTAGE_ICONS_BASE__) {
+      _iconsBase = window.__DOWNSTAGE_ICONS_BASE__;
+    }
     Downstage.theme.init();
-    Downstage.i18n.configure({ locale: "en", basePath: "locales/" }).then(function () {
+    var localeBase =
+      typeof window !== "undefined" && window.__DOWNSTAGE_LOCALE_BASE__
+        ? window.__DOWNSTAGE_LOCALE_BASE__
+        : "locales/";
+    Downstage.i18n.configure({ locale: "en", basePath: localeBase }).then(function () {
       Downstage.navbar.init();
       Downstage.tabs.init();
       Downstage.accordion.init();
@@ -2702,6 +2812,8 @@
       Downstage.searchAutocomplete.init();
       Downstage.kanban.init();
       Downstage.dataTable.init();
+      Downstage.passwordInput.init();
+      Downstage.copyField.init();
     });
   });
 

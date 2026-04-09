@@ -1,0 +1,76 @@
+/* Documentation site (docs/*.html + home) — not part of downstage.css */
+.doc-page .doc-page-main {
+  padding-block: var(--space-8) var(--space-16);
+}
+
+.doc-page-docs-inner {
+  align-items: flex-start;
+  gap: var(--space-8);
+}
+
+@media (max-width: 900px) {
+  .doc-page-docs-inner {
+    flex-direction: column;
+  }
+
+  .doc-page-docs-inner .docs-sidebar {
+    position: static;
+    width: 100%;
+  }
+}
+
+.doc-hub-header {
+  margin-bottom: var(--space-10);
+  max-width: 42rem;
+}
+
+.doc-hub-title {
+  font-size: var(--fs-2xl);
+  margin-bottom: var(--space-3);
+}
+
+.doc-hub-lead {
+  font-size: var(--fs-md);
+}
+
+.doc-hub-grid {
+  margin-top: var(--space-4);
+}
+
+a.doc-hub-card {
+  display: block;
+  height: 100%;
+  padding: var(--space-6);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-elevated);
+  text-decoration: none;
+  color: inherit;
+  transition:
+    border-color var(--duration-fast) var(--ease),
+    box-shadow var(--duration-fast) var(--ease);
+}
+
+a.doc-hub-card:hover {
+  border-color: var(--text-muted);
+  box-shadow: var(--shadow-sm);
+}
+
+.doc-hub-card-title {
+  font-size: var(--fs-lg);
+  margin: 0 0 var(--space-2);
+}
+
+.doc-hub-card-desc {
+  margin: 0 0 var(--space-4);
+  font-size: var(--fs-sm);
+}
+
+.doc-hub-card-cta {
+  color: var(--brand-primary);
+  font-weight: var(--fw-medium);
+}
+
+.doc-stack .demo-section:last-child {
+  border-bottom: none;
+}

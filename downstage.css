@@ -1108,6 +1108,108 @@ a.btn-success:hover {
   border-bottom-color: var(--color-danger);
 }
 
+/* Password field + show/hide toggle (downstage.js wraps input[type=password]) */
+.input-password-wrap {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+.input-password-wrap .input {
+  padding-right: var(--space-10);
+}
+.input-password-wrap-minimal .input.input-minimal {
+  padding-right: var(--space-10);
+}
+.input-password-toggle {
+  position: absolute;
+  right: var(--space-2);
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-1);
+  margin: 0;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  border-radius: var(--radius);
+  line-height: 0;
+}
+.input-password-toggle:hover {
+  color: var(--text);
+}
+.input-password-toggle:focus {
+  outline: none;
+}
+.input-password-toggle:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 2px;
+}
+
+/* Copy button beside readonly / disabled fields (downstage.js — .input-copy-wrap) */
+.input-copy-wrap {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: var(--space-2);
+  width: 100%;
+}
+.input-copy-wrap:has(> input) {
+  align-items: center;
+}
+.input-copy-wrap > .input,
+.input-copy-wrap > .textarea {
+  flex: 1;
+  min-width: 0;
+}
+.input-copy-btn {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  margin: 0;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-elevated);
+  font-family: var(--font-sans);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  cursor: pointer;
+  line-height: 1.2;
+  transition:
+    color var(--duration-fast) var(--ease),
+    border-color var(--duration-fast) var(--ease),
+    background-color var(--duration-fast) var(--ease);
+}
+.input-copy-btn:hover {
+  color: var(--text);
+  border-color: var(--border-strong);
+}
+.input-copy-btn:focus {
+  outline: none;
+}
+.input-copy-btn:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 2px;
+}
+.input-copy-wrap-minimal .input-copy-btn {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  border-radius: 0;
+  padding: var(--space-2) 0 var(--space-1);
+}
+.input-copy-wrap-minimal .input-copy-btn:hover {
+  border-bottom-color: var(--border-strong);
+  background: transparent;
+}
+
 /* Drag-and-drop file upload (pairs with [data-upload-drop] in downstage.js) */
 .upload-drop {
   display: flex;

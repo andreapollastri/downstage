@@ -17,7 +17,7 @@ Clean typography, warm desaturated palette, thin borders, light shadows, integra
 9. [Utilities](#utilities)
 10. [JavaScript (`downstage.js`)](#javascript-downstagejs)
 11. [HTML editor (detailed)](#html-editor-detailed)
-12. [Demo page](#demo-page)
+12. [Documentation site](#documentation-site)
 13. [Philosophy](#philosophy)
 14. [Customization](#customization)
 15. [License](#license)
@@ -32,11 +32,18 @@ your-project/
 ├── downstage.js             ← JS with built-in components (~few KB)
 ├── downstage-icons.svg      ← 170+ icon sprite (stroke icons)
 ├── fonts/                   ← Space Grotesk (self-hosted)
-├── demo/                    ← gallery-only assets (not required in your app)
-│   ├── demo.css             ← page-specific styles for `index.html`
-│   ├── demo.js              ← page-specific scripts for `index.html`
-│   └── kanban-board.json    ← sample Kanban payload for the demo
-└── index.html               ← full component gallery (reference)
+├── docs/                    ← documentation site (multi-page gallery)
+│   ├── index.html           ← hub listing every topic page
+│   ├── getting-started.html, icons.html, foundation.html, …
+│   └── (generated from `catalog-full.html` via `demo/split_catalog.py`)
+├── demo/                    ← demo-only assets (not required in your app)
+│   ├── demo.css             ← demo + docs layout helpers
+│   ├── docs.css             ← documentation site chrome
+│   ├── demo.js              ← combobox/search/table demos
+│   ├── split_catalog.py     ← rebuild `docs/*.html` from `catalog-full.html`
+│   └── kanban-board.json    ← sample Kanban payload
+├── catalog-full.html        ← optional single-file snapshot of all components
+└── index.html               ← home; start at `docs/index.html` for the full gallery
 ```
 
 ---
@@ -131,7 +138,7 @@ SVG sprite (`downstage-icons.svg`) with **170+** stroke icons; color follows `cu
 
 **Size classes:** `.icon-sm`, `.icon` (default), `.icon-lg`, `.icon-xl`, `.icon-2xl`.
 
-**Families:** navigation, actions, files, comms, users, dev/tech, media, status, time/place, misc. The gallery in `index.html` lists symbol ids.
+**Families:** navigation, actions, files, comms, users, dev/tech, media, status, time/place, misc. The **`docs/icons.html`** page lists symbol ids.
 
 ---
 
@@ -151,7 +158,7 @@ The grid collapses for small viewports (see breakpoints in CSS — mobile-first 
 
 ## Components
 
-Below: class names, required markup hooks, and `downstage.js` behavior where applicable. **`index.html`** is the canonical visual reference for every block.
+Below: class names, required markup hooks, and `downstage.js` behavior where applicable. The **`docs/`** site is the canonical visual reference for every block (see **`docs/index.html`**).
 
 ### Buttons
 
@@ -160,6 +167,8 @@ Below: class names, required markup hooks, and `downstage.js` behavior where app
 ### Forms
 
 - **Field:** `.field` wrapping `.label` + `.input` / `.textarea` / `.select`
+- **Password:** `<input type="password" class="input">` — **`downstage.js`** wraps it with an eye toggle (show / hide). Use **`data-password-toggle="off"`** to disable. Labels: **`password.show`** / **`password.hide`** in **`locales/*.json`**.
+- **Copy:** wrap a readonly **`textarea`** or disabled **`input`** in **`.input-copy-wrap`** with a **`button.input-copy-btn`** (optional **`span.input-copy-btn-label`**). Add **`.input-copy-wrap-minimal`** with **`textarea-minimal`** / **`input-minimal`** for underline-on-background styling. Strings **`copyField.copy`** / **`copyField.copied`**.
 - **States:** `.field.has-error`, `.error`, `.help`
 - **Controls:** `.check` (checkbox), `.switch` + `.switch-slider`
 - **Minimal:** `.input-minimal`, `.select-minimal` (underline style)
@@ -261,7 +270,7 @@ See [HTML editor (detailed)](#html-editor-detailed).
 
 ### App UI (auth, combobox, Kanban, data table)
 
-Markup plus **`downstage.js`** built-in behaviors for sign-in flows, autocomplete fields, boards, and tables. Demos: `#auth`, `#app-data` in `index.html`.
+Markup plus **`downstage.js`** built-in behaviors for sign-in flows, autocomplete fields, boards, and tables. See **`docs/apps.html`**.
 
 #### Authentication shells
 
@@ -303,7 +312,7 @@ Centered **`.auth-shell`** (optional min-height) wraps **`.auth-card`** (max-wid
 
 `.footer` > `.footer-inner` > `.footer-grid`, `.footer-title`, `.footer-links`, `.footer-bottom`, `.footer-social`.
 
-### Page templates (demo sections in `index.html`)
+### Page templates (see `docs/templates.html` and related pages)
 
 | Anchor | Highlights |
 | ------ | ---------- |
@@ -317,8 +326,8 @@ Centered **`.auth-shell`** (optional min-height) wraps **`.auth-card`** (max-wid
 | `#team` | `.team-grid`, `.team-card`, `.team-avatar` |
 | `#timeline` | `ol.timeline`, `.timeline-item`, `.timeline--compact` |
 | `#shop` | `.shop-grid`, `.shop-card`, `.product-detail`, `.cart`, checkout / payment panels |
-| `#auth` | `.auth-shell`, `.auth-card`, sign in / sign up / recovery / 2FA patterns |
-| `#app-data` | Combobox, search autocomplete, Kanban, data table (JS-backed demos) |
+| `docs/apps.html` (auth blocks) | `.auth-shell`, `.auth-card`, sign in / sign up / recovery / 2FA patterns |
+| `docs/apps.html` (data UI) | Combobox, search autocomplete, Kanban, data table (JS-backed demos) |
 | `#filters` | Image filter classes (see [Utilities](#utilities)) |
 
 ### Sidebar nav (settings-style)
@@ -329,7 +338,7 @@ Centered **`.auth-shell`** (optional min-height) wraps **`.auth-card`** (max-wid
 
 ## Utilities
 
-- **Images:** `.img-bw`, `.img-sepia`, `.img-muted`, `.img-warm`; hover variants `.img-bw-hover`, `.img-sepia-hover` (hover clears filter). See `#filters` in `index.html`.
+- **Images:** `.img-bw`, `.img-sepia`, `.img-muted`, `.img-warm`; hover variants `.img-bw-hover`, `.img-sepia-hover` (hover clears filter). See **`docs/utilities.html`**.
 - **Display / flex helpers:** as in CSS (e.g. utility clusters in demos).
 - **Reduced motion:** `prefers-reduced-motion` respected where transitions are used.
 
@@ -503,9 +512,22 @@ You can still hand-write the full editor DOM under **`[data-html-editor]`** (too
 
 ---
 
-## Demo page
+## Documentation site
 
-**`index.html`** is the interactive catalog: tutorial, palette, typography, icons, every component block, utilities, and copy-paste snippets. Page-only assets live under **`demo/`** (`demo.css`, `demo.js`, `kanban-board.json` for the Kanban demo). Open **`index.html`** locally or via a static server so SVG `<use href>` resolves correctly (some browsers restrict `file://` external sprites).
+- **`index.html`** — short home with links into the docs.
+- **`docs/index.html`** — hub with cards to every topic (getting started, icons, layout & forms, apps & data, media, templates, etc.).
+- **Topic pages** — each file under **`docs/`** focuses on one area; several use the **`docs-layout`** pattern (sidebar + chapters) for in-page navigation.
+- **`catalog-full.html`** — optional **single-page** export of the entire gallery (useful for search-in-page or diffing). Regenerate topic pages with `python3 demo/split_catalog.py` after editing `catalog-full.html`.
+
+Open pages **via a static server** when possible so SVG `<use href>` resolves correctly (some browsers restrict `file://` external sprites). Demo assets: **`demo/demo.css`**, **`demo/demo.js`**, **`demo/kanban-board.json`**.
+
+### Active navigation (docs)
+
+**`demo/demo.js`** runs on every page that includes it (home and all **`docs/*.html`** files):
+
+1. **Browse (navbar dropdown)** — The link whose `href` resolves to the same HTML filename as the current page gets **`class="active"`** (matches **`.navbar-dropdown-link.active`** in **`downstage.css`**). On the documentation hub (**`/docs`**, **`/docs/`**, or **`docs/index.html`**), no topic row is marked active. Deep links such as **`docs/getting-started.html#typography`** only affect the filename for this step; the hash is ignored here.
+
+2. **On this page (sidebar)** — On pages that use **`docs-layout`** with **`nav.docs-nav`** and anchor links (`href="#…"`), the script highlights the section currently in view (scroll position) and updates when the hash changes (e.g. after opening **`…#typography`**). The active item uses **`nav.docs-nav a.active`** (see **`downstage.css`**). Matching sidebar links get **`aria-current="location"`** for assistive tech.
 
 ---
 

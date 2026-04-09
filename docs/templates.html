@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Templates — downstage.css</title>
+  <link rel="stylesheet" href="../downstage.css">
+  <link rel="stylesheet" href="../demo/demo.css">
+  <link rel="stylesheet" href="../demo/docs.css">
+</head>
+<body class="doc-page">
+  <div hidden></div>
+  <object data="../downstage-icons.svg" type="image/svg+xml" style="display:none" aria-hidden="true"></object>
+
+  <nav class="navbar" id="main-nav">
+    <div class="navbar-inner">
+      <a class="navbar-brand" href="../index.html">
+        <svg class="icon" width="20" height="20">
+          <use href="../downstage-icons.svg#hash" />
+        </svg>
+        downstage<span class="text-muted">.css</span>
+      </a>
+
+      <button class="navbar-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="navbar-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="navbar-menu" id="navbar-menu">
+        <div class="navbar-menu-scroll">
+          <a href="../index.html" class="navbar-link">Home</a>
+          <a href="index.html" class="navbar-link">Documentation</a>
+
+          <details class="navbar-dropdown">
+            <summary class="navbar-dropdown-summary">
+              Browse
+              <svg class="icon icon-sm navbar-dropdown-chevron" aria-hidden="true">
+                <use href="../downstage-icons.svg#chevron-down" />
+              </svg>
+            </summary>
+            <div class="navbar-dropdown-panel" role="group" aria-label="Documentation sections">
+              <a href="basic.html" class="navbar-dropdown-link">Basic</a>
+              <a href="ui-components.html" class="navbar-dropdown-link">UI Components</a>
+              <a href="interactive.html" class="navbar-dropdown-link">Interactive UI</a>
+              <a href="media.html" class="navbar-dropdown-link">Media</a>
+              <a href="data.html" class="navbar-dropdown-link">Data UI</a>
+              <a href="templates.html" class="navbar-dropdown-link">Templates</a>
+            </div>
+          </details>
+
+          <div class="navbar-actions">
+            <div class="btn-group" role="group" aria-label="Theme">
+              <button class="btn btn-sm" data-set-theme="light" aria-label="Light theme">
+                <svg class="icon"><use href="../downstage-icons.svg#sun" /></svg>
+              </button>
+              <button class="btn btn-sm" data-set-theme="dark" aria-label="Dark theme">
+                <svg class="icon"><use href="../downstage-icons.svg#moon" /></svg>
+              </button>
+              <button class="btn btn-sm" data-set-theme="auto" aria-label="Auto theme">Auto</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+  <main class="container doc-page-main">
+    <div class="docs-layout doc-page-docs-inner">
+      <aside class="docs-sidebar">
+        <div class="docs-sidebar-title">On this page</div>
+        <nav class="docs-nav" aria-label="Section">
+          <a href="#auth">Authentication</a>
+          <a href="#dashboard-demo">Dashboard</a>
+          <a href="#portfolio">Portfolio</a>
+          <a href="#blog">Blog</a>
+          <a href="#links">Links</a>
+          <a href="#about">About me</a>
+          <a href="#team">Team</a>
+          <a href="#shop">Shop</a>
+          <a href="#profile">Profile</a>
+        </nav>
+      </aside>
+      <div class="docs-content doc-stack">
+
+    <section class="demo-section" id="auth">
+      <p class="demo-section-title">08 — Apps</p>
+      <h2>Authentication</h2>
+      <p class="text-soft">Layout shells for sign in, sign up, password recovery, and a two-factor code step. Wire forms
+        to
+        your backend; markup and classes are presentation-only.</p>
+
+      <div class="grid mt-8" style="gap: var(--space-8); align-items: start;">
+        <div class="col-6">
+          <div class="auth-shell" style="min-height: auto; padding: 0;">
+            <div class="auth-card auth-card-wide">
+              <div class="auth-brand">
+                <svg class="icon icon-lg" aria-hidden="true">
+                  <use href="../downstage-icons.svg#hash" />
+                </svg>
+                downstage
+              </div>
+              <h3 class="auth-title">Sign in</h3>
+              <p class="auth-subtitle">Use your work email and password.</p>
+              <form class="auth-form" action="#" method="post" onsubmit="return false;">
+                <div class="field">
+                  <label class="label" for="auth-signin-email">Email</label>
+                  <input id="auth-signin-email" class="input" type="email" name="email" autocomplete="username" required
+                    placeholder="you@company.com">
+                </div>
+                <div class="field">
+                  <label class="label" for="auth-signin-password">Password</label>
+                  <input id="auth-signin-password" class="input" type="password" name="password"
+                    autocomplete="current-password" required>
+                </div>
+                <div class="auth-links-row">
+                  <label class="check">
+                    <input type="checkbox" name="remember" value="1">
+                    <span>Remember me</span>
+                  </label>
+                  <a href="#auth-recovery">Forgot password?</a>
+                </div>
+                <div class="auth-actions">
+                  <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+                </div>
+              </form>
+              <div class="auth-footer">
+                No account? <a href="#auth-signup">Create one</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6">
+          <div class="auth-shell" style="min-height: auto; padding: 0;">
+            <div class="auth-card auth-card-wide" id="auth-signup">
+              <h3 class="auth-title">Create account</h3>
+              <p class="auth-subtitle">Sign up with your email. We will send a verification link.</p>
+              <form class="auth-form" action="#" method="post" onsubmit="return false;">
+                <div class="field">
+                  <label class="label" for="auth-signup-name">Full name</label>
+                  <input id="auth-signup-name" class="input" type="text" name="name" autocomplete="name" required>
+                </div>
+                <div class="field">
+                  <label class="label" for="auth-signup-email">Email</label>
+                  <input id="auth-signup-email" class="input" type="email" name="email" autocomplete="email" required>
+                </div>
+                <div class="field">
+                  <label class="label" for="auth-signup-password">Password</label>
+                  <input id="auth-signup-password" class="input" type="password" name="password"
+                    autocomplete="new-password" required minlength="8">
+                  <span class="help">At least 8 characters.</span>
+                </div>
+                <label class="check">
+                  <input type="checkbox" name="terms" required>
+                  <span>I agree to the terms and privacy policy</span>
+                </label>
+                <div class="auth-actions">
+                  <button type="submit" class="btn btn-primary btn-block">Sign up</button>
+                </div>
+              </form>
+              <div class="auth-footer">
+                Already have an account? <a href="#auth">Sign in</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid mt-8" style="gap: var(--space-8); align-items: start;">
+        <div class="col-6">
+          <div class="auth-shell" style="min-height: auto; padding: 0;">
+            <div class="auth-card" id="auth-recovery">
+              <h3 class="auth-title">Reset password</h3>
+              <p class="auth-subtitle">Enter your email and we will send reset instructions.</p>
+              <form class="auth-form" action="#" method="post" onsubmit="return false;">
+                <div class="field">
+                  <label class="label" for="auth-recovery-email">Email</label>
+                  <input id="auth-recovery-email" class="input" type="email" name="email" autocomplete="email" required>
+                </div>
+                <div class="auth-actions">
+                  <button type="submit" class="btn btn-primary btn-block">Send reset link</button>
+                  <a href="#auth" class="btn btn-ghost btn-block" style="text-align:center;">Back to sign in</a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6">
+          <div class="auth-shell" style="min-height: auto; padding: 0;">
+            <div class="auth-card" id="auth-2fa">
+              <h3 class="auth-title">Two-factor authentication</h3>
+              <p class="auth-subtitle">Enter the 6-digit code from your authenticator app.</p>
+              <form class="auth-form" action="#" method="post" onsubmit="return false;">
+                <div class="auth-otp" role="group" aria-label="One-time code" data-demo-otp>
+                  <input class="input" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1"
+                    aria-label="Digit 1" data-otp-index="0" autocomplete="one-time-code">
+                  <input class="input" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1"
+                    aria-label="Digit 2" data-otp-index="1" autocomplete="one-time-code">
+                  <input class="input" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1"
+                    aria-label="Digit 3" data-otp-index="2" autocomplete="one-time-code">
+                  <input class="input" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1"
+                    aria-label="Digit 4" data-otp-index="3" autocomplete="one-time-code">
+                  <input class="input" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1"
+                    aria-label="Digit 5" data-otp-index="4" autocomplete="one-time-code">
+                  <input class="input" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1"
+                    aria-label="Digit 6" data-otp-index="5" autocomplete="one-time-code">
+                </div>
+                <p class="help text-center">Alternatively, use a backup code in the field below.</p>
+                <div class="field">
+                  <label class="label" for="auth-backup-code">Backup code</label>
+                  <input id="auth-backup-code" class="input" type="text" name="backup" autocomplete="off"
+                    placeholder="XXXX-XXXX">
+                </div>
+                <div class="auth-actions">
+                  <button type="submit" class="btn btn-primary btn-block">Verify</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="demo-section" id="dashboard-demo">
+      <p class="demo-section-title">20 — Data</p>
+      <h2>Dashboard</h2>
+      <p class="text-soft">Stat cards and minimal SVG charts for data-driven UIs.</p>
+
+      <div class="dashboard-grid mt-6">
+        <div class="stat-card">
+          <div class="stat-label">Revenue</div>
+          <div class="stat-value">$48.2k</div>
+          <div class="stat-change is-up">
+            <svg class="icon icon-sm">
+              <use href="../downstage-icons.svg#trending-up" />
+            </svg>
+            +12.5%
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Users</div>
+          <div class="stat-value">2,847</div>
+          <div class="stat-change is-up">
+            <svg class="icon icon-sm">
+              <use href="../downstage-icons.svg#trending-up" />
+            </svg>
+            +8.1%
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Bounce rate</div>
+          <div class="stat-value">24.6%</div>
+          <div class="stat-change is-down">
+            <svg class="icon icon-sm">
+              <use href="../downstage-icons.svg#trending-down" />
+            </svg>
+            -3.2%
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Uptime</div>
+          <div class="stat-value">99.98%</div>
+          <div class="stat-change is-up">
+            <svg class="icon icon-sm">
+              <use href="../downstage-icons.svg#activity" />
+            </svg>
+            stable
+          </div>
+        </div>
+      </div>
+
+      <div class="grid mt-6">
+        <div class="col-8">
+          <div class="chart-card">
+            <div class="chart-header">
+              <div>
+                <div class="chart-title">Traffic overview</div>
+                <div class="chart-subtitle">Last 12 months</div>
+              </div>
+            </div>
+            <div class="chart-canvas">
+              <svg class="chart-line-svg" viewBox="0 0 400 160" preserveAspectRatio="none">
+                <path class="chart-line-area"
+                  d="M0,120 L33,100 L66,110 L100,80 L133,90 L166,60 L200,70 L233,40 L266,50 L300,30 L333,45 L366,20 L400,35 L400,160 L0,160Z" />
+                <path class="chart-line-path"
+                  d="M0,120 L33,100 L66,110 L100,80 L133,90 L166,60 L200,70 L233,40 L266,50 L300,30 L333,45 L366,20 L400,35" />
+                <circle class="chart-line-dot" cx="366" cy="20" r="3" />
+                <circle class="chart-line-dot" cx="400" cy="35" r="3" />
+              </svg>
+            </div>
+            <div class="chart-legend">
+              <span class="chart-legend-item"><span class="chart-legend-dot" style="background:var(--text)"></span>
+                Visitors</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-4">
+          <div class="chart-card">
+            <div class="chart-header">
+              <div>
+                <div class="chart-title">Sources</div>
+                <div class="chart-subtitle">This month</div>
+              </div>
+            </div>
+            <div class="chart-canvas" style="display:flex;align-items:center;justify-content:center;">
+              <svg class="chart-donut-svg" viewBox="0 0 120 120" style="max-width:160px;">
+                <circle class="chart-donut-ring" cx="60" cy="60" r="48" stroke="var(--text)" stroke-dasharray="180 302"
+                  stroke-dashoffset="-75" opacity="0.8" />
+                <circle class="chart-donut-ring" cx="60" cy="60" r="48" stroke="var(--brand-primary)"
+                  stroke-dasharray="90 302" stroke-dashoffset="105" opacity="0.9" />
+                <circle class="chart-donut-ring" cx="60" cy="60" r="48" stroke="var(--brand-secondary)"
+                  stroke-dasharray="32 302" stroke-dashoffset="195" />
+                <text class="chart-donut-center" x="60" y="57">73%</text>
+                <text class="chart-donut-label" x="60" y="74">organic</text>
+              </svg>
+            </div>
+            <div class="chart-legend">
+              <span class="chart-legend-item"><span class="chart-legend-dot" style="background:var(--text)"></span>
+                Direct</span>
+              <span class="chart-legend-item"><span class="chart-legend-dot"
+                  style="background:var(--brand-primary)"></span> Organic</span>
+              <span class="chart-legend-item"><span class="chart-legend-dot"
+                  style="background:var(--brand-secondary)"></span> Referral</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="chart-card mt-6">
+        <div class="chart-header">
+          <div>
+            <div class="chart-title">Monthly performance</div>
+            <div class="chart-subtitle">Revenue per month (K)</div>
+          </div>
+        </div>
+        <div class="chart-canvas">
+          <div class="chart-bar-group">
+            <div class="chart-bar" style="height:40%"></div>
+            <div class="chart-bar" style="height:55%"></div>
+            <div class="chart-bar" style="height:45%"></div>
+            <div class="chart-bar" style="height:65%"></div>
+            <div class="chart-bar" style="height:50%"></div>
+            <div class="chart-bar" style="height:75%"></div>
+            <div class="chart-bar" style="height:60%"></div>
+            <div class="chart-bar" style="height:80%"></div>
+            <div class="chart-bar" style="height:70%"></div>
+            <div class="chart-bar is-accent" style="height:90%"></div>
+            <div class="chart-bar is-accent" style="height:85%"></div>
+            <div class="chart-bar is-accent" style="height:95%"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== PORTFOLIO ============================== -->
+    <section class="demo-section" id="portfolio">
+      <p class="demo-section-title">21 — Components</p>
+      <h2>Portfolio</h2>
+      <p class="text-soft">Project cards in a responsive grid. Use <code>.portfolio-item</code> as a block or wrap the
+        whole card in <code>&lt;a&gt;</code>. Optional <code>.portfolio-item--featured</code> spans two columns on wide
+        viewports.</p>
+
+      <div class="portfolio mt-8">
+        <a href="#" class="portfolio-item portfolio-item--featured">
+          <div class="portfolio-media">
+            <img src="https://picsum.photos/seed/portfolio1/1200/520" alt="Northwind console preview">
+          </div>
+          <div class="portfolio-body">
+            <span class="portfolio-meta">Product · 2025</span>
+            <h3 class="portfolio-title">Northwind console</h3>
+            <p class="portfolio-desc">Design system and UI kit for internal tools. Tokens, components, and
+              documentation in one place.</p>
+            <div class="portfolio-tags">
+              <span class="badge">UI</span>
+              <span class="badge badge-info">React</span>
+              <span class="badge">Design</span>
+            </div>
+          </div>
+          <div class="portfolio-footer">
+            <span class="text-subtle text-sm">Case study</span>
+            <span class="portfolio-link">
+              View
+              <svg class="icon" aria-hidden="true">
+                <use href="../downstage-icons.svg#arrow-right" />
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <a href="#" class="portfolio-item">
+          <div class="portfolio-media">
+            <img src="https://picsum.photos/seed/portfolio2/800/500" alt="Studio Meridian preview">
+          </div>
+          <div class="portfolio-body">
+            <span class="portfolio-meta">Web · 2024</span>
+            <h3 class="portfolio-title">Studio Meridian</h3>
+            <p class="portfolio-desc">Marketing site with editorial layouts and a restrained palette.</p>
+            <div class="portfolio-tags">
+              <span class="badge badge-success">Live</span>
+              <span class="badge">Astro</span>
+            </div>
+          </div>
+          <div class="portfolio-footer">
+            <span class="text-subtle text-sm">Brand &amp; dev</span>
+            <span class="portfolio-link">
+              View
+              <svg class="icon" aria-hidden="true">
+                <use href="../downstage-icons.svg#arrow-right" />
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <a href="#" class="portfolio-item">
+          <div class="portfolio-media">
+            <img src="https://picsum.photos/seed/portfolio3/800/500" alt="downstage.css preview">
+          </div>
+          <div class="portfolio-body">
+            <span class="portfolio-meta">Open source</span>
+            <h3 class="portfolio-title">downstage.css</h3>
+            <p class="portfolio-desc">This very design system — minimal Nordic components, zero dependencies.</p>
+            <div class="portfolio-tags">
+              <span class="badge">CSS</span>
+              <span class="badge badge-warning">WIP</span>
+            </div>
+          </div>
+          <div class="portfolio-footer">
+            <span class="text-subtle text-sm">Library</span>
+            <span class="portfolio-link">
+              View
+              <svg class="icon" aria-hidden="true">
+                <use href="../downstage-icons.svg#arrow-right" />
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <article class="portfolio-item">
+          <div class="portfolio-media">
+            <img src="https://picsum.photos/seed/portfolio4/800/500" alt="Audio visualizer preview">
+          </div>
+          <div class="portfolio-body">
+            <span class="portfolio-meta">Experiment</span>
+            <h3 class="portfolio-title">Audio visualizer</h3>
+            <p class="portfolio-desc">Non-linked card example using <code>&lt;article&gt;</code> for a static teaser.
+            </p>
+            <div class="portfolio-tags">
+              <span class="badge">Canvas</span>
+            </div>
+          </div>
+          <div class="portfolio-footer">
+            <span class="text-subtle text-sm">Prototype</span>
+            <button type="button" class="btn btn-sm btn-secondary">Details</button>
+          </div>
+        </article>
+      </div>
+
+      <h4 class="mt-12 mb-2">Minimal</h4>
+      <p class="text-soft text-sm mb-6">Compact variant on <code class="text-mono">--bg</code>: horizontal rules only,
+        no card chrome — same idea as <code class="text-mono">.table-minimal</code> and <code
+          class="text-mono">.input-minimal</code>. Use <code class="text-mono">.portfolio.portfolio--minimal</code> and
+        <code class="text-mono">.portfolio-item--minimal</code>.
+      </p>
+      <div class="portfolio portfolio--minimal mt-6">
+        <a href="#" class="portfolio-item portfolio-item--minimal">
+          <div class="portfolio-media">
+            <img src="https://picsum.photos/seed/pmin1/400/400" alt="Atlas maps preview">
+          </div>
+          <div class="portfolio-body">
+            <span class="portfolio-meta">Maps · 2025</span>
+            <h3 class="portfolio-title">Atlas</h3>
+            <p class="portfolio-desc">Tile server with a palette aligned to the design system.</p>
+            <div class="portfolio-tags">
+              <span class="badge">Geo</span>
+              <span class="badge badge-info">API</span>
+            </div>
+          </div>
+          <div class="portfolio-footer">
+            <span class="text-subtle text-sm">Product</span>
+            <span class="portfolio-link">
+              View
+              <svg class="icon" aria-hidden="true">
+                <use href="../downstage-icons.svg#arrow-right" />
+              </svg>
+            </span>
+          </div>
+        </a>
+        <a href="#" class="portfolio-item portfolio-item--minimal">
+          <div class="portfolio-media">
+            <img src="https://picsum.photos/seed/pmin2/400/400" alt="Ledger app preview">
+          </div>
+          <div class="portfolio-body">
+            <span class="portfolio-meta">Finance</span>
+            <h3 class="portfolio-title">Ledger mobile</h3>
+            <p class="portfolio-desc">Approval flows and real-time notifications.</p>
+            <div class="portfolio-tags">
+              <span class="badge badge-success">Shipped</span>
+            </div>
+          </div>
+          <div class="portfolio-footer">
+            <span class="text-subtle text-sm">Case study</span>
+            <span class="portfolio-link">
+              View
+              <svg class="icon" aria-hidden="true">
+                <use href="../downstage-icons.svg#arrow-right" />
+              </svg>
+            </span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ============================== BLOG ============================== -->
+    <section class="demo-section" id="blog">
+      <p class="demo-section-title">22 — Components</p>
+      <h2>Blog</h2>
+      <p class="text-soft">Article teasers with <code>.blog-card</code> inside <code>.blog-list--grid</code> or a
+        vertical
+        <code>.blog-list</code>. Meta line supports date, category, and reading time.
+      </p>
+
+      <div class="blog-list blog-list--grid mt-8">
+        <a href="#" class="blog-card">
+          <div class="blog-card-media">
+            <img src="https://picsum.photos/seed/blog1/800/450"
+              alt="Abstract gradient for blog post about design tokens">
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <time datetime="2026-03-12">12 Mar 2026</time>
+              <span class="badge badge-info">Tutorial</span>
+              <span>6 min read</span>
+            </div>
+            <h3 class="blog-card-title">Tokens first: theming without the noise</h3>
+            <p class="blog-card-excerpt">How we structure CSS variables so light, dark, and brand swaps stay
+              predictable.
+            </p>
+            <div class="blog-card-footer">
+              <span class="text-subtle text-sm">John Doe</span>
+              <span class="blog-read-more">
+                Read
+                <svg class="icon" aria-hidden="true">
+                  <use href="../downstage-icons.svg#arrow-right" />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="blog-card">
+          <div class="blog-card-media">
+            <img src="https://picsum.photos/seed/blog2/800/450" alt="Workspace photo for static design system article">
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <time datetime="2026-02-28">28 Feb 2026</time>
+              <span class="badge">Notes</span>
+              <span>3 min read</span>
+            </div>
+            <h3 class="blog-card-title">Shipping a static design system</h3>
+            <p class="blog-card-excerpt">No build step, no npm — just HTML, CSS, and a thin layer of JS where it helps.
+            </p>
+            <div class="blog-card-footer">
+              <span class="text-subtle text-sm">Team</span>
+              <span class="blog-read-more">
+                Read
+                <svg class="icon" aria-hidden="true">
+                  <use href="../downstage-icons.svg#arrow-right" />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="blog-card">
+          <div class="blog-card-media">
+            <img src="https://picsum.photos/seed/blog3/800/450" alt="Texture image for changelog post">
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <time datetime="2026-01-15">15 Jan 2026</time>
+              <span class="badge badge-success">Changelog</span>
+              <span>2 min read</span>
+            </div>
+            <h3 class="blog-card-title">What changed in 0.4</h3>
+            <p class="blog-card-excerpt">Portfolio grid, blog cards, and tighter focus styles across components.</p>
+            <div class="blog-card-footer">
+              <span class="text-subtle text-sm">Release</span>
+              <span class="blog-read-more">
+                Read
+                <svg class="icon" aria-hidden="true">
+                  <use href="../downstage-icons.svg#arrow-right" />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <h4 class="mt-12 mb-2">Stacked list</h4>
+      <p class="text-soft text-sm mb-6">Same card pattern in a vertical <code>.blog-list</code> for archive pages.</p>
+      <div class="blog-list blog-list--narrow">
+        <a href="#" class="blog-card blog-card--compact">
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <time datetime="2025-11-02">2 Nov 2025</time>
+              <span class="badge badge-warning">Draft</span>
+            </div>
+            <h3 class="blog-card-title">Accessibility checklist for forms</h3>
+            <p class="blog-card-excerpt">Labels, errors, and focus order — a short list we use before shipping.</p>
+            <div class="blog-card-footer">
+              <span class="text-subtle text-sm">A11y</span>
+              <span class="blog-read-more">
+                Read
+                <svg class="icon" aria-hidden="true">
+                  <use href="../downstage-icons.svg#arrow-right" />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </a>
+        <a href="#" class="blog-card blog-card--compact">
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <time datetime="2025-09-18">18 Sept 2025</time>
+            </div>
+            <h3 class="blog-card-title">Why we still like vanilla JS</h3>
+            <p class="blog-card-excerpt">Progressive enhancement and fewer moving parts in production.</p>
+            <div class="blog-card-footer">
+              <span class="text-subtle text-sm">Engineering</span>
+              <span class="blog-read-more">
+                Read
+                <svg class="icon" aria-hidden="true">
+                  <use href="../downstage-icons.svg#arrow-right" />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <h4 class="mt-12 mb-2">Minimal</h4>
+      <p class="text-soft text-sm mb-6">List with <code class="text-mono">.blog-list--minimal</code> and <code
+          class="text-mono">.blog-card--minimal</code>: thumbnail on the left (on wide viewports), no heavy shadow or
+        full border.</p>
+      <div class="blog-list blog-list--grid blog-list--minimal mt-6">
+        <a href="#" class="blog-card blog-card--minimal">
+          <div class="blog-card-media">
+            <img src="https://picsum.photos/seed/bmin1/400/400" alt="Gradient for minimal blog card">
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <time datetime="2026-04-01">1 Apr 2026</time>
+              <span class="badge">Notes</span>
+              <span>4 min</span>
+            </div>
+            <h3 class="blog-card-title">Minimal lists in production</h3>
+            <p class="blog-card-excerpt">When removing the outer chrome improves scan and density.</p>
+            <div class="blog-card-footer">
+              <span class="text-subtle text-sm">Editorial</span>
+              <span class="blog-read-more">
+                Read
+                <svg class="icon" aria-hidden="true">
+                  <use href="../downstage-icons.svg#arrow-right" />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </a>
+        <a href="#" class="blog-card blog-card--minimal">
+          <div class="blog-card-media">
+            <img src="https://picsum.photos/seed/bmin2/400/400" alt="Texture for second minimal post">
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <time datetime="2026-03-20">20 Mar 2026</time>
+              <span class="badge badge-info">Guide</span>
+              <span>7 min</span>
+            </div>
+            <h3 class="blog-card-title">Spacing tokens for archives</h3>
+            <p class="blog-card-excerpt">Align vertical rhythm between teasers and pagination.</p>
+            <div class="blog-card-footer">
+              <span class="text-subtle text-sm">Design</span>
+              <span class="blog-read-more">
+                Read
+                <svg class="icon" aria-hidden="true">
+                  <use href="../downstage-icons.svg#arrow-right" />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ============================== LINKS ============================== -->
+    <section class="demo-section" id="links">
+      <p class="demo-section-title">23 — Components</p>
+      <h2>Links</h2>
+      <p class="text-soft">Stack of outbound links — useful for a "link in bio" page or a compact resources list. Use
+        <code>.link-list</code> + <code>a.link-item</code>
+      </p>
+
+      <div class="link-list mt-8">
+        <a href="https://github.com" class="link-item" target="_blank" rel="noopener noreferrer">
+          <span class="link-item-icon" aria-hidden="true">
+            <svg class="icon">
+              <use href="../downstage-icons.svg#github" />
+            </svg>
+          </span>
+          <span class="link-item-body">
+            <span class="link-item-title">GitHub</span>
+            <span class="link-item-desc">Source and issues</span>
+          </span>
+          <span class="link-item-arrow" aria-hidden="true">
+            <svg class="icon">
+              <use href="../downstage-icons.svg#external-link" />
+            </svg>
+          </span>
+        </a>
+        <a href="#" class="link-item">
+          <span class="link-item-icon" aria-hidden="true">
+            <svg class="icon">
+              <use href="../downstage-icons.svg#globe" />
+            </svg>
+          </span>
+          <span class="link-item-body">
+            <span class="link-item-title">Documentation</span>
+            <span class="link-item-desc">Getting started &amp; examples</span>
+          </span>
+          <span class="link-item-arrow" aria-hidden="true">
+            <svg class="icon">
+              <use href="../downstage-icons.svg#arrow-right" />
+            </svg>
+          </span>
+        </a>
+        <a href="#" class="link-item">
+          <span class="link-item-icon" aria-hidden="true">
+            <svg class="icon">
+              <use href="../downstage-icons.svg#mail" />
+            </svg>
+          </span>
+          <span class="link-item-body">
+            <span class="link-item-title">Contact</span>
+            <span class="link-item-desc">hello@example.com</span>
+          </span>
+          <span class="link-item-arrow" aria-hidden="true">
+            <svg class="icon">
+              <use href="../downstage-icons.svg#arrow-right" />
+            </svg>
+          </span>
+        </a>
+        <a href="#blog" class="link-item">
+          <span class="link-item-icon" aria-hidden="true">
+            <svg class="icon">
+              <use href="../downstage-icons.svg#message" />
+            </svg>
+          </span>
+          <span class="link-item-body">
+            <span class="link-item-title">Blog</span>
+            <span class="link-item-desc">Notes &amp; changelog</span>
+          </span>
+          <span class="link-item-arrow" aria-hidden="true">
+            <svg class="icon">
+              <use href="../downstage-icons.svg#arrow-right" />
+            </svg>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <section class="demo-section" id="about">
+      <p class="demo-section-title">24 — Components</p>
+      <h2>About me</h2>
+      <p class="text-soft">Profile block with photo, role line, bio, and social icons. Markup uses <code>.about</code>,
+        <code>.about-media</code>, and <code>.about-content</code>.
+      </p>
+
+      <div class="about mt-8">
+        <div class="about-media">
+          <img src="https://picsum.photos/seed/aboutportrait/560/560" alt="Portrait of John Doe">
+        </div>
+        <div class="about-content">
+          <header>
+            <h3 class="about-name">John Doe</h3>
+            <p class="about-role">Designer &amp; developer · Bergamo, Italy</p>
+          </header>
+          <p class="about-bio">
+            I build calm interfaces and design systems that stay out of the way. downstage.css is a small, token-driven
+            toolkit for sites and apps that value clarity over noise — Nordic-inspired restraint, no build step
+            required.
+          </p>
+          <p class="about-bio">
+            When I'm not shipping UI, I'm probably refining typography, hiking, or chasing good espresso.
+          </p>
+          <div class="about-social" aria-label="Social profiles">
+            <a href="https://web.ap.it" target="_blank" rel="noopener noreferrer" aria-label="Website">
+              <svg class="icon">
+                <use href="../downstage-icons.svg#globe" />
+              </svg>
+            </a>
+            <a href="#" aria-label="GitHub">
+              <svg class="icon">
+                <use href="../downstage-icons.svg#github" />
+              </svg>
+            </a>
+            <a href="#" aria-label="Email">
+              <svg class="icon">
+                <use href="../downstage-icons.svg#mail" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== TEAM ============================== -->
+    <section class="demo-section" id="team">
+      <p class="demo-section-title">25 — Components</p>
+      <h2>Team</h2>
+      <p class="text-soft">People grid with photo, role, and short bio. Classes: <code>.team-grid</code>,
+        <code>.team-card</code>, <code>.team-avatar</code>, <code>.team-name</code>, <code>.team-role</code>,
+        <code>.team-bio</code>, optional <code>.team-links</code>.
+      </p>
+
+      <div class="team-grid mt-8">
+        <article class="team-card">
+          <div class="team-avatar">
+            <img src="https://picsum.photos/seed/team1/240/240" alt="Portrait of John Doe">
+          </div>
+          <h3 class="team-name">John Doe</h3>
+          <p class="team-role">Founder &amp; design system</p>
+          <p class="team-bio">Owns downstage.css, tokens, and docs. Calm interfaces, clean code.</p>
+          <div class="team-links" aria-label="John profile">
+            <a href="https://web.ap.it" target="_blank" rel="noopener noreferrer" aria-label="Website">
+              <svg class="icon">
+                <use href="../downstage-icons.svg#globe" />
+              </svg>
+            </a>
+            <a href="#" aria-label="GitHub">
+              <svg class="icon">
+                <use href="../downstage-icons.svg#github" />
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="team-card">
+          <div class="team-avatar">
+            <img src="https://picsum.photos/seed/team2/240/240" alt="Portrait of Elena Rossi">
+          </div>
+          <h3 class="team-name">Elena Rossi</h3>
+          <p class="team-role">Product design</p>
+          <p class="team-bio">Wireframes, prototypes, and accessibility. Keeps components and real pages aligned.</p>
+          <div class="team-links" aria-label="Elena profile">
+            <a href="#" aria-label="LinkedIn">
+              <svg class="icon">
+                <use href="../downstage-icons.svg#user" />
+              </svg>
+            </a>
+            <a href="#" aria-label="Email">
+              <svg class="icon">
+                <use href="../downstage-icons.svg#mail" />
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="team-card">
+          <div class="team-avatar">
+            <img src="https://picsum.photos/seed/team3/240/240" alt="Portrait of Marco Bianchi">
+          </div>
+          <h3 class="team-name">Marco Bianchi</h3>
+          <p class="team-role">Frontend</p>
+          <p class="team-bio">Vanilla JS, integrations, and performance. Keeps interactive widgets lightweight.</p>
+          <div class="team-links" aria-label="Marco profile">
+            <a href="#" aria-label="GitHub">
+              <svg class="icon">
+                <use href="../downstage-icons.svg#github" />
+              </svg>
+            </a>
+            <a href="#" aria-label="Code">
+              <svg class="icon">
+                <use href="../downstage-icons.svg#code" />
+              </svg>
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="demo-section" id="shop">
+      <p class="demo-section-title">27 — Components</p>
+      <h2>Shop</h2>
+      <p class="text-soft">Mini e-commerce patterns: product grid, product page, cart rows, and payment step. Markup
+        and CSS only — wire logic to your backend or payment provider.</p>
+
+      <h4 class="mt-10 mb-4">List</h4>
+      <div class="shop-grid">
+        <article class="shop-card">
+          <a href="#shop-detail" class="shop-card-hit" aria-label="Mug Sand — view product">
+            <div class="shop-card-media">
+              <span class="shop-card-badge"><span class="badge badge-success">New</span></span>
+              <img src="https://picsum.photos/seed/shop1/480/480" alt="Ceramic mug">
+            </div>
+            <div class="shop-card-body">
+              <p class="shop-card-meta">Tableware</p>
+              <h3 class="shop-card-title">Mug Sand</h3>
+              <p>
+                <span class="shop-price">€24,00</span>
+              </p>
+            </div>
+          </a>
+          <div class="shop-card-footer">
+            <span class="text-subtle text-sm">Glaze matte</span>
+            <button type="button" class="btn btn-sm btn-primary">Add</button>
+          </div>
+        </article>
+        <article class="shop-card">
+          <a href="#shop-detail" class="shop-card-hit" aria-label="Throw Fog — view product">
+            <div class="shop-card-media">
+              <img src="https://picsum.photos/seed/shop2/480/480" alt="Wool throw">
+            </div>
+            <div class="shop-card-body">
+              <p class="shop-card-meta">Home</p>
+              <h3 class="shop-card-title">Throw Fog</h3>
+              <p>
+                <span class="shop-price">€89,00</span>
+                <span class="shop-price-old">€110,00</span>
+              </p>
+            </div>
+          </a>
+          <div class="shop-card-footer">
+            <span class="badge badge-warning">-19%</span>
+            <button type="button" class="btn btn-sm btn-secondary">Add</button>
+          </div>
+        </article>
+        <article class="shop-card">
+          <a href="#shop-detail" class="shop-card-hit" aria-label="Lamp Arc — view product">
+            <div class="shop-card-media">
+              <img src="https://picsum.photos/seed/shop3/480/480" alt="Desk lamp">
+            </div>
+            <div class="shop-card-body">
+              <p class="shop-card-meta">Lighting</p>
+              <h3 class="shop-card-title">Lamp Arc</h3>
+              <p><span class="shop-price">€156,00</span></p>
+            </div>
+          </a>
+          <div class="shop-card-footer">
+            <span class="text-subtle text-sm">Steel / oak</span>
+            <button type="button" class="btn btn-sm btn-secondary">Add</button>
+          </div>
+        </article>
+      </div>
+
+      <h4 class="mt-12 mb-2">Minimal</h4>
+      <p class="text-soft text-sm mb-6">Compact grid with <code class="text-mono">.shop-grid--minimal</code> and <code
+          class="text-mono">.shop-card--minimal</code>: horizontal rows like a light table.</p>
+      <div class="shop-grid shop-grid--minimal mt-6">
+        <article class="shop-card shop-card--minimal">
+          <a href="#shop-detail" class="shop-card-hit" aria-label="Bowl Clay — view product">
+            <div class="shop-card-media">
+              <img src="https://picsum.photos/seed/smin1/200/200" alt="Ceramic bowl">
+            </div>
+            <div class="shop-card-body">
+              <p class="shop-card-meta">Tableware</p>
+              <h3 class="shop-card-title">Bowl Clay</h3>
+              <p><span class="shop-price">€32,00</span></p>
+            </div>
+          </a>
+          <div class="shop-card-footer">
+            <span class="text-subtle text-sm">Stoneware</span>
+            <button type="button" class="btn btn-sm btn-primary">Add</button>
+          </div>
+        </article>
+        <article class="shop-card shop-card--minimal">
+          <a href="#shop-detail" class="shop-card-hit" aria-label="Tray Oak — view product">
+            <div class="shop-card-media">
+              <img src="https://picsum.photos/seed/smin2/200/200" alt="Wooden tray">
+            </div>
+            <div class="shop-card-body">
+              <p class="shop-card-meta">Serve</p>
+              <h3 class="shop-card-title">Tray Oak</h3>
+              <p>
+                <span class="shop-price">€58,00</span>
+                <span class="shop-price-old">€72,00</span>
+              </p>
+            </div>
+          </a>
+          <div class="shop-card-footer">
+            <span class="badge badge-warning">Sale</span>
+            <button type="button" class="btn btn-sm btn-secondary">Add</button>
+          </div>
+        </article>
+      </div>
+
+      <h4 class="mt-12 mb-4" id="shop-detail">Detail</h4>
+      <div class="product-detail mt-6">
+        <div class="product-gallery">
+          <img src="https://picsum.photos/seed/shopdetail/800/800" alt="Mug Sand — detail">
+        </div>
+        <div class="product-info">
+          <p class="text-subtle text-sm">Tableware · SKU DS-MUG-01</p>
+          <h3 class="product-title">Mug Sand</h3>
+          <p class="product-lead">Glazed stoneware, comfortable grip, matte finish that resists fingerprints.</p>
+          <div class="product-price-row">
+            <span class="shop-price">€24,00</span>
+            <span class="text-subtle text-sm">In stock · ships in 2 days</span>
+          </div>
+          <div class="product-actions">
+            <label class="text-sm text-muted" for="shop-detail-qty">Qty</label>
+            <input id="shop-detail-qty" class="input shop-qty-input" type="number" value="1" min="1" max="99">
+            <button type="button" class="btn btn-primary">
+              <svg class="icon">
+                <use href="../downstage-icons.svg#shopping-cart" />
+              </svg>
+              Add to cart
+            </button>
+          </div>
+          <p class="help">Free returns within 30 days. VAT included for EU.</p>
+        </div>
+      </div>
+
+      <h4 class="mt-12 mb-4" id="shop-cart">Cart</h4>
+      <div class="grid mt-6">
+        <div class="col-8">
+          <div class="cart" role="group" aria-label="Shopping cart">
+            <div class="cart-row">
+              <div class="cart-thumb">
+                <img src="https://picsum.photos/seed/shop1/120/120" alt="Mug Sand">
+              </div>
+              <div class="cart-line-main">
+                <p class="cart-line-title">Mug Sand</p>
+                <p class="cart-line-meta">Tableware · €24,00 each</p>
+              </div>
+              <div class="cart-line-end">
+                <div class="cart-line-qty">
+                  <label class="sr-only" for="cart-qty-1">Quantity</label>
+                  <input id="cart-qty-1" class="input shop-qty-input" type="number" value="2" min="1" max="99">
+                </div>
+                <div class="cart-line-price">€48,00</div>
+              </div>
+            </div>
+            <div class="cart-row">
+              <div class="cart-thumb">
+                <img src="https://picsum.photos/seed/shop2/120/120" alt="Throw Fog">
+              </div>
+              <div class="cart-line-main">
+                <p class="cart-line-title">Throw Fog</p>
+                <p class="cart-line-meta">Home · €89,00 each</p>
+              </div>
+              <div class="cart-line-end">
+                <div class="cart-line-qty">
+                  <label class="sr-only" for="cart-qty-2">Quantity</label>
+                  <input id="cart-qty-2" class="input shop-qty-input" type="number" value="1" min="1" max="99">
+                </div>
+                <div class="cart-line-price">€89,00</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="cart-summary">
+            <p class="cart-summary-title">Order summary</p>
+            <div class="cart-summary-row">
+              <span>Subtotal</span>
+              <span>€137,00</span>
+            </div>
+            <div class="cart-summary-row">
+              <span>Shipping</span>
+              <span>€6,00</span>
+            </div>
+            <div class="cart-summary-row cart-summary-row--total">
+              <span>Total</span>
+              <span>€143,00</span>
+            </div>
+            <button type="button" class="btn btn-primary btn-block mt-4">Checkout</button>
+          </div>
+        </div>
+      </div>
+
+      <h4 class="mt-12 mb-4" id="shop-payment">Payment</h4>
+      <div class="checkout-layout mt-6">
+        <div class="payment-panel">
+          <h3 class="payment-panel-title">Payment</h3>
+          <form class="stack" action="#" method="get" onsubmit="return false;">
+            <div class="field">
+              <label class="label" for="pay-card-name">Name on card</label>
+              <input id="pay-card-name" class="input" type="text" autocomplete="cc-name" placeholder="M. Rossi">
+            </div>
+            <div class="field">
+              <label class="label" for="pay-card-num">Card number</label>
+              <input id="pay-card-num" class="input" type="text" inputmode="numeric" autocomplete="cc-number"
+                placeholder="1234 5678 9012 3456">
+            </div>
+            <div class="payment-card-row">
+              <div class="field">
+                <label class="label" for="pay-card-exp">Expiry</label>
+                <input id="pay-card-exp" class="input" type="text" autocomplete="cc-exp" placeholder="MM / YY">
+              </div>
+              <div class="field">
+                <label class="label" for="pay-card-cvc">CVC</label>
+                <input id="pay-card-cvc" class="input" type="text" autocomplete="cc-csc" placeholder="123">
+              </div>
+            </div>
+            <div class="field">
+              <label class="check">
+                <input type="checkbox" checked>
+                <span>Save card for next time (demo only)</span>
+              </label>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Pay €143,00</button>
+          </form>
+        </div>
+        <aside class="order-recap" aria-label="Order recap">
+          <p class="order-recap-title">Your order</p>
+          <div class="order-recap-item">
+            <span>Mug Sand × 2</span>
+            <span>€48,00</span>
+          </div>
+          <div class="order-recap-item">
+            <span>Throw Fog × 1</span>
+            <span>€89,00</span>
+          </div>
+          <div class="order-recap-total">
+            <span>Total</span>
+            <span>€143,00</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ============================== PROFILE ============================== -->
+    <section class="demo-section" id="profile">
+      <p class="demo-section-title">28 — Components</p>
+      <h2>Profile</h2>
+      <p class="text-soft">Account-area pattern: user fields, password, and security actions. Demo markup only —
+        connect to real endpoints or your auth provider.</p>
+
+      <div class="profile-shell mt-8">
+        <div class="profile-block">
+          <h3 class="profile-block-title">Account</h3>
+          <p class="profile-block-lead">Email and display name. Use <code class="text-mono">.input-minimal</code> for
+            consistency with the rest of the page.</p>
+          <form class="stack" action="#" method="get" onsubmit="return false;">
+            <div class="field">
+              <label class="label" for="profile-email">Email</label>
+              <input id="profile-email" class="input input-minimal" type="email" value="ada.lovelace@example.com"
+                autocomplete="email">
+            </div>
+            <div class="field">
+              <label class="label" for="profile-name">Display name</label>
+              <input id="profile-name" class="input input-minimal" type="text" value="Ada Lovelace" autocomplete="name">
+            </div>
+            <div class="field">
+              <label class="label" for="profile-locale">Language</label>
+              <select id="profile-locale" class="select select-minimal">
+                <option>Italian</option>
+                <option>English</option>
+                <option>Français</option>
+              </select>
+            </div>
+            <div class="cluster mt-2" style="justify-content: flex-end;">
+              <button type="button" class="btn btn-ghost">Discard</button>
+              <button type="submit" class="btn btn-primary">Save changes</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="profile-block">
+          <h3 class="profile-block-title">Password</h3>
+          <p class="profile-block-lead">Update your current password. In production, verify the current password on the
+            server.</p>
+          <form class="stack" action="#" method="get" onsubmit="return false;">
+            <div class="field">
+              <label class="label" for="profile-current-password">Current password</label>
+              <input id="profile-current-password" class="input input-minimal" type="password"
+                autocomplete="current-password">
+            </div>
+            <div class="field">
+              <label class="label" for="profile-new-password">New password</label>
+              <input id="profile-new-password" class="input input-minimal" type="password" autocomplete="new-password"
+                aria-describedby="profile-pw-hint">
+              <p id="profile-pw-hint" class="help">At least 12 characters; avoid passwords reused elsewhere.</p>
+            </div>
+            <div class="field">
+              <label class="label" for="profile-confirm-password">Confirm new password</label>
+              <input id="profile-confirm-password" class="input input-minimal" type="password"
+                autocomplete="new-password">
+            </div>
+            <div class="cluster mt-2" style="justify-content: flex-end;">
+              <button type="button" class="btn btn-secondary">Cancel</button>
+              <button type="submit" class="btn btn-primary">Update password</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="profile-block">
+          <h3 class="profile-block-title">Sessions</h3>
+          <p class="profile-block-lead">Revoke sessions on other devices after a password change or a suspicious
+            sign-in.</p>
+          <button type="button" class="btn btn-secondary btn-sm">Sign out everywhere</button>
+        </div>
+      </div>
+    </section>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">
+            <svg class="icon" width="20" height="20"><use href="../downstage-icons.svg#hash" /></svg>
+            downstage.css
+          </div>
+          <p class="footer-tagline">Minimal Nordic design system — zero dependencies.</p>
+        </div>
+        <div>
+          <div class="footer-title">Documentation</div>
+          <ul class="footer-links">
+            <li><a href="index.html">All sections</a></li>
+            <li><a href="basic.html">Basic</a></li>
+            <li><a href="interactive.html">Interactive UI</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-title">Site</div>
+          <ul class="footer-links">
+            <li><a href="../index.html">Home</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 <a href="https://web.ap.it" target="_blank" rel="noopener">Andrea Pollastri</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>window.__DOWNSTAGE_ICONS_BASE__ = "../downstage-icons.svg"; window.__DOWNSTAGE_LOCALE_BASE__ = "../locales/";</script>
+  <script src="../downstage.js" defer></script>
+  <script src="../demo/demo.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data UI — downstage.css</title>
+  <link rel="stylesheet" href="../downstage.css">
+  <link rel="stylesheet" href="../demo/demo.css">
+  <link rel="stylesheet" href="../demo/docs.css">
+</head>
+<body class="doc-page">
+  <div hidden></div>
+  <object data="../downstage-icons.svg" type="image/svg+xml" style="display:none" aria-hidden="true"></object>
+
+  <nav class="navbar" id="main-nav">
+    <div class="navbar-inner">
+      <a class="navbar-brand" href="../index.html">
+        <svg class="icon" width="20" height="20">
+          <use href="../downstage-icons.svg#hash" />
+        </svg>
+        downstage<span class="text-muted">.css</span>
+      </a>
+
+      <button class="navbar-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="navbar-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="navbar-menu" id="navbar-menu">
+        <div class="navbar-menu-scroll">
+          <a href="../index.html" class="navbar-link">Home</a>
+          <a href="index.html" class="navbar-link">Documentation</a>
+
+          <details class="navbar-dropdown">
+            <summary class="navbar-dropdown-summary">
+              Browse
+              <svg class="icon icon-sm navbar-dropdown-chevron" aria-hidden="true">
+                <use href="../downstage-icons.svg#chevron-down" />
+              </svg>
+            </summary>
+            <div class="navbar-dropdown-panel" role="group" aria-label="Documentation sections">
+              <a href="basic.html" class="navbar-dropdown-link">Basic</a>
+              <a href="ui-components.html" class="navbar-dropdown-link">UI Components</a>
+              <a href="interactive.html" class="navbar-dropdown-link">Interactive UI</a>
+              <a href="media.html" class="navbar-dropdown-link">Media</a>
+              <a href="data.html" class="navbar-dropdown-link">Data UI</a>
+              <a href="templates.html" class="navbar-dropdown-link">Templates</a>
+            </div>
+          </details>
+
+          <div class="navbar-actions">
+            <div class="btn-group" role="group" aria-label="Theme">
+              <button class="btn btn-sm" data-set-theme="light" aria-label="Light theme">
+                <svg class="icon"><use href="../downstage-icons.svg#sun" /></svg>
+              </button>
+              <button class="btn btn-sm" data-set-theme="dark" aria-label="Dark theme">
+                <svg class="icon"><use href="../downstage-icons.svg#moon" /></svg>
+              </button>
+              <button class="btn btn-sm" data-set-theme="auto" aria-label="Auto theme">Auto</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+  <main class="container doc-page-main">
+    <div class="docs-layout doc-page-docs-inner">
+      <aside class="docs-sidebar">
+        <div class="docs-sidebar-title">On this page</div>
+        <nav class="docs-nav" aria-label="Section">
+          <a href="#combobox">Combobox</a>
+          <a href="#search">Search</a>
+          <a href="#kanban">Kanban</a>
+          <a href="#datatable">Data table</a>
+        </nav>
+      </aside>
+      <div class="docs-content doc-stack">
+
+    <section class="demo-section" id="combobox">
+      <p class="demo-section-title">01 — Data UI</p>
+      <h2>Combobox</h2>
+      <p class="text-soft">Autocomplete combobox (local JSON or remote <code class="text-mono">?q=</code>).</p>
+
+      <div class="grid" style="gap: var(--space-8); align-items: start;">
+        <div class="col-6">
+          <p class="text-sm text-muted mb-2">Local options via <code class="text-mono">data-combobox-local</code></p>
+          <span class="label">City</span>
+          <div id="demo-combobox-local" data-combobox data-combobox-name="city"
+            data-combobox-local='[{"value":"at","label":"Athens"},{"value":"be","label":"Berlin"},{"value":"ca","label":"Cairo"},{"value":"dk","label":"Denver"},{"value":"es","label":"Edinburgh"}]'
+            data-combobox-placeholder="Type to filter…"></div>
+        </div>
+        <div class="col-6">
+          <p class="text-sm text-muted mb-2">Remote: <code class="text-mono">Downstage.combobox.mount</code> + async
+            fetch (demo uses JSONPlaceholder users).</p>
+          <span class="label">User</span>
+          <div id="demo-combobox-api"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="demo-section" id="search">
+      <p class="demo-section-title">02 — Data UI</p>
+      <h2>Search</h2>
+
+      <p class="text-sm text-muted mb-2">API-backed suggestions; same pattern as the combobox with a search icon.</p>
+      <div id="demo-search-autocomplete"></div>
+      <p class="help mt-2">In this demo the fetch URL is set in script (JSONPlaceholder). Listen for
+        <code class="text-mono">combobox-change</code> on the root to react to selection.
+      </p>
+    </section>
+
+    <section class="demo-section" id="kanban">
+      <p class="demo-section-title">03 — Data UI</p>
+      <h2>Kanban</h2>
+
+      <p class="text-sm text-muted mb-4">Board data is loaded with <strong>GET</strong>
+        <code class="text-mono">../demo/kanban-board.json</code> (same origin). Moving a card sends a <strong>POST</strong>
+        with
+        JSON (<code class="text-mono">cardId</code>, <code class="text-mono">fromColumnId</code>,
+        <code class="text-mono">toColumnId</code>, <code class="text-mono">toIndex</code>) to a demo endpoint; swap
+        <code class="text-mono">fetchUrl</code> / <code class="text-mono">moveUrl</code> for your API. On failed move
+        the
+        card reverts.
+      </p>
+      <div data-kanban data-kanban-fetch-url="../demo/kanban-board.json" data-kanban-move-url="https://httpbin.org/post" data-kanban-move-method="POST" data-kanban-move-credentials="omit"></div>
+    </section>
+
+    <section class="demo-section" id="datatable">
+      <p class="demo-section-title">04 — Data UI</p>
+      <h2>Data table</h2>
+
+      <div class="grid" style="gap: var(--space-8); align-items: start;">
+        <div class="col-12">
+          <p class="text-sm text-muted mb-2">Local: sort, filter, pagination in the browser (<code
+              class="text-mono">data-data-table-demo</code>).</p>
+          <div data-data-table data-data-table-demo></div>
+        </div>
+        <div class="col-12">
+          <p class="text-sm text-muted mb-2">Remote-style: one HTTP request, then client-side paging/sort/filter on the
+            result set (illustrates <code class="text-mono">fetchRemote</code>; your server can return
+            <code class="text-mono">{ rows, total }</code> per page).
+          </p>
+          <div id="demo-data-table-remote"></div>
+        </div>
+      </div>
+    </section>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">
+            <svg class="icon" width="20" height="20"><use href="../downstage-icons.svg#hash" /></svg>
+            downstage.css
+          </div>
+          <p class="footer-tagline">Minimal Nordic design system — zero dependencies.</p>
+        </div>
+        <div>
+          <div class="footer-title">Documentation</div>
+          <ul class="footer-links">
+            <li><a href="index.html">All sections</a></li>
+            <li><a href="basic.html">Basic</a></li>
+            <li><a href="interactive.html">Interactive UI</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-title">Site</div>
+          <ul class="footer-links">
+            <li><a href="../index.html">Home</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 <a href="https://web.ap.it" target="_blank" rel="noopener">Andrea Pollastri</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>window.__DOWNSTAGE_ICONS_BASE__ = "../downstage-icons.svg"; window.__DOWNSTAGE_LOCALE_BASE__ = "../locales/";</script>
+  <script src="../downstage.js" defer></script>
+  <script src="../demo/demo.js" defer></script>
+</body>
+</html>

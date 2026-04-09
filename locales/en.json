@@ -3,6 +3,14 @@
     "openMenu": "Open menu",
     "closeMenu": "Close menu"
   },
+  "password": {
+    "show": "Show password",
+    "hide": "Hide password"
+  },
+  "copyField": {
+    "copy": "Copy",
+    "copied": "Copied"
+  },
   "lightbox": {
     "close": "Close",
     "previous": "Previous",

@@ -1,0 +1,3340 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>downstage.css — Minimal Nordic Design System</title>
+  <link rel="stylesheet" href="downstage.css">
+  <link rel="stylesheet" href="demo/demo.css">
+</head>
+
+<body>
+
+  <!-- =====================================================================
+       SVG icons sprite
+       ===================================================================== -->
+  <div hidden>
+    <!--
+      In production, external use is recommended:
+      <svg class="icon"><use href="downstage-icons.svg#hash"/></svg>
+      In local file:// mode some browsers block external <use href>,
+      so we load the sprite via <object> below.
+    -->
+  </div>
+  <object data="downstage-icons.svg" type="image/svg+xml" style="display:none" aria-hidden="true"></object>
+
+  <!-- ============================== NAVBAR ============================== -->
+  <nav class="navbar" id="main-nav">
+    <div class="navbar-inner">
+      <a class="navbar-brand" href="#">
+        <svg class="icon" width="20" height="20">
+          <use href="downstage-icons.svg#hash" />
+        </svg>
+        downstage<span class="text-muted">.css</span>
+      </a>
+
+      <button class="navbar-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="navbar-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="navbar-menu" id="navbar-menu">
+        <div class="navbar-menu-scroll">
+          <a href="#tutorial" class="navbar-link active">Tutorial</a>
+
+          <details class="navbar-dropdown">
+            <summary class="navbar-dropdown-summary">
+              Components
+              <svg class="icon icon-sm navbar-dropdown-chevron" aria-hidden="true">
+                <use href="downstage-icons.svg#chevron-down" />
+              </svg>
+            </summary>
+            <div class="navbar-dropdown-panel navbar-dropdown-panel--grouped" role="group"
+              aria-label="Component sections">
+              <div class="navbar-dropdown-group" role="group" aria-labelledby="nav-components-foundation">
+                <p class="navbar-dropdown-group-title" id="nav-components-foundation">Foundation</p>
+                <a href="#grid" class="navbar-dropdown-link">Grid</a>
+                <a href="#buttons" class="navbar-dropdown-link">Buttons</a>
+                <a href="#forms" class="navbar-dropdown-link">Forms</a>
+                <a href="#table" class="navbar-dropdown-link">Table</a>
+                <a href="#html-editor" class="navbar-dropdown-link">HTML editor</a>
+              </div>
+              <div class="navbar-dropdown-group" role="group" aria-labelledby="nav-components-interactive">
+                <p class="navbar-dropdown-group-title" id="nav-components-interactive">Interactive</p>
+                <a href="#tabs" class="navbar-dropdown-link">Tabs</a>
+                <a href="#accordion" class="navbar-dropdown-link">Accordion</a>
+                <a href="#modal" class="navbar-dropdown-link">Modal</a>
+                <a href="#auth" class="navbar-dropdown-link">Auth</a>
+                <a href="#app-data" class="navbar-dropdown-link">Data UI</a>
+              </div>
+              <div class="navbar-dropdown-group" role="group" aria-labelledby="nav-components-media">
+                <p class="navbar-dropdown-group-title" id="nav-components-media">Media</p>
+                <a href="#gallery" class="navbar-dropdown-link">Gallery</a>
+                <a href="#slider" class="navbar-dropdown-link">Slider</a>
+                <a href="#videoplayer" class="navbar-dropdown-link">Video</a>
+                <a href="#audioplayer" class="navbar-dropdown-link">Audio</a>
+              </div>
+              <div class="navbar-dropdown-group" role="group" aria-labelledby="nav-components-pages">
+                <p class="navbar-dropdown-group-title" id="nav-components-pages">Page templates</p>
+                <a href="#docs-demo" class="navbar-dropdown-link">Docs</a>
+                <a href="#dashboard-demo" class="navbar-dropdown-link">Dashboard</a>
+                <a href="#portfolio" class="navbar-dropdown-link">Portfolio</a>
+                <a href="#blog" class="navbar-dropdown-link">Blog</a>
+                <a href="#links" class="navbar-dropdown-link">Links</a>
+              </div>
+              <div class="navbar-dropdown-group" role="group" aria-labelledby="nav-components-people">
+                <p class="navbar-dropdown-group-title" id="nav-components-people">People &amp; profile</p>
+                <a href="#about" class="navbar-dropdown-link">About</a>
+                <a href="#profile" class="navbar-dropdown-link">Profile</a>
+                <a href="#team" class="navbar-dropdown-link">Team</a>
+                <a href="#timeline" class="navbar-dropdown-link">Timeline</a>
+              </div>
+              <div class="navbar-dropdown-group" role="group" aria-labelledby="nav-components-commerce">
+                <p class="navbar-dropdown-group-title" id="nav-components-commerce">Shop &amp; tools</p>
+                <a href="#shop" class="navbar-dropdown-link">Shop</a>
+                <a href="#filters" class="navbar-dropdown-link">Image filters</a>
+              </div>
+            </div>
+          </details>
+
+          <a href="#icons" class="navbar-link">Icons</a>
+
+          <div class="navbar-actions">
+            <div class="btn-group" role="group" aria-label="Theme">
+              <button class="btn btn-sm" data-set-theme="light" aria-label="Light theme">
+                <svg class="icon">
+                  <use href="downstage-icons.svg#sun" />
+                </svg>
+              </button>
+              <button class="btn btn-sm" data-set-theme="dark" aria-label="Dark theme">
+                <svg class="icon">
+                  <use href="downstage-icons.svg#moon" />
+                </svg>
+              </button>
+              <button class="btn btn-sm" data-set-theme="auto" aria-label="Auto theme">Auto</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+
+    <!-- ============================== HERO ============================== -->
+    <section class="demo-section">
+      <p class="demo-section-title">Design System</p>
+      <h1>Minimal. Nordic. <br>No compromises.</h1>
+      <p class="mt-6 text-soft" style="max-width: 540px; font-size: var(--fs-md);">
+        A lightweight CSS framework for building clean sites and web apps.
+        Zero dependencies, <strong>JavaScript with built-in components</strong>, zero bloat.
+      </p>
+      <div class="cluster mt-8">
+        <a href="#tutorial" class="btn btn-primary">
+          Get started
+          <svg class="icon">
+            <use href="downstage-icons.svg#arrow-right" />
+          </svg>
+        </a>
+        <a href="#buttons" class="btn btn-secondary">
+          <svg class="icon">
+            <use href="downstage-icons.svg#code" />
+          </svg>
+          Components
+        </a>
+      </div>
+
+      <nav aria-label="Breadcrumb" class="mt-16">
+        <ol class="breadcrumb">
+          <li><a href="#"><svg class="icon">
+                <use href="downstage-icons.svg#home" />
+              </svg></a></li>
+          <li><a href="#">Design</a></li>
+          <li><a href="#">Systems</a></li>
+          <li>downstage.css</li>
+        </ol>
+      </nav>
+    </section>
+
+    <!-- ============================== TUTORIAL ============================== -->
+    <section class="demo-section" id="tutorial">
+      <p class="demo-section-title">01 — Getting started</p>
+      <h2>Quick start</h2>
+
+      <div class="grid mt-8" style="gap: var(--space-8);">
+
+        <div class="col-6">
+          <h4>1. Include the files</h4>
+          <p class="text-soft mt-2 text-sm">CSS always, JS only if you need interactive behaviors.</p>
+          <pre
+            class="code-snippet mt-4"><span class="c-tag">&lt;link</span> <span class="c-attr">rel</span>=<span class="c-string">"stylesheet"</span> <span class="c-attr">href</span>=<span class="c-string">"downstage.css"</span><span class="c-tag">&gt;</span>
+<span class="c-tag">&lt;script</span> <span class="c-attr">src</span>=<span class="c-string">"downstage.js"</span> <span class="c-attr">defer</span><span class="c-tag">&gt;&lt;/script&gt;</span></pre>
+        </div>
+
+        <div class="col-6">
+          <h4>2. Set the theme</h4>
+          <p class="text-soft mt-2 text-sm">Add <code>data-theme</code> to <code>&lt;html&gt;</code>. Values:
+            <code>light</code>, <code>dark</code>, <code>auto</code>.
+          </p>
+          <pre
+            class="code-snippet mt-4"><span class="c-tag">&lt;html</span> <span class="c-attr">data-theme</span>=<span class="c-string">"auto"</span><span class="c-tag">&gt;</span></pre>
+        </div>
+
+        <div class="col-6">
+          <h4>3. Use icons</h4>
+          <p class="text-soft mt-2 text-sm">SVG sprite with <code>&lt;use&gt;</code>. Inherits color from text.</p>
+          <pre class="code-snippet mt-4"><span class="c-tag">&lt;svg</span> <span class="c-attr">class</span>=<span class="c-string">"icon"</span><span class="c-tag">&gt;</span>
+  <span class="c-tag">&lt;use</span> <span class="c-attr">href</span>=<span class="c-string">"downstage-icons.svg#rocket"</span><span class="c-tag">/&gt;</span>
+<span class="c-tag">&lt;/svg&gt;</span></pre>
+        </div>
+
+        <div class="col-6">
+          <h4>4. Use components</h4>
+          <p class="text-soft mt-2 text-sm">Semantic classes, readable in any template engine.</p>
+          <pre class="code-snippet mt-4"><span class="c-tag">&lt;button</span> <span class="c-attr">class</span>=<span class="c-string">"btn btn-primary"</span><span class="c-tag">&gt;</span>
+  <span class="c-tag">&lt;svg</span> <span class="c-attr">class</span>=<span class="c-string">"icon"</span><span class="c-tag">&gt;&lt;use</span> <span class="c-attr">href</span>=<span class="c-string">"...#save"</span><span class="c-tag">/&gt;&lt;/svg&gt;</span>
+  Save
+<span class="c-tag">&lt;/button&gt;</span></pre>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================== COLORS ============================== -->
+    <section class="demo-section">
+      <p class="demo-section-title">02 — Palette</p>
+      <h2>Colors</h2>
+      <p class="text-soft" style="max-width: 540px;">
+        A warm desaturated neutral scale, two brand colors (sage + taupe)
+        and four semantic ones. They switch automatically in dark mode.
+      </p>
+
+      <h4 class="mt-8 mb-2">Neutral scale</h4>
+      <div class="swatches mt-4">
+        <div class="swatch">
+          <div class="swatch-color" style="background: var(--neutral-50)"></div>
+          <div class="swatch-meta">
+            <div class="swatch-name">neutral-50</div>
+            <div class="swatch-hex">--neutral-50</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: var(--neutral-100)"></div>
+          <div class="swatch-meta">
+            <div class="swatch-name">neutral-100</div>
+            <div class="swatch-hex">--neutral-100</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: var(--neutral-200)"></div>
+          <div class="swatch-meta">
+            <div class="swatch-name">neutral-200</div>
+            <div class="swatch-hex">--neutral-200</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: var(--neutral-300)"></div>
+          <div class="swatch-meta">
+            <div class="swatch-name">neutral-300</div>
+            <div class="swatch-hex">--neutral-300</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: var(--neutral-400)"></div>
+          <div class="swatch-meta">
+            <div class="swatch-name">neutral-400</div>
+            <div class="swatch-hex">--neutral-400</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: var(--neutral-500)"></div>
+          <div class="swatch-meta">
+            <div class="swatch-name">neutral-500</div>
+            <div class="swatch-hex">--neutral-500</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: var(--neutral-600)"></div>
+          <div class="swatch-meta">
+            <div class="swatch-name">neutral-600</div>
+            <div class="swatch-hex">--neutral-600</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: var(--neutral-700)"></div>
+          <div class="swatch-meta">
+            <div class="swatch-name">neutral-700</div>
+            <div class="swatch-hex">--neutral-700</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: var(--neutral-800)"></div>
+          <div class="swatch-meta">
+            <div class="swatch-name">neutral-800</div>
+            <div class="swatch-hex">--neutral-800</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: var(--neutral-900)"></div>
+          <div class="swatch-meta">
+            <div class="swatch-name">neutral-900</div>
+            <div class="swatch-hex">--neutral-900</div>
+          </div>
+        </div>
+      </div>
+
+      <h4 class="mt-8 mb-2">Brand &amp; Semantic</h4>
+      <div class="swatches mt-4">
+        <div class="swatch">
+          <div class="swatch-color" style="background: var(--brand-primary)"></div>
+          <div class="swatch-meta">
+            <div class="swatch-name">primary</div>
+            <div class="swatch-hex">sage</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: var(--brand-secondary)"></div>
+          <div class="swatch-meta">
+            <div class="swatch-name">secondary</div>
+            <div class="swatch-hex">taupe</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: var(--color-success)"></div>
+          <div class="swatch-meta">
+            <div class="swatch-name">success</div>
+            <div class="swatch-hex">green</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: var(--color-danger)"></div>
+          <div class="swatch-meta">
+            <div class="swatch-name">danger</div>
+            <div class="swatch-hex">red</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: var(--color-warning)"></div>
+          <div class="swatch-meta">
+            <div class="swatch-name">warning</div>
+            <div class="swatch-hex">amber</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: var(--color-info)"></div>
+          <div class="swatch-meta">
+            <div class="swatch-name">info</div>
+            <div class="swatch-hex">blue</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== TYPOGRAPHY ============================== -->
+    <section class="demo-section">
+      <p class="demo-section-title">03 — Typography</p>
+      <h2>Typography</h2>
+      <p class="text-soft">Space Grotesk, self-hosted as a variable font.</p>
+
+      <div class="stack mt-8">
+        <h1>Heading 1 — the largest</h1>
+        <h2>Heading 2</h2>
+        <h3>Heading 3</h3>
+        <h4>Heading 4</h4>
+        <p>Body — standard paragraph with comfortable line-height. Lorem ipsum dolor sit amet, consectetur adipiscing
+          elit.</p>
+        <p class="text-soft">Soft — one step lighter, for secondary text.</p>
+        <p class="text-muted text-sm">Muted small — for metadata, labels, captions.</p>
+        <p class="text-mono">123,456.78 — perfect for numbers.</p>
+        <p>Press <kbd>Cmd</kbd> + <kbd>K</kbd> to open search.</p>
+      </div>
+    </section>
+
+    <!-- ============================== ICONS ============================== -->
+    <section class="demo-section" id="icons">
+      <p class="demo-section-title">04 — Icons</p>
+      <h2>Icon set</h2>
+      <p class="text-soft text-sm mb-4" style="max-width: 640px;">
+        Ship <code>downstage-icons.svg</code> next to your HTML (or fix paths). Prefer a local server so external
+        <code>&lt;use&gt;</code> resolves; optional <code>&lt;object&gt;</code> helps some browsers load the sprite.
+      </p>
+      <pre class="code-snippet mb-6" tabindex="0"><span class="c-comment">&lt;!-- Optional: preload sprite for external &lt;use&gt; --&gt;</span>
+<span class="c-tag">&lt;object</span> <span class="c-attr">data</span>=<span class="c-string">"downstage-icons.svg"</span> <span class="c-attr">type</span>=<span class="c-string">"image/svg+xml"</span> <span class="c-attr">style</span>=<span class="c-string">"display:none"</span> <span class="c-attr">aria-hidden</span>=<span class="c-string">"true"</span><span class="c-tag">&gt;&lt;/object&gt;</span>
+
+<span class="c-tag">&lt;svg</span> <span class="c-attr">class</span>=<span class="c-string">"icon"</span> <span class="c-attr">width</span>=<span class="c-string">"20"</span> <span class="c-attr">height</span>=<span class="c-string">"20"</span> <span class="c-attr">aria-hidden</span>=<span class="c-string">"true"</span><span class="c-tag">&gt;</span>
+  <span class="c-tag">&lt;use</span> <span class="c-attr">href</span>=<span class="c-string">"downstage-icons.svg#check"</span> <span class="c-tag">/&gt;</span>
+<span class="c-tag">&lt;/svg&gt;</span></pre>
+      <p class="text-soft" style="max-width: 600px;">
+        190+ minimal stroke icons. All use <code>currentColor</code>
+        and scale with text size. Use via <code>&lt;use&gt;</code>
+        or inline.
+      </p>
+
+      <div class="cluster mt-6">
+        <span class="text-muted text-sm">Sizes:</span>
+        <span><svg class="icon icon-sm">
+            <use href="downstage-icons.svg#star" />
+          </svg> sm</span>
+        <span><svg class="icon">
+            <use href="downstage-icons.svg#star" />
+          </svg> default</span>
+        <span><svg class="icon icon-lg">
+            <use href="downstage-icons.svg#star" />
+          </svg> lg</span>
+        <span><svg class="icon icon-xl">
+            <use href="downstage-icons.svg#star" />
+          </svg> xl</span>
+      </div>
+
+      <h4 class="mt-8 mb-4">All icons</h4>
+      <div class="icon-grid">
+        <!-- Navigation & arrows -->
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#arrow-right" />
+          </svg><span class="icon-cell-name">arrow-right</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#arrow-left" />
+          </svg><span class="icon-cell-name">arrow-left</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#arrow-up" />
+          </svg><span class="icon-cell-name">arrow-up</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#arrow-down" />
+          </svg><span class="icon-cell-name">arrow-down</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#arrow-up-right" />
+          </svg><span class="icon-cell-name">arrow-up-right</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#chevron-right" />
+          </svg><span class="icon-cell-name">chevron-right</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#chevron-left" />
+          </svg><span class="icon-cell-name">chevron-left</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#chevron-up" />
+          </svg><span class="icon-cell-name">chevron-up</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#chevron-down" />
+          </svg><span class="icon-cell-name">chevron-down</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#external-link" />
+          </svg><span class="icon-cell-name">external-link</span></div>
+        <!-- Actions -->
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#check" />
+          </svg><span class="icon-cell-name">check</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#check-circle" />
+          </svg><span class="icon-cell-name">check-circle</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#x" />
+          </svg><span class="icon-cell-name">x</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#x-circle" />
+          </svg><span class="icon-cell-name">x-circle</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#plus" />
+          </svg><span class="icon-cell-name">plus</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#plus-circle" />
+          </svg><span class="icon-cell-name">plus-circle</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#minus" />
+          </svg><span class="icon-cell-name">minus</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#circle" />
+          </svg><span class="icon-cell-name">circle</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#circle-dot" />
+          </svg><span class="icon-cell-name">circle-dot</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#edit" />
+          </svg><span class="icon-cell-name">edit</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#pencil" />
+          </svg><span class="icon-cell-name">pencil</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#trash" />
+          </svg><span class="icon-cell-name">trash</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#copy" />
+          </svg><span class="icon-cell-name">copy</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#save" />
+          </svg><span class="icon-cell-name">save</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#download" />
+          </svg><span class="icon-cell-name">download</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#upload" />
+          </svg><span class="icon-cell-name">upload</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#refresh" />
+          </svg><span class="icon-cell-name">refresh</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#search" />
+          </svg><span class="icon-cell-name">search</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#filter" />
+          </svg><span class="icon-cell-name">filter</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#settings" />
+          </svg><span class="icon-cell-name">settings</span></div>
+        <!-- Files & media assets -->
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#file" />
+          </svg><span class="icon-cell-name">file</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#file-text" />
+          </svg><span class="icon-cell-name">file-text</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#file-pdf" />
+          </svg><span class="icon-cell-name">file-pdf</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#file-image" />
+          </svg><span class="icon-cell-name">file-image</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#file-code" />
+          </svg><span class="icon-cell-name">file-code</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#folder" />
+          </svg><span class="icon-cell-name">folder</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#open-folder" />
+          </svg><span class="icon-cell-name">open-folder</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#image" />
+          </svg><span class="icon-cell-name">image</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#link" />
+          </svg><span class="icon-cell-name">link</span></div>
+        <!-- Communication -->
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#mail" />
+          </svg><span class="icon-cell-name">mail</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#bell" />
+          </svg><span class="icon-cell-name">bell</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#message" />
+          </svg><span class="icon-cell-name">message</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#phone" />
+          </svg><span class="icon-cell-name">phone</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#paperclip" />
+          </svg><span class="icon-cell-name">paperclip</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#send" />
+          </svg><span class="icon-cell-name">send</span></div>
+        <!-- People & social -->
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#user" />
+          </svg><span class="icon-cell-name">user</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#users" />
+          </svg><span class="icon-cell-name">users</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#user-plus" />
+          </svg><span class="icon-cell-name">user-plus</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#heart" />
+          </svg><span class="icon-cell-name">heart</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#star" />
+          </svg><span class="icon-cell-name">star</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#bookmark" />
+          </svg><span class="icon-cell-name">bookmark</span></div>
+        <!-- Dev, cloud & platforms -->
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#rocket" />
+          </svg><span class="icon-cell-name">rocket</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#code" />
+          </svg><span class="icon-cell-name">code</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#terminal" />
+          </svg><span class="icon-cell-name">terminal</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#github" />
+          </svg><span class="icon-cell-name">github</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#database" />
+          </svg><span class="icon-cell-name">database</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#server" />
+          </svg><span class="icon-cell-name">server</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#cloud" />
+          </svg><span class="icon-cell-name">cloud</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#cloud-off" />
+          </svg><span class="icon-cell-name">cloud-off</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#zap" />
+          </svg><span class="icon-cell-name">zap</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#space-invader" />
+          </svg><span class="icon-cell-name">space-invader</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#linux" />
+          </svg><span class="icon-cell-name">linux</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#apple" />
+          </svg><span class="icon-cell-name">apple</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#windows" />
+          </svg><span class="icon-cell-name">windows</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#robot-ai" />
+          </svg><span class="icon-cell-name">robot-ai</span></div>
+        <!-- Playback & capture -->
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#play" />
+          </svg><span class="icon-cell-name">play</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#pause" />
+          </svg><span class="icon-cell-name">pause</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#volume" />
+          </svg><span class="icon-cell-name">volume</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#camera" />
+          </svg><span class="icon-cell-name">camera</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#eye" />
+          </svg><span class="icon-cell-name">eye</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#eye-off" />
+          </svg><span class="icon-cell-name">eye-off</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#music" />
+          </svg><span class="icon-cell-name">music</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#film" />
+          </svg><span class="icon-cell-name">film</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#headphones" />
+          </svg><span class="icon-cell-name">headphones</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#mic" />
+          </svg><span class="icon-cell-name">mic</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#mic-off" />
+          </svg><span class="icon-cell-name">mic-off</span></div>
+        <!-- Status & security -->
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#info" />
+          </svg><span class="icon-cell-name">info</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#spam" />
+          </svg><span class="icon-cell-name">spam</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#alert" />
+          </svg><span class="icon-cell-name">alert</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#help" />
+          </svg><span class="icon-cell-name">help</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#lock" />
+          </svg><span class="icon-cell-name">lock</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#unlock" />
+          </svg><span class="icon-cell-name">unlock</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#shield" />
+          </svg><span class="icon-cell-name">shield</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#key" />
+          </svg><span class="icon-cell-name">key</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#fingerprint" />
+          </svg><span class="icon-cell-name">fingerprint</span></div>
+        <!-- Place & time -->
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#home" />
+          </svg><span class="icon-cell-name">home</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#home-building" />
+          </svg><span class="icon-cell-name">home-building</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#building" />
+          </svg><span class="icon-cell-name">building</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#calendar" />
+          </svg><span class="icon-cell-name">calendar</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#calendar-day" />
+          </svg><span class="icon-cell-name">calendar-day</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#agenda" />
+          </svg><span class="icon-cell-name">agenda</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#clock" />
+          </svg><span class="icon-cell-name">clock</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#map-pin" />
+          </svg><span class="icon-cell-name">map-pin</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#globe" />
+          </svg><span class="icon-cell-name">globe</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#compass" />
+          </svg><span class="icon-cell-name">compass</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#pointer-pin" />
+          </svg><span class="icon-cell-name">pointer-pin</span></div>
+        <!-- UI chrome & layout -->
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#menu" />
+          </svg><span class="icon-cell-name">menu</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#more-h" />
+          </svg><span class="icon-cell-name">more-h</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#more-v" />
+          </svg><span class="icon-cell-name">more-v</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#sun" />
+          </svg><span class="icon-cell-name">sun</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#moon" />
+          </svg><span class="icon-cell-name">moon</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#list" />
+          </svg><span class="icon-cell-name">list</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#grid-icon" />
+          </svg><span class="icon-cell-name">grid-icon</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#layers" />
+          </svg><span class="icon-cell-name">layers</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#toggle-left" />
+          </svg><span class="icon-cell-name">toggle-left</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#toggle-right" />
+          </svg><span class="icon-cell-name">toggle-right</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#slider-icon" />
+          </svg><span class="icon-cell-name">slider-icon</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#hash" />
+          </svg><span class="icon-cell-name">hash</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#at-sign" />
+          </svg><span class="icon-cell-name">at-sign</span></div>
+        <!-- Network & devices -->
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#wifi" />
+          </svg><span class="icon-cell-name">wifi</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#wifi-off" />
+          </svg><span class="icon-cell-name">wifi-off</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#battery" />
+          </svg><span class="icon-cell-name">battery</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#smartphone" />
+          </svg><span class="icon-cell-name">smartphone</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#monitor" />
+          </svg><span class="icon-cell-name">monitor</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#presentation" />
+          </svg><span class="icon-cell-name">presentation</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#cpu" />
+          </svg><span class="icon-cell-name">cpu</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#hard-drive" />
+          </svg><span class="icon-cell-name">hard-drive</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#power" />
+          </svg><span class="icon-cell-name">power</span></div>
+        <!-- Charts & analytics -->
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#dashboard" />
+          </svg><span class="icon-cell-name">dashboard</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#bar-chart" />
+          </svg><span class="icon-cell-name">bar-chart</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#pie-chart" />
+          </svg><span class="icon-cell-name">pie-chart</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#trending-up" />
+          </svg><span class="icon-cell-name">trending-up</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#trending-down" />
+          </svg><span class="icon-cell-name">trending-down</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#activity" />
+          </svg><span class="icon-cell-name">activity</span></div>
+        <!-- Commerce & money -->
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#shopping-cart" />
+          </svg><span class="icon-cell-name">shopping-cart</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#credit-card" />
+          </svg><span class="icon-cell-name">credit-card</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#dollar" />
+          </svg><span class="icon-cell-name">dollar</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#percent" />
+          </svg><span class="icon-cell-name">percent</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#euro" />
+          </svg><span class="icon-cell-name">euro</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#money" />
+          </svg><span class="icon-cell-name">money</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#coins" />
+          </svg><span class="icon-cell-name">coins</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#wallet" />
+          </svg><span class="icon-cell-name">wallet</span></div>
+        <!-- Productivity & workflow -->
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#inbox" />
+          </svg><span class="icon-cell-name">inbox</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#archive" />
+          </svg><span class="icon-cell-name">archive</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#flag" />
+          </svg><span class="icon-cell-name">flag</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#share" />
+          </svg><span class="icon-cell-name">share</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#package" />
+          </svg><span class="icon-cell-name">package</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#printer" />
+          </svg><span class="icon-cell-name">printer</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#clipboard" />
+          </svg><span class="icon-cell-name">clipboard</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#target" />
+          </svg><span class="icon-cell-name">target</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#hourglass" />
+          </svg><span class="icon-cell-name">hourglass</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#command" />
+          </svg><span class="icon-cell-name">command</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#qr-code" />
+          </svg><span class="icon-cell-name">qr-code</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#barcode" />
+          </svg><span class="icon-cell-name">barcode</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#check-v" />
+          </svg><span class="icon-cell-name">check-v</span></div>
+        <!-- Auth & accounts -->
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#log-in" />
+          </svg><span class="icon-cell-name">log-in</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#log-out" />
+          </svg><span class="icon-cell-name">log-out</span></div>
+        <!-- Cursors & interaction -->
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#cursor-arrow" />
+          </svg><span class="icon-cell-name">cursor-arrow</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#cursor-pointer" />
+          </svg><span class="icon-cell-name">cursor-pointer</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#text-cursor" />
+          </svg><span class="icon-cell-name">text-cursor</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#move" />
+          </svg><span class="icon-cell-name">move</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#crosshair" />
+          </svg><span class="icon-cell-name">crosshair</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#not-allowed" />
+          </svg><span class="icon-cell-name">not-allowed</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#zoom-in" />
+          </svg><span class="icon-cell-name">zoom-in</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#zoom-out" />
+          </svg><span class="icon-cell-name">zoom-out</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#arrows-up-down" />
+          </svg><span class="icon-cell-name">arrows-up-down</span></div>
+        <!-- Social & brands -->
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#facebook" />
+          </svg><span class="icon-cell-name">facebook</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#linkedin" />
+          </svg><span class="icon-cell-name">linkedin</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#instagram" />
+          </svg><span class="icon-cell-name">instagram</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#google-g" />
+          </svg><span class="icon-cell-name">google-g</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#medium" />
+          </svg><span class="icon-cell-name">medium</span></div>
+        <!-- Emoji & avatars -->
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#face-smile" />
+          </svg><span class="icon-cell-name">face-smile</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#face-sad" />
+          </svg><span class="icon-cell-name">face-sad</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#face-neutral" />
+          </svg><span class="icon-cell-name">face-neutral</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#face-love" />
+          </svg><span class="icon-cell-name">face-love</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#face-tongue" />
+          </svg><span class="icon-cell-name">face-tongue</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#woman" />
+          </svg><span class="icon-cell-name">woman</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#man" />
+          </svg><span class="icon-cell-name">man</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#child" />
+          </svg><span class="icon-cell-name">child</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#paw" />
+          </svg><span class="icon-cell-name">paw</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#runner" />
+          </svg><span class="icon-cell-name">runner</span></div>
+        <!-- Travel & mobility -->
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#airplane" />
+          </svg><span class="icon-cell-name">airplane</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#boat" />
+          </svg><span class="icon-cell-name">boat</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#car" />
+          </svg><span class="icon-cell-name">car</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#moto" />
+          </svg><span class="icon-cell-name">moto</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#parking" />
+          </svg><span class="icon-cell-name">parking</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#traffic-light" />
+          </svg><span class="icon-cell-name">traffic-light</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#door" />
+          </svg><span class="icon-cell-name">door</span></div>
+        <!-- Tags & work -->
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#tag" />
+          </svg><span class="icon-cell-name">tag</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#briefcase" />
+          </svg><span class="icon-cell-name">briefcase</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#gift" />
+          </svg><span class="icon-cell-name">gift</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#handshake" />
+          </svg><span class="icon-cell-name">handshake</span></div>
+        <!-- Food & leisure -->
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#coffee" />
+          </svg><span class="icon-cell-name">coffee</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#beer" />
+          </svg><span class="icon-cell-name">beer</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#wine-bottle" />
+          </svg><span class="icon-cell-name">wine-bottle</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#wine-glass" />
+          </svg><span class="icon-cell-name">wine-glass</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#cocktail" />
+          </svg><span class="icon-cell-name">cocktail</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#fork-knife" />
+          </svg><span class="icon-cell-name">fork-knife</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#popcorn" />
+          </svg><span class="icon-cell-name">popcorn</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#pasta" />
+          </svg><span class="icon-cell-name">pasta</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#pizza" />
+          </svg><span class="icon-cell-name">pizza</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#ball" />
+          </svg><span class="icon-cell-name">ball</span></div>
+        <!-- Nature & misc -->
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#tree" />
+          </svg><span class="icon-cell-name">tree</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#flower" />
+          </svg><span class="icon-cell-name">flower</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#fire" />
+          </svg><span class="icon-cell-name">fire</span></div>
+        <div class="icon-cell"><svg class="icon">
+            <use href="downstage-icons.svg#sign" />
+          </svg><span class="icon-cell-name">sign</span></div>
+      </div>
+    </section>
+
+    <!-- ============================== GRID ============================== -->
+    <section class="demo-section" id="grid">
+      <p class="demo-section-title">05 — Layout</p>
+      <h2>Grid system</h2>
+      <p class="text-soft">12 columns. Consistent gap. Use <code>.col-N</code> inside <code>.grid</code>.</p>
+
+      <div class="grid grid-demo mt-6">
+        <div class="col-12">.col-12</div>
+      </div>
+      <div class="grid grid-demo mt-4">
+        <div class="col-6">.col-6</div>
+        <div class="col-6">.col-6</div>
+      </div>
+      <div class="grid grid-demo mt-4">
+        <div class="col-4">.col-4</div>
+        <div class="col-4">.col-4</div>
+        <div class="col-4">.col-4</div>
+      </div>
+      <div class="grid grid-demo mt-4">
+        <div class="col-3">.col-3</div>
+        <div class="col-3">.col-3</div>
+        <div class="col-3">.col-3</div>
+        <div class="col-3">.col-3</div>
+      </div>
+      <div class="grid grid-demo mt-4">
+        <div class="col-8">.col-8</div>
+        <div class="col-4">.col-4</div>
+      </div>
+    </section>
+
+    <!-- ============================== BUTTONS ============================== -->
+    <section class="demo-section" id="buttons">
+      <p class="demo-section-title">06 — Components</p>
+      <h2>Buttons</h2>
+
+      <div class="cluster mt-6">
+        <button class="btn">Default</button>
+        <button class="btn btn-primary">
+          <svg class="icon">
+            <use href="downstage-icons.svg#save" />
+          </svg>
+          Save
+        </button>
+        <button class="btn btn-secondary">
+          <svg class="icon">
+            <use href="downstage-icons.svg#filter" />
+          </svg>
+          Filter
+        </button>
+        <button class="btn btn-ghost">Ghost</button>
+        <button class="btn btn-danger">
+          <svg class="icon">
+            <use href="downstage-icons.svg#trash" />
+          </svg>
+          Delete
+        </button>
+        <button class="btn btn-danger-solid">
+          <svg class="icon">
+            <use href="downstage-icons.svg#x" />
+          </svg>
+          Confirm
+        </button>
+        <button class="btn btn-success">
+          <svg class="icon">
+            <use href="downstage-icons.svg#check" />
+          </svg>
+          Approve
+        </button>
+        <button class="btn" disabled>Disabled</button>
+      </div>
+
+      <h4 class="mt-8 mb-2">Sizes</h4>
+      <div class="cluster mt-4">
+        <button class="btn btn-sm btn-primary">Small</button>
+        <button class="btn btn-primary">Default</button>
+        <button class="btn btn-lg btn-primary">Large</button>
+      </div>
+    </section>
+
+    <!-- ============================== FORMS ============================== -->
+    <section class="demo-section" id="forms">
+      <p class="demo-section-title">07 — Components</p>
+      <h2>Forms</h2>
+
+      <div class="grid mt-6">
+        <div class="col-6">
+          <div class="card">
+            <div class="card-header">
+              <h4 style="margin: 0;">
+                <svg class="icon">
+                  <use href="downstage-icons.svg#user-plus" />
+                </svg>
+                Create account
+              </h4>
+              <span class="badge">Demo</span>
+            </div>
+
+            <div class="stack">
+              <div class="field">
+                <label class="label" for="demo-name">Username</label>
+                <input id="demo-name" class="input" type="text" placeholder="username" value="john">
+              </div>
+
+              <div class="field">
+                <label class="label" for="demo-email">Email</label>
+                <input id="demo-email" class="input" type="email" placeholder="you@example.com">
+                <span class="help">We will never share your email.</span>
+              </div>
+
+              <div class="field has-error">
+                <label class="label" for="demo-pwd">Password</label>
+                <input id="demo-pwd" class="input" type="password" value="123">
+                <span class="error">At least 8 characters.</span>
+              </div>
+
+              <div class="field">
+                <label class="label" for="demo-role">Role</label>
+                <select id="demo-role" class="select">
+                  <option>Developer</option>
+                  <option>Designer</option>
+                  <option>PM</option>
+                </select>
+              </div>
+
+              <label class="check">
+                <input type="checkbox" checked>
+                <span>I accept the terms of service</span>
+              </label>
+
+              <div class="cluster" style="justify-content: space-between;">
+                <span class="text-subtle">Auto-save enabled</span>
+                <label class="switch">
+                  <input type="checkbox" checked>
+                  <span class="switch-slider"></span>
+                </label>
+              </div>
+            </div>
+
+            <div class="card-footer">
+              <button class="btn btn-secondary">Cancel</button>
+              <button class="btn btn-primary">
+                <svg class="icon">
+                  <use href="downstage-icons.svg#save" />
+                </svg>
+                Save
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6">
+          <h4 class="mb-2" style="margin-top: 0;">Minimal underline</h4>
+          <p class="text-subtle text-sm mb-4">Single bottom border, transparent to the page background (<code
+              class="text-mono">--bg</code>).</p>
+
+          <form class="stack" action="#" method="get" onsubmit="return false;">
+            <div class="field">
+              <label class="label" for="demo-min-name">Name</label>
+              <input id="demo-min-name" class="input input-minimal" type="text" placeholder="Your name"
+                autocomplete="name">
+            </div>
+            <div class="field">
+              <label class="label" for="demo-min-email">Email</label>
+              <input id="demo-min-email" class="input input-minimal" type="email" placeholder="you@example.com"
+                autocomplete="email">
+            </div>
+            <div class="field">
+              <label class="label" for="demo-min-topic">Topic</label>
+              <select id="demo-min-topic" class="select select-minimal">
+                <option>General</option>
+                <option>Support</option>
+                <option>Partnership</option>
+              </select>
+            </div>
+            <div class="field">
+              <label class="label" for="demo-min-msg">Message</label>
+              <textarea id="demo-min-msg" class="textarea textarea-minimal" placeholder="Brief message"></textarea>
+            </div>
+            <div class="field">
+              <span class="label" id="demo-min-attach-label">Attachment</span>
+              <div class="upload-drop" data-upload-drop role="group" aria-labelledby="demo-min-attach-label">
+                <input id="demo-min-file" class="sr-only" type="file" multiple aria-describedby="demo-min-file-hint">
+                <div class="upload-drop-zone" tabindex="0" role="button"
+                  aria-label="Drop files here or browse to upload">
+                  <svg class="icon icon-lg" aria-hidden="true">
+                    <use href="downstage-icons.svg#upload" />
+                  </svg>
+                  <span class="upload-drop-text">Drop files here or <label for="demo-min-file"
+                      class="upload-drop-browse">browse</label></span>
+                  <span id="demo-min-file-hint" class="help">PDF, PNG — demo only</span>
+                </div>
+                <ul class="upload-drop-list" hidden></ul>
+              </div>
+            </div>
+            <div class="cluster mt-2" style="justify-content: flex-end;">
+              <button type="button" class="btn btn-ghost">Cancel</button>
+              <button type="submit" class="btn btn-primary">Send</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <h3 class="mt-8 mb-2" id="copy-fields" tabindex="-1">Copyable fields</h3>
+      <p class="text-soft text-sm mb-4">Read-only or disabled values with a <strong>copy</strong> action (<code
+          class="text-mono">.input-copy-wrap</code> + <code class="text-mono">downstage.js</code>). Use <code
+          class="text-mono">.input-copy-wrap-minimal</code> for underline controls on the page background.</p>
+
+      <div class="grid mt-2" style="gap: var(--space-8); align-items: start;">
+        <div class="col-6">
+          <div class="field">
+            <label class="label" for="demo-copy-textarea">Read-only textarea</label>
+            <div class="input-copy-wrap">
+              <textarea id="demo-copy-textarea" class="textarea" readonly rows="4">curl -s https://example.com/install.sh | sh</textarea>
+              <button type="button" class="input-copy-btn">
+                <svg class="icon icon-sm" aria-hidden="true">
+                  <use href="downstage-icons.svg#copy" />
+                </svg>
+                <span class="input-copy-btn-label">Copy</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="field">
+            <label class="label" for="demo-copy-disabled">Disabled input</label>
+            <div class="input-copy-wrap">
+              <input id="demo-copy-disabled" class="input" type="text"
+                value="ds_live_51H8k0AbCdEfGhIjKlMnOpQr0123456789" disabled>
+              <button type="button" class="input-copy-btn">
+                <svg class="icon icon-sm" aria-hidden="true">
+                  <use href="downstage-icons.svg#copy" />
+                </svg>
+                <span class="input-copy-btn-label">Copy</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="field">
+            <label class="label" for="demo-copy-textarea-min">Minimal textarea</label>
+            <div class="input-copy-wrap input-copy-wrap-minimal">
+              <textarea id="demo-copy-textarea-min" class="textarea textarea-minimal" readonly rows="4">export DOWNSTAGE_THEME=auto
+export PATH="$HOME/.local/bin:$PATH"</textarea>
+              <button type="button" class="input-copy-btn">
+                <svg class="icon icon-sm" aria-hidden="true">
+                  <use href="downstage-icons.svg#copy" />
+                </svg>
+                <span class="input-copy-btn-label">Copy</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="field">
+            <label class="label" for="demo-copy-disabled-min">Minimal disabled input</label>
+            <div class="input-copy-wrap input-copy-wrap-minimal">
+              <input id="demo-copy-disabled-min" class="input input-minimal" type="text"
+                value="pk_test_51H8k0AbCdEfGhIjKlMnOpQr0123456789" disabled>
+              <button type="button" class="input-copy-btn">
+                <svg class="icon icon-sm" aria-hidden="true">
+                  <use href="downstage-icons.svg#copy" />
+                </svg>
+                <span class="input-copy-btn-label">Copy</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid mt-8">
+        <div class="col-12">
+          <div class="stack">
+            <div class="alert alert-info">
+              <svg class="icon icon-lg">
+                <use href="downstage-icons.svg#info" />
+              </svg>
+              <div><strong>Info</strong> — This is an informational alert.</div>
+            </div>
+            <div class="alert alert-success">
+              <svg class="icon icon-lg">
+                <use href="downstage-icons.svg#check-circle" />
+              </svg>
+              <div><strong>Success</strong> — Changes have been saved.</div>
+            </div>
+            <div class="alert alert-warning">
+              <svg class="icon icon-lg">
+                <use href="downstage-icons.svg#alert" />
+              </svg>
+              <div><strong>Warning</strong> — Your session expires in 5 minutes.</div>
+            </div>
+            <div class="alert alert-danger">
+              <svg class="icon icon-lg">
+                <use href="downstage-icons.svg#x-circle" />
+              </svg>
+              <div><strong>Error</strong> — Unable to complete the operation.</div>
+            </div>
+
+            <h4 class="mt-4">Badges</h4>
+            <div class="cluster">
+              <span class="badge">Default</span>
+              <span class="badge badge-success">Success</span>
+              <span class="badge badge-danger">Danger</span>
+              <span class="badge badge-warning">Warning</span>
+              <span class="badge badge-info">Info</span>
+            </div>
+
+            <h4 class="mt-4">File card</h4>
+            <a href="#" class="file-card">
+              <span class="file-card-icon">
+                <svg class="icon icon-xl">
+                  <use href="downstage-icons.svg#file-pdf" />
+                </svg>
+              </span>
+              <div class="file-card-body">
+                <div class="file-card-title">contract-2026.pdf</div>
+                <div class="file-card-meta">2.4 MB · 12 pages</div>
+              </div>
+              <svg class="icon">
+                <use href="downstage-icons.svg#download" />
+              </svg>
+            </a>
+            <a href="#" class="file-card">
+              <span class="file-card-icon">
+                <svg class="icon icon-xl">
+                  <use href="downstage-icons.svg#file-image" />
+                </svg>
+              </span>
+              <div class="file-card-body">
+                <div class="file-card-title">screenshot.png</div>
+                <div class="file-card-meta">340 KB</div>
+              </div>
+              <svg class="icon">
+                <use href="downstage-icons.svg#download" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== AUTH (sign in / sign up / recovery / 2FA) ============================== -->
+    <section class="demo-section" id="auth">
+      <p class="demo-section-title">08 — Apps</p>
+      <h2>Authentication</h2>
+      <p class="text-soft">Layout shells for sign in, sign up, password recovery, and a two-factor code step. Wire forms
+        to
+        your backend; markup and classes are presentation-only.</p>
+
+      <div class="grid mt-8" style="gap: var(--space-8); align-items: start;">
+        <div class="col-6">
+          <div class="auth-shell" style="min-height: auto; padding: 0;">
+            <div class="auth-card auth-card-wide">
+              <div class="auth-brand">
+                <svg class="icon icon-lg" aria-hidden="true">
+                  <use href="downstage-icons.svg#hash" />
+                </svg>
+                downstage
+              </div>
+              <h3 class="auth-title">Sign in</h3>
+              <p class="auth-subtitle">Use your work email and password.</p>
+              <form class="auth-form" action="#" method="post" onsubmit="return false;">
+                <div class="field">
+                  <label class="label" for="auth-signin-email">Email</label>
+                  <input id="auth-signin-email" class="input" type="email" name="email" autocomplete="username" required
+                    placeholder="you@company.com">
+                </div>
+                <div class="field">
+                  <label class="label" for="auth-signin-password">Password</label>
+                  <input id="auth-signin-password" class="input" type="password" name="password"
+                    autocomplete="current-password" required>
+                </div>
+                <div class="auth-links-row">
+                  <label class="check">
+                    <input type="checkbox" name="remember" value="1">
+                    <span>Remember me</span>
+                  </label>
+                  <a href="#auth-recovery">Forgot password?</a>
+                </div>
+                <div class="auth-actions">
+                  <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+                </div>
+              </form>
+              <div class="auth-footer">
+                No account? <a href="#auth-signup">Create one</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6">
+          <div class="auth-shell" style="min-height: auto; padding: 0;">
+            <div class="auth-card auth-card-wide" id="auth-signup">
+              <h3 class="auth-title">Create account</h3>
+              <p class="auth-subtitle">Sign up with your email. We will send a verification link.</p>
+              <form class="auth-form" action="#" method="post" onsubmit="return false;">
+                <div class="field">
+                  <label class="label" for="auth-signup-name">Full name</label>
+                  <input id="auth-signup-name" class="input" type="text" name="name" autocomplete="name" required>
+                </div>
+                <div class="field">
+                  <label class="label" for="auth-signup-email">Email</label>
+                  <input id="auth-signup-email" class="input" type="email" name="email" autocomplete="email" required>
+                </div>
+                <div class="field">
+                  <label class="label" for="auth-signup-password">Password</label>
+                  <input id="auth-signup-password" class="input" type="password" name="password"
+                    autocomplete="new-password" required minlength="8">
+                  <span class="help">At least 8 characters.</span>
+                </div>
+                <label class="check">
+                  <input type="checkbox" name="terms" required>
+                  <span>I agree to the terms and privacy policy</span>
+                </label>
+                <div class="auth-actions">
+                  <button type="submit" class="btn btn-primary btn-block">Sign up</button>
+                </div>
+              </form>
+              <div class="auth-footer">
+                Already have an account? <a href="#auth">Sign in</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid mt-8" style="gap: var(--space-8); align-items: start;">
+        <div class="col-6">
+          <div class="auth-shell" style="min-height: auto; padding: 0;">
+            <div class="auth-card" id="auth-recovery">
+              <h3 class="auth-title">Reset password</h3>
+              <p class="auth-subtitle">Enter your email and we will send reset instructions.</p>
+              <form class="auth-form" action="#" method="post" onsubmit="return false;">
+                <div class="field">
+                  <label class="label" for="auth-recovery-email">Email</label>
+                  <input id="auth-recovery-email" class="input" type="email" name="email" autocomplete="email" required>
+                </div>
+                <div class="auth-actions">
+                  <button type="submit" class="btn btn-primary btn-block">Send reset link</button>
+                  <a href="#auth" class="btn btn-ghost btn-block" style="text-align:center;">Back to sign in</a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6">
+          <div class="auth-shell" style="min-height: auto; padding: 0;">
+            <div class="auth-card" id="auth-2fa">
+              <h3 class="auth-title">Two-factor authentication</h3>
+              <p class="auth-subtitle">Enter the 6-digit code from your authenticator app.</p>
+              <form class="auth-form" action="#" method="post" onsubmit="return false;">
+                <div class="auth-otp" role="group" aria-label="One-time code" data-demo-otp>
+                  <input class="input" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1"
+                    aria-label="Digit 1" data-otp-index="0" autocomplete="one-time-code">
+                  <input class="input" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1"
+                    aria-label="Digit 2" data-otp-index="1" autocomplete="one-time-code">
+                  <input class="input" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1"
+                    aria-label="Digit 3" data-otp-index="2" autocomplete="one-time-code">
+                  <input class="input" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1"
+                    aria-label="Digit 4" data-otp-index="3" autocomplete="one-time-code">
+                  <input class="input" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1"
+                    aria-label="Digit 5" data-otp-index="4" autocomplete="one-time-code">
+                  <input class="input" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="1"
+                    aria-label="Digit 6" data-otp-index="5" autocomplete="one-time-code">
+                </div>
+                <p class="help text-center">Alternatively, use a backup code in the field below.</p>
+                <div class="field">
+                  <label class="label" for="auth-backup-code">Backup code</label>
+                  <input id="auth-backup-code" class="input" type="text" name="backup" autocomplete="off"
+                    placeholder="XXXX-XXXX">
+                </div>
+                <div class="auth-actions">
+                  <button type="submit" class="btn btn-primary btn-block">Verify</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== APP DATA (combobox, search, kanban, table) ============================== -->
+    <section class="demo-section" id="app-data">
+      <p class="demo-section-title">09 — Apps</p>
+      <h2>Data UI</h2>
+      <p class="text-soft">Autocomplete combobox (local JSON or remote <code class="text-mono">?q=</code>), search with
+        suggestions, Kanban with optional API hooks, and a data table with local or remote pagination.</p>
+
+      <h3 class="mt-8 mb-4">Combobox (autocomplete select)</h3>
+      <div class="grid" style="gap: var(--space-8); align-items: start;">
+        <div class="col-6">
+          <p class="text-sm text-muted mb-2">Local options via <code class="text-mono">data-combobox-local</code></p>
+          <span class="label">City</span>
+          <div id="demo-combobox-local" data-combobox data-combobox-name="city"
+            data-combobox-local='[{"value":"at","label":"Athens"},{"value":"be","label":"Berlin"},{"value":"ca","label":"Cairo"},{"value":"dk","label":"Denver"},{"value":"es","label":"Edinburgh"}]'
+            data-combobox-placeholder="Type to filter…"></div>
+        </div>
+        <div class="col-6">
+          <p class="text-sm text-muted mb-2">Remote: <code class="text-mono">Downstage.combobox.mount</code> + async
+            fetch (demo uses JSONPlaceholder users).</p>
+          <span class="label">User</span>
+          <div id="demo-combobox-api"></div>
+        </div>
+      </div>
+
+      <h3 class="mt-10 mb-4">Search with autocomplete</h3>
+      <p class="text-sm text-muted mb-2">API-backed suggestions; same pattern as the combobox with a search icon.</p>
+      <div id="demo-search-autocomplete"></div>
+      <p class="help mt-2">In this demo the fetch URL is set in script (JSONPlaceholder). Listen for
+        <code class="text-mono">combobox-change</code> on the root to react to selection.
+      </p>
+
+      <h3 class="mt-10 mb-4">Kanban</h3>
+      <p class="text-sm text-muted mb-4">Board data is loaded with <strong>GET</strong>
+        <code class="text-mono">demo/kanban-board.json</code> (same origin). Moving a card sends a <strong>POST</strong>
+        with
+        JSON (<code class="text-mono">cardId</code>, <code class="text-mono">fromColumnId</code>,
+        <code class="text-mono">toColumnId</code>, <code class="text-mono">toIndex</code>) to a demo endpoint; swap
+        <code class="text-mono">fetchUrl</code> / <code class="text-mono">moveUrl</code> for your API. On failed move
+        the
+        card reverts.
+      </p>
+      <div data-kanban data-kanban-demo></div>
+
+      <h3 class="mt-10 mb-4">Data table</h3>
+      <div class="grid" style="gap: var(--space-8); align-items: start;">
+        <div class="col-12">
+          <p class="text-sm text-muted mb-2">Local: sort, filter, pagination in the browser (<code
+              class="text-mono">data-data-table-demo</code>).</p>
+          <div data-data-table data-data-table-demo></div>
+        </div>
+        <div class="col-12">
+          <p class="text-sm text-muted mb-2">Remote-style: one HTTP request, then client-side paging/sort/filter on the
+            result set (illustrates <code class="text-mono">fetchRemote</code>; your server can return
+            <code class="text-mono">{ rows, total }</code> per page).
+          </p>
+          <div id="demo-data-table-remote"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== HTML EDITOR ============================== -->
+    <section class="demo-section" id="html-editor">
+      <p class="demo-section-title">10 — Components</p>
+      <h2>HTML editor</h2>
+      <p class="text-soft">Toolbar on <code class="text-mono">contenteditable</code> with
+        <code class="text-mono">document.execCommand</code> and a link dialog (<code class="text-mono">mailto</code>,
+        <code class="text-mono">tel:</code>, target, <code class="text-mono">rel</code>). Optional: rich text / HTML
+        source switch via <code class="text-mono">showRawSwitch</code>; hide toolbar buttons with
+        <code class="text-mono">toolbarExclude</code>. “H7” is <code class="text-mono">&lt;p class="ds-h7"&gt;</code>
+        with
+        <code class="text-mono">role="heading"</code> / <code class="text-mono">aria-level="7"</code>. Initial HTML:
+        inside
+        <code class="text-mono">data-html-editor-mount</code> or <code class="text-mono">initialHtml</code> in JS.
+      </p>
+
+      <div class="html-editor mt-6" data-html-editor-mount data-html-editor-preset="demo">
+        <p>Select text and use the toolbar to format.</p>
+      </div>
+
+      <h4 class="mt-8 mb-2">Snippet: blockquote</h4>
+      <p class="text-subtle text-sm mb-4">Typical markup for a quote inside the editor (design system <code
+          class="text-mono">blockquote</code> styles).</p>
+      <pre class="code-snippet mt-4" tabindex="0"><span class="c-tag">&lt;blockquote&gt;</span>
+  <span class="c-tag">&lt;p&gt;</span>Design is the contrast of substance and appearance.<span class="c-tag">&lt;/p&gt;</span>
+  <span class="c-tag">&lt;footer&gt;</span>— Paul Rand<span class="c-tag">&lt;/footer&gt;</span>
+<span class="c-tag">&lt;/blockquote&gt;</span></pre>
+    </section>
+
+    <!-- ============================== TABLE ============================== -->
+    <section class="demo-section" id="table">
+      <p class="demo-section-title">11 — Components</p>
+      <h2>Table</h2>
+      <p class="text-soft">Default in card, then minimal on <code>--bg</code>, compact, striped, and combined variants.
+      </p>
+
+      <div class="card mt-6" style="padding: 0; overflow: hidden;">
+        <div class="table-wrap" role="region" aria-label="Projects table" tabindex="0">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Project</th>
+                <th>Status</th>
+                <th>Owner</th>
+                <th class="text-right">Build</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>cipi.sh</strong><br><span class="text-subtle">v4.2.1</span></td>
+                <td><span class="badge badge-success">Stable</span></td>
+                <td>team</td>
+                <td class="text-right text-mono">#1284</td>
+              </tr>
+              <tr>
+                <td><strong>init</strong><br><span class="text-subtle">scaffolder</span></td>
+                <td><span class="badge badge-warning">Beta</span></td>
+                <td>team</td>
+                <td class="text-right text-mono">#0421</td>
+              </tr>
+              <tr>
+                <td><strong>downstage.css</strong><br><span class="text-subtle">design system</span></td>
+                <td><span class="badge badge-info">RC</span></td>
+                <td>team</td>
+                <td class="text-right text-mono">#0042</td>
+              </tr>
+              <tr>
+                <td><strong>legacy-app</strong><br><span class="text-subtle">deprecated</span></td>
+                <td><span class="badge badge-danger">EOL</span></td>
+                <td>—</td>
+                <td class="text-right text-mono">#9981</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <h4 class="mt-10 mb-2">Minimal (page background)</h4>
+      <p class="text-soft text-sm mb-4">No card: only bottom borders on rows, cells sit on <code>--bg</code> like
+        minimal
+        inputs. Class <code>table table-minimal</code>.</p>
+      <div class="table-wrap" role="region" aria-label="Minimal projects table" tabindex="0">
+        <table class="table table-minimal">
+          <thead>
+            <tr>
+              <th>Project</th>
+              <th>Status</th>
+              <th>Owner</th>
+              <th class="text-right">Build</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>cipi.sh</strong><br><span class="text-subtle">v4.2.1</span></td>
+              <td><span class="badge badge-success">Stable</span></td>
+              <td>team</td>
+              <td class="text-right text-mono">#1284</td>
+            </tr>
+            <tr>
+              <td><strong>init</strong><br><span class="text-subtle">scaffolder</span></td>
+              <td><span class="badge badge-warning">Beta</span></td>
+              <td>team</td>
+              <td class="text-right text-mono">#0421</td>
+            </tr>
+            <tr>
+              <td><strong>downstage.css</strong><br><span class="text-subtle">design system</span></td>
+              <td><span class="badge badge-info">RC</span></td>
+              <td>team</td>
+              <td class="text-right text-mono">#0042</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4 class="mt-10 mb-2">Compact</h4>
+      <p class="text-soft text-sm mb-4">Tighter padding — <code>table table-compact</code> inside a card.</p>
+      <div class="card mt-4" style="padding: 0; overflow: hidden;">
+        <div class="table-wrap">
+          <table class="table table-compact">
+            <thead>
+              <tr>
+                <th>Key</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-mono">theme</td>
+                <td>light</td>
+              </tr>
+              <tr>
+                <td class="text-mono">version</td>
+                <td>0.4.0</td>
+              </tr>
+              <tr>
+                <td class="text-mono">license</td>
+                <td>MIT</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <h4 class="mt-10 mb-2">Striped</h4>
+      <p class="text-soft text-sm mb-4">Alternating rows — <code>table table-striped</code>.</p>
+      <div class="card mt-4" style="padding: 0; overflow: hidden;">
+        <div class="table-wrap">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Event</th>
+                <th>Time</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Deploy</td>
+                <td class="text-mono">09:41</td>
+              </tr>
+              <tr>
+                <td>Build OK</td>
+                <td class="text-mono">09:38</td>
+              </tr>
+              <tr>
+                <td>PR merged</td>
+                <td class="text-mono">09:12</td>
+              </tr>
+              <tr>
+                <td>Push</td>
+                <td class="text-mono">09:10</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <h4 class="mt-10 mb-2">Minimal + compact</h4>
+      <p class="text-soft text-sm mb-4">Combine modifiers: <code>table table-minimal table-compact</code>.</p>
+      <div class="table-wrap mt-4" role="region" aria-label="Compact minimal table" tabindex="0">
+        <table class="table table-minimal table-compact">
+          <thead>
+            <tr>
+              <th>Setting</th>
+              <th class="text-right">Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Font</td>
+              <td class="text-right text-mono">Space Grotesk</td>
+            </tr>
+            <tr>
+              <td>Radius</td>
+              <td class="text-right text-mono">8px</td>
+            </tr>
+            <tr>
+              <td>Container</td>
+              <td class="text-right text-mono">72ch</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ============================== TABS ============================== -->
+    <section class="demo-section" id="tabs">
+      <p class="demo-section-title">12 — Components</p>
+      <h2>Tabs</h2>
+      <p class="text-soft">Auto-init via <code>data-tabs</code>. Arrow keys ←/→ to navigate.</p>
+
+      <div class="tabs mt-6" data-tabs>
+        <ul class="tabs-list" role="tablist">
+          <li><button class="tab" role="tab" data-tab="t1">Overview</button></li>
+          <li><button class="tab" role="tab" data-tab="t2">Installation</button></li>
+          <li><button class="tab" role="tab" data-tab="t3">Configuration</button></li>
+          <li><button class="tab" role="tab" data-tab="t4">API</button></li>
+        </ul>
+
+        <div class="tab-panel" data-tab-panel="t1">
+          <h4>Overview</h4>
+          <p class="text-soft mt-2">downstage.css is a minimal design system inspired by Nordic aesthetics. Built for
+            developers who want something clean without learning a utility-first library.</p>
+        </div>
+        <div class="tab-panel" data-tab-panel="t2">
+          <h4>Installation</h4>
+          <p class="text-soft mt-2">Download the files, copy them to your public folder, include the CSS in your layout.
+            Add <code>downstage.js</code> for <strong>built-in interactive components</strong>: tabs, accordion,
+            lightbox, navbar hamburger, and more.</p>
+        </div>
+        <div class="tab-panel" data-tab-panel="t3">
+          <h4>Configuration</h4>
+          <p class="text-soft mt-2">All variables are customizable. Override tokens in a file after downstage.css to
+            change colors, spacing, fonts.</p>
+        </div>
+        <div class="tab-panel" data-tab-panel="t4">
+          <h4>JavaScript API</h4>
+          <p class="text-soft mt-2">Exposes <code>window.Downstage</code> with modules: <code>theme</code>,
+            <code>navbar</code>, <code>tabs</code>, <code>accordion</code>, <code>lightbox</code>,
+            <code>htmlEditor</code>, and more. Each has an <code>init()</code> method called automatically on
+            DOMContentLoaded.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== ACCORDION ============================== -->
+    <section class="demo-section" id="accordion">
+      <p class="demo-section-title">13 — Components</p>
+      <h2>Accordion</h2>
+      <p class="text-soft">Add <code>data-accordion="single"</code> for exclusive mode.</p>
+
+      <div class="accordion mt-6" data-accordion="single">
+        <div class="accordion-item is-open">
+          <button class="accordion-header">
+            Can I use downstage.css with Laravel?
+            <svg class="icon accordion-icon">
+              <use href="downstage-icons.svg#plus" />
+            </svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              Yes. Place the files in <code>public/css/</code> and include the CSS in your Blade layout with
+              <code>{{ asset('css/downstage.css') }}</code>. Semantic classes are great in Blade templates — much more
+              readable than utility-first.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header">
+            Does it work without JavaScript?
+            <svg class="icon accordion-icon">
+              <use href="downstage-icons.svg#plus" />
+            </svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              Almost everything: layout, typography, buttons, forms, alerts, badges, tables, cards. You only need the ~3
+              KB <code>downstage.js</code> for: mobile navbar, tabs, accordion, lightbox, theme switcher, and the HTML
+              editor toolbar.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header">
+            How do I customize colors?
+            <svg class="icon accordion-icon">
+              <use href="downstage-icons.svg#plus" />
+            </svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              Everything is a CSS variable. Create a <code>theme.css</code> file after downstage.css and redefine the
+              tokens you need in <code>:root</code> for light and <code>[data-theme="dark"]</code> for dark.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header">
+            Are the icons free?
+            <svg class="icon accordion-icon">
+              <use href="downstage-icons.svg#plus" />
+            </svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              Yes, they are custom and free to use. Minimal stroke style at 1.6px, 100+ icons, all in a single SVG
+              sprite
+              of a few KB. Loaded once and reused via <code>&lt;use&gt;</code>.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== MODAL ============================== -->
+    <section class="demo-section" id="modal">
+      <p class="demo-section-title">14 — Components</p>
+      <h2>Modal &amp; Sidebar nav</h2>
+
+      <div class="grid mt-6">
+        <div class="col-6">
+          <h4>Modal</h4>
+          <p class="text-soft text-sm mt-2">Click the button to open the dialog.</p>
+          <button class="btn btn-danger mt-4"
+            onclick="document.getElementById('demo-modal').classList.remove('hidden')">
+            <svg class="icon">
+              <use href="downstage-icons.svg#trash" />
+            </svg>
+            Delete entry
+          </button>
+        </div>
+
+        <div class="col-6">
+          <h4>Sidebar nav</h4>
+          <p class="text-soft text-sm mt-2">Vertical style as in settings pages.</p>
+          <nav class="nav-vertical mt-4" style="max-width: 200px;">
+            <a href="#" class="active">Settings</a>
+            <a href="#">Account</a>
+            <a href="#">Domain</a>
+            <a href="#">Export</a>
+            <a href="#">Feedback</a>
+          </nav>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal markup -->
+    <div id="demo-modal" class="modal-overlay hidden" onclick="if(event.target===this)this.classList.add('hidden')">
+      <div class="modal">
+        <div class="modal-title">Delete Entry</div>
+        <div class="modal-body">Are you sure you want to delete this entry? This action is irreversible.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary"
+            onclick="document.getElementById('demo-modal').classList.add('hidden')">Cancel</button>
+          <button class="btn btn-primary"
+            onclick="document.getElementById('demo-modal').classList.add('hidden')">Confirm</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================== IMAGE FRAME & GALLERY ============================== -->
+    <section class="demo-section" id="gallery">
+      <p class="demo-section-title">15 — Components</p>
+      <h2>Images, gallery &amp; lightbox</h2>
+      <p class="text-soft">
+        <code>.image-frame</code> wraps an image in a system-consistent border.
+        <code>.gallery</code> with <code>data-lightbox</code> opens the lightbox on click.
+      </p>
+
+      <div class="grid mt-8">
+        <div class="col-4">
+          <figure class="image-frame is-square">
+            <div class="image-media">
+              <img src="https://picsum.photos/seed/ds1/600/600" alt="Demo 1">
+            </div>
+            <figcaption class="image-caption">image-frame · ratio 1:1</figcaption>
+          </figure>
+        </div>
+
+        <div class="col-4">
+          <figure class="image-frame is-4-5">
+            <div class="image-media">
+              <img src="https://picsum.photos/seed/ds2/600/750" alt="Demo 2">
+            </div>
+            <figcaption class="image-caption">image-frame · ratio 4:5</figcaption>
+          </figure>
+        </div>
+
+        <div class="col-4">
+          <figure class="image-frame is-16-9">
+            <div class="image-media">
+              <img src="https://picsum.photos/seed/ds3/800/450" alt="Demo 3">
+            </div>
+            <figcaption class="image-caption">image-frame · ratio 16:9</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <h4 class="mt-12 mb-2">Gallery with lightbox</h4>
+      <p class="text-soft text-sm mb-6">Click any image to open the lightbox. Arrow keys ←/→ to navigate, Esc to close.
+      </p>
+      <div class="gallery gallery-4" data-lightbox="demo">
+        <a href="https://picsum.photos/seed/g1/1200/900" class="gallery-item">
+          <img src="https://picsum.photos/seed/g1/400/400" alt="Photo 1">
+        </a>
+        <a href="https://picsum.photos/seed/g2/1200/900" class="gallery-item">
+          <img src="https://picsum.photos/seed/g2/400/400" alt="Photo 2">
+        </a>
+        <a href="https://picsum.photos/seed/g3/1200/900" class="gallery-item">
+          <img src="https://picsum.photos/seed/g3/400/400" alt="Photo 3">
+        </a>
+        <a href="https://picsum.photos/seed/g4/1200/900" class="gallery-item">
+          <img src="https://picsum.photos/seed/g4/400/400" alt="Photo 4">
+        </a>
+        <a href="https://picsum.photos/seed/g5/1200/900" class="gallery-item">
+          <img src="https://picsum.photos/seed/g5/400/400" alt="Photo 5">
+        </a>
+        <a href="https://picsum.photos/seed/g6/1200/900" class="gallery-item">
+          <img src="https://picsum.photos/seed/g6/400/400" alt="Photo 6">
+        </a>
+        <a href="https://picsum.photos/seed/g7/1200/900" class="gallery-item">
+          <img src="https://picsum.photos/seed/g7/400/400" alt="Photo 7">
+        </a>
+        <a href="https://picsum.photos/seed/g8/1200/900" class="gallery-item">
+          <img src="https://picsum.photos/seed/g8/400/400" alt="Photo 8">
+        </a>
+      </div>
+    </section>
+
+    <!-- ============================== SLIDER ============================== -->
+    <section class="demo-section" id="slider">
+      <p class="demo-section-title">16 — Components</p>
+      <h2>Slider / Carousel</h2>
+      <p class="text-soft">Image carousel with dots and arrows. Add <code>data-slider-auto="5000"</code> for auto-play.
+      </p>
+
+      <h4 class="mt-8 mb-4">Image only with dots &amp; arrows</h4>
+      <div class="slider" data-slider data-slider-dots data-slider-arrows>
+        <div class="slider-track">
+          <div class="slider-slide"><img src="https://picsum.photos/seed/sl1/1200/500" alt="Slide 1"></div>
+          <div class="slider-slide"><img src="https://picsum.photos/seed/sl2/1200/500" alt="Slide 2"></div>
+          <div class="slider-slide"><img src="https://picsum.photos/seed/sl3/1200/500" alt="Slide 3"></div>
+          <div class="slider-slide"><img src="https://picsum.photos/seed/sl4/1200/500" alt="Slide 4"></div>
+        </div>
+      </div>
+
+      <h4 class="mt-12 mb-4">Hero slider (image + text overlay)</h4>
+      <div class="slider slider-hero" data-slider data-slider-dots data-slider-arrows data-slider-auto="6000">
+        <div class="slider-track">
+          <div class="slider-slide">
+            <img src="https://picsum.photos/seed/hero1/1200/500" alt="">
+            <div class="slider-hero-overlay">
+              <div class="slider-hero-content">
+                <h2>Nordic design at its core</h2>
+                <p>Clean lines, warm neutrals, functional beauty. Built for the web, crafted with intention.</p>
+              </div>
+            </div>
+          </div>
+          <div class="slider-slide">
+            <img src="https://picsum.photos/seed/hero2/1200/500" alt="">
+            <div class="slider-hero-overlay">
+              <div class="slider-hero-content">
+                <h2>Zero dependencies</h2>
+                <p>Pure CSS and vanilla JS. No build step, no npm, no complexity. Just drop and go.</p>
+              </div>
+            </div>
+          </div>
+          <div class="slider-slide">
+            <img src="https://picsum.photos/seed/hero3/1200/500" alt="">
+            <div class="slider-hero-overlay">
+              <div class="slider-hero-content">
+                <h2>Dark mode built-in</h2>
+                <p>Every token adapts automatically. One codebase, two themes, zero effort.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== VIDEO PLAYER ============================== -->
+    <section class="demo-section" id="videoplayer">
+      <p class="demo-section-title">17 — Components</p>
+      <h2>Video Player</h2>
+      <p class="text-soft">Minimal custom video player. Auto-builds controls from a <code>&lt;video&gt;</code> tag.</p>
+
+      <div class="video-player mt-6" data-video-player style="max-width:720px;">
+        <video src="https://www.w3schools.com/html/mov_bbb.mp4" preload="metadata"></video>
+      </div>
+    </section>
+
+    <!-- ============================== AUDIO PLAYER ============================== -->
+    <section class="demo-section" id="audioplayer">
+      <p class="demo-section-title">18 — Components</p>
+      <h2>Audio Player</h2>
+      <p class="text-soft">Lightweight audio player built from data attributes.</p>
+
+      <div class="stack mt-6" style="max-width:560px;">
+        <div class="audio-player" data-audio-player data-src="https://www.w3schools.com/html/horse.mp3"
+          data-title="Horse Sound" data-artist="W3Schools Sample">
+        </div>
+        <div class="audio-player" data-audio-player data-src="https://www.w3schools.com/html/horse.mp3"
+          data-title="Another Track" data-artist="Demo Artist">
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== DOCS LAYOUT ============================== -->
+    <section class="demo-section" id="docs-demo">
+      <p class="demo-section-title">19 — Layout</p>
+      <h2>Technical Documentation</h2>
+      <p class="text-soft">A sidebar + content layout for docs pages with chapter navigation.</p>
+
+      <div class="docs-layout mt-8">
+        <aside class="docs-sidebar">
+          <div class="docs-sidebar-title">On this page</div>
+          <nav class="docs-nav">
+            <a href="#doc-install" class="active">Installation</a>
+            <a href="#doc-config">Configuration</a>
+            <a href="#doc-theming">Theming</a>
+            <a href="#doc-api">JavaScript API</a>
+          </nav>
+        </aside>
+
+        <div class="docs-content">
+          <div class="docs-chapter" id="doc-install">
+            <h3>Installation</h3>
+            <p>Download the framework files and place them in your project's public directory. The <code>fonts/</code>
+              folder must sit alongside the CSS file.</p>
+            <pre><code>&lt;link rel="stylesheet" href="downstage.css"&gt;
+&lt;script src="downstage.js" defer&gt;&lt;/script&gt;</code></pre>
+            <p>That's it. No build tools, no configuration files, no package managers required. Just two files and
+              you're ready.</p>
+          </div>
+
+          <div class="docs-chapter" id="doc-config">
+            <h3>Configuration</h3>
+            <p>All visual properties are controlled by CSS custom properties (variables). Override them in a separate
+              file loaded after <code>downstage.css</code>:</p>
+            <pre><code>:root {
+  --brand-primary: #2c5f5d;
+  --radius: 2px;
+  --container: 800px;
+}</code></pre>
+            <ul>
+              <li><strong>Colors</strong> — neutral scale, brand, semantic</li>
+              <li><strong>Typography</strong> — font families, sizes, weights</li>
+              <li><strong>Spacing</strong> — 4px-based scale from 0.25rem to 6rem</li>
+              <li><strong>Layout</strong> — container widths, grid gaps</li>
+            </ul>
+          </div>
+
+          <div class="docs-chapter" id="doc-theming">
+            <h3>Theming</h3>
+            <p>Set <code>data-theme</code> on the <code>&lt;html&gt;</code> element. Three modes are supported:</p>
+            <ol>
+              <li><code>light</code> — always light</li>
+              <li><code>dark</code> — always dark</li>
+              <li><code>auto</code> — follows <code>prefers-color-scheme</code></li>
+            </ol>
+            <p>The dark theme overrides all neutral, brand, and semantic tokens. Shadows become darker, surfaces shift
+              to warm charcoals, and text becomes light cream.</p>
+          </div>
+
+          <div class="docs-chapter" id="doc-api">
+            <h3>JavaScript API</h3>
+            <p><code>downstage.js</code> is <strong>JavaScript with built-in components</strong>. It exposes
+              <code>window.Downstage</code> with the following modules:
+            </p>
+            <pre><code>Downstage.theme.set('dark');
+Downstage.theme.get();
+Downstage.lightbox.open(set, 0);
+Downstage.lightbox.close();
+Downstage.htmlEditor.mount('#editor', { preset: 'demo' });
+Downstage.combobox.mount('#cb', { options: [{ value: 'a', label: 'Alpha' }] });
+Downstage.searchAutocomplete.mount('#search', { fetchSuggestions: async (q) =&gt; [...] });
+Downstage.kanban.mount('#board', {
+  fetchUrl: '/api/kanban/board',
+  moveUrl: '/api/kanban/move',
+});
+Downstage.dataTable.mount('#table', { mode: 'local', columns, rows });</code></pre>
+            <p class="text-soft text-sm">Kanban: use <code class="text-mono">fetchUrl</code> (GET board JSON) and
+              <code class="text-mono">moveUrl</code> (POST move payload), or <code class="text-mono">fetchBoard</code> /
+              <code class="text-mono">moveCard</code> callbacks. Attributes:
+              <code class="text-mono">data-kanban-fetch-url</code>,
+              <code class="text-mono">data-kanban-move-url</code>.
+            </p>
+            <p>Each module has an <code>init()</code> method auto-called on <code>DOMContentLoaded</code>. For
+              dynamically added content, call <code>init()</code> again. The HTML editor mounts with
+              <code>Downstage.htmlEditor.mount()</code> (or <code>data-html-editor-mount</code>). Combobox, search,
+              Kanban, and data table support programmatic <code>mount()</code> and selective declarative hooks (see
+              <code>#auth</code> and <code>#app-data</code> in <code>index.html</code>). Options include
+              <code>showRawSwitch</code> and <code>toolbarExclude</code> on the HTML editor.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== DASHBOARD ============================== -->
+    <section class="demo-section" id="dashboard-demo">
+      <p class="demo-section-title">20 — Data</p>
+      <h2>Dashboard</h2>
+      <p class="text-soft">Stat cards and minimal SVG charts for data-driven UIs.</p>
+
+      <div class="dashboard-grid mt-6">
+        <div class="stat-card">
+          <div class="stat-label">Revenue</div>
+          <div class="stat-value">$48.2k</div>
+          <div class="stat-change is-up">
+            <svg class="icon icon-sm">
+              <use href="downstage-icons.svg#trending-up" />
+            </svg>
+            +12.5%
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Users</div>
+          <div class="stat-value">2,847</div>
+          <div class="stat-change is-up">
+            <svg class="icon icon-sm">
+              <use href="downstage-icons.svg#trending-up" />
+            </svg>
+            +8.1%
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Bounce rate</div>
+          <div class="stat-value">24.6%</div>
+          <div class="stat-change is-down">
+            <svg class="icon icon-sm">
+              <use href="downstage-icons.svg#trending-down" />
+            </svg>
+            -3.2%
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Uptime</div>
+          <div class="stat-value">99.98%</div>
+          <div class="stat-change is-up">
+            <svg class="icon icon-sm">
+              <use href="downstage-icons.svg#activity" />
+            </svg>
+            stable
+          </div>
+        </div>
+      </div>
+
+      <div class="grid mt-6">
+        <div class="col-8">
+          <div class="chart-card">
+            <div class="chart-header">
+              <div>
+                <div class="chart-title">Traffic overview</div>
+                <div class="chart-subtitle">Last 12 months</div>
+              </div>
+            </div>
+            <div class="chart-canvas">
+              <svg class="chart-line-svg" viewBox="0 0 400 160" preserveAspectRatio="none">
+                <path class="chart-line-area"
+                  d="M0,120 L33,100 L66,110 L100,80 L133,90 L166,60 L200,70 L233,40 L266,50 L300,30 L333,45 L366,20 L400,35 L400,160 L0,160Z" />
+                <path class="chart-line-path"
+                  d="M0,120 L33,100 L66,110 L100,80 L133,90 L166,60 L200,70 L233,40 L266,50 L300,30 L333,45 L366,20 L400,35" />
+                <circle class="chart-line-dot" cx="366" cy="20" r="3" />
+                <circle class="chart-line-dot" cx="400" cy="35" r="3" />
+              </svg>
+            </div>
+            <div class="chart-legend">
+              <span class="chart-legend-item"><span class="chart-legend-dot" style="background:var(--text)"></span>
+                Visitors</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-4">
+          <div class="chart-card">
+            <div class="chart-header">
+              <div>
+                <div class="chart-title">Sources</div>
+                <div class="chart-subtitle">This month</div>
+              </div>
+            </div>
+            <div class="chart-canvas" style="display:flex;align-items:center;justify-content:center;">
+              <svg class="chart-donut-svg" viewBox="0 0 120 120" style="max-width:160px;">
+                <circle class="chart-donut-ring" cx="60" cy="60" r="48" stroke="var(--text)" stroke-dasharray="180 302"
+                  stroke-dashoffset="-75" opacity="0.8" />
+                <circle class="chart-donut-ring" cx="60" cy="60" r="48" stroke="var(--brand-primary)"
+                  stroke-dasharray="90 302" stroke-dashoffset="105" opacity="0.9" />
+                <circle class="chart-donut-ring" cx="60" cy="60" r="48" stroke="var(--brand-secondary)"
+                  stroke-dasharray="32 302" stroke-dashoffset="195" />
+                <text class="chart-donut-center" x="60" y="57">73%</text>
+                <text class="chart-donut-label" x="60" y="74">organic</text>
+              </svg>
+            </div>
+            <div class="chart-legend">
+              <span class="chart-legend-item"><span class="chart-legend-dot" style="background:var(--text)"></span>
+                Direct</span>
+              <span class="chart-legend-item"><span class="chart-legend-dot"
+                  style="background:var(--brand-primary)"></span> Organic</span>
+              <span class="chart-legend-item"><span class="chart-legend-dot"
+                  style="background:var(--brand-secondary)"></span> Referral</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="chart-card mt-6">
+        <div class="chart-header">
+          <div>
+            <div class="chart-title">Monthly performance</div>
+            <div class="chart-subtitle">Revenue per month (K)</div>
+          </div>
+        </div>
+        <div class="chart-canvas">
+          <div class="chart-bar-group">
+            <div class="chart-bar" style="height:40%"></div>
+            <div class="chart-bar" style="height:55%"></div>
+            <div class="chart-bar" style="height:45%"></div>
+            <div class="chart-bar" style="height:65%"></div>
+            <div class="chart-bar" style="height:50%"></div>
+            <div class="chart-bar" style="height:75%"></div>
+            <div class="chart-bar" style="height:60%"></div>
+            <div class="chart-bar" style="height:80%"></div>
+            <div class="chart-bar" style="height:70%"></div>
+            <div class="chart-bar is-accent" style="height:90%"></div>
+            <div class="chart-bar is-accent" style="height:85%"></div>
+            <div class="chart-bar is-accent" style="height:95%"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== PORTFOLIO ============================== -->
+    <section class="demo-section" id="portfolio">
+      <p class="demo-section-title">21 — Components</p>
+      <h2>Portfolio</h2>
+      <p class="text-soft">Project cards in a responsive grid. Use <code>.portfolio-item</code> as a block or wrap the
+        whole card in <code>&lt;a&gt;</code>. Optional <code>.portfolio-item--featured</code> spans two columns on wide
+        viewports.</p>
+
+      <div class="portfolio mt-8">
+        <a href="#" class="portfolio-item portfolio-item--featured">
+          <div class="portfolio-media">
+            <img src="https://picsum.photos/seed/portfolio1/1200/520" alt="Northwind console preview">
+          </div>
+          <div class="portfolio-body">
+            <span class="portfolio-meta">Product · 2025</span>
+            <h3 class="portfolio-title">Northwind console</h3>
+            <p class="portfolio-desc">Design system and UI kit for internal tools. Tokens, components, and
+              documentation in one place.</p>
+            <div class="portfolio-tags">
+              <span class="badge">UI</span>
+              <span class="badge badge-info">React</span>
+              <span class="badge">Design</span>
+            </div>
+          </div>
+          <div class="portfolio-footer">
+            <span class="text-subtle text-sm">Case study</span>
+            <span class="portfolio-link">
+              View
+              <svg class="icon" aria-hidden="true">
+                <use href="downstage-icons.svg#arrow-right" />
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <a href="#" class="portfolio-item">
+          <div class="portfolio-media">
+            <img src="https://picsum.photos/seed/portfolio2/800/500" alt="Studio Meridian preview">
+          </div>
+          <div class="portfolio-body">
+            <span class="portfolio-meta">Web · 2024</span>
+            <h3 class="portfolio-title">Studio Meridian</h3>
+            <p class="portfolio-desc">Marketing site with editorial layouts and a restrained palette.</p>
+            <div class="portfolio-tags">
+              <span class="badge badge-success">Live</span>
+              <span class="badge">Astro</span>
+            </div>
+          </div>
+          <div class="portfolio-footer">
+            <span class="text-subtle text-sm">Brand &amp; dev</span>
+            <span class="portfolio-link">
+              View
+              <svg class="icon" aria-hidden="true">
+                <use href="downstage-icons.svg#arrow-right" />
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <a href="#" class="portfolio-item">
+          <div class="portfolio-media">
+            <img src="https://picsum.photos/seed/portfolio3/800/500" alt="downstage.css preview">
+          </div>
+          <div class="portfolio-body">
+            <span class="portfolio-meta">Open source</span>
+            <h3 class="portfolio-title">downstage.css</h3>
+            <p class="portfolio-desc">This very design system — minimal Nordic components, zero dependencies.</p>
+            <div class="portfolio-tags">
+              <span class="badge">CSS</span>
+              <span class="badge badge-warning">WIP</span>
+            </div>
+          </div>
+          <div class="portfolio-footer">
+            <span class="text-subtle text-sm">Library</span>
+            <span class="portfolio-link">
+              View
+              <svg class="icon" aria-hidden="true">
+                <use href="downstage-icons.svg#arrow-right" />
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <article class="portfolio-item">
+          <div class="portfolio-media">
+            <img src="https://picsum.photos/seed/portfolio4/800/500" alt="Audio visualizer preview">
+          </div>
+          <div class="portfolio-body">
+            <span class="portfolio-meta">Experiment</span>
+            <h3 class="portfolio-title">Audio visualizer</h3>
+            <p class="portfolio-desc">Non-linked card example using <code>&lt;article&gt;</code> for a static teaser.
+            </p>
+            <div class="portfolio-tags">
+              <span class="badge">Canvas</span>
+            </div>
+          </div>
+          <div class="portfolio-footer">
+            <span class="text-subtle text-sm">Prototype</span>
+            <button type="button" class="btn btn-sm btn-secondary">Details</button>
+          </div>
+        </article>
+      </div>
+
+      <h4 class="mt-12 mb-2">Minimal</h4>
+      <p class="text-soft text-sm mb-6">Compact variant on <code class="text-mono">--bg</code>: horizontal rules only,
+        no card chrome — same idea as <code class="text-mono">.table-minimal</code> and <code
+          class="text-mono">.input-minimal</code>. Use <code class="text-mono">.portfolio.portfolio--minimal</code> and
+        <code class="text-mono">.portfolio-item--minimal</code>.
+      </p>
+      <div class="portfolio portfolio--minimal mt-6">
+        <a href="#" class="portfolio-item portfolio-item--minimal">
+          <div class="portfolio-media">
+            <img src="https://picsum.photos/seed/pmin1/400/400" alt="Atlas maps preview">
+          </div>
+          <div class="portfolio-body">
+            <span class="portfolio-meta">Maps · 2025</span>
+            <h3 class="portfolio-title">Atlas</h3>
+            <p class="portfolio-desc">Tile server with a palette aligned to the design system.</p>
+            <div class="portfolio-tags">
+              <span class="badge">Geo</span>
+              <span class="badge badge-info">API</span>
+            </div>
+          </div>
+          <div class="portfolio-footer">
+            <span class="text-subtle text-sm">Product</span>
+            <span class="portfolio-link">
+              View
+              <svg class="icon" aria-hidden="true">
+                <use href="downstage-icons.svg#arrow-right" />
+              </svg>
+            </span>
+          </div>
+        </a>
+        <a href="#" class="portfolio-item portfolio-item--minimal">
+          <div class="portfolio-media">
+            <img src="https://picsum.photos/seed/pmin2/400/400" alt="Ledger app preview">
+          </div>
+          <div class="portfolio-body">
+            <span class="portfolio-meta">Finance</span>
+            <h3 class="portfolio-title">Ledger mobile</h3>
+            <p class="portfolio-desc">Approval flows and real-time notifications.</p>
+            <div class="portfolio-tags">
+              <span class="badge badge-success">Shipped</span>
+            </div>
+          </div>
+          <div class="portfolio-footer">
+            <span class="text-subtle text-sm">Case study</span>
+            <span class="portfolio-link">
+              View
+              <svg class="icon" aria-hidden="true">
+                <use href="downstage-icons.svg#arrow-right" />
+              </svg>
+            </span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ============================== BLOG ============================== -->
+    <section class="demo-section" id="blog">
+      <p class="demo-section-title">22 — Components</p>
+      <h2>Blog</h2>
+      <p class="text-soft">Article teasers with <code>.blog-card</code> inside <code>.blog-list--grid</code> or a
+        vertical
+        <code>.blog-list</code>. Meta line supports date, category, and reading time.
+      </p>
+
+      <div class="blog-list blog-list--grid mt-8">
+        <a href="#" class="blog-card">
+          <div class="blog-card-media">
+            <img src="https://picsum.photos/seed/blog1/800/450"
+              alt="Abstract gradient for blog post about design tokens">
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <time datetime="2026-03-12">12 Mar 2026</time>
+              <span class="badge badge-info">Tutorial</span>
+              <span>6 min read</span>
+            </div>
+            <h3 class="blog-card-title">Tokens first: theming without the noise</h3>
+            <p class="blog-card-excerpt">How we structure CSS variables so light, dark, and brand swaps stay
+              predictable.
+            </p>
+            <div class="blog-card-footer">
+              <span class="text-subtle text-sm">John Doe</span>
+              <span class="blog-read-more">
+                Read
+                <svg class="icon" aria-hidden="true">
+                  <use href="downstage-icons.svg#arrow-right" />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="blog-card">
+          <div class="blog-card-media">
+            <img src="https://picsum.photos/seed/blog2/800/450" alt="Workspace photo for static design system article">
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <time datetime="2026-02-28">28 Feb 2026</time>
+              <span class="badge">Notes</span>
+              <span>3 min read</span>
+            </div>
+            <h3 class="blog-card-title">Shipping a static design system</h3>
+            <p class="blog-card-excerpt">No build step, no npm — just HTML, CSS, and a thin layer of JS where it helps.
+            </p>
+            <div class="blog-card-footer">
+              <span class="text-subtle text-sm">Team</span>
+              <span class="blog-read-more">
+                Read
+                <svg class="icon" aria-hidden="true">
+                  <use href="downstage-icons.svg#arrow-right" />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <a href="#" class="blog-card">
+          <div class="blog-card-media">
+            <img src="https://picsum.photos/seed/blog3/800/450" alt="Texture image for changelog post">
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <time datetime="2026-01-15">15 Jan 2026</time>
+              <span class="badge badge-success">Changelog</span>
+              <span>2 min read</span>
+            </div>
+            <h3 class="blog-card-title">What changed in 0.4</h3>
+            <p class="blog-card-excerpt">Portfolio grid, blog cards, and tighter focus styles across components.</p>
+            <div class="blog-card-footer">
+              <span class="text-subtle text-sm">Release</span>
+              <span class="blog-read-more">
+                Read
+                <svg class="icon" aria-hidden="true">
+                  <use href="downstage-icons.svg#arrow-right" />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <h4 class="mt-12 mb-2">Stacked list</h4>
+      <p class="text-soft text-sm mb-6">Same card pattern in a vertical <code>.blog-list</code> for archive pages.</p>
+      <div class="blog-list blog-list--narrow">
+        <a href="#" class="blog-card blog-card--compact">
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <time datetime="2025-11-02">2 Nov 2025</time>
+              <span class="badge badge-warning">Draft</span>
+            </div>
+            <h3 class="blog-card-title">Accessibility checklist for forms</h3>
+            <p class="blog-card-excerpt">Labels, errors, and focus order — a short list we use before shipping.</p>
+            <div class="blog-card-footer">
+              <span class="text-subtle text-sm">A11y</span>
+              <span class="blog-read-more">
+                Read
+                <svg class="icon" aria-hidden="true">
+                  <use href="downstage-icons.svg#arrow-right" />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </a>
+        <a href="#" class="blog-card blog-card--compact">
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <time datetime="2025-09-18">18 Sept 2025</time>
+            </div>
+            <h3 class="blog-card-title">Why we still like vanilla JS</h3>
+            <p class="blog-card-excerpt">Progressive enhancement and fewer moving parts in production.</p>
+            <div class="blog-card-footer">
+              <span class="text-subtle text-sm">Engineering</span>
+              <span class="blog-read-more">
+                Read
+                <svg class="icon" aria-hidden="true">
+                  <use href="downstage-icons.svg#arrow-right" />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <h4 class="mt-12 mb-2">Minimal</h4>
+      <p class="text-soft text-sm mb-6">List with <code class="text-mono">.blog-list--minimal</code> and <code
+          class="text-mono">.blog-card--minimal</code>: thumbnail on the left (on wide viewports), no heavy shadow or
+        full border.</p>
+      <div class="blog-list blog-list--grid blog-list--minimal mt-6">
+        <a href="#" class="blog-card blog-card--minimal">
+          <div class="blog-card-media">
+            <img src="https://picsum.photos/seed/bmin1/400/400" alt="Gradient for minimal blog card">
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <time datetime="2026-04-01">1 Apr 2026</time>
+              <span class="badge">Notes</span>
+              <span>4 min</span>
+            </div>
+            <h3 class="blog-card-title">Minimal lists in production</h3>
+            <p class="blog-card-excerpt">When removing the outer chrome improves scan and density.</p>
+            <div class="blog-card-footer">
+              <span class="text-subtle text-sm">Editorial</span>
+              <span class="blog-read-more">
+                Read
+                <svg class="icon" aria-hidden="true">
+                  <use href="downstage-icons.svg#arrow-right" />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </a>
+        <a href="#" class="blog-card blog-card--minimal">
+          <div class="blog-card-media">
+            <img src="https://picsum.photos/seed/bmin2/400/400" alt="Texture for second minimal post">
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <time datetime="2026-03-20">20 Mar 2026</time>
+              <span class="badge badge-info">Guide</span>
+              <span>7 min</span>
+            </div>
+            <h3 class="blog-card-title">Spacing tokens for archives</h3>
+            <p class="blog-card-excerpt">Align vertical rhythm between teasers and pagination.</p>
+            <div class="blog-card-footer">
+              <span class="text-subtle text-sm">Design</span>
+              <span class="blog-read-more">
+                Read
+                <svg class="icon" aria-hidden="true">
+                  <use href="downstage-icons.svg#arrow-right" />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ============================== LINKS ============================== -->
+    <section class="demo-section" id="links">
+      <p class="demo-section-title">23 — Components</p>
+      <h2>Links</h2>
+      <p class="text-soft">Stack of outbound links — useful for a “link in bio” page or a compact resources list. Use
+        <code>.link-list</code> + <code>a.link-item</code>
+      </p>
+
+      <div class="link-list mt-8">
+        <a href="https://github.com" class="link-item" target="_blank" rel="noopener noreferrer">
+          <span class="link-item-icon" aria-hidden="true">
+            <svg class="icon">
+              <use href="downstage-icons.svg#github" />
+            </svg>
+          </span>
+          <span class="link-item-body">
+            <span class="link-item-title">GitHub</span>
+            <span class="link-item-desc">Source and issues</span>
+          </span>
+          <span class="link-item-arrow" aria-hidden="true">
+            <svg class="icon">
+              <use href="downstage-icons.svg#external-link" />
+            </svg>
+          </span>
+        </a>
+        <a href="#" class="link-item">
+          <span class="link-item-icon" aria-hidden="true">
+            <svg class="icon">
+              <use href="downstage-icons.svg#globe" />
+            </svg>
+          </span>
+          <span class="link-item-body">
+            <span class="link-item-title">Documentation</span>
+            <span class="link-item-desc">Getting started &amp; examples</span>
+          </span>
+          <span class="link-item-arrow" aria-hidden="true">
+            <svg class="icon">
+              <use href="downstage-icons.svg#arrow-right" />
+            </svg>
+          </span>
+        </a>
+        <a href="#" class="link-item">
+          <span class="link-item-icon" aria-hidden="true">
+            <svg class="icon">
+              <use href="downstage-icons.svg#mail" />
+            </svg>
+          </span>
+          <span class="link-item-body">
+            <span class="link-item-title">Contact</span>
+            <span class="link-item-desc">hello@example.com</span>
+          </span>
+          <span class="link-item-arrow" aria-hidden="true">
+            <svg class="icon">
+              <use href="downstage-icons.svg#arrow-right" />
+            </svg>
+          </span>
+        </a>
+        <a href="#blog" class="link-item">
+          <span class="link-item-icon" aria-hidden="true">
+            <svg class="icon">
+              <use href="downstage-icons.svg#message" />
+            </svg>
+          </span>
+          <span class="link-item-body">
+            <span class="link-item-title">Blog</span>
+            <span class="link-item-desc">Notes &amp; changelog</span>
+          </span>
+          <span class="link-item-arrow" aria-hidden="true">
+            <svg class="icon">
+              <use href="downstage-icons.svg#arrow-right" />
+            </svg>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ============================== ABOUT ============================== -->
+    <section class="demo-section" id="about">
+      <p class="demo-section-title">24 — Components</p>
+      <h2>About me</h2>
+      <p class="text-soft">Profile block with photo, role line, bio, and social icons. Markup uses <code>.about</code>,
+        <code>.about-media</code>, and <code>.about-content</code>.
+      </p>
+
+      <div class="about mt-8">
+        <div class="about-media">
+          <img src="https://picsum.photos/seed/aboutportrait/560/560" alt="Portrait of John Doe">
+        </div>
+        <div class="about-content">
+          <header>
+            <h3 class="about-name">John Doe</h3>
+            <p class="about-role">Designer &amp; developer · Bergamo, Italy</p>
+          </header>
+          <p class="about-bio">
+            I build calm interfaces and design systems that stay out of the way. downstage.css is a small, token-driven
+            toolkit for sites and apps that value clarity over noise — Nordic-inspired restraint, no build step
+            required.
+          </p>
+          <p class="about-bio">
+            When I’m not shipping UI, I’m probably refining typography, hiking, or chasing good espresso.
+          </p>
+          <div class="about-social" aria-label="Social profiles">
+            <a href="https://web.ap.it" target="_blank" rel="noopener noreferrer" aria-label="Website">
+              <svg class="icon">
+                <use href="downstage-icons.svg#globe" />
+              </svg>
+            </a>
+            <a href="#" aria-label="GitHub">
+              <svg class="icon">
+                <use href="downstage-icons.svg#github" />
+              </svg>
+            </a>
+            <a href="#" aria-label="Email">
+              <svg class="icon">
+                <use href="downstage-icons.svg#mail" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== TEAM ============================== -->
+    <section class="demo-section" id="team">
+      <p class="demo-section-title">25 — Components</p>
+      <h2>Team</h2>
+      <p class="text-soft">People grid with photo, role, and short bio. Classes: <code>.team-grid</code>,
+        <code>.team-card</code>, <code>.team-avatar</code>, <code>.team-name</code>, <code>.team-role</code>,
+        <code>.team-bio</code>, optional <code>.team-links</code>.
+      </p>
+
+      <div class="team-grid mt-8">
+        <article class="team-card">
+          <div class="team-avatar">
+            <img src="https://picsum.photos/seed/team1/240/240" alt="Portrait of John Doe">
+          </div>
+          <h3 class="team-name">John Doe</h3>
+          <p class="team-role">Founder &amp; design system</p>
+          <p class="team-bio">Owns downstage.css, tokens, and docs. Calm interfaces, clean code.</p>
+          <div class="team-links" aria-label="John profile">
+            <a href="https://web.ap.it" target="_blank" rel="noopener noreferrer" aria-label="Website">
+              <svg class="icon">
+                <use href="downstage-icons.svg#globe" />
+              </svg>
+            </a>
+            <a href="#" aria-label="GitHub">
+              <svg class="icon">
+                <use href="downstage-icons.svg#github" />
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="team-card">
+          <div class="team-avatar">
+            <img src="https://picsum.photos/seed/team2/240/240" alt="Portrait of Elena Rossi">
+          </div>
+          <h3 class="team-name">Elena Rossi</h3>
+          <p class="team-role">Product design</p>
+          <p class="team-bio">Wireframes, prototypes, and accessibility. Keeps components and real pages aligned.</p>
+          <div class="team-links" aria-label="Elena profile">
+            <a href="#" aria-label="LinkedIn">
+              <svg class="icon">
+                <use href="downstage-icons.svg#user" />
+              </svg>
+            </a>
+            <a href="#" aria-label="Email">
+              <svg class="icon">
+                <use href="downstage-icons.svg#mail" />
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="team-card">
+          <div class="team-avatar">
+            <img src="https://picsum.photos/seed/team3/240/240" alt="Portrait of Marco Bianchi">
+          </div>
+          <h3 class="team-name">Marco Bianchi</h3>
+          <p class="team-role">Frontend</p>
+          <p class="team-bio">Vanilla JS, integrations, and performance. Keeps interactive widgets lightweight.</p>
+          <div class="team-links" aria-label="Marco profile">
+            <a href="#" aria-label="GitHub">
+              <svg class="icon">
+                <use href="downstage-icons.svg#github" />
+              </svg>
+            </a>
+            <a href="#" aria-label="Code">
+              <svg class="icon">
+                <use href="downstage-icons.svg#code" />
+              </svg>
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ============================== TIMELINE ============================== -->
+    <section class="demo-section" id="timeline">
+      <p class="demo-section-title">26 — Components</p>
+      <h2>Timeline</h2>
+      <p class="text-soft">Vertical ordered list with a line and markers. Use <code>&lt;ol class="timeline"&gt;</code>;
+        each entry is a <code>.timeline-item</code> with <code>.timeline-marker</code> and
+        <code>.timeline-content</code>.</p>
+
+      <ol class="timeline mt-8" aria-label="Project roadmap">
+        <li class="timeline-item">
+          <span class="timeline-marker" aria-hidden="true"></span>
+          <div class="timeline-content">
+            <time class="timeline-date" datetime="2025-06">Jun 2025</time>
+            <h3 class="timeline-title">First public release</h3>
+            <p class="timeline-desc">Single CSS, icon sprite, and <strong>JS with built-in components</strong> for tabs,
+              accordion, and lightbox.</p>
+          </div>
+        </li>
+        <li class="timeline-item">
+          <span class="timeline-marker" aria-hidden="true"></span>
+          <div class="timeline-content">
+            <time class="timeline-date" datetime="2025-11">Nov 2025</time>
+            <h3 class="timeline-title">Portfolio e blog</h3>
+            <p class="timeline-desc">Project cards and articles with a responsive grid and text variants.</p>
+            <span class="timeline-badge"><span class="badge">Release</span></span>
+          </div>
+        </li>
+        <li class="timeline-item">
+          <span class="timeline-marker" aria-hidden="true"></span>
+          <div class="timeline-content">
+            <time class="timeline-date" datetime="2026-03">Mar 2026</time>
+            <h3 class="timeline-title">Timeline e team</h3>
+            <p class="timeline-desc">New blocks for timelines, profiles, and “link in bio” pages — still zero
+              dependencies.</p>
+            <span class="timeline-badge"><span class="badge badge-success">Shipped</span></span>
+          </div>
+        </li>
+        <li class="timeline-item">
+          <span class="timeline-marker" aria-hidden="true"></span>
+          <div class="timeline-content">
+            <time class="timeline-date" datetime="2026-04-01">Q2 2026</time>
+            <h3 class="timeline-title">Documentation and themes</h3>
+            <p class="timeline-desc">Variable guide, dark-theme examples, and copy-paste snippets for the most-used
+              components.</p>
+            <span class="timeline-badge"><span class="badge badge-info">Planned</span></span>
+          </div>
+        </li>
+      </ol>
+
+      <h4 class="mt-12 mb-2">Compact variant</h4>
+      <p class="text-soft text-sm mb-4">Add <code>.timeline--compact</code> for tighter line spacing.</p>
+      <ol class="timeline timeline--compact" aria-label="Short milestones">
+        <li class="timeline-item">
+          <span class="timeline-marker" aria-hidden="true"></span>
+          <div class="timeline-content">
+            <time class="timeline-date" datetime="2026-04">Apr 2026</time>
+            <h3 class="timeline-title">Accessibility audit</h3>
+            <p class="timeline-desc">Visible focus states and contrast checks on interactive components.</p>
+          </div>
+        </li>
+        <li class="timeline-item">
+          <span class="timeline-marker" aria-hidden="true"></span>
+          <div class="timeline-content">
+            <time class="timeline-date" datetime="2026-01">Jan 2026</time>
+            <h3 class="timeline-title">Static examples</h3>
+            <p class="timeline-desc">Single demo page as a visual reference.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ============================== SHOP ============================== -->
+    <section class="demo-section" id="shop">
+      <p class="demo-section-title">27 — Components</p>
+      <h2>Shop</h2>
+      <p class="text-soft">Mini e-commerce patterns: product grid, product page, cart rows, and payment step. Markup
+        and CSS only — wire logic to your backend or payment provider.</p>
+
+      <h4 class="mt-10 mb-4">List</h4>
+      <div class="shop-grid">
+        <article class="shop-card">
+          <a href="#shop-detail" class="shop-card-hit" aria-label="Mug Sand — view product">
+            <div class="shop-card-media">
+              <span class="shop-card-badge"><span class="badge badge-success">New</span></span>
+              <img src="https://picsum.photos/seed/shop1/480/480" alt="Ceramic mug">
+            </div>
+            <div class="shop-card-body">
+              <p class="shop-card-meta">Tableware</p>
+              <h3 class="shop-card-title">Mug Sand</h3>
+              <p>
+                <span class="shop-price">€24,00</span>
+              </p>
+            </div>
+          </a>
+          <div class="shop-card-footer">
+            <span class="text-subtle text-sm">Glaze matte</span>
+            <button type="button" class="btn btn-sm btn-primary">Add</button>
+          </div>
+        </article>
+        <article class="shop-card">
+          <a href="#shop-detail" class="shop-card-hit" aria-label="Throw Fog — view product">
+            <div class="shop-card-media">
+              <img src="https://picsum.photos/seed/shop2/480/480" alt="Wool throw">
+            </div>
+            <div class="shop-card-body">
+              <p class="shop-card-meta">Home</p>
+              <h3 class="shop-card-title">Throw Fog</h3>
+              <p>
+                <span class="shop-price">€89,00</span>
+                <span class="shop-price-old">€110,00</span>
+              </p>
+            </div>
+          </a>
+          <div class="shop-card-footer">
+            <span class="badge badge-warning">-19%</span>
+            <button type="button" class="btn btn-sm btn-secondary">Add</button>
+          </div>
+        </article>
+        <article class="shop-card">
+          <a href="#shop-detail" class="shop-card-hit" aria-label="Lamp Arc — view product">
+            <div class="shop-card-media">
+              <img src="https://picsum.photos/seed/shop3/480/480" alt="Desk lamp">
+            </div>
+            <div class="shop-card-body">
+              <p class="shop-card-meta">Lighting</p>
+              <h3 class="shop-card-title">Lamp Arc</h3>
+              <p><span class="shop-price">€156,00</span></p>
+            </div>
+          </a>
+          <div class="shop-card-footer">
+            <span class="text-subtle text-sm">Steel / oak</span>
+            <button type="button" class="btn btn-sm btn-secondary">Add</button>
+          </div>
+        </article>
+      </div>
+
+      <h4 class="mt-12 mb-2">Minimal</h4>
+      <p class="text-soft text-sm mb-6">Compact grid with <code class="text-mono">.shop-grid--minimal</code> and <code
+          class="text-mono">.shop-card--minimal</code>: horizontal rows like a light table.</p>
+      <div class="shop-grid shop-grid--minimal mt-6">
+        <article class="shop-card shop-card--minimal">
+          <a href="#shop-detail" class="shop-card-hit" aria-label="Bowl Clay — view product">
+            <div class="shop-card-media">
+              <img src="https://picsum.photos/seed/smin1/200/200" alt="Ceramic bowl">
+            </div>
+            <div class="shop-card-body">
+              <p class="shop-card-meta">Tableware</p>
+              <h3 class="shop-card-title">Bowl Clay</h3>
+              <p><span class="shop-price">€32,00</span></p>
+            </div>
+          </a>
+          <div class="shop-card-footer">
+            <span class="text-subtle text-sm">Stoneware</span>
+            <button type="button" class="btn btn-sm btn-primary">Add</button>
+          </div>
+        </article>
+        <article class="shop-card shop-card--minimal">
+          <a href="#shop-detail" class="shop-card-hit" aria-label="Tray Oak — view product">
+            <div class="shop-card-media">
+              <img src="https://picsum.photos/seed/smin2/200/200" alt="Wooden tray">
+            </div>
+            <div class="shop-card-body">
+              <p class="shop-card-meta">Serve</p>
+              <h3 class="shop-card-title">Tray Oak</h3>
+              <p>
+                <span class="shop-price">€58,00</span>
+                <span class="shop-price-old">€72,00</span>
+              </p>
+            </div>
+          </a>
+          <div class="shop-card-footer">
+            <span class="badge badge-warning">Sale</span>
+            <button type="button" class="btn btn-sm btn-secondary">Add</button>
+          </div>
+        </article>
+      </div>
+
+      <h4 class="mt-12 mb-4" id="shop-detail">Detail</h4>
+      <div class="product-detail mt-6">
+        <div class="product-gallery">
+          <img src="https://picsum.photos/seed/shopdetail/800/800" alt="Mug Sand — detail">
+        </div>
+        <div class="product-info">
+          <p class="text-subtle text-sm">Tableware · SKU DS-MUG-01</p>
+          <h3 class="product-title">Mug Sand</h3>
+          <p class="product-lead">Glazed stoneware, comfortable grip, matte finish that resists fingerprints.</p>
+          <div class="product-price-row">
+            <span class="shop-price">€24,00</span>
+            <span class="text-subtle text-sm">In stock · ships in 2 days</span>
+          </div>
+          <div class="product-actions">
+            <label class="text-sm text-muted" for="shop-detail-qty">Qty</label>
+            <input id="shop-detail-qty" class="input shop-qty-input" type="number" value="1" min="1" max="99">
+            <button type="button" class="btn btn-primary">
+              <svg class="icon">
+                <use href="downstage-icons.svg#shopping-cart" />
+              </svg>
+              Add to cart
+            </button>
+          </div>
+          <p class="help">Free returns within 30 days. VAT included for EU.</p>
+        </div>
+      </div>
+
+      <h4 class="mt-12 mb-4" id="shop-cart">Cart</h4>
+      <div class="grid mt-6">
+        <div class="col-8">
+          <div class="cart" role="group" aria-label="Shopping cart">
+            <div class="cart-row">
+              <div class="cart-thumb">
+                <img src="https://picsum.photos/seed/shop1/120/120" alt="Mug Sand">
+              </div>
+              <div class="cart-line-main">
+                <p class="cart-line-title">Mug Sand</p>
+                <p class="cart-line-meta">Tableware · €24,00 each</p>
+              </div>
+              <div class="cart-line-end">
+                <div class="cart-line-qty">
+                  <label class="sr-only" for="cart-qty-1">Quantity</label>
+                  <input id="cart-qty-1" class="input shop-qty-input" type="number" value="2" min="1" max="99">
+                </div>
+                <div class="cart-line-price">€48,00</div>
+              </div>
+            </div>
+            <div class="cart-row">
+              <div class="cart-thumb">
+                <img src="https://picsum.photos/seed/shop2/120/120" alt="Throw Fog">
+              </div>
+              <div class="cart-line-main">
+                <p class="cart-line-title">Throw Fog</p>
+                <p class="cart-line-meta">Home · €89,00 each</p>
+              </div>
+              <div class="cart-line-end">
+                <div class="cart-line-qty">
+                  <label class="sr-only" for="cart-qty-2">Quantity</label>
+                  <input id="cart-qty-2" class="input shop-qty-input" type="number" value="1" min="1" max="99">
+                </div>
+                <div class="cart-line-price">€89,00</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="cart-summary">
+            <p class="cart-summary-title">Order summary</p>
+            <div class="cart-summary-row">
+              <span>Subtotal</span>
+              <span>€137,00</span>
+            </div>
+            <div class="cart-summary-row">
+              <span>Shipping</span>
+              <span>€6,00</span>
+            </div>
+            <div class="cart-summary-row cart-summary-row--total">
+              <span>Total</span>
+              <span>€143,00</span>
+            </div>
+            <button type="button" class="btn btn-primary btn-block mt-4">Checkout</button>
+          </div>
+        </div>
+      </div>
+
+      <h4 class="mt-12 mb-4" id="shop-payment">Payment</h4>
+      <div class="checkout-layout mt-6">
+        <div class="payment-panel">
+          <h3 class="payment-panel-title">Payment</h3>
+          <form class="stack" action="#" method="get" onsubmit="return false;">
+            <div class="field">
+              <label class="label" for="pay-card-name">Name on card</label>
+              <input id="pay-card-name" class="input" type="text" autocomplete="cc-name" placeholder="M. Rossi">
+            </div>
+            <div class="field">
+              <label class="label" for="pay-card-num">Card number</label>
+              <input id="pay-card-num" class="input" type="text" inputmode="numeric" autocomplete="cc-number"
+                placeholder="1234 5678 9012 3456">
+            </div>
+            <div class="payment-card-row">
+              <div class="field">
+                <label class="label" for="pay-card-exp">Expiry</label>
+                <input id="pay-card-exp" class="input" type="text" autocomplete="cc-exp" placeholder="MM / YY">
+              </div>
+              <div class="field">
+                <label class="label" for="pay-card-cvc">CVC</label>
+                <input id="pay-card-cvc" class="input" type="text" autocomplete="cc-csc" placeholder="123">
+              </div>
+            </div>
+            <div class="field">
+              <label class="check">
+                <input type="checkbox" checked>
+                <span>Save card for next time (demo only)</span>
+              </label>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Pay €143,00</button>
+          </form>
+        </div>
+        <aside class="order-recap" aria-label="Order recap">
+          <p class="order-recap-title">Your order</p>
+          <div class="order-recap-item">
+            <span>Mug Sand × 2</span>
+            <span>€48,00</span>
+          </div>
+          <div class="order-recap-item">
+            <span>Throw Fog × 1</span>
+            <span>€89,00</span>
+          </div>
+          <div class="order-recap-total">
+            <span>Total</span>
+            <span>€143,00</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ============================== PROFILE ============================== -->
+    <section class="demo-section" id="profile">
+      <p class="demo-section-title">28 — Components</p>
+      <h2>Profile</h2>
+      <p class="text-soft">Account-area pattern: user fields, password, and security actions. Demo markup only —
+        connect to real endpoints or your auth provider.</p>
+
+      <div class="profile-shell mt-8">
+        <div class="profile-block">
+          <h3 class="profile-block-title">Account</h3>
+          <p class="profile-block-lead">Email and display name. Use <code class="text-mono">.input-minimal</code> for
+            consistency with the rest of the page.</p>
+          <form class="stack" action="#" method="get" onsubmit="return false;">
+            <div class="field">
+              <label class="label" for="profile-email">Email</label>
+              <input id="profile-email" class="input input-minimal" type="email" value="ada.lovelace@example.com"
+                autocomplete="email">
+            </div>
+            <div class="field">
+              <label class="label" for="profile-name">Display name</label>
+              <input id="profile-name" class="input input-minimal" type="text" value="Ada Lovelace" autocomplete="name">
+            </div>
+            <div class="field">
+              <label class="label" for="profile-locale">Language</label>
+              <select id="profile-locale" class="select select-minimal">
+                <option>Italian</option>
+                <option>English</option>
+                <option>Français</option>
+              </select>
+            </div>
+            <div class="cluster mt-2" style="justify-content: flex-end;">
+              <button type="button" class="btn btn-ghost">Discard</button>
+              <button type="submit" class="btn btn-primary">Save changes</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="profile-block">
+          <h3 class="profile-block-title">Password</h3>
+          <p class="profile-block-lead">Update your current password. In production, verify the current password on the
+            server.</p>
+          <form class="stack" action="#" method="get" onsubmit="return false;">
+            <div class="field">
+              <label class="label" for="profile-current-password">Current password</label>
+              <input id="profile-current-password" class="input input-minimal" type="password"
+                autocomplete="current-password">
+            </div>
+            <div class="field">
+              <label class="label" for="profile-new-password">New password</label>
+              <input id="profile-new-password" class="input input-minimal" type="password" autocomplete="new-password"
+                aria-describedby="profile-pw-hint">
+              <p id="profile-pw-hint" class="help">At least 12 characters; avoid passwords reused elsewhere.</p>
+            </div>
+            <div class="field">
+              <label class="label" for="profile-confirm-password">Confirm new password</label>
+              <input id="profile-confirm-password" class="input input-minimal" type="password"
+                autocomplete="new-password">
+            </div>
+            <div class="cluster mt-2" style="justify-content: flex-end;">
+              <button type="button" class="btn btn-secondary">Cancel</button>
+              <button type="submit" class="btn btn-primary">Update password</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="profile-block">
+          <h3 class="profile-block-title">Sessions</h3>
+          <p class="profile-block-lead">Revoke sessions on other devices after a password change or a suspicious
+            sign-in.</p>
+          <button type="button" class="btn btn-secondary btn-sm">Sign out everywhere</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== IMAGE FILTERS ============================== -->
+    <section class="demo-section" id="filters">
+      <p class="demo-section-title">29 — Utilities</p>
+      <h2>Image Filters</h2>
+      <p class="text-soft">CSS filter classes for quick image treatment. Hover variants restore the original.</p>
+
+      <div class="grid mt-6">
+        <div class="col-3">
+          <figure class="image-frame is-square">
+            <div class="image-media"><img src="https://picsum.photos/seed/flt1/400/400" alt="Original"></div>
+            <figcaption class="image-caption">Original</figcaption>
+          </figure>
+        </div>
+        <div class="col-3">
+          <figure class="image-frame is-square">
+            <div class="image-media"><img src="https://picsum.photos/seed/flt1/400/400" alt="B/W" class="img-bw"></div>
+            <figcaption class="image-caption">.img-bw</figcaption>
+          </figure>
+        </div>
+        <div class="col-3">
+          <figure class="image-frame is-square">
+            <div class="image-media"><img src="https://picsum.photos/seed/flt1/400/400" alt="Sepia" class="img-sepia">
+            </div>
+            <figcaption class="image-caption">.img-sepia</figcaption>
+          </figure>
+        </div>
+        <div class="col-3">
+          <figure class="image-frame is-square">
+            <div class="image-media"><img src="https://picsum.photos/seed/flt1/400/400" alt="Muted" class="img-muted">
+            </div>
+            <figcaption class="image-caption">.img-muted</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <h4 class="mt-8 mb-4">Hover to reveal</h4>
+      <div class="grid">
+        <div class="col-4">
+          <figure class="image-frame is-16-9">
+            <div class="image-media"><img src="https://picsum.photos/seed/flt2/600/340" alt="B/W hover"
+                class="img-bw img-bw-hover"></div>
+            <figcaption class="image-caption">.img-bw .img-bw-hover</figcaption>
+          </figure>
+        </div>
+        <div class="col-4">
+          <figure class="image-frame is-16-9">
+            <div class="image-media"><img src="https://picsum.photos/seed/flt3/600/340" alt="Sepia hover"
+                class="img-sepia img-sepia-hover"></div>
+            <figcaption class="image-caption">.img-sepia .img-sepia-hover</figcaption>
+          </figure>
+        </div>
+        <div class="col-4">
+          <figure class="image-frame is-16-9">
+            <div class="image-media"><img src="https://picsum.photos/seed/flt4/600/340" alt="Warm" class="img-warm">
+            </div>
+            <figcaption class="image-caption">.img-warm</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================== FOOTER ============================== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">
+            <svg class="icon" width="20" height="20">
+              <use href="downstage-icons.svg#hash" />
+            </svg>
+            downstage.css
+          </div>
+          <p class="footer-tagline">
+            Minimal nordic design system for developers who love clean code.
+            Crafted with care, zero dependencies.
+          </p>
+        </div>
+
+        <div>
+          <div class="footer-title">Product</div>
+          <ul class="footer-links">
+            <li><a href="#tutorial">Tutorial</a></li>
+            <li><a href="#buttons">Components</a></li>
+            <li><a href="#icons">Icons</a></li>
+            <li><a href="#">Changelog</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-title">Resources</div>
+          <ul class="footer-links">
+            <li><a href="#">Documentation</a></li>
+            <li><a href="#">Examples</a></li>
+            <li><a href="#">GitHub</a></li>
+            <li><a href="#">Roadmap</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-title">Legal</div>
+          <ul class="footer-links">
+            <li><a href="#">MIT License</a></li>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Font credits</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 <a href="https://web.ap.it" target="_blank">Andrea Pollastri</a> · Crafted with care</div>
+        <div class="footer-social">
+          <a href="#" aria-label="GitHub"><svg class="icon">
+              <use href="downstage-icons.svg#github" />
+            </svg></a>
+          <a href="#" aria-label="Email"><svg class="icon">
+              <use href="downstage-icons.svg#mail" />
+            </svg></a>
+          <a href="#" aria-label="Globe"><svg class="icon">
+              <use href="downstage-icons.svg#globe" />
+            </svg></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================== JS ============================== -->
+  <script src="downstage.js" defer></script>
+  <script src="demo/demo.js" defer></script>
+</body>
+
+</html>

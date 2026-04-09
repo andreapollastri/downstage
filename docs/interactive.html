@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive UI — downstage.css</title>
+  <link rel="stylesheet" href="../downstage.css">
+  <link rel="stylesheet" href="../demo/demo.css">
+  <link rel="stylesheet" href="../demo/docs.css">
+</head>
+<body class="doc-page">
+  <div hidden></div>
+  <object data="../downstage-icons.svg" type="image/svg+xml" style="display:none" aria-hidden="true"></object>
+
+  <nav class="navbar" id="main-nav">
+    <div class="navbar-inner">
+      <a class="navbar-brand" href="../index.html">
+        <svg class="icon" width="20" height="20">
+          <use href="../downstage-icons.svg#hash" />
+        </svg>
+        downstage<span class="text-muted">.css</span>
+      </a>
+
+      <button class="navbar-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="navbar-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="navbar-menu" id="navbar-menu">
+        <div class="navbar-menu-scroll">
+          <a href="../index.html" class="navbar-link">Home</a>
+          <a href="index.html" class="navbar-link">Documentation</a>
+
+          <details class="navbar-dropdown">
+            <summary class="navbar-dropdown-summary">
+              Browse
+              <svg class="icon icon-sm navbar-dropdown-chevron" aria-hidden="true">
+                <use href="../downstage-icons.svg#chevron-down" />
+              </svg>
+            </summary>
+            <div class="navbar-dropdown-panel" role="group" aria-label="Documentation sections">
+              <a href="basic.html" class="navbar-dropdown-link">Basic</a>
+              <a href="ui-components.html" class="navbar-dropdown-link">UI Components</a>
+              <a href="interactive.html" class="navbar-dropdown-link">Interactive UI</a>
+              <a href="media.html" class="navbar-dropdown-link">Media</a>
+              <a href="data.html" class="navbar-dropdown-link">Data UI</a>
+              <a href="templates.html" class="navbar-dropdown-link">Templates</a>
+            </div>
+          </details>
+
+          <div class="navbar-actions">
+            <div class="btn-group" role="group" aria-label="Theme">
+              <button class="btn btn-sm" data-set-theme="light" aria-label="Light theme">
+                <svg class="icon"><use href="../downstage-icons.svg#sun" /></svg>
+              </button>
+              <button class="btn btn-sm" data-set-theme="dark" aria-label="Dark theme">
+                <svg class="icon"><use href="../downstage-icons.svg#moon" /></svg>
+              </button>
+              <button class="btn btn-sm" data-set-theme="auto" aria-label="Auto theme">Auto</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+  <main class="container doc-page-main">
+    <div class="docs-layout doc-page-docs-inner">
+      <aside class="docs-sidebar">
+        <div class="docs-sidebar-title">On this page</div>
+        <nav class="docs-nav" aria-label="Section">
+          <a href="#tabs">Tabs</a>
+          <a href="#accordion">Accordion</a>
+          <a href="#modal">Modal</a>
+          <a href="#js-api">JavaScript API</a>
+        </nav>
+      </aside>
+      <div class="docs-content doc-stack">
+    <section class="demo-section" id="tabs">
+      <p class="demo-section-title">12 — Components</p>
+      <h2>Tabs</h2>
+      <p class="text-soft">Auto-init via <code>data-tabs</code>. Arrow keys ←/→ to navigate.</p>
+
+      <div class="tabs mt-6" data-tabs>
+        <ul class="tabs-list" role="tablist">
+          <li><button class="tab" role="tab" data-tab="t1">Overview</button></li>
+          <li><button class="tab" role="tab" data-tab="t2">Installation</button></li>
+          <li><button class="tab" role="tab" data-tab="t3">Configuration</button></li>
+          <li><button class="tab" role="tab" data-tab="t4">API</button></li>
+        </ul>
+
+        <div class="tab-panel" data-tab-panel="t1">
+          <h4>Overview</h4>
+          <p class="text-soft mt-2">downstage.css is a minimal design system inspired by Nordic aesthetics. Built for
+            developers who want something clean without learning a utility-first library.</p>
+        </div>
+        <div class="tab-panel" data-tab-panel="t2">
+          <h4>Installation</h4>
+          <p class="text-soft mt-2">Download the files, copy them to your public folder, include the CSS in your layout.
+            Add <code>downstage.js</code> for <strong>built-in interactive components</strong>: tabs, accordion,
+            lightbox, navbar hamburger, and more.</p>
+        </div>
+        <div class="tab-panel" data-tab-panel="t3">
+          <h4>Configuration</h4>
+          <p class="text-soft mt-2">All variables are customizable. Override tokens in a file after downstage.css to
+            change colors, spacing, fonts.</p>
+        </div>
+        <div class="tab-panel" data-tab-panel="t4">
+          <h4>JavaScript API</h4>
+          <p class="text-soft mt-2">Exposes <code>window.Downstage</code> with modules: <code>theme</code>,
+            <code>navbar</code>, <code>tabs</code>, <code>accordion</code>, <code>lightbox</code>,
+            <code>htmlEditor</code>, and more. Each has an <code>init()</code> method called automatically on
+            DOMContentLoaded.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== ACCORDION ============================== -->
+    <section class="demo-section" id="accordion">
+      <p class="demo-section-title">13 — Components</p>
+      <h2>Accordion</h2>
+      <p class="text-soft">Add <code>data-accordion="single"</code> for exclusive mode.</p>
+
+      <div class="accordion mt-6" data-accordion="single">
+        <div class="accordion-item is-open">
+          <button class="accordion-header">
+            Can I use downstage.css with Laravel?
+            <svg class="icon accordion-icon">
+              <use href="../downstage-icons.svg#plus" />
+            </svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              Yes. Place the files in <code>public/css/</code> and include the CSS in your Blade layout with
+              <code>{{ asset('css/downstage.css') }}</code>. Semantic classes are great in Blade templates — much more
+              readable than utility-first.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header">
+            Does it work without JavaScript?
+            <svg class="icon accordion-icon">
+              <use href="../downstage-icons.svg#plus" />
+            </svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              Almost everything: layout, typography, buttons, forms, alerts, badges, tables, cards. You only need the ~3
+              KB <code>downstage.js</code> for: mobile navbar, tabs, accordion, lightbox, theme switcher, and the HTML
+              editor toolbar.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header">
+            How do I customize colors?
+            <svg class="icon accordion-icon">
+              <use href="../downstage-icons.svg#plus" />
+            </svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              Everything is a CSS variable. Create a <code>theme.css</code> file after downstage.css and redefine the
+              tokens you need in <code>:root</code> for light and <code>[data-theme="dark"]</code> for dark.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header">
+            Are the icons free?
+            <svg class="icon accordion-icon">
+              <use href="../downstage-icons.svg#plus" />
+            </svg>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-body">
+              Yes, they are custom and free to use. Minimal stroke style at 1.6px, 100+ icons, all in a single SVG
+              sprite
+              of a few KB. Loaded once and reused via <code>&lt;use&gt;</code>.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================== MODAL ============================== -->
+    <section class="demo-section" id="modal">
+      <p class="demo-section-title">14 — Components</p>
+      <h2>Modal &amp; Sidebar nav</h2>
+
+      <div class="grid mt-6">
+        <div class="col-6">
+          <h4>Modal</h4>
+          <p class="text-soft text-sm mt-2">Click the button to open the dialog.</p>
+          <button class="btn btn-danger mt-4"
+            onclick="document.getElementById('demo-modal').classList.remove('hidden')">
+            <svg class="icon">
+              <use href="../downstage-icons.svg#trash" />
+            </svg>
+            Delete entry
+          </button>
+        </div>
+
+        <div class="col-6">
+          <h4>Sidebar nav</h4>
+          <p class="text-soft text-sm mt-2">Vertical style as in settings pages.</p>
+          <nav class="nav-vertical mt-4" style="max-width: 200px;">
+            <a href="#" class="active">Settings</a>
+            <a href="#">Account</a>
+            <a href="#">Domain</a>
+            <a href="#">Export</a>
+            <a href="#">Feedback</a>
+          </nav>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal markup -->
+    <div id="demo-modal" class="modal-overlay hidden" onclick="if(event.target===this)this.classList.add('hidden')">
+      <div class="modal">
+        <div class="modal-title">Delete Entry</div>
+        <div class="modal-body">Are you sure you want to delete this entry? This action is irreversible.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary"
+            onclick="document.getElementById('demo-modal').classList.add('hidden')">Cancel</button>
+          <button class="btn btn-primary"
+            onclick="document.getElementById('demo-modal').classList.add('hidden')">Confirm</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================== JAVASCRIPT API ============================== -->
+    <section class="demo-section" id="js-api">
+      <p class="demo-section-title">04 — Reference</p>
+      <h2>JavaScript API</h2>
+      <p class="text-soft">Technical reference: installation, configuration, theming, and the window.Downstage API.</p>
+
+          <div class="docs-chapter" id="doc-install">
+            <h3>Installation</h3>
+            <p>Download the framework files and place them in your project's public directory. The <code>fonts/</code>
+              folder must sit alongside the CSS file.</p>
+            <pre><code>&lt;link rel="stylesheet" href="downstage.css"&gt;
+&lt;script src="downstage.js" defer&gt;&lt;/script&gt;</code></pre>
+            <p>That's it. No build tools, no configuration files, no package managers required. Just two files and
+              you're ready.</p>
+          </div>
+
+          <div class="docs-chapter" id="doc-config">
+            <h3>Configuration</h3>
+            <p>All visual properties are controlled by CSS custom properties (variables). Override them in a separate
+              file loaded after <code>downstage.css</code>:</p>
+            <pre><code>:root {
+  --brand-primary: #2c5f5d;
+  --radius: 2px;
+  --container: 800px;
+}</code></pre>
+            <ul>
+              <li><strong>Colors</strong> — neutral scale, brand, semantic</li>
+              <li><strong>Typography</strong> — font families, sizes, weights</li>
+              <li><strong>Spacing</strong> — 4px-based scale from 0.25rem to 6rem</li>
+              <li><strong>Layout</strong> — container widths, grid gaps</li>
+            </ul>
+          </div>
+
+          <div class="docs-chapter" id="doc-theming">
+            <h3>Theming</h3>
+            <p>Set <code>data-theme</code> on the <code>&lt;html&gt;</code> element. Three modes are supported:</p>
+            <ol>
+              <li><code>light</code> — always light</li>
+              <li><code>dark</code> — always dark</li>
+              <li><code>auto</code> — follows <code>prefers-color-scheme</code></li>
+            </ol>
+            <p>The dark theme overrides all neutral, brand, and semantic tokens. Shadows become darker, surfaces shift
+              to warm charcoals, and text becomes light cream.</p>
+          </div>
+
+          <div class="docs-chapter" id="doc-api">
+            <h3>JavaScript API</h3>
+            <p><code>downstage.js</code> is <strong>JavaScript with built-in components</strong>. It exposes
+              <code>window.Downstage</code> with the following modules:
+            </p>
+            <pre><code>Downstage.theme.set('dark');
+Downstage.theme.get();
+Downstage.lightbox.open(set, 0);
+Downstage.lightbox.close();
+Downstage.htmlEditor.mount('#editor', { preset: 'demo' });
+Downstage.combobox.mount('#cb', { options: [{ value: 'a', label: 'Alpha' }] });
+Downstage.searchAutocomplete.mount('#search', { fetchSuggestions: async (q) =&gt; [...] });
+Downstage.kanban.mount('#board', {
+  fetchUrl: '/api/kanban/board',
+  moveUrl: '/api/kanban/move',
+});
+Downstage.dataTable.mount('#table', { mode: 'local', columns, rows });</code></pre>
+            <p class="text-soft text-sm">Kanban: use <code class="text-mono">fetchUrl</code> (GET board JSON) and
+              <code class="text-mono">moveUrl</code> (POST move payload), or <code class="text-mono">fetchBoard</code> /
+              <code class="text-mono">moveCard</code> callbacks. Attributes:
+              <code class="text-mono">data-kanban-fetch-url</code>,
+              <code class="text-mono">data-kanban-move-url</code>.
+            </p>
+            <p>Each module has an <code>init()</code> method auto-called on <code>DOMContentLoaded</code>. For
+              dynamically added content, call <code>init()</code> again. The HTML editor mounts with
+              <code>Downstage.htmlEditor.mount()</code> (or <code>data-html-editor-mount</code>). Combobox, search,
+              Kanban, and data table support programmatic <code>mount()</code> and selective declarative hooks (see
+              <code>#auth</code> and <code>#app-data</code> in <code>index.html</code>). Options include
+              <code>showRawSwitch</code> and <code>toolbarExclude</code> on the HTML editor.
+            </p>
+          </div>
+    </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">
+            <svg class="icon" width="20" height="20"><use href="../downstage-icons.svg#hash" /></svg>
+            downstage.css
+          </div>
+          <p class="footer-tagline">Minimal Nordic design system — zero dependencies.</p>
+        </div>
+        <div>
+          <div class="footer-title">Documentation</div>
+          <ul class="footer-links">
+            <li><a href="index.html">All sections</a></li>
+            <li><a href="basic.html">Basic</a></li>
+            <li><a href="interactive.html">Interactive UI</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-title">Site</div>
+          <ul class="footer-links">
+            <li><a href="../index.html">Home</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 <a href="https://web.ap.it" target="_blank" rel="noopener">Andrea Pollastri</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>window.__DOWNSTAGE_ICONS_BASE__ = "../downstage-icons.svg"; window.__DOWNSTAGE_LOCALE_BASE__ = "../locales/";</script>
+  <script src="../downstage.js" defer></script>
+  <script src="../demo/demo.js" defer></script>
+</body>
+</html>
